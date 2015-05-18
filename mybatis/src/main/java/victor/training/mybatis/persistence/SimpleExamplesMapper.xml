@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="victor.training.mybatis.persistence.SimpleExamplesMapper">
+  <select id="getEmployeeBasicById" parameterType="int" resultType="Employee">
+  	SELECT id, name, phone_number "phoneNumber"
+  	FROM EMPLOYEES
+  	WHERE ID = #{id}
+  </select>
+  
+  <insert id="insertEmployeeDetails" >
+  insert into employee_details(id, employee_id, employement_date)
+  values (#{id}, #{employee.id}, #{startDate})
+  </insert>
+  
+  <insert id="updateEmployeeDetails" >
+  update employee_details 
+  set employement_date = #{startDate}
+  where id = #{id}
+  </insert>
+  
+  <insert id="deleteEmployeeDetails" >
+  delete from employee_details 
+  where id = #{id}
+  </insert>
+  
+  <insert id="insertEmployeeDetailsWithSequence" >
+  <selectKey keyProperty="id" resultType="int" order="BEFORE">
+    select seq.nextval from dual
+  </selectKey>
+  insert into employee_details(id, employee_id, employement_date)
+  values (#{id}, #{employee.id}, #{startDate})
+  </insert>
+  
+  <!-- TODO exercise <sql id=""></> + <include refid="" /> -->
+
+  <select id="getAllManagerNames" resultType="string">
+  	select name 
+  	from employees
+  	where discriminator = #{MANAGER_KEY}
+  	order by ${ORDER_BY_COLUMN}
+  </select>
+  
+  <resultMap id="EmployeeMap" type="Employee">
+    <id column="id" property="id"/>
+  	<result property="name" column="name" />
+  	<result property="phoneNumber" column="phone_number" />
+  </resultMap>
+  
+  <select id="getEmployeeWithResultMapById" parameterType="int" resultMap="EmployeeMap">
+  	SELECT id, name, phone_number "phoneNumber"
+  	FROM EMPLOYEES
+  	WHERE ID = #{id}
+  </select>
+  
+  
+  <resultMap id="ManagerMap" type="Manager" extends="EmployeeMap">
+  	<!-- Nothing more -->
+  </resultMap>
+  
+  <resultMap type="Project" id="ProjectFullMap">
+  	<id property="id" column="id"/> <!-- TODO discuss N+1 -->
+  	<result property="name" column="name"/>
+  	<result property="type" column="type"/>
+  	<association property="manager" resultMap="ManagerMap" columnPrefix="manager_"/>
+  	<collection property="employees" javaType="Employee">
+  	  <id property="id" column="employee_id" /> <!-- TODO discuss N+1 -->
+  	  <result property="name" column="employee_name" />
+  	  <result property="phoneNumber" column="employee_phone_number" />
+  	  <association property="details" javaType="EmployeeDetails">
+  	  	<constructor>
+  	  		<idArg column="ed_id" javaType="int"/>
+  	  		<arg column="employement_date" javaType="date"/>
+  	  	</constructor>
+  	  </association>
+  	</collection>
+  </resultMap>
+  
+  <select id="getProjectFullById" resultMap="ProjectFullMap">
+  	select p.id, p.name, p.type,
+  		m.id manager_id, m.name manager_name, m.phone_number manager_phone_number,
+  		e.id employee_id, e.name employee_name, e.phone_number employee_phone_number,
+  		ed.id ed_id, ed.employement_date
+  	from projects p
+  	inner join employees m on m.id = p.manager_id
+  	inner join emp_prj ep on ep.project_id = p.id
+  	inner join employees e on e.id = ep.employee_id
+  	left join employee_details ed on ed.employee_id = e.id
+  	where id=#{id}
+  </select>
+  
+  
+  
+  <resultMap id="CompanyWithLazyEmployeesMap" type="Company" >
+  	<id property="id" column="id" />
+  	<result property="name" column="name" />
+  	<collection property="employees" select="getEmployeesForCompany" javaType="ArrayList" ofType="Employee" column="id" fetchType="lazy"/>
+  </resultMap>
+  
+  <select id="getCompanyWithLazyEmployees" resultMap="CompanyWithLazyEmployeesMap" >
+  	select id, name
+  	from companies
+  	where id=#{id}  	
+  </select>
+  
+  <resultMap id="ManagerOrEmpoyeeMap" type="Employee" >
+  	<id property="id" column="id" />
+  	<result property="name" column="name" />
+  	<discriminator javaType="string" column="DISCRIMINATOR">
+  		<case value="EMPLOYEE" resultMap="EmployeeMap"/>
+  		<case value="MANAGER" resultMap="ManagerMap"/>
+  	</discriminator>
+  </resultMap>
+  
+  <select id="getEmployeesForCompany" resultMap="ManagerOrEmpoyeeMap">
+  	select id, name, discriminator
+  	from employees
+  	where company_id = #{id}
+  </select>
+
+</mapper>

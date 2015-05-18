@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>victor.training</groupId>
-	<artifactId>spring-integration-intro</artifactId>
+	<artifactId>spring-integration</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	
 	<dependencies>
