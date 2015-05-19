@@ -1,0 +1,12 @@
+<beans xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
+	<!-- <alternatives>
+		<class>victor.training.eepatterns.payloadextractor.MessageConsumer</class>
+	</alternatives> -->
+
+	<!-- <interceptors> <class>org.cdi.advocacy.DebugingInterceptor</class> <class>org.cdi.advocacy.LoggingInterceptor</class> 
+		<class>org.cdi.advocacy.security.SecurityAdvice</class> </interceptors> -->
+</beans>
+
