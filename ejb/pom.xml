@@ -3,12 +3,23 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>victor.training</groupId>
-	<artifactId>ejb</artifactId>
+	<artifactId>victor.training.ejb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>ejb</name>
-	
+	<name>victor.training.ejb</name>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -44,7 +55,7 @@
 		<dependency>
 			<groupId>org.jboss.arquillian.junit</groupId>
 			<artifactId>arquillian-junit-container</artifactId>
-			</dependency>
+		</dependency>
 		<dependency>
 			<groupId>org.hornetq</groupId>
 			<artifactId>hornetq-ra</artifactId>

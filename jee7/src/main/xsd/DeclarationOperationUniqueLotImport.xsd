@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+      Version 0.5
+      Ce schéma définit le format du fichier XML permettant d'exporter une déclaration d'opération.
+    </xs:documentation>
+  </xs:annotation>
+	<!--
+		================================================================
+	-->
+	<!-- Types Simples -->
+	<!--
+		================================================================
+	-->
+
+  <xs:simpleType name="t_num_20">
+    <xs:annotation>
+      <xs:documentation>
+        Nombre sur digits 20.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:positiveInteger">
+      <xs:totalDigits value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_string_6">
+    <xs:annotation>
+      <xs:documentation>
+        Chaines de caractere de taille 6
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_string_10">
+    <xs:annotation>
+      <xs:documentation>
+        Chaines de caractere de taille 10
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_string_32">
+    <xs:annotation>
+      <xs:documentation>
+        Chaines de caractere de taille 32
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="32" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_string_50">
+    <xs:annotation>
+      <xs:documentation>
+        Chaines de caractere de taille 50
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_string_120">
+    <xs:annotation>
+      <xs:documentation>
+        Chaines de caractere de taille 120
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="120" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="t_string_200">
+    <xs:annotation>
+      <xs:documentation>
+        Chaines de caractere de taille 200
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="t_string_256">
+    <xs:annotation>
+      <xs:documentation>
+        Chaines de caractere de taille 256
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="256" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="t_string_512">
+    <xs:annotation>
+      <xs:documentation>
+        Chaines de caractere de taille 512
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="512" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="t_string_2048">
+    <xs:annotation>
+      <xs:documentation>
+        Chaines de caractere de taille 2048
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2048" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="t_organisme_profession">
+    <xs:annotation>
+      <xs:documentation>
+        Code d'une profession.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="t_date">
+    <xs:annotation>
+      <xs:documentation>
+        Type simple date.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((0[1-9])|([1-2][0-9])|(3[0-1]))\/((0[1-9])|(1[0-2]))\/([0-9]{4})"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_num_teledeclarant">
+    <xs:annotation>
+      <xs:documentation>
+        Restriction : Numéro de teledeclarant
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:positiveInteger">
+      <xs:totalDigits value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_type_declaration">
+    <xs:annotation>
+      <xs:documentation>
+        Type de déclaration
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_type_sens">
+    <xs:annotation>
+      <xs:documentation>
+        Type de sens
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_montant">
+    <xs:annotation>
+      <xs:documentation>
+        Montant opération
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="12" />
+      <xs:fractionDigits value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_declaration">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_code_postal">
+    <xs:annotation>
+      <xs:documentation>
+        Code postal
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_devise">
+    <xs:annotation>
+      <xs:documentation>
+        Type de devis : Code norme ISO 4217
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_pays">
+    <xs:annotation>
+      <xs:documentation>
+        Type de devis : Code norme ISO 4217
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_nature_piece">
+    <xs:annotation>
+      <xs:documentation>
+        Nature piece d identite :
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="t_num_tel">
+    <xs:annotation>
+      <xs:documentation>
+        Type pour les champs contenant un numéro
+        de téléphone ou de fax.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="32" />
+      <!--<xs:pattern value="^([0-9]+[ .]?)*$" />-->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ================================================================ -->
+  <!-- Types Complexes -->
+  <!-- ================================================================ -->
+
+  <xs:complexType name="t_etatCivil">
+    <xs:annotation>
+      <xs:documentation>
+        Section : Etat civil
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nom" type="t_string_32" />
+      <xs:element name="prenom" type="t_string_50" />
+      <xs:element name="dateNaissance" type="t_date" minOccurs="0"/>
+      <xs:element name="lieuNaissance" type="t_string_50" minOccurs="0"/>
+      <xs:element name="adresse" type="t_string_256" minOccurs="0"/>
+      <xs:element name="codePostal" type="t_string_10" minOccurs="0"/>
+      <xs:element name="pays" type="t_pays" minOccurs="0"/>
+      <xs:element name="telephone" type="t_num_tel" minOccurs="0"/>
+      <xs:element name="autresCoordonnees" type="t_string_512" minOccurs="0"/>
+      <xs:element name="typePieceIdentite" type="t_string_6" minOccurs="0"/>
+      <xs:element name="numPieceIdentite" type="t_string_32" minOccurs="0"/>
+      <xs:element name="autorite" type="t_string_50" minOccurs="0"/>
+      <xs:element name="dateDelivrance" type="t_date" minOccurs="0"/>
+      <xs:element name="dateValidite" type="t_date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="t_information_personne">
+    <xs:annotation>
+      <xs:documentation>
+        Donneur d'ordre
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="numEtablissement" type="t_string_256" />
+      <xs:element name="nomEtablissement" type="t_string_120" />
+      <xs:element name="etatCivil" type="t_etatCivil" />
+      <xs:element name="messageSwift" type="t_string_2048" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="t_operation_info">
+    <xs:annotation>
+      <xs:documentation>
+        Une operation
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="typeOperation" type="t_string_6" />
+      <xs:element name="refOperation" type="t_string_256" />
+      <xs:element name="dateOperation" type="t_date" />
+      <xs:element name="motif" type="t_string_256" minOccurs="0"/>
+      <xs:element name="sens" type="t_string_6" />
+      <xs:element name="montant" type="t_montant" />
+      <xs:element name="devise" type="t_string_6" />
+      <xs:element name="valeurEuro" type="t_montant" minOccurs="0"/>
+      <xs:element name="donneurOrdre" type="t_information_personne" minOccurs="0"/>
+      <xs:element name="beneficiaire" type="t_information_personne" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ================================================================ -->
+	<!-- Structure du document -->
+	<!-- ================================================================ -->
+  <xs:element name="lot">
+    <xs:annotation>
+      <xs:documentation>
+        Racine de l'opération.
+        Une opération contient un unique noeud "lot".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="do" minOccurs="1" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>
+              Racine de l'opération.
+              Une opération contient un unique noeud "do".
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="typeDeclaration" type="t_declaration" />
+              <xs:element name="refDeclaration" type="t_string_256" />
+              <xs:element name="operation" type="t_operation_info" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
