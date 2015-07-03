@@ -8,30 +8,36 @@
   <select id="searchEmployees" resultType="Employee">
   	SELECT id, name, phone_number "phoneNumber"
   	FROM EMPLOYEES
-  	WHERE 1=1 
+  	WHERE 1=1
   	<if test="name != null">
   		AND upper(name) like '%' || UPPER(#{name}) || '%'
-  	</if>
-  	<if test="phoneNumber != null">
-  		AND upper(phone_number) like '%' || UPPER(#{phoneNumber}) || '%'
-  	</if>
+	</if>
+	<if test="phoneNumber != null" >
+ 		AND upper(phone_number) like '%' || UPPER(#{phoneNumber}) || '%'
+	</if>
   </select>
   
   
   <update id="updateEmployeeSelectively">
   	update employees
+  	
+  	set 
+  	
   	<set>
-  		<if test="name != null">name=#{name},</if>
-  		<if test="phoneNumber != null">phone_number=#{phoneNumber},</if>
+  		<if test=""></if>
   	</set>
+  		<!-- daca e nenull -->
+  		name=#{name},
+  		<!-- daca e nenull -->
+  		phone_number=#{phoneNumber}, 
   	where id=#{id}
   </update>
   
   <select id="searchProjects" resultType="Project">
   	select id, name, type
   	from projects
-  	where type IN 
-  	<foreach collection="list" item="item" open="(" close=")" separator=",">#{item}</foreach>
+  	where type IN ('a','b','c') <!--  cate sunt in criterii -->
+  	
   </select>
 
 </mapper>

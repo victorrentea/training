@@ -1,0 +1,15 @@
+<configuration>
+	<!-- <property name="LOG_PATTERN" value="%-8.8thread [%-5.5p] %-30.30class{1} %message%n" /> -->
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %class{0}.%M - %msg%n%ex{5}</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="victor" level="DEBUG"/>
+	
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

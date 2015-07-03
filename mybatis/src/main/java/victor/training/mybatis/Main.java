@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,14 @@ import victor.training.mybatis.persistence.SimpleExamplesMapper;
 public class Main {
 
 	public static void main(String[] args) {
+
+		Random r = new Random(1);
+		Random r2 = new Random(1);
+		
+		System.out.println("First random number" + r.nextLong());
+		System.out.println("Second random number" + r2.nextLong()); 
+System.exit(1);
+		
 		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		applicationContext.getBean(Main.class).run();
@@ -34,9 +43,10 @@ public class Main {
 	
 	@Autowired
 	private DynamicQueryMapper mapper2;
-	
+
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void run() {
+
 		
 		System.out.println(mapper.getEmployeeBasicById(1));
 		

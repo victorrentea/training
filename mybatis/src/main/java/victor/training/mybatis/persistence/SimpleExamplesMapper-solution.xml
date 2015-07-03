@@ -4,7 +4,7 @@
 
 <mapper namespace="victor.training.mybatis.persistence.SimpleExamplesMapper">
   <select id="getEmployeeBasicById" parameterType="int" resultType="Employee">
-  	SELECT id, name, phone_number "phoneNumber"
+  	SELECT id, name, phone_number AS "phoneNumber" 
   	FROM EMPLOYEES
   	WHERE ID = #{id}
   </select>
@@ -33,11 +33,13 @@
   values (#{id}, #{employee.id}, #{startDate})
   </insert>
   
-  <!-- TODO exercise <sql id=""></> + <include refid="" /> -->
+  <sql id="selectEmployeeNamePart">
+ 	select name 
+  	from employees
+  </sql>
 
   <select id="getAllManagerNames" resultType="string">
-  	select name 
-  	from employees
+  	<include refid="selectEmployeeNamePart" />
   	where discriminator = #{MANAGER_KEY}
   	order by ${ORDER_BY_COLUMN}
   </select>
