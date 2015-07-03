@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="victor.training.mybatis.persistence.DynamicQueryMapper">
+
+
+  <select id="searchEmployees" resultType="Employee">
+  	SELECT id, name, phone_number "phoneNumber"
+  	FROM EMPLOYEES
+  	WHERE 1=1 
+  	<if test="name != null">
+  		AND upper(name) like '%' || UPPER(#{name}) || '%'
+  	</if>
+  	<if test="phoneNumber != null">
+  		AND upper(phone_number) like '%' || UPPER(#{phoneNumber}) || '%'
+  	</if>
+  </select>
+  
+  
+  <update id="updateEmployeeSelectively">
+  	update employees
+  	<set>
+  		<if test="name != null">name=#{name},</if>
+  		<if test="phoneNumber != null">phone_number=#{phoneNumber},</if>
+  	</set>
+  	where id=#{id}
+  </update>
+  
+  <select id="searchProjects" resultType="Project">
+  	select id, name, type
+  	from projects
+  	where type IN 
+  	<foreach collection="list" item="item" open="(" close=")" separator=",">#{item}</foreach>
+  </select>
+
+</mapper>

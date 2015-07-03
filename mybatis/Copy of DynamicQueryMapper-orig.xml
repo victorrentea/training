@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="victor.training.mybatis.persistence.DynamicQueryMapper">
+
+
+  <select id="searchEmployees" resultType="Employee">
+  	SELECT id, name, phone_number "phoneNumber"
+  	FROM EMPLOYEES
+  	WHERE 1=1
+  	<!-- doar daca am name furnizat --> 
+  		AND upper(name) like '%' || UPPER(#{name}) || '%'
+  	<!-- doar daca am phoneNumber furnizat --> 
+  		AND upper(phone_number) like '%' || UPPER(#{phoneNumber}) || '%'
+  </select>
+  
+  
+  <update id="updateEmployeeSelectively">
+  	update employees
+  	
+  	set 
+  		<!-- daca e nenull -->
+  		name=#{name},
+  		<!-- daca e nenull -->
+  		phone_number=#{phoneNumber}, 
+  	where id=#{id}
+  </update>
+  
+  <select id="searchProjects" resultType="Project">
+  	select id, name, type
+  	from projects
+  	where type IN ('a','b','c') <!--  cate sunt in criterii -->
+  	
+  </select>
+
+</mapper>

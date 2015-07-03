@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="victor.training.mybatis.persistence.SimpleExamplesMapper">
+  <select id="getEmployeeBasicById" ...>
+  	SELECT id, name, phone_number "phoneNumber"
+  	FROM EMPLOYEES
+  	WHERE ID = 1
+  </select>
+  
+  <insert id="insertEmployeeDetails" > <!-- primeste un employee -->
+  insert into employee_details(id, employee_id, employement_date)
+  values (?,?,?)
+  </insert>
+  
+  <insert id="updateEmployeeDetails" > 
+  update employee_details 
+  set employement_date = ???<!-- startDate, unic parametru -->
+  where id = ??<!-- id-ul -->
+  </insert>
+  
+  <insert id="deleteEmployeeDetails" >
+  delete from employee_details 
+  where id = #{id}
+  </insert>
+  
+  <insert id="insertEmployeeDetailsWithSequence" >
+  select from cheia din secventa 
+  
+  
+  insert into employee_details(id, employee_id, employement_date)
+  values (#{id}, #{employee.id}, #{startDate})
+  </insert>
+  
+  <!-- TODO exercise <sql id=""></> + <include refid="" /> -->
+
+  <select id="getAllManagerNames" resultType="string">
+  	select name 
+  	from employees
+  	where discriminator = #{MANAGER_KEY}
+  	order by ?? coloana arbitrara
+  </select>
+  
+  <resultMap id="EmployeeMap" type="Employee">
+	...
+  </resultMap>
+  
+  <select id="getEmployeeWithResultMapById" parameterType="int" resultMap="EmployeeMap">
+  	SELECT id, name, phone_number "phoneNumber"
+  	FROM EMPLOYEES
+  	WHERE ID = #{id}
+  </select>
+  
+  
+  <resultMap id="ManagerMap" type="Manager" extends="EmployeeMap">
+  	<!-- Nothing more -->
+  </resultMap>
+  
+  
+  <select id="getProjectFullById" resultMap...>
+  	select p.id, p.name, p.type,
+  		m.id manager_id, m.name manager_name, m.phone_number manager_phone_number,
+  		e.id employee_id, e.name employee_name, e.phone_number employee_phone_number,
+  		ed.id ed_id, ed.employement_date
+  	from projects p
+  	inner join employees m on m.id = p.manager_id
+  	inner join emp_prj ep on ep.project_id = p.id
+  	inner join employees e on e.id = ep.employee_id
+  	left join employee_details ed on ed.employee_id = e.id
+  	where id= <!-- id -->
+  </select>
+  
+  
+  
+  <resultMap id="CompanyWithLazyEmployeesMap" type="Company" >
+  	<id property="id" column="id" />
+  	<result property="name" column="name" />
+  	<collection property="employees" select="getEmployeesForCompany" javaType="ArrayList" ofType="Employee" column="id" fetchType="lazy"/>
+  </resultMap>
+  
+  <select id="getCompanyWithLazyEmployees" resultMap="CompanyWithLazyEmployeesMap" >
+  	select id, name
+  	from companies
+  	where id=#{id}  	
+  </select>
+  
+  <resultMap id="ManagerOrEmpoyeeMap" type="Employee" >
+  	<id property="id" column="id" />
+  	<result property="name" column="name" />
+  	discriminator pt subclase
+  </resultMap>
+  
+  <select id="getEmployeesForCompany" resultMap="ManagerOrEmpoyeeMap">
+  	select id, name, discriminator
+  	from employees
+  	where company_id = #{id}
+  </select>
+
+</mapper>
