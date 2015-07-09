@@ -1,6 +1,6 @@
-package victor.training.concurrency.monitor;
+package victor.training.concurrency;
 
-public class BasicMonitorPlay {
+public class MonitorBasic {
 	private static int populatie;
 	private static Object monitor = new Object(); // SOLUTION
 

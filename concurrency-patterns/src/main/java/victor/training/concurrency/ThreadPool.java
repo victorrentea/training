@@ -1,4 +1,4 @@
-package victor.training.concurrency.threadpool;
+package victor.training.concurrency;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
@@ -7,9 +7,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static victor.training.concurrency.ConcurrencyUtil.log;
-import static victor.training.concurrency.ConcurrencyUtil.sleepRandom;
+import static victor.training.concurrency.ConcurrencyUtil.sleepSomeTime;
 
-public class ThreadPoolPlay {
+public class ThreadPool {
 	
 	static AtomicInteger integer = new AtomicInteger(0);
 	
@@ -17,7 +17,7 @@ public class ThreadPoolPlay {
 		public int id = integer.incrementAndGet();
 		public void run() {
 			log("Start work item #"+id);
-			sleepRandom(600, 800);
+			sleepSomeTime(600, 800);
 			log("Finish work item #"+id);
 		}
 	}
@@ -39,7 +39,7 @@ public class ThreadPoolPlay {
 			MyTask task = new MyTask();
 			log("Submitted new task #" + task.id);
 			executor.execute(task);
-			sleepRandom(100, 200);
+			sleepSomeTime(100, 200);
 //			queue.offer(new MyTask(), 1, TimeUnit.HOURS);
 		}
 		// TODO shutdown the executor !

@@ -1,9 +1,8 @@
-package victor.training.concurrency.threadlocal;
+package victor.training.concurrency;
 
-import victor.training.concurrency.ConcurrencyUtil;
 import static victor.training.concurrency.ConcurrencyUtil.log;
 
-public class ThreadLocalPlay {
+public class ThreadLocal1 {
 	// TODO declare a static thread local variable
 	static ThreadLocal<String> threadStorage = new ThreadLocal<>(); // SOLUTION
 	

@@ -1,12 +1,12 @@
-package victor.training.concurrency.barrier;
+package victor.training.concurrency;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 import static victor.training.concurrency.ConcurrencyUtil.log;
-import static victor.training.concurrency.ConcurrencyUtil.sleepRandom;
+import static victor.training.concurrency.ConcurrencyUtil.sleepSomeTime;
 
-public class CyclicBarrierPlay {
+public class Barrier {
 	
 	// static CyclicBarrier barrier = null; // TODO // INITIAL
 	// SOLUTION(
@@ -25,12 +25,14 @@ public class CyclicBarrierPlay {
 			new Thread() {
 				public void run() {
 					for (int i=0; i< 4; i++) {
-						sleepRandom(500, 1000);
+						sleepSomeTime(500, 1000);
 						log("Arrived at the barrier");
-						try {
+						// TODO .await at the barrier
+						// SOLUTION(
+						try { 
 							barrier.await();
 						} catch (InterruptedException | BrokenBarrierException e) {
-						}
+						} // SOLUTION)
 						log("Got past the barrier");
 					}
 				}

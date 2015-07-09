@@ -1,9 +1,9 @@
-package victor.training.concurrency.monitor;
+package victor.training.concurrency;
 
 import static victor.training.concurrency.ConcurrencyUtil.log;
 
 
-public class DeadlockPlay {
+public class MonitorDeadlock {
 	private static Object monitorA = new Object();
 	private static Object monitorB = new Object();
 	

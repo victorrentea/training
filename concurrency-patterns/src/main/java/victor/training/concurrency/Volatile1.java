@@ -1,10 +1,9 @@
-package victor.training.concurrency.basic;
+package victor.training.concurrency;
 
-import victor.training.concurrency.ConcurrencyUtil;
 import static victor.training.concurrency.ConcurrencyUtil.log;
 
 // Inspired from http://java.dzone.com/articles/java-volatile-keyword-0
-public class VolatilePlay {
+public class Volatile1 {
 	// private static int GLOBAL = 0; // INITIAL
 	private static volatile int GLOBAL = 0; // SOLUTION
 

@@ -1,4 +1,4 @@
-package victor.training.concurrency.monitor;
+package victor.training.concurrency;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.xml.ws.Holder;
 import static victor.training.concurrency.ConcurrencyUtil.log;
 import static victor.training.concurrency.ConcurrencyUtil.sleep2;
 
-public class WaitNotifyPlay {
+public class MonitorWaitNotify {
 	static Holder<String> avizier = new Holder<>();
 
 	public static class Secretary {

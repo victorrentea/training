@@ -1,11 +1,11 @@
-package victor.training.concurrency.barrier;
+package victor.training.concurrency;
 
 import java.util.concurrent.Phaser;
 
 import static victor.training.concurrency.ConcurrencyUtil.log;
-import static victor.training.concurrency.ConcurrencyUtil.sleepRandom;
+import static victor.training.concurrency.ConcurrencyUtil.sleepSomeTime;
 
-public class PhaserPlay {
+public class PhaserBarrier {
 	static Phaser phaser = new Phaser();
 	
 	static class Car extends Thread {
@@ -17,7 +17,7 @@ public class PhaserPlay {
 			log("Arrived at the barrier, in phase " + phaser.getPhase());
 			int phase = phaser.arriveAndAwaitAdvance();
 			log("After 1st barrier, we are in phase "+phase);
-			sleepRandom(10, 1000);
+			sleepSomeTime(10, 1000);
 			log("Arrived at the 2nd barrier, in phase " + phaser.getPhase());
 			phase = phaser.arriveAndAwaitAdvance();
 			log("After 2nd barrier, we are in phase "+phase);

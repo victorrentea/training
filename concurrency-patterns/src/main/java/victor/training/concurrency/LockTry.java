@@ -1,12 +1,13 @@
-package victor.training.concurrency.basic;
+package victor.training.concurrency;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static victor.training.concurrency.ConcurrencyUtil.log;
-import static victor.training.concurrency.ConcurrencyUtil.sleepRandom;
+import static victor.training.concurrency.ConcurrencyUtil.sleep2;
+import static victor.training.concurrency.ConcurrencyUtil.sleepSomeTime;
 
-public class Safelock {
+public class LockTry {
 	static class Friend extends Thread {
 		private final Lock lock = new ReentrantLock();
 		private Friend friend;
@@ -51,7 +52,7 @@ public class Safelock {
 			if (tryGetBothLocks(friend)) {
 				try {
 					log("I started bowing");
-					sleepRandom(10, 30);
+					sleepSomeTime(10, 30);
 					log("I bowed");
 				} finally {
 					lock.unlock();
@@ -63,8 +64,8 @@ public class Safelock {
 		}
 
 		public void run() {
-			for (int i=0; i < 30; i++) {
-				sleepRandom(200, 300);
+			for (int i=0; i < 20; i++) {
+				sleepSomeTime(200, 300);
 				bowTo(friend);
 			}
 		}
@@ -72,6 +73,7 @@ public class Safelock {
 
 
 	public static void main(String[] args) {
+		sleep2(1);
 		Friend alphonse = new Friend("Alphonse");
 		Friend gaston = new Friend("Gaston");
 		

@@ -9,7 +9,11 @@ import java.util.Random;
 public class ConcurrencyUtil {
 	static Random random = new Random();
 	
-	public static void sleepRandom(int min, int max) {
+	public static void sleepSomeTime() {
+		sleepSomeTime(10,100);
+	}
+	
+	public static void sleepSomeTime(int min, int max) {
 		sleep2(randomInt(min, max));
 	}
 	
