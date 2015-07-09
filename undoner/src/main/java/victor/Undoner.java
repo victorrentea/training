@@ -17,6 +17,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -25,7 +26,7 @@ public class Undoner {
 	static File sourceDir;
 	static File destDir;
 	
-	static boolean process(File source, File destination) {
+	static boolean undoFile(File source, File destination) {
 		try {
 			@SuppressWarnings("unchecked")
 			List<String> inLines = IOUtils.readLines(new FileReader(source));
@@ -68,7 +69,7 @@ public class Undoner {
 			FileWriter writer = new FileWriter(destination);
 			IOUtils.writeLines(outLines, "\n", writer);
 			writer.close();
-			return outLines.equals(inLines);
+			return !outLines.equals(inLines);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -99,11 +100,13 @@ public class Undoner {
 //					cleanDestFolder();
 //				}
 				File inputSrcFolder = new File("../" + projectsCombo.getSelectedItem() + "/src/main/java");
+				boolean undone;
 				if (isVictorMachine()) {
-					process(inputSrcFolder, new File("../../training-undone/"+projectsCombo+"/src/main/java"));
+					undone = undoFolders(inputSrcFolder, new File("../../training-undone/"+projectsCombo.getSelectedItem()+"/src/main/java"));
 				} else {
-					process(inputSrcFolder, inputSrcFolder);
+					undone = undoFolders(inputSrcFolder, inputSrcFolder);
 				}
+				JOptionPane.showMessageDialog(null, undone ? "Undone " : "Nothing to undo (already undone?)");
 			}
 		});
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,21 +116,19 @@ public class Undoner {
 		frame.show();
 	}
 	
-	public static boolean undoFolders(File inputSrcFolder, File outputSrcFolder) {
-		File baseSourceFolder = new File("src/main/java");
-		File baseDestFolder = new File("d:/workspace-training/ccc-test/src");
-		
+	public static boolean undoFolders(File baseSourceFolder, File baseDestFolder) {
 		if (!baseSourceFolder.isDirectory()) {
 			throw new IllegalArgumentException("Must be a folder: " + baseSourceFolder);
 		}
 		
+		baseDestFolder.mkdirs();
 		if (!baseDestFolder.isDirectory()) {
 			throw new IllegalArgumentException("Must be a folder: " + baseDestFolder);
 		}
 		boolean performedChanges = false;
 		for (File file : (Collection<File>) FileUtils.listFiles(baseSourceFolder, new String[] {"java"}, true)) {
 			File destFile = new File(baseDestFolder, file.getAbsolutePath().substring(baseSourceFolder.getAbsolutePath().length()));
-			if (process(file, destFile)) {
+			if (undoFile(file, destFile)) {
 				performedChanges = true;
 				System.out.println("Undone "+destFile.getAbsolutePath());
 			}
