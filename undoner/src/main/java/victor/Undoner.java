@@ -77,7 +77,7 @@ public class Undoner {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		List<String> projects = Arrays.asList("concurrency-patterns", "oo-patterns", "ee-patterns");
+		List<String> projects = Arrays.asList("concurrency-patterns", "oo-patterns", "cxvvvbee-patterns");
 		
 		JFrame frame = new JFrame();
 		frame.setSize(300, 120);
