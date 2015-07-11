@@ -8,7 +8,7 @@ import javax.xml.ws.Holder;
 import static victor.training.concurrency.ConcurrencyUtil.log;
 import static victor.training.concurrency.ConcurrencyUtil.sleep2;
 
-public class MonitorWaitNotify {
+public class MonitorWaitNotifyBasic {
 	static Holder<String> avizier = new Holder<>();
 
 	public static class Secretary {
@@ -37,7 +37,7 @@ public class MonitorWaitNotify {
 					// avizier.value==null, apoi secretar:avizier.notifAll(), apoi studentul asta face avizier.wait() ....., nimeni nu va mai face notify
 					
 					synchronized (avizier) {
-						if (avizier.value == null) { 
+						while (avizier.value == null) { // 'while' to avoid random wake ups
 							sleep2(1);
 							avizier.wait();
 						} 
