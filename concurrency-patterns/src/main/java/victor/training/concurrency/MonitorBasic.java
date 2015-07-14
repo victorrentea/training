@@ -2,7 +2,7 @@ package victor.training.concurrency;
 
 public class MonitorBasic {
 	private static int populatie;
-	private static Object monitor = new Object(); // SOLUTION
+	private static Object monitor = new Object(); 
 
 	public static class ThreadA extends Thread {
 		@Override

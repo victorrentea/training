@@ -57,7 +57,7 @@ public class Latch {
 		startLatch.countDown();// SOLUTION
 		
 		log("Wait for all to compute classament");
-		finishLatch.await(); //SOLUTION
+		finishLatch.await(); // SOLUTION
 		// TODO wait for all to finish
 		log("All have passed finish line");
 		log("Classament: blah blah");

@@ -26,14 +26,14 @@ public class Barrier {
 				public void run() {
 					for (int i=0; i< 4; i++) {
 						sleepSomeTime(500, 1000);
-						log("Arrived at the barrier");
+						log("Waiting for everyone else to start the stand-up");
 						// TODO .await at the barrier
 						// SOLUTION(
 						try { 
 							barrier.await();
 						} catch (InterruptedException | BrokenBarrierException e) {
 						} // SOLUTION)
-						log("Got past the barrier");
+						log("Everyone gathered. Stand UP!");
 					}
 				}
 			}.start();

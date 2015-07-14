@@ -13,12 +13,12 @@ public class MonitorWaitNotifyBasic {
 
 	public static class Secretary {
 		public void publishResults(String results) {
-			avizier.value = results;
+			synchronized (avizier) { // SOLUTION
+				avizier.value = results;
 			
-			// TODO avizier.wait();
-			synchronized (avizier) { // SOLUTION(
-				avizier.notifyAll();
-			} // SOLUTION)
+				// TODO avizier.notifyAll();
+				avizier.notifyAll(); // SOLUTION
+			} // SOLUTION
 			log("Published results");
 		}
 	}
