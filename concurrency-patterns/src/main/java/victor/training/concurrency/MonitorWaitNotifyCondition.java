@@ -34,20 +34,14 @@ public class MonitorWaitNotifyCondition {
 
 	    public synchronized void put(int message) {
 	        // Wait until message has been retrieved.
-	    	Object monitor = new Object();
-	    	synchronized (monitor) {
-		        while (!condition) {
-		            try { 
-		                monitor.wait();
-		            } catch (InterruptedException e) {}
-		        }
-		        condition = false;
-		    }
+	    	while (!condition) {
+	            try {
+	                wait();
+	            } catch (InterruptedException e) {}
+	        }
+	    	condition = false;
 	    	
-	    	synchronized (monitor) {
-	    		condition = true;
-	    		monitor.notifyAll();
-	    	}
+	    
 
 	        this.message = message; 
 	        
@@ -63,7 +57,6 @@ public class MonitorWaitNotifyCondition {
 			for (int i = 0; i < 50; i++) {
 				log("Putting message: " + i);
 				drop.put(i);
-				log("Put message");
 				sleepSomeTime();
 			}
 		}
