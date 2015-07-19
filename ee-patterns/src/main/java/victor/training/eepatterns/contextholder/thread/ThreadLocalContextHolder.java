@@ -6,13 +6,17 @@ import java.util.Map;
 import victor.training.eepatterns.contextholder.ContextKey;
 
 public class ThreadLocalContextHolder {
-	private static ThreadLocal<Map<ContextKey, Object>> THREAD_CONTEXT = new ThreadLocal<Map<ContextKey, Object>>();
+	
+	// TODO define a ThreadLocal<Map<ContextKey, Object>>
+	private static ThreadLocal<Map<ContextKey, Object>> THREAD_CONTEXT = new ThreadLocal<Map<ContextKey, Object>>(); // SOLUTION
 
 	private static Map<ContextKey, Object> getMap() {
-		if (THREAD_CONTEXT.get() == null) {
+		// TODO .get and .set this map from Thread local;
+		// return new HashMap<ContextKey, Object>(); // INITIAL 
+		if (THREAD_CONTEXT.get() == null) { // SOLUTION(
 			THREAD_CONTEXT.set(new HashMap<ContextKey, Object>());
 		}
-		return THREAD_CONTEXT.get();
+		return THREAD_CONTEXT.get(); // SOLUTION)
 	}
 
 	public static void put(ContextKey key, Object value) {
@@ -24,7 +28,8 @@ public class ThreadLocalContextHolder {
 	}
 	
 	public static void cleanupThread() {
-		THREAD_CONTEXT.remove();
+		// TODO cleanup !!
+		THREAD_CONTEXT.remove(); // SOLUTION
 	}
 
 }

@@ -12,8 +12,10 @@ public class ParalellizerWorker {
 	private static int NEXT_ID = 1;
 	private final int workerId = NEXT_ID++;
 
-	@Asynchronous
-	public Future<Integer> executeWorkItem(String workItem) {
+	// TODO mark method as async, and change it to return Future<> instead
+	// @Asynchronous SOLUTION
+	//public Integer executeWorkItem(String workItem) { // INITIAL
+	public Future<Integer> executeWorkItem(String workItem) { // SOLUTION
 		int result = workItem.length();
 		System.out.println("Worker " + workerId + ": Start processing item '" + workItem + "'");
 		
@@ -24,6 +26,8 @@ public class ParalellizerWorker {
 			e.printStackTrace();
 		}
 		System.out.println("Worker " + workerId + ": Item '" + workItem + "' done.");
-		return new AsyncResult<Integer>(result);
+		
+		return new AsyncResult<Integer>(result); // SOLUTION
+//		return result; // INITIAL
 	}
 }

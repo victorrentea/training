@@ -21,8 +21,7 @@ import victor.training.eepatterns.payloadextractor.facade.AsyncBusinessFacadeBea
 public class AbstractArquillianTest {
 	@Deployment
 	public static JavaArchive getDeployment() {
-		JavaArchive archive = ShrinkWrap.create(JavaArchive.class, "test.jar")
-				.addPackages(true, "ejb")
+		JavaArchive archive = ShrinkWrap.create(JavaArchive.class)
 				.addPackages(true, "victor.training.eepatterns")
 				.addPackages(true, "org.mockito")
 				.addPackages(true, "org.apache.tools")

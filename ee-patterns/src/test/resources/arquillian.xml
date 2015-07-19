@@ -1,0 +1,27 @@
+<arquillian xmlns="http://jboss.org/schema/arquillian" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://jboss.org/schema/arquillian
+        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+    <!-- Sets the protocol which is how Arquillian talks and executes the tests inside the container -->
+    <defaultProtocol type="Servlet 3.0" />
+
+    <!-- Configuration to be used when the WidlFly remote profile is active -->
+    <container qualifier="widlfly-remote" default="true">
+        <configuration>
+        	<property name="allowConnectingToRunningServer">true</property>
+            <property name="managementAddress">127.0.0.1</property>
+            <property name="managementPort">9990</property>
+            <property name="username">admin</property>
+            <property name="password">admin</property>
+        </configuration>
+    </container>
+
+    <!-- Configuration to be used when the WildFly managed profile is active -->
+    <container qualifier="widlfly-managed" >
+        <configuration>
+            <property name="jbossHome">${jbossHome:target/wildfly-8.1.0.Final}</property>
+        </configuration>
+    </container>
+
+</arquillian>

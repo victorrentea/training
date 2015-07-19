@@ -13,7 +13,14 @@ public class Paralellizer {
 	private ParalellizerWorker worker;
 
 	public List<Integer> doALotOfWork(List<String> workItems) {
-		List<Future<Integer>> asyncResults = new ArrayList<Future<Integer>>();
+		List<Integer> results = new ArrayList<Integer>();
+//		for (String workItem : workItems) { // INITIAL(
+//			results.add(worker.executeWorkItem(workItem));
+//		} // INITIAL)
+		
+		// TODO Instead of the above, launch all work items in parallel and collect Future<Integer> in a list
+		// TODO For each Future, wait for it to finish (.get())
+		List<Future<Integer>> asyncResults = new ArrayList<Future<Integer>>(); // SOLUTION(
 
 		System.out.println("Parent: Starting all tasks to run in parallel...");
 		for (String workItem : workItems) {
@@ -21,7 +28,6 @@ public class Paralellizer {
 			asyncResults.add(asyncResult);
 		}
 		System.out.println("Parent: Started all tasks. Blocking to collect results...");
-		List<Integer> results = new ArrayList<Integer>();
 		for (Future<Integer> asyncResult : asyncResults) {
 			try {
 				results.add(asyncResult.get());
@@ -29,7 +35,7 @@ public class Paralellizer {
 				throw new RuntimeException(e);
 			}
 		}
-		System.out.println("Parent:Collected all results. Parallel processing done");
+		System.out.println("Parent:Collected all results. Parallel processing done"); // SOLUTION)
 		return results;
 	}
 }
