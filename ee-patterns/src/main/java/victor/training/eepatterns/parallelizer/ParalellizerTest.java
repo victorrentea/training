@@ -1,25 +1,30 @@
-package victor.training.eepatterns;
+package victor.training.eepatterns.parallelizer;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import victor.training.eepatterns.parallelizer.Paralellizer;
-
-
-@RunWith(Arquillian.class)
-public class ParalellizerTest extends AbstractArquillianTest {
+@WebServlet("/Parallelizer")
+public class ParalellizerTest extends HttpServlet {
 
 	@Inject
 	private Paralellizer paralellizer;
 	
+	@Override
+	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
+		execute20TasksInParallelLastsLessThan5TasksLength();
+	}
 	@Test
 	public void execute20TasksInParallelLastsLessThan5TasksLength() {
 		List<String> items = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
@@ -27,6 +32,7 @@ public class ParalellizerTest extends AbstractArquillianTest {
 		long t0 = System.currentTimeMillis();
 		paralellizer.doALotOfWork(items);
 		assertTrue("Lasted less than 5 seconds", System.currentTimeMillis() - t0 < 5000);
+		System.out.println("Test OK");
 	}
 
 }

@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>victor.training</groupId>
-	<artifactId>ee-paterns</artifactId>
+	<artifactId>ee-patterns</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 <!-- 
@@ -132,24 +132,8 @@
         </dependency>
         
         <!-- JUnit Container Implementation for the Arquillian Project -->
-        <dependency>
-            <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-container</artifactId>
-            <scope>test</scope>
-        </dependency>
 
-        <dependency>
-            <groupId>org.jboss.arquillian.protocol</groupId>
-            <artifactId>arquillian-protocol-servlet</artifactId>
-            <scope>test</scope>
-        </dependency>
 
-		<dependency>
-                    <groupId>org.wildfly</groupId>
-                    <artifactId>wildfly-arquillian-container-remote</artifactId>
-                    <version>8.1.0.Final</version>
-                    <scope>test</scope>
-                </dependency>
 
 		<dependency>
 			<groupId>org.jboss.spec</groupId>
@@ -157,12 +141,6 @@
 			<version>1.0.3.Final</version>
 			<type>pom</type>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.10.19</version>
-			<scope>test</scope>
 		</dependency>
     </dependencies>
  </project>

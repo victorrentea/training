@@ -3,7 +3,7 @@ package victor.training.eepatterns.locator;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import victor.training.eepatterns.soa.customer.Customer;
+import victor.training.eepatterns.soa.customer.facade.CustomerFacade;
 
 public class ServiceLocator {
 
@@ -22,8 +22,8 @@ public class ServiceLocator {
 
 	private InitialContext context;
 
-	public Customer getCustomerService() {
-		return (Customer) lookup("java:/CustomerFacade");
+	public CustomerFacade getCustomerService() {
+		return (CustomerFacade) lookup("java:/CustomerFacadeBean");
 	}
 
 	private void init() {

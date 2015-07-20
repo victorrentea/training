@@ -1,21 +1,16 @@
-package victor.training.eepatterns;
+package victor.training.eepatterns.legacypojo;
 
 import static org.junit.Assert.assertNotNull;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.Startup;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import org.jboss.arquillian.junit.Arquillian;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import victor.training.eepatterns.legacypojo.POJOAsCDI;
-import victor.training.eepatterns.legacypojo.POJOAsCDIWithFactory;
-import victor.training.eepatterns.legacypojo.POJOAsEJB;
-
-
-@RunWith(Arquillian.class)
-public class LegacyPOJOTest extends AbstractArquillianTest {
+@Stateless
+@Startup
+public class LegacyPOJOTest{
 
 	@EJB
 	private POJOAsEJB asEJB;
@@ -26,19 +21,24 @@ public class LegacyPOJOTest extends AbstractArquillianTest {
 	@Inject
 	private POJOAsCDIWithFactory asCDIWithFactory;
 
-	@Test
+	@PostConstruct
+	public void testAllDependencies() {
+		integratedPOJOAsCDI();
+		integratedPOJOAsCDIWithFactory();
+		integratedPOJOAsEJB();
+		System.out.println("Tests OK");
+	}
+	
 	public void integratedPOJOAsEJB() {
 		assertNotNull(asEJB);
 		asEJB.doStuff();
 	}
 
-	@Test
 	public void integratedPOJOAsCDI() {
 		assertNotNull(asCDI);
 		asCDI.doStuff();
 	}
 
-	@Test
 	public void integratedPOJOAsCDIWithFactory() {
 		assertNotNull(asCDIWithFactory);
 		asCDIWithFactory.doStuff();

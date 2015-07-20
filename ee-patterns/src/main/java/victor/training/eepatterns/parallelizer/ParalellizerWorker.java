@@ -13,7 +13,7 @@ public class ParalellizerWorker {
 	private final int workerId = NEXT_ID++;
 
 	// TODO mark method as async, and change it to return Future<> instead
-	// @Asynchronous SOLUTION
+	@Asynchronous // SOLUTION
 	//public Integer executeWorkItem(String workItem) { // INITIAL
 	public Future<Integer> executeWorkItem(String workItem) { // SOLUTION
 		int result = workItem.length();
@@ -21,7 +21,7 @@ public class ParalellizerWorker {
 		
 		System.out.println("Worker " + workerId + ": " + Thread.currentThread().getName());
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(100);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

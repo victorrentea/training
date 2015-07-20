@@ -6,18 +6,23 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
+import javax.jms.JMSDestinationDefinition;
+import javax.jms.JMSDestinationDefinitions;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Queue;
 import javax.jms.Session;
 
 @Stateless
+@JMSDestinationDefinitions({
+	@JMSDestinationDefinition(name = "java:global/jms/my_error_queue", interfaceName = "javax.jms.Queue", destinationName = "error_out", description = "My Error Queue")
+})
 public class DeadLetterSender {
 
 	@Resource(mappedName = "java:/ConnectionFactory")
 	private ConnectionFactory factory;
 
-	@Resource(mappedName = "java:/queue/error_out")
+	@Resource(mappedName = "java:global/jms/my_error_queue")
 	private Queue deadLetterQueue;
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)

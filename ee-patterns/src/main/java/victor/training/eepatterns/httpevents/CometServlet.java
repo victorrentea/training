@@ -17,17 +17,21 @@ public class CometServlet extends HttpServlet {
 	
 	@Inject
 	private Event<ClientConnection> newClientEvent;
+	
+	@Inject
+	private Business business;
 
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("received request");
+		business.activate();
 		
 		AsyncContext asyncContext = request.startAsync();
 		newClientEvent.fire(new ClientConnection(asyncContext));
 		
 		// TODO talk: Event delivery: Real-Time vs. Batch
-		// TODO talk: pub/sub: the client specifies in its request the topics it’s interested in
+		// TODO talk: pub/sub: the client specifies in its request the topics itï¿½s interested in
 
 	}
 

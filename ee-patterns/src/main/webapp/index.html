@@ -1,33 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
-	
-</script>
-<script>
-	$(document).ready(function() {
-		startLongPooling();
-	});
-
-	function startLongPooling() {
-		$.get("publisher", function(data, status) {
-			appendMessage(data)
-			startLongPooling();
-		});
-	}
-
-	function appendMessage(message) {
-		$('#messages').append(message + " <br />")
-	}
-</script>
 </head>
 
-<body>
-	<h2>Receiving async messages from server...</h2>
-
-	<div id="messages" style="background-color: gray"></div>
-	<img src="loading.gif"  width="60"/>
-
+<body><ul>
+	<li><a href="comet.html">Comet</a>
+	<li><a href="ThreadLocal">ThreadLocal</a>
+	<li><a href="ServiceLocator">ServiceLocator</a>
+	<li><a href="Parallelizer">Parallelizer</a>
+	<li><a href="Singleton">Singleton</a>
+	</ul>
 </body>
 </html>
+

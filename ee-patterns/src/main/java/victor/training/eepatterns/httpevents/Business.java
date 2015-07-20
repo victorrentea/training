@@ -20,7 +20,9 @@ public class Business {
 
 	@Inject
 	private Event<BusinessEvent> businessEvent;
-
+	
+	private static boolean active;
+	
 	@Resource
 	private TimerService timerService;
 
@@ -32,8 +34,15 @@ public class Business {
 
 	@Timeout
 	public void tick() {
-		System.out.println("Business fires event");
-		businessEvent.fire(new BusinessEvent("second = " + new Date().getSeconds()));
+		if (active) {
+			System.out.println("Business fires event");
+			businessEvent.fire(new BusinessEvent("second = " + new Date().getSeconds()));
+		}
+	}
+	
+	public void activate() {
+		active = true;
+		System.out.println("Activated");
 	}
 
 	@PreDestroy

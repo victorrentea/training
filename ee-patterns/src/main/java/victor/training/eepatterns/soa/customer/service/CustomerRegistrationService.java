@@ -8,7 +8,7 @@ import victor.training.eepatterns.soa.customer.domain.Customer;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.MANDATORY)
-public class RegisterCustomer {
+public class CustomerRegistrationService {
 
 	public void registerCustomer(Customer customer) {
 		// implement reusable, coesive and fine-grained logic
