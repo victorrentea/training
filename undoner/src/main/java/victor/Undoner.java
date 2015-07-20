@@ -26,7 +26,7 @@ public class Undoner {
 	static File sourceDir;
 	static File destDir;
 	
-	static boolean undoFile(File source, File destination) {
+	static boolean undoFile(File source, File destination, boolean dryRun) {
 		try {
 			@SuppressWarnings("unchecked")
 			List<String> inLines = IOUtils.readLines(new FileReader(source));
@@ -60,15 +60,16 @@ public class Undoner {
 				outLines.add(line);
 			}
 			
-			if (destination.isFile()) {
-				destination.delete();
+			if (!dryRun) {
+				if (destination.isFile()) {
+					destination.delete();
+				}
+				destination.getParentFile().mkdirs();		
+				destination.createNewFile();
+				FileWriter writer = new FileWriter(destination);
+				IOUtils.writeLines(outLines, "\n", writer);
+				writer.close();
 			}
-			destination.getParentFile().mkdirs();		
-			destination.createNewFile();
-			
-			FileWriter writer = new FileWriter(destination);
-			IOUtils.writeLines(outLines, "\n", writer);
-			writer.close();
 			return !outLines.equals(inLines);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,7 +78,8 @@ public class Undoner {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		List<String> projects = Arrays.asList("concurrency-patterns", "oo-patterns", "cxvvvbee-patterns");
+		List<String> projects = searchUndoableProjects();
+		
 		
 		JFrame frame = new JFrame();
 		frame.setSize(300, 120);
@@ -102,9 +104,9 @@ public class Undoner {
 				File inputSrcFolder = new File("../" + projectsCombo.getSelectedItem() + "/src/main/java");
 				boolean undone;
 				if (isVictorMachine()) {
-					undone = undoFolders(inputSrcFolder, new File("../../training-undone/"+projectsCombo.getSelectedItem()+"/src/main/java"));
+					undone = undoFolders(inputSrcFolder, new File("../../training-undone/"+projectsCombo.getSelectedItem()+"/src/main/java"), false);
 				} else {
-					undone = undoFolders(inputSrcFolder, inputSrcFolder);
+					undone = undoFolders(inputSrcFolder, inputSrcFolder, false);
 				}
 				JOptionPane.showMessageDialog(null, undone ? "Undone " : "Nothing to undo (already undone?)");
 			}
@@ -115,8 +117,21 @@ public class Undoner {
 		frame.setTitle("Revert solution for project...");
 		frame.show();
 	}
+
+	private static List<String> searchUndoableProjects() {
+		File rootTraining = new File("..");
+		List<String> projectNames= new ArrayList<>();
+		for (File subFile : rootTraining.listFiles()) {
+			if (subFile.isDirectory() && undoFolders(subFile, subFile, true)) {
+				System.out.println("Found UNDO-able project folder: " + subFile.getAbsolutePath());
+				projectNames.add(subFile.getName());
+			}
+		}
+		projectNames.remove("undoner");
+		return projectNames;
+	}
 	
-	public static boolean undoFolders(File baseSourceFolder, File baseDestFolder) {
+	public static boolean undoFolders(File baseSourceFolder, File baseDestFolder, boolean dryTest) {
 		if (!baseSourceFolder.isDirectory()) {
 			throw new IllegalArgumentException("Must be a folder: " + baseSourceFolder);
 		}
@@ -128,8 +143,11 @@ public class Undoner {
 		boolean performedChanges = false;
 		for (File file : (Collection<File>) FileUtils.listFiles(baseSourceFolder, new String[] {"java"}, true)) {
 			File destFile = new File(baseDestFolder, file.getAbsolutePath().substring(baseSourceFolder.getAbsolutePath().length()));
-			if (undoFile(file, destFile)) {
+			if (undoFile(file, destFile, dryTest)) {
 				performedChanges = true;
+				if (dryTest) {
+					break;
+				}
 				System.out.println("Undone "+destFile.getAbsolutePath());
 			}
 		}
