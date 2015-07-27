@@ -2,11 +2,12 @@ package victor.training.oo.behavioral.strategy;
 
 import java.util.Comparator;
 
-public class DescendingComparator implements Comparator<Integer> {
+//public class DescendingComparator { // INITIAL
+public class DescendingComparator implements Comparator<Integer> { // SOLUTION(
 
-	@Override
 	public int compare(Integer o1, Integer o2) {
 		return o2 - o1;
 	}
 
+	// SOLUTION)
 }

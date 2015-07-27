@@ -5,7 +5,8 @@ import java.io.OutputStream;
 
 import javax.swing.JTextArea;
 
-public class MyJTextAreaOutputStream extends OutputStream {
+//public class MyJTextAreaOutputStream { // extends OutputStream { // INITIAL
+public class MyJTextAreaOutputStream extends OutputStream { // SOLUTION 
 
 	private final JTextArea textArea;
 
@@ -13,6 +14,7 @@ public class MyJTextAreaOutputStream extends OutputStream {
 		this.textArea = textArea;
 	}
 
+	// SOLUTION(
 	@Override
 	public void write(int b) throws IOException {
 		String existingText = textArea.getText();
@@ -20,4 +22,5 @@ public class MyJTextAreaOutputStream extends OutputStream {
 		textArea.setText(existingText + newChar);
 
 	}
+	// SOLUTION)
 }

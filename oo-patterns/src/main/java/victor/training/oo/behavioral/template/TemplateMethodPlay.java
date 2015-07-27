@@ -12,7 +12,8 @@ public class TemplateMethodPlay {
 	public static void main(String[] args) {
 		final MyFrame myFrame = new MyFrame();
 
-		OutputStream myOutputStream = new MyJTextAreaOutputStream(myFrame.textArea);
+		//OutputStream myOutputStream = null; // TODO new MyJTextAreaOutputStream(myFrame.textArea); // INITIAL
+		OutputStream myOutputStream = new MyJTextAreaOutputStream(myFrame.textArea); // SOLUTION
 
 		// Look Ma'! An Adapter Pattern! PrintWriter wraps the OutputStream we
 		// provided.
@@ -31,7 +32,8 @@ public class TemplateMethodPlay {
 			}
 		});
 
-		// 2: a custom-made example
-		new EmailCustomerProcessor().registerCustomer();
+		// TODO  a custom-made example
+		// TODO new EmailCustomerProcessor().registerCustomer();
+		new EmailCustomerProcessor().registerCustomer(); // SOLUTION
 	}
 }

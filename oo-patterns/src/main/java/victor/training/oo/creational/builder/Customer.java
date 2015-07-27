@@ -20,15 +20,18 @@ public class Customer {
 			return this;
 		}
 
+		// SOLUTION(
+		
 		public Builder withLabel(String label) {
 			customer.getLabels().add(label);
 			return this;
 		}
 
-		public Builder withAddress(Address address) {
+		public Builder withAddress(Address address) { 
 			customer.setAddress(address);
 			return this;
 		}
+		// SOLUTION)
 
 		public Customer build() {
 			return customer;

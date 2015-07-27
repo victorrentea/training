@@ -20,11 +20,15 @@ public class VisitorPlay {
 			product.accept(reportVisitor);
 		}
 		
+		// TODO implements a TotalPriceCalculatorVIsitor
+		
+		// SOLUTION(
 		TotalPriceCalculatorVisitor totalVisitor = new TotalPriceCalculatorVisitor();
 		for (Product product : productList) {
 			product.accept(totalVisitor);
 		}
 		System.out.println("Total price: " + totalVisitor.getTotal());
+		// SOLUTION)
 
 	}
 
