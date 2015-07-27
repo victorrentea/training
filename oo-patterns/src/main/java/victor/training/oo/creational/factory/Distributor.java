@@ -19,6 +19,7 @@ public class Distributor {
 		for (int i = 0; i < 4; i++) {
 			tables.add(factory.createChair());
 		}
+		// TODO add Kitchen table product to the kitchen furnitur
 		return tables;
 	}
 }

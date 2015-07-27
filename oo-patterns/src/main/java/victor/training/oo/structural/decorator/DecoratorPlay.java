@@ -7,10 +7,11 @@ import java.util.List;
 
 public class DecoratorPlay {
 	public static void main(String[] args) throws Exception {
-		Subject realSubject = new RealSubject();
+		Subject subject = new RealSubject();
 
-		Subject decorator = new Decorator(realSubject);
-		codClient(decorator);
+		// TODO subject = new Decorator(subject);  
+		subject = new Decorator(subject); // SOLUTION
+		codClient(subject);
 
 		// Decorator: unmodifiableList
 		List<String> list = new ArrayList<>(Arrays.asList("a", "b"));

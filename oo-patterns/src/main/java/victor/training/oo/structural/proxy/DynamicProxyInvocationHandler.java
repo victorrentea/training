@@ -16,7 +16,7 @@ public class DynamicProxyInvocationHandler implements InvocationHandler {
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		System.out.println("In DynamicProxy, intercepted method call : " + method.getName());
-		
+		// TODO play around to get the actual arguments, type owning the method, etc/ etc/
 		return method.invoke(target, args);
 	}
 

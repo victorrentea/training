@@ -14,8 +14,10 @@ public class SMSSenderAdapter implements SMSSender {
 
 	@Override
 	public boolean sendSMS(Phone phone, String message) {
-		String phoneNumber = phone.toString();
-		int status = adaptee.sendSMS(phoneNumber, message);
-		return status == LegacySMSSender.SUCCESS;
+		// TODO transform parameters. invoke the delegate and then convert the result
+		// return false; // INITIAL
+		String phoneNumber = phone.toString(); // SOLUTION(
+		int status = adaptee.sendSMS(phoneNumber, message); 
+		return status == LegacySMSSender.SUCCESS; // SOLUTION)
 	}
 }
