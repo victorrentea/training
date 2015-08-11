@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="academy-cap-icon.png">
+    <title>Victor Rentea - Enterprise Java Training</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            padding-top: 70px;
+        }
+        
+        .anchorjs-link:hover {
+            text-decoration: none;
+        }
+        
+        h2,
+        h1 {
+            padding-top: 70px;
+        }
+        
+        .highlight {
+            background-color: #FFFFFF;
+        }
+        
+        section {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        @media screen and (min-width: 0px) and (max-width: 950px) {
+            #rightNav {
+                display: none;
+            }
+        }
+        .duration {
+            position:relative;
+            top:-10px;
+            font-style: italic;
+        }
+        
+        #rightNav {
+            position: fixed;
+            right: 0;
+            top: 60px;
+            z-index: 11;
+        }
+        
+        #rightNav ul {
+            list-style: none;
+            color: #000000;
+            font-size: 13px;
+        }
+        
+        #rightNav li {
+            width: 90px;
+            height: 26px;
+            line-height: 26px;
+            background-color: rgba(200, 200, 200, 0.70);
+            margin-bottom: 2px;
+            text-align: right;
+        }
+        
+        #rightNav li.selected {
+            background-color: rgba(255, 255, 255, 0.70);
+            font-weight: bold;
+        }
+        
+        .no-rgba #rightNav li {
+            background-color: #ffffff
+        }
+        
+        #rightNav a {
+            display: block;
+            margin-right: 5px;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: #000000;
+        }
+        #rightNav .duration-nav {
+            width:140%;
+            position:absolute;
+            right:90px;
+            background-color: rgba(200, 200, 200, 0.70);
+            display: none;
+        }
+        #rightNav li:hover .duration-nav {
+            display: block;
+        }
+        #rightNav li.selected:hover .duration-nav{
+            display: none;
+        }
+        
+        .highlight-holder {
+            display: inline;
+        }
+        
+        .highlight-part {
+            position: absolute;
+            z-index: -1;
+            background-color: yellow;
+        }
+        
+    
+        div.cert {
+            text-align: center;
+        }
+        div.cert img {         
+            width: 150px;
+            box-shadow: 4px 4px 2px grey;
+            border: 1px solid grey;
+            margin: 2px;
+        }
+        
+        @media screen and (min-width: 950px) {
+            div.cert {
+                position: absolute;
+                left: 10px;
+                top: 100px;
+                width: 120px;
+            }
+            div.cert img {
+                width: 120px;
+                margin-top: 15px;
+                box-shadow: 4px 4px 2px grey;
+            }
+        }
+        
+        .cv {
+            width: 120px;
+            margin: 0 0 10px 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-top: 1px solid #999;
+            border-right: 2px solid #555;
+            border-bottom: 2px solid #555;
+            border-left: 1px solid #999;
+            text-align: center;
+        }
+        div#global-feedback {
+            text-align:center;
+        }
+        div#global-feedback img {
+            width: 500px;
+        }
+        @media screen and (min-width: 0px) and (max-width: 600px) {
+            div#global-feedback img {
+                width: 100%;
+            }
+        }
+        
+        div#client-logos {
+            text-align: center;
+        }
+        div#client-logos img {
+            width: 200px;
+            margin: 20px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+    <div class="navbar-wrapper">
+        <div class="container">
+
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="semnatura.png" width="50px" style="display:inline;margin-top:-12px; position: absolute;" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Victor Rentea</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Training <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#training">Training Phylosophy</a>
+                                    </li>
+
+                                    <li class="dropdown-header">Architecture &amp; Design</li>
+                                    <li><a href="#training/clean-code">Clean Code <sup>2 parts</sup></a>
+                                    </li>
+                                    <li><a href="#training/enterprise-integration-patterns">Enterprise Integration Patterns</a>
+                                    </li>
+                                    <li><a href="#training/object-oriented-design-patterns">Object-Oriented Design Patterns <sup>2 parts</sup></a>
+                                    </li>
+                                    <li><a href="#training/java-ee-design-patterns">Java EE Design Patterns</a>
+                                    </li>
+                                    <li><a href="#training/requirements-analysis">Requirements Analysis</a>
+                                    </li>
+                                    <li><a href="#training/restful-web-services">RESTful Web Services</a>
+                                    </li>
+                                    <li><a href="#training/test-driven-development">Test-Driven-Development</a>
+                                    </li>
+                                    <li><a href="#training/uml">UML Modelling<sup>2 parts</sup></a>
+                                    </li>
+                                    <li><a href="#training/web-security">Web Security</a>
+                                    </li>
+
+                                    <li class="dropdown-header">Technologies &amp; Frameworks</li>
+                                    <li><a href="#training/ejb3">Enterprise Java Beans (EJB3)</a>
+                                    </li>
+                                    <li><a href="#training/jpa">Java Persistence API (JPA)</a>
+                                    </li>
+                                    <li><a href="#training/jaxb-xsd">JAXB & XSD</a>
+                                    </li>
+                                    <li><a href="#training/mybatis">MyBatis</a>
+                                    </li>
+                                    <li><a href="#training/spring">Spring Framework+ <sup>Core,Advanced,DAO,MVC</sup></a>
+                                    </li>
+                                    <li><a href="#training/whats-new-in-java-ee6">What's new in Java EE6</a>
+                                    </li>
+                                    <li><a href="#training/whats-new-in-java-ee7">What's new in Java EE7</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--<li><a href="#consultancy">Consultancy</a>
+                            </li>-->
+                            <li><a href="#cv">CV</a>
+                            </li>
+                            <li><a href="#contact">Contact</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="section">
+            <img src="face.jpg" style="float:right; margin: 0px 45px 45px 25px; border: 6px ridge gray;" width="230px" />
+            <h3>Hi,<h3>	
+	<h3>I'm Victor,</h3>
+            <h3>an enthusiast Clean&nbsp;Coder, Senior&nbsp;Java&nbsp;EE&nbsp;Developer, Technical&nbsp;Team&nbsp;Lead&nbsp;at&nbsp;IBM, and independent&nbsp;<a href="#training">Trainer</a>,</h3>
+            <h3>I am PhD&nbsp;in&nbsp;Computer&nbsp;Science and certified Oracle&nbsp;JavaEE<sup>6</sup>&nbsp;Architect.</h3>
+
+            <h3>If you are looking for an interactive custom training, keep reading.</h3>
+            <div class="cert">
+                <img src="cert-logo-scea.jpg" class="cert" />
+                <img src="cert-logo-sql.jpg" class="cert" />
+                <img src="cert-logo-bcd.jpg" class="cert" />
+                <img src="cert-logo-wcd.jpg" class="cert" />
+                <img src="cert-logo-wsd.jpg" class="cert" />
+                <img src="cert-logo-scjp.jpg" class="cert" />
+            </div>
+
+        </div>
+
+        <!-- Training ****** -->
+        <section>
+            <h1 id="training" code="Training">Training</h1>
+            <h3><i>Over <span class="high">200 hours</span> of training held to over <span class="high">800 persons</span>, in Romanian and English, <span class="high">in-class and remote</span>, including in <a href="#training/object-oriented-design-patterns">academic setup</a>.</i><h3>
+
+<h3>A good training</h3>
+            <ul>
+                <li><b>... should <span class="high">captivate you</span></b>: I'll keep you alive from minute 1 to the end with questions, brainstorming, animations, demos, videos, jokes and tests with prizes</li>
+                <li><b>... should help you <span class="high">understand the core concepts</span></b>: The driving purpose, the "WHY", the underlying phylosophy?</li>
+                <li><b>... should <span class="high">show most of the story</span></b>: I'll tell you a story with lots of examples and exercises; no dull APIs or values to memorize</li>
+                <li><b>... should <span class="high">explain the tricky parts</span></b>: I used intuitive animations or easy-to-remember diagrams for most of them. You'll love it! <span style="color:#ccc">(at least the feedback tells me so:)</span>. Also, each module includes best practices and pitfalls.</li>
+            </ul>
+
+            <p>I've personally created the training materials for these modules, investing hundreds of hours of hard work in <span class="high">distilling the 1-2 most distinguished books</span> (plus other sources) about each subject topic until the it met the above criteria.</p>
+            
+            <p>Throughout the presentations, I've placed several key slides which can become the starting point of <span class="high">interactive digressions</span> about related concepts, in case the trainees want us to go there. And they usually do.</p>
+
+
+
+            <h3>A lot of <span class="high">hands-on practice</span></h3>
+            <p>For the exercises you will get a virtual machine with the development environment already set up, that will allow you to both <span class="high">resolve the exercises</span> again after the training, as well as to <span class="high">explore the solution</span>. For certain modules, such as OO Design Patterns, I even strongly recommend you to re-work the exercises after several days, when the concepts have settled down.</p>
+            <p>For certain modules, you will also get a <span class="high">printable summary</span> that you can keep next to your workspace as a handy cheat-sheet.</p>
+
+            <h3>Every course is unique</h3>
+            <p>Each classroom has its own interests or needs specific skills, so <span class="high">the course agenda is always personalized</span>. Perhaps you aren't sure yet what topics to choose. I can help you with that. We could sit together for a general discussion and explore what you may be looking for. Then, we could choose several modules, customize them or even add completely new ones.</p>
+            <p>Each module is designed to take at most 2-hour long, including any demo, exercises or contests. In a regular day, 3 regular modules can be covered, plus a little extra practice or discussions. Trying to cover more than that usually just exhausts the participants with no (or even less) benefit.</p>
+                
+            <h3>Industry-driven, Certified proficiency</h3>
+            <p>I have <span class="high">practical experience with all the technologies I teach</span>, except with the newer JavaEE6&amp;7. I've used them all to design, develop and deliver <span class="high">enterprise applications for demanding corporate clients</span> like world-leading flavors&amp;fragrances company, Belgium Post, or BNPParibas Bank. In each project, I was always the one who explored the boundary cases of the techonologies, those places where what you wanted was not readily available out-of-the-box. I started doing that right from the first year of my career. In each case, I always strived to provide the simplest solution to each specific need, while following <span class="high">the phylosophy of each technology</span>.</p>            
+            <p>To be sure I covered all the corners of the Java EE specifications, I also obtained a <span class="high">long series of certifications</span>.</p>
+                
+            <h3>Questions are what I want</h3>
+            <p><span class="high">I am always expecting questions</span> any time during the trainings or breaks. The more questions I get from you, the more I manage to explain you. Honestly, there is no greater satisfaction for me but to answer your questions - it's only then that I'm sure I'm really helping you. The questions need not even be directly related to the topics we were talking about: I would be equally glad to be able to help you in any issues of your daily programmer life.</p>
+            <p>I always say: for the sake of a classroom, <i>the dumbest question is the best question</i>. It makes everybody clarify their understanding, it rapidly involves everybody and opens up communication bridges. So- just ask! The best trainings happen when we manage to have <span class="high">a collaborative brainstorming-like athmosphere</span> in class. So- let's have a chat!</p>
+
+                
+            <h3><img src="Quality%20guarantee.png" style="position:absolute; z-index:-1;margin-left:-90px;left:50%" width="180px"/>Quality Guarantee</h3>
+            <p>From the very first training I delivered I started asking <span class="high">anonymous feedback</span>. The global results (from 297 feedback forms) is summarized in the chart bellow. Upon request, I can show you the feedback forms (~2kg:), or per-module statistics, where available.</p>
+            <p><span class="high">Recommendations from senior developers</span> that attended my trainings are also availabe.</p>
+            <p>Finally, the training contract will include a <span class="high">restitution clause in case of negative final feedback</span>.</p>
+
+            <div id="global-feedback">
+                <img src="global-feedback.jpg"/>
+            </div>
+
+        </section>
+
+        <!-- OODP  ****************************************** -->
+        <section>
+            <h2 id="training/object-oriented-design-patterns" code="OO-DP">Object-Oriented Design Patterns</h2>
+            <span class="duration">2 parts x 2 hours</span>
+            <img src="politehnica.jpg" style="float:right; margin: 20px"/>
+            <p>This is the star-training of my portfolio. Delivered <span class="high">more than 10 times</span> in various formats and setups, I also held it for the last two years as <span class="high">part of the "Java" faculty course</span> of the Automatics & Computers Department of Politehnica University of Bucharest.</p>
+            <p>This 2-part presentation will cover the most used Object-Oriented Design Patterns from the reference <a href="https://en.wikipedia.org/wiki/Design_Patterns">Gang-of-Four book</a>. Although the material covers all the GoF patterns, I would recommend instead to focus and analyze in more depth those patterns that are most used to day, and omit the grayed-out patterns in the agenda. This way we might gain enough time to talk about related concepts such as Aspect-Oriented-Programming, dynamic Java Proxies, and more.</p>
+            <p>The presentation is very dynamic, with <span class="high">a lot of real-life examples</span> to help you deeply understand the concepts and remember them <i>forever</i>.</p>
+            <p>The <span class="high">extensive application part</span> of this module however, is the one that will definetly shed light to all the quirks of the patterns. When your own hands will write the solutions to the exercises, you will have no choice but to fully understand the design patterns.</p>
+            <p>The target audience includes any Object-Oriented programmers, on Java or .NET. </p>
+
+            <p><u>Part 1</u>
+                <br/> <i>1:30' talk, 30' practice</i>
+            </p>
+            <ul>
+                <li>What are design patterns? Pros/cons...</li>
+                <li>3 Principles of a Good OO Design</li>
+                <li>The SOLID principles</li>
+
+                <li>Creational Patterns:
+                    <ul>
+                        <li>Singleton</li>
+                        <li>Builder</li>
+                        <li>Factory</li>
+                        <li style="color:#ccc">Factory Method</li>
+                        <li style="color:#ccc">Prototype</li>
+                    </ul>
+                </li>
+
+
+                <li>Structural Patterns:
+                    <ul>
+                        <li>Adapter</li>
+                        <li>Proxy</li>
+                        <li>Decorator</li>
+                        <li>Composite</li>
+                        <li>Facade</li>
+                        <li style="color:#ccc">Bridge</li>
+                        <li style="color:#ccc">Flyweight</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><u>Part 2</u>
+                <br/> <i>40-50' talk, 30' practice, 20' test with prises+explanation, 10' anti-patterns</i>
+            </p>
+            <ul>
+                <li>Behavioral Patterns:
+                    <ul>
+                        <li>Observer</li>
+                        <li>Iterator</li>
+                        <li>Strategy</li>
+                        <li>Template Method</li>
+                        <li>Command</li>
+                        <li>Visitor</li>
+                        <li style="color:#ccc">Chain of responsibility</li>
+                        <li style="color:#ccc">Mediator</li>
+                        <li style="color:#ccc">Memento</li>
+                        <li style="color:#ccc">State</li>
+                    </ul>
+                </li>
+                <li>OO Antipatterns</li>
+            </ul>
+
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-oodp">
+                        <u>Anonymous Feedback Comments</u>
+                    </a>
+                </div>
+                <div id="feedback-oodp" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>It was a very interesting and interactive course! Thank you for it!!</li>
+                            <li>The practical examples provided are very easy to remember and I really think I'll remember these concepts for a long time</li>
+                            <li>The exemplification of the pattern's idea on practical real world situations was very suggestive and really helped me understand the concepts deeply.</li>
+                            <li>The application part was very interesting!</li>
+                            <li>Not being so familiar with the subject, I found all very interesting, especially the Design Patterns which are often used in Java.</li>
+                            <li>It was all very interesting</li>
+                            <li>You have nothing to improve!!!</li>
+                            <li>The examples were the most important, and they really helped us understand a lot better the concepts presented (and I'm referring here to several of us who didn't knew almost anything about design patterns).</li>
+                            <li>All the topics were interesting, but especially the Anti-Patterns!</li>
+                            <li>To me, the entire course was important.</li>
+                            <li>Every notion was important to me and helped me understand better what I have to do and how.</li>
+                            <li>I personally liked how you managed to keep me alert. I wasn't bored for a second and I got a lot of necessary and important informations</li>
+                            <li>All the parts were important!</li>
+                            <li>What to improve? Nothing!</li>
+                            <li>I think it was especially interesting the live changes of the code together with their explanations</li>
+                            <li>Taking into account that I haven't used design patterns until now, the examples helped me a lot</li>
+                            <li>I consider very important the principles and concepts presented</li>
+                            <li>The application of the described concepts was of great value!</li>
+                            <li>The entire course was very exciting!</li>
+                            <li>The high-level general part was very interesting</li>
+                            <li>The test and the application enable a deep understanding of these patterns on the long term</li>
+                            <li>Impeccable, very clear and suggestive</li>
+                            <li>The application part was essential, along with the evaluation of the acquired understanding and the excellent graphical representation of the concepts and their correlation (for differential learning)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EEDP  ****************************************** -->
+        <section>
+            <h2 id="training/java-ee-design-patterns" code="EE-DP">JavaEE Design Patterns</h2>
+            <span class="duration">2 hours</span>
+            <p>Developing Enterprise applications is hard. No one can argue that.</p>
+            <p>But why? Is it because of their overly-complex business logic, their NFRs, the heterogenous teams, the business-IT gap, or maybe a combination of it all? Whatever the cause, <span class="high">enterprise applications tend to be very large</span>, with a considerable proportion of similar functionality. The perfect place for a pattern.</p>
+            <p>Enterprise application strive for order. They simply can't stand a chaotic unorganized approach that will render their <span class="high">maintainance a HELL</span> and eventually lead to the dreaded REWRITE.</p>
+            <p>This module covers the major design patterns used in the development of typical enterprise Java applications. The patterns are studied on layers, paying special attention to the Client and the Business Layer, the places where the actual creativity usually resides. The participants will learn the <span class="high">principles of a good JavaEE design</span> and solutions to various recurrent problems.</p>            
+            <p>With one of the largest bibliography of all my modules, this course is based on <span class="high">a considerable part of the Oracle Certified JavaEE6 Architect agenda</span>.</p>
+            <p>Even if the patterns are implemented using the Java EE5+ standard, most of these patterns can be used in any major middleware framework, like Spring.</p>
+            <p>This module is probably the most difficuly one in my portfolio, so it is <span class="high">dedicated to those with certain experience</span> in JavaEE/Spring, but also to those who love challenges.</p>
+            <p>Throughout the talk, we will stop on certain patterns to see how they look in code and to finalize certain incomplete implementations. However, the application part is rather scarce compared to my other modules due to the very abstract nature of the covered topics. </p>
+            <p>NOTE: In case you want us to dissect a real-world example of an Java Enterprise application, I have such an example prepared that will take 1 more hour.</p>
+
+
+            <p><i>1:30 talk, 25' demo, 5' recap test, <br />[optional] 1h inpection of real-world Java Enterprise Application</i>
+            </p>
+            <ul>
+                <li>Introduction: pro/cons, pitfalls</li>
+                <li>Several acronyms &amp; principles: DRY, KISS, SRP, ...</li>
+                <li>Layered Application Architecture</li>
+                <li>Presentation Tier Patterns
+                    <ul>
+                        <li>MVC</li>
+                        <li>Model2</li>
+                        <li>Rich Internet Applications</li>
+                        <li>Model-View-Whatever: M-V-P, M-V-VM</li>
+                        <li>Comet/Server Push</li>
+                    </ul>
+                </li>
+                <li>Business Tier Patterns
+                    <ul>
+                        <li>Facade</li>
+                        <li>Service</li>
+                        <li>Method Object</li>
+                        <li>Entity</li>
+                        <li style="color:#ccc" title="On special request, if remains time">Domain-Driven-Design</li>
+                    </ul>
+                </li>
+                <li>Integration Tier Patterns
+                    <ul>
+                        <li>DAO</li>
+                        <li>DTO</li>
+                    </ul>
+                </li>
+                <li>Infrastructural Patterns & Utilities
+                    <ul>
+                        <li>Service Activator</li>
+                        <li>Asynchronous Call</li>
+                        <li>Singleton</li>
+                        <li>Service Locator</li>
+                        <li>Context Holder</li>
+                        <li>Mapper</li>
+                    </ul>
+                </li>
+                <li>Antipatterns</li>
+            </ul>
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-eedp">
+				See Anonymous feedback comments
+				</a>
+                </div>
+                <div id="feedback-eedp" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>You managed to capture the essence of the subject and transmit the informations in an interesting and interactive manner! Congratulations!</li>
+                            <li>Excellent time management</li>
+                            <li>Very intuitive animations in slides</li>
+                            <li>You managed to capture the actual approaches to EE Design Patterns and to explain very well the structures</li>
+                            <li>You had a very clear and concise presentation style</li>
+                            <li>Very intersting the infrastructural patterns</li>
+                            <li>There is nothing to improve to this course</li>
+                            <li>The entire course was very interesting!</li>
+                            <li>Very interesting the presentation of the layers of an application - the overview</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clean Code  ****************************************** -->
+        <section>
+            <h2 id="training/clean-code" code="CleanCode">The Art of Clean Code</h2>
+            <span class="duration">2 parts x 2 hours (or shorter)</span>
+            <p>The primary value of <span class="high">software is to be flexible</span>. The secondary value of software is to do what business wants it to do.</p>
+            <p>Sounds insane? Just think a bit: what's the difference between IT and regular engineering? What propulsated IT that much? <span class="high">The ability to evolve, to adapt to new business needs</span>. And we all know how difficult it is to adapt and strech old, dirty, rigid code.</p>
+            <p>Financially, the fact that 80% of the costs of a software project are in maintenance may not concern you, the developer, directly. But the fact that <span class="high">you read 10x times more time than you write</span> code should make it clear to you: do your very best to write clean, beautiful code that is easy to maintain. This module explains how write such art.</p>
+            <p>Besides the bare act of writing code, the module also tackles the problematic of <span class="high">team work</span>, code responsibility and cooperation necessary to any professional software engineer.</p>
+            <p>The module covers the most important practical aspects from the reference book <span class="high">'Clean Code' by Robert C. Martin</span>, along with many other sources. The training <span class="high">material was reviewed and discussed with numerous seniors</span> to reach a wider consensus regarding the ideas and their nuances.</p>
+            <p>This is the module which is most likely to have <span class="high">the deepest impact on your day-to-day work</span>, changing the way you exercise your profession. That's why I allways recommend to add this module to any training.</p>
+
+
+            <p><u>Part 1</u>
+                <br/> <i>1h talk, 1h practice: cooperative cleaning up of Martin Fowler's <span class="high">Video Store refactoring example</span></i>
+            </p>
+            <ul>
+                <li>What is Clean Code</li>
+                <li>Names
+                    <ul>
+                        <li>Express intent</li>
+                        <li>Parts of speech</li>
+                    </ul>
+                </li>
+
+                <li>Functions
+                    <ul>
+                        <li>Function Size</li>
+                        <li>Extracting Method Objects</li>
+                        <li>Function Signature</li>
+                        <li>Side Effects & Temporal Coupling</li>
+                        <li>Command/Query separation</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p><u>Part 2</u>
+                <br/> <i>1h talk, <span style="color:#ccc" title="(optional)">1h practice</span></i>
+            </p>
+            <ul>
+                <li>Classes
+                    <ul>
+                        <li>Basic Shape</li>
+                        <li>True Encapsulation</li>
+                        <li>Data Structures vs. True Objects</li>
+                        <li>Switch+Data Structures vs. Polymorphic Objects</li>
+                        <li>'Tell, Don't Ask' Principle</li>
+                        <li>Feature Envy</li>
+                        <li style="color:#ccc" title="in case we have time enough time">The Plugin Model: Dependency Inversion</li>
+                    </ul>
+                </li>
+                <li>Code Formatting</li>
+                <li>Comments are failures</li>
+            </ul>
+
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-clean-code">
+				See Anonymous feedback comments
+				</a>
+                </div>
+                <div id="feedback-clean-code" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>TO COPY</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EJB  ****************************************** -->
+        <section>
+            <h2 id="training/ejb" code="EJB">Enterprise Java Beans</h2>
+            <span class="duration">2 hours</span>
+            <p>It's Black Friday, 6<sup>00</sup> AM. From the 1.000.000 users logged in on the emag.ro site, 1.000 submit their purchase each second. The online store application must resists such pressure while ensuring that all transactions are correctly processed. Furthermore, just realize that the online shopping system is not alone - it relies on quite a series of 3rd party services such as banks, courier services, suppliers and distributor chains, etc...</p>
+            <p>Now, imagine building such a system from scratch, without any libraries in Java SE. By the way, did you thought about distributed transactions and <a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol">2PC</a>?</p>
+            <p>I think you now begin to understand the problematic addressed by the EJB standard and the entire Java EE suite altogether. Now, obviously, besides the challenges of the infrastructural requirements, the business logic of this application is extremely difficult to manage by itself. So why not leave EJBs to handle most of these infrastructural requirements?</p>
+            <p><span class="high">How does the EJB standard simplify the development of such demanding applications</span>? What services does Java EE<sup>5+</sup> offers us to overcome these callenges? How does it promote quality code?</p>
+
+            <p><i>1:15 talk, 15' test with prizes, 30' demo applications</i>
+            </p>
+            <ul>
+                <li>Introduction: what EJB gives you</li>
+                <li>Stateless Session Beans</li>
+                <li>Stateful Session Beans</li>
+                <li>Declarative Transaction Management</li>
+                <li>Interceptors</li>
+                <li>Timers</li>
+                <li>New stuff in EJB 3.1Introduction</li>
+            </ul>
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-ejb">
+				See Anonymous feedback comments
+				</a>
+                </div>
+                <div id="feedback-ejb" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>Explanations were very clear.</li>
+                            <li>Very useful explanations!</li>
+                            <li>The topic about transactions was very useful</li>
+                            <li>Good idea with the test!</li>
+                            <li>A very good presentation and exemplary explanation of examples</li>
+                            <li>Very interesting topics: transactions, stateless beans, interceptors and declarative security</li>
+                            <li>The exercises applied on the theory were very usefulEverything was very important</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JEE6  ****************************************** -->
+        <section>
+            <h2 id="training/jee6-cdi" code="JEE6/CDI">What's new in Java EE6. CDI.</h2>
+            <span class="duration">2 hours</span>
+            <p>This module explains the major additions of the version 6 of the Java EE uber-standard.</p>
+            <p>Particular emphasis is given to the brand new <i title="Some say...">revolutionary</i> <span class="high">CDI Beans</span> (Context and Dependency Injection standard). You will be amazed by the power of the CDI beans, their simplicity and their extensibility. <span class="high">CDI events will also surprise you</span> with an unprecedented extremely loose coupled way of doing message-passing in Enteprise applications.</p>
+            <p>It is recommended for the participants to either have basic knowledge of Java EE5 or to have attended to the <a href="#training/ejb">EJB module</a>.</p>
+
+            <p><i>1:30 talk, 30' demo of CDI beans</i>
+            </p>
+            <ul>
+                <li>EJB 3.1
+                    <ul>
+                        <li>@Singleton</li>
+                        <li>no-interface view</li>
+                        <li>async calls</li>
+                        <li>packaging</li>
+                    </ul>
+                </li>
+                <li>Context and Dependency Injection
+                    <ul>
+                        <li>@Inject</li>
+                        <li>Events</li>
+                        <li>scopes</li>
+                    </ul>
+                </li>
+                <li>Servlet 3.0: async. processing of HTTP requests</li>
+                <li>Bean Validation</li>
+            </ul>
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-jee6">
+				See Anonymous feedback comments
+				</a>
+                </div>
+                <div id="feedback-jee6" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>You were very well prepared.</li>
+                            <li>The application was very suggestive.</li>
+                            <li>The entire course was very interesting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JEE7  ****************************************** -->
+        <section>
+            <h2 id="training/jee7" code="JEE7">What's new in Java EE7. <span class="high">WebSockets</span>.</h2>
+            <span class="duration">2 hours</span>
+            <p>2013 brought WebSockets in the Servlets' API, that is, <span class="high">true bi-directional browser-server communication</span>.</p>
+            <p>This, and the most interesting other APIs and simplifications in JavaEE7 are explained in detail. This module doesn't cover the batch support, however.</p>
+            <p>It is recommended for the participants to either have basic knowledge of Java EE5/6 or for this module to be preceeded by the respective modules.</p>
+
+            <p><i>1:10 talk, 50' demo (including websockets)</i>
+            </p>
+            <ul>
+                <li>JAX-RS 2.0
+                    <ul>
+                        <li>Client-side API</li>
+                        <li>Async on server- and client-side</li>
+                        <li>Interceptors</li>
+                    </ul>
+                </li>
+                <li>JMS 2.0</li>
+                <li>Web Sockets API</li>
+                <li>JSONP</li>
+                <li>Concurrency UtilitiesEJB 3.1</li>
+            </ul>
+        </section>
+
+        <!-- JPA  ****************************************** -->
+        <section>
+            <h2 id="training/jpa" code="JPA">Java Persistence API</h2>
+            <span class="duration">2+ hours</span>
+            <span class="accordion-group">
+                <p>Imagine <span class="high">a project with no more SQL</span>. No more FK, sequences, weird column names, PreparedStatements and Result Sets. No more database schema diagram on your desktop, next to your Java domain model. No more lightLoad/fullLoad, no more storing IDs of other entities in fields. <span class="high">It's all just Java now</span>. The database remains 
+			<span class="accordion-heading"><a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#jpa-detail">just a detail</a></span>.</p>
+            <div id="jpa-detail" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <p>We will also discuss the scenarios in which JPA is appropriate or not, and what to do in case you really need some database-specific feature (e.g. CONNECT BY, or /*-hints).</p>
+                </div>
+            </div>
+            </span>
+            <p>This module introduces your to this marvellous standard, teaching you <span class="high">how to design your Java <b>Object</b>-to-<b>Relational</b> Database <b>Mapping</b></span> (ORM), explaining the common best practices and pitfalls.</p>
+            <p>The second half of the module explains in details how the <code>EntityManager</code> actually works, <span class="high">including tricky stuff like lazy loading, cascading and detach/reattach entities</span>.</p>
+            <p>The trainees should have some experience with SQL and Java. Ideally, they would also know the basic concepts of declarative transaction management in EJB or Spring (but this is not mandatory).</p>
+
+            <p><i>1:20 talk, 10' test with prizes, 30' demo pitfalls</i>
+            </p>
+            <ul>
+                <li>Introduction</li>
+                <li>Mapping Java Objects to Database Tables
+                    <ul>
+                        <li>Mapping basic fields</li>
+                        <li>Mapping relationships (1:1, 1:n, n:n)</li>
+                        <li>Mapping inheritance</li>
+                    </ul>
+                </li>
+                <li>EntityManager: Principles and Concepts</li>
+                <li>Entity lifecycle</li>
+                <li>Java Persistence Query Language (JPQL)</li>
+            </ul>
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-jpa">
+				See Anonymous feedback comments
+				</a>
+                </div>
+                <div id="feedback-jpa" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>Everything was very important</li>
+                            <li>The hands-on application was very useful</li>
+                            <li>The in-class ORM exercise was an excellent idea. I really managed to master the concepts there.</li>
+                            <li>Very clear explanations</li>
+                            <li>The contents could easily span 3 hours, please extend it a bit, to have time to discuss everything in depth.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REST ***************************** -->
+        <section>
+            <h2 id="training/rest-web-services" code="REST WS">RESTful Web Services</h2>
+            <span class="duration">2 hours</span>
+            <p>In 2000, Fielding's Doctoral thesis has shaken the world of web services, introducing <span class="high">a series of design principles using which the development of web services could become childs play</span>. Apparently.</p>
+            <p>Let's dive together in the world of REpresentational State Transfer, and understand its principles, how they differ from SOAP-based web services, their pros/cons, and then see them in action in Java.</p>
+            <p>This modules covers both the <span class="high">theory</span> backing the REST web services as well as their implementation in Java (<span class="high">JAX-RS</span>). It remains up to the trainees if we either sweep rapidly over the architectural principles, either go into details about the more advanced topics of the subject.</p>
+
+            <p><i>1h talk, 1h hands-on: simple REST endpoint using JAX-RS</i>
+            </p>
+            <ul>
+                <li>Basic REST Concepts:
+                    <ul>
+                        <li>Resources, URIs</li>
+                        <li>Principles of Resource-Oriented Architecture</li>
+                        <li>Versioning, Content Negotiation</li>
+                    </ul>
+                </li>
+                <li>Designing a REST WS: steps, common pitfalls</li>
+                <li>JAX-RS: walk though code examples, RESTEasy</li>
+                <li>Testing Tools</li>
+            </ul>
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-rest">
+				See Anonymous feedback comments
+				</a>
+                </div>
+                <div id="feedback-rest" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>The application was very useful. I really got it now!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOAP WS ***************************** -->
+        <section>
+            <h2 id="training/web-services" code="SOAP WS">Web Services (.wsdl)</h2>
+            <span class="duration">2-3 parts x 2 hours</span>
+            <p>This course is under construction, and it will be finalized upon your request.</p>
+            <img src="under-construction.jpg" width="200px" />
+        </section>
+
+        <!-- ****************** SPRING ******************** -->
+        <section>
+            <h2 id="training/spring" code="Spring">Spring Framework</h2>
+            <span class="duration">5 parts x 2 hours</span>
+            <p>TODO.</p>
+            <p>Full fledged example - upon request +1h</p>
+
+            <u>Part 1: Spring Core Basics</u>
+            <p><i>1:10 talk, 50' hands-on</i>
+            </p>
+            <ul>
+                <li>What is Spring? Why Spring?</li>
+                <li>Defining and Wiring Beans: XML and @nnotation</li>
+                <li>Bean Lifecycles: scopes</li>
+                <li>Setting up Spring</li>
+            </ul>
+
+            <u>Part 2: Spring Core Advanced</u>
+            <p><i>1:10 talk, 20' demo AOP, 30' exercise</i>
+            </p>
+            <ul>
+                <li>Spring AOP</li>
+                <li>Externalizing Configuration; SpEL</li>
+                <li>Advanced Topics: @Inject, Extensions, ...</li>
+                <li>Testing Support</li>
+            </ul>
+
+            <u>Part 3: Spring DAO</u>
+            <p><i>1:10 talk, 50' hands-on</i>
+            </p>
+            <ul>
+                <li>Spring DB access Philosophy</li>
+                <li>Working with JDBC: JDBCTemplate</li>
+                <li>Working with JPA</li>
+                <li>Declarative Transactions</li>
+                <li>Concepts &amp; Principles</li>
+                <li>Transaction Propagation</li>
+                <li>Transaction Isolation</li>
+            </ul>
+
+            <u>Part 4: Spring MVC</u>
+            <p><i>1h talk, 1h hands-on</i>
+            </p>
+            <ul>
+                <li>Introduction</li>
+                <li>Annotation-driven Controllers</li>
+                <li>Securing Spring Applications</li>
+                <li>Publishing and Consuming JAX-WS web services</li>
+                <li>Publishing and Consuming RESTful web services</li>
+            </ul>
+            
+            <u>Part 5: Spring Batch</u>
+            <p><i>1h talk, 1h hands-on</i></p>
+            <p>This part is under construction, and it will be finalized upon your request.</p>
+            <p>Experience: I have built an application on Spring Batch.</p>
+            <img src="under-construction.jpg" width="200px" />
+            
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-spring">
+				See Anonymous feedback comments
+				</a>
+                </div>
+                <div id="feedback-spring" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>TODO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+                
+        <!-- JUnit ***************************** -->
+        <section>
+            <h2 id="training/junit" code="JUnit">JUnit Testing. Mocking.</h2>
+            <span class="duration">2 hours</span>
+            <p>This course is under construction, and it will be finalized upon your request.</p>
+            <img src="under-construction.jpg" width="200px" />
+        </section>
+
+        <!-- ****************** Test-Driven Development ******************** -->
+        <section>
+            <h2 id="training/test-driven-development" code="TDD">Test-Driven Development</h2>
+            <span class="duration">2 hours</span>
+            <p><span class="high">Meet the next level of software development.</span></p>
+            <p>What if instead of writing some tests after writing the actual development, you would begin developing a new feature by first writing a unit test for it. <i>The test will fail!</i>, you would say. <i>It's meaningless!!</i> </p>
+            <p>Not at all!</p>
+            <p>Because as soon as you'll see the test passing, that feature is secured from then on. If you do it correctly, <span class="high">you will get 100% real test coverage!</span>.</p>
+            <p>And what does that mean? It means that <span class="high">you will not fear your own code anymore</span>. You will be able to <span class="high">refactor it as you like</span>, without the terror that you'll break some feature. And as soon as you will refactor it freely, <span class="high">the code will stay alive</span>, it will be able to follow the business requirements closely and cleanly.</p>
+            <p>Besides the TDD phylosophy and implementation, this module also provides a remarkable series of <span class="high">guidelines for writing good unit tests</span>.</p>
+            <p>Basic knowledge of unit testing and Java test mocking frameworks (EasyMock, jMock, Mockito,...) is recommended. The <a href="#training/junit">JUnit Testing module</a> can bridge that gap for you.</p>
+
+
+            <p><i>1h talk, 1h hands-on (Bowling game kata)</i>
+            </p>
+            <ul>
+                <li>Definition
+                    <ul>
+                        <li>The 3 Rules of TDD</li>
+                        <li><span class="high">TDD Mantra: Red-Green-Refactor</span></li>
+                    </ul>
+                </li>
+                <li>Advanced Unit Testing
+                    <ul>
+                        <li>What does a Unit Test tell you ?</li>
+                        <li>Fragile Tests vs. Clean Tests</li>
+                        <li>Fluent Builders at their most</li>
+                        <li>Testing Persistence</li>
+                    </ul>
+                </li>
+                <li>TDD Pros & Cons</li>
+                <li style="color:#ccc">Behavior-Driven Design: an introduction</li>
+            </ul>
+
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-tdd">
+				See Anonymous feedback comments
+				</a>
+                </div>
+                <div id="feedback-tdd" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>TODO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ****************** UML ******************** -->
+        <section>
+            <h2 id="training/uml" code="UML">UML Modelling</h2>
+            <span class="duration">2 parts x 1,5 hours</span>
+            <p><span class="high">A diagram is the most efficient way to communicate</span>, understand and reason about a software design. That’s why any professional application developer should talk UML fluently. This training covers the <span class="high">UML diagrams most frequently used in the daily practice</span> of a software developer, with particular emphasis on <span class="high">Class, Sequence and Activity Diagrams</span>. Other less common design-time diagrams are also presented, although without going into unnecessary details.</p>
+            <p>For each exercise, the classroom will be split in teams of 2-3 members, and each team will <span class="high">ellaborate a diagram for each exercise</span>. After the time elapses, each team in turn will explain their solution to the entire classroom to provide a starting point for discussions. Alternative modeling options and various design assumptions will be analyzed.</p>
+
+            <u>Part 1</u>
+            <p><i>1h talk, 30' in-class brainstorming: 2 class diagrams</i>
+            </p>
+            <ul>
+                <li>Introduction</li>
+                <li>Structural UML Diagrams
+                    <ul>
+                        <li>Class Diagrams (in detail)</li>
+                        <li>Object Diagrams</li>
+                        <li>Package Diagrams</li>
+
+                        <li>Component Diagrams</li>
+                    </ul>
+                </li>
+            </ul>
+            <u>Part 2</u>
+            <p><i>1h talk, 30' hands-on: 2 sequence and 1 activity diagram</i>
+                <ul>
+                    <li>Behavioral UML Diagrams
+                        <ul>
+                            <li>Sequence Diagrams (in detail)</li>
+                            <li>Collaboration Diagrams</li>
+                            <li>Activity Diagrams (in detail)</li>
+                            <li>State Machine Diagrams</li>
+                        </ul>
+                    </li>
+                    <li>Best Practices for drawing diagrams</li>
+                </ul>
+
+
+        </section>
+
+        <!-- ****************** Requirements ******************** -->
+        <section>
+            <h2 id="training/requirements" code="Requirement">Requirements</h2>
+            <span class="duration">1 hour</span>
+            <p><i>In the beginning, there were the Requirements.</i>
+            </p>
+            <p>What are those? What kind of requirements are there and <span class="high">where should we search for them</span>? What are those “<span class="high">non-functional requirements</span>”, after all, and why should I care about them? This short module tries to answer those questions from the practical viewpoint of a software developer/architect.</p>
+
+            <p><i>1h talk &amp; discussions</i>
+            </p>
+            <ul>
+                <li>Source of Requirements</li>
+                <li>Requirements, Qualities and Constraints</li>
+                <li>SMART Requirements</li>
+                <li>Functional Requirements</li>
+                <li>Non-Functional RequirementsIntroduction</li>
+            </ul>
+
+        </section>
+
+        <!-- ****************** EIP ******************** -->
+        <section>
+            <h2 id="training/enterprise-integration-patterns" code="EIP">Enterprise Integration Patterns</h2>
+            <span class="duration">1+ hour</span>
+            <p>We will study the <span class="high">classic Enterprise Integration Patterns</span> as described by Gregor Hope in <a href="www.amazon.com/Enterprise-Integration-Patterns-Designing-Deploying/dp/0321200683">his reference book</a>, walking them right of his <a href="http://www.enterpriseintegrationpatterns.com/">website</a>, explaining and discussing each in turn.</p>
+            <p>For the application, we will solve together in class an enterprise integration problem using a little <a href="http://projects.spring.io/spring-integration/">Spring Integration</a>-based application.</p>
+            <p><i>40' talk &amp; discussions, 20+' Hands-on with Spring Integration</i>
+            </p>
+            <ul>
+                <li>Introduction</li>
+                <li>Integration Styles</li>
+                <li>Messaging Systems</li>
+                <li>Messaging Channels</li>
+                <li>Message Construction</li>
+                <li>Message Routing</li>
+                <li>Message Transformation</li>
+                <li>Messaging Endpoints</li>
+                <li>Utils</li>
+            </ul>
+
+            <p>If necessary, we can ellaborate more on each pattern and expand the application part such that to spend 2 hours on this module, in order to deeply understand each of the patterns.</p>
+
+
+        </section>
+
+        <!-- ****************** Web Security ******************** -->
+        <section>
+            <h2 id="training/web-security" code="WebSec">Web Security</h2>
+            <span class="duration">1 hour</span>
+            <p>The course covers the <span class="high">Top 10 Web Security Attacks in 2013</span>, as reported by OWASP. Each attack is explained, exemplified and then one or more solutions are proposed to them.</p>
+            <p>Anyone can participate, although some minimum Knowledge of the web technologies is recommended (JavaScript, HTTP, HTML).</p>
+
+            <p><i>1h talk &amp; discussions</i>
+            </p>
+            <ul>
+                <li>Injection</li>
+                <li>Broken Authentication and Session Management</li>
+                <li>XSS</li>
+                <li>Insecure Direct Object References</li>
+                <li>Security Misconfiguration</li>
+                <li>Sensitive Data Exposure</li>
+                <li>Missing Function Level Access Control</li>
+                <li>CSRF</li>
+                <li>Using known vulnerabilities</li>
+                <li>Unvalidated Redirect and Forwards</li>
+            </ul>
+
+
+        </section>
+
+        <!-- ****************** My Batis ******************** -->
+        <section>
+            <h2 id="training/mybatis" code="myBatis">myBatis Data Mapper</h2>
+            <span class="duration">1 hour</span>
+            <p>Ok, so you have this huge project written with plain old JDBC code (<code>PreparedStatement ps =...</code>, <code>ResultSet rs =...</code>, <code>} finally {</code> and so on. You dream of <span class="high">migrating the data access layer to a newer, cleaner, more maintainable technology</span>. After a bit of research you realized JPA was to much for this jump. What option are you left with then? Spring's <code>JdbcTemplate</code>, you may say. Yes indeed.</p>
+            <p>But couldn't you have more? Couldn't you get rid of the <code>rs.getLong(24)</code> call and have instead a <span class="high">declarative Java object - result set column mapping</span> ?</p>
+            <p>What about those search queries with variable number of criteria, for which you concatenate SQL bits and hope to not mess up the order of the prepared statement's parameters? Couldn't you get rid of those <code>if (hasCriteriaX) { sql += " AND criteriaX = ?"; psArgs.add(criteriaX); }</code> code ? Wouldn't it be nice to <span class="high">compose dynamic queries in a more declarative way</span>?</p>
+            <p>Meet MyBatis, the framework that you were looking for. This workshop covers all the features of the <a href="https://mybatis.github.io/mybatis-3/">MyBatis data mapper</a>, starting from the most trivial scenarios and diving into the more advanced topics as <span class="high">linked result maps, N+1 query problem and dynamic queries</span>. Special emphasis is placed on <span class="high">how to migrate legacy SQL queries to MyBatis</span>. The contents roughly follows the online tutorial.</p>
+            <p>Some minimum Knowledge of SQL is recommended.</p>
+
+            <p><i>1h examples and hands-on</i>
+            </p>
+            <ul>
+                <li>Mapping result set columns to bean fields</li>
+                <li>Mapping input data to query parameters</li>
+                <li>Reusing result maps</li>
+                <li>An elegant solution to the N+1 fetch problem</li>
+                <li>Polymorphyc result sets</li>
+                <li>Dynamic queries (e.g. for search forms)</li>
+            </ul>
+        </section>
+
+        <!-- ****************** JAXB & XSD ******************** -->
+        <section>
+            <h2 id="training/xsd-jaxb" code="XSD &amp; JAXB">XML Schema &amp; JAXB</h2>
+            <span class="duration">2 hours</span>
+            <p>XML is everywhere.</p>
+            <p>But do you know <span class="high">how to define the structure of such an XML</span>? And then, <span class="high">how do you work with XMLs from Java</span>?</p>
+            <p>This module explains the common structures of the XML Schema Definition. Although the XSD specification is remarkably complex, it is so in order to be as flexible as possible. For the vanilla enterprise applications however, this module covers more than enough of the XSD specification.</p>
+            <p>Ok, so you defined your XML structure (.xsd), what then? How do you read/write such XMLs? Do you struggle with SAX events or you cross your fingers and load the whole DOM in memory? Or maybe you are a litle fancier and you play with StAX? All of these three standards have their purposes, but for regular enterprise applications, <span class="high">you would probably like to work with JAXB objects resebling your Java Model</span> than with Nodes, Attributes or Events. Let's see how this JAXB works and perhaps how can we customize it a bit.</p>
+
+            <p><i>1:10 lecture, 40' hands-on XSD, 10' JAXB demo</i>
+            </p>
+            <ul>
+                <li>XSD
+                    <ul>
+                        <li>What is it?</li>
+                        <li>Fundamentals</li>
+                        <li>Simple &amp; Complex Types</li>
+                        <li>Elements</li>
+                    </ul>
+                </li>
+                <li>JAXB
+                    <ul>
+                        <li>What is it?</li>
+                        <li>Generating Java classes out of XSDs (and vice-versa)</li>
+                        <li>Marshalling and Unmarshalling Java&lt;-&gt;XML</->
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-jaxb">
+				See Anonymous feedback comments
+				</a>
+                </div>
+                <div id="feedback-jaxb" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul>
+                            <li>Super!</li>
+                            <li>The application was very interesting</li>
+                            <li>We are waiting for more modules. Congratulations!</li>
+                            <li>It was very interesting the application for JAXB and XSD</li>
+                            <li>Very useful the part regarding the import of XSDs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!--
+		<div id="consultancy" class="section">
+<h1>Consultancy</h1>
+</div>
+-->
+        <!-- ***** CV ****** -->
+   
+<section>
+            <h1 id="about" code="About Me">About Me</h1>
+            <h3>Curriculum Vitae</h3>
+            <p></p>
+            <a target="_blank" href="CV-Victor-Rentea.EN.pdf">
+                <div class="cv">
+                    <img src="pdf-icon.jpg" alt="PDF" width="100" height="100">
+                    <br> CV Victor Rentea (EN)
+                </div>
+            </a>
+
+
+            <p>A more detailed assignment history is available upon request, together with accompnaying explanations.</p>
+            <h3>PFA</h3>
+            <p>I am an <span class="high">authorized physical person</span> (P.F.A.), so that the business we do together can be financially legal.</p>
+            <p><b>CUI</b>: 34835235</p>
+            <p><b>Nr RC</b>: F40/3035/30.07.2015</p>
+
+        </section>
+
+                
+        <section>
+            <h1 id="clients" code="Clients">Client Portfolio</h1>
+            <p>I gained the majority of my training experience inside IBM, holding internal trainings to fellow employees. However, recently I've began holding trainings independently to interested companies. Their references are available upon request.
+            </p>
+            <div id="client-logos">
+                <img src="client-ibm.png" />
+                <img src="client-pro-management.png"/>
+                <img src="client-abs.png"/>
+            </div>
+        </section>
+        <section>
+            <h1 id="contact" code="Contact">Contact</h1>
+            <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp;<a href="tel:+40720019564">(+4)0720.019.564</a>
+            </p>
+            <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;<a href="mailto:victorrentea@gmail.com">victorrentea@gmail.com</a>
+            </p>
+            <p><span class="fa fa-fw fa-linkedin" aria-hidden="true"></span><a href="https://ro.linkedin.com/pub/victor-rentea/4a/936/933">Victor Rentea</a>
+            </p>
+        </section>
+                
+        <p>
+            <br />
+            <br />
+            <br />
+      <a href="http://validator.w3.org/check?uri=referer"><img
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+    </p>
+<br>
+
+    </div>
+    <!-- /.container -->
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="anchor.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <div id="rightNav">
+        <ul>
+
+        </ul>
+    </div>
+
+    <script>
+        /*$(window).resize(function () {
+                                    $('.section img').each(function (i, image) {
+                                        var hw = image.naturalHeight / image.naturalWidth;
+                                        var actualHeight = window.innerWidth * hw;
+                                        console.log("actual height: " + actualHeight);
+                                        if (actualHeight < $(image).attr("min-height")) {
+
+                                            console.log("XXXX");
+                                        }
+                                        //$('.section img');
+                                    })
+                                });*/
+
+
+        function isScrolledIntoView(elem, delta) {
+            var $elem = $(elem);
+            var $window = $(window);
+
+            var docViewTop = $window.scrollTop();
+            var docViewBottom = docViewTop + $window.height();
+
+            var elemTop = $elem.offset().top;
+            var elemBottom = elemTop + $elem.height();
+
+            return ((elemBottom <= docViewBottom - delta) && (elemTop >= docViewTop + delta));
+        }
+
+        function getDistanceToMarginRatio(elem, delta) {
+            var $elem = $(elem);
+            var $window = $(window);
+
+            var docViewTop = $window.scrollTop();
+            var docViewBottom = docViewTop + $window.height();
+
+            var elemTop = $elem.offset().top;
+            var elemBottom = elemTop + $elem.height();
+
+            if ((elemBottom <= docViewBottom) && (elemTop >= docViewTop)) {
+                return Math.min(docViewBottom - elemBottom, elemTop - docViewTop) / (docViewBottom - docViewTop);
+            } else {
+                return 0;
+            }
+        }
+
+        function componentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
+
+
+        function getVisibilityRatio(elem) {
+                var $elem = $(elem);
+                var tappedDistance = getDistanceToMarginRatio($elem);
+                if (tappedDistance < 0.1) {
+                    tappedDistance = 0;
+                }
+                return 1 - Math.min(1, tappedDistance / 0.4);
+            }
+            //alert( rgbToHex(0, 51, 255) ); // #0033ff
+
+
+        $(window).scroll(function () {
+            $(".highlight").each(function (_, elem) {
+                $(elem).css({
+                    backgroundColor: rgbToHex(255, 255, Math.round(getVisibilityRatio(elem) * 255))
+                });
+            });
+            triggerHighlightEnterView();
+        });
+
+        function triggerHighlightEnterView() {
+            $(".highlight-part").each(function (_, elem) {
+                var $elem = $(elem);
+                var distance = getDistanceToMarginRatio($elem);
+                var nowVisible = distance > 0.05;
+                if ($elem.hasClass("visible") && !nowVisible) {
+                    $elem.removeClass("visible");
+                    $elem.trigger("exitView");
+                    console.log("trigger hidden")
+                }
+                if (!$elem.hasClass("visible") && nowVisible) {
+                    $elem.addClass("visible");
+                    $elem.trigger("enterView");
+                    console.log("trigger visible")
+                }
+            });
+        }
+
+
+
+        var ulList = $("#rightNav").children("ul");
+
+        function getSectionTitle($section) {
+            if ($section.find("h1").length == 1) {
+                return $section.find("h1");
+            } else if ($section.find("h2").length == 1) {
+                return $section.find("h2");
+            } else {
+                throw "Could not find title in section";
+            }
+        }
+
+        var sections = $("section");
+        sections.each(function (_, elem) {
+            var $title = getSectionTitle($(elem));
+            var topHighligh = $title.prop("tagName") === "H1" ? "style='text-decoration: underline; margin-top:15px'" : "";
+            var duration = $(elem).find(".duration").text();
+            console.log(duration);
+            ulList.append("<li " + topHighligh + " title='" + $title.text().replace(/'/g, "&quot;") + "'><div class='duration-nav'>"+duration+"</div><a href='#" + $title.attr("id") + "'>" + $title.attr("code") + "</li>");
+        });
+
+
+        var lastRightNavSelection;
+
+
+        function onViewSection($section) {
+            var selectedId = getSectionTitle($section).attr("id");
+            console.log("selected: " + selectedId);
+
+            var rightNavSelection = $("#rightNav").find("a[href='#" + selectedId + "']").parent()[0];
+            if (rightNavSelection != lastRightNavSelection) {
+                $(lastRightNavSelection).removeClass("selected");
+                $(rightNavSelection).addClass("selected");
+                lastRightNavSelection = rightNavSelection;
+            }
+            console.log(rightNavSelection);
+
+        }
+
+        sections.waypoint(function (direction) {
+            if (direction === 'down') {
+                onViewSection($(this));
+            }
+        }, {
+            offset: '50%'
+        });
+
+        sections.waypoint(function (direction) {
+            if (direction === 'up') {
+                onViewSection($(this));
+            }
+        }, {
+            offset: function () {
+                // "bottom of element hits middle of window"
+                return $.waypoints('viewportHeight') / 2 - $(this).outerHeight();
+            }
+        });
+
+
+        /* ======================= highlight ========================= */
+        var lastHighlightParts = {};
+        var highlightingInProgress = false;
+
+        function processResizeHighlight($elem) {
+            var parts = [];
+            $elem.children("span").each(function (_, span) {
+                var $span = $(span);
+                var existingPart = null;
+                for (var i = 0; i < parts.length; i++) {
+                    var part = parts[i];
+                    if (part.top == $span.position().top &&
+                        part.height == $span.height()) {
+                        existingPart = part;
+                        break;
+                    }
+                }
+                if (existingPart != null) {
+                    existingPart.width += $span.width();
+                } else {
+                    var newPart = {
+                        top: $span.position().top,
+                        left: $span.position().left,
+                        width: $span.width(),
+                        height: $span.height()
+                    };
+                    parts.push(newPart);
+                }
+            });
+            if (highlightPartsAreTheSame($elem.attr("id"), parts)) {
+                return;
+            }
+            console.log(parts);
+            lastHighlightParts[$elem.attr("id")] = parts;
+
+            var highlightsHtml = "";
+            for (var i = 0; i < parts.length; i++) {
+                var part = parts[i];
+                var left = part.left - 2;
+                var top = part.top - 2;
+                var width = part.width + 4;
+                var height = part.height + 4;
+                highlightsHtml += "<div class='highlight-part' style='left:" + left + "px; top:" + top + "px;width:0px;height:" + height + "px' target-width='" + width + "'>&nbsp;</div>";
+            }
+            $elem.children(".highlight-holder").html(highlightsHtml);
+            $elem.children(".highlight-holder").children()
+                .on("enterView", function (event) {
+                    var $part = $(this);
+                    var targetWidth = $part.attr("target-width");
+                    var time = targetWidth * 3;
+                    if (highlightingInProgress) {
+                        $part.removeClass("visible");
+                        return;
+                    }
+                    highlightingInProgress = true;
+                    $part.animate({
+                        width: targetWidth
+                    }, time, function () {
+                        $part.attr("status", "visible");
+                    });
+                    $part.attr("status", "animating");
+                    setTimeout(function () {
+                        highlightingInProgress = false;
+                        triggerHighlightEnterView();
+                    }, 200);
+                })
+                .on("exitView", function (event) {
+                    var $part = $(this);
+                    $part.css("width", "0px");
+                    $part.attr("status", "hidden");
+                });
+            triggerHighlightEnterView();
+        }
+
+        $(".high").each(function (index, elem) {
+            var $elem = $(elem);
+            var s = $elem.text();
+            var newContent = "<div class='highlight-holder'/>";
+            for (var i = 0; i < s.length; i++) {
+                var ch = s.charAt(i);
+                newContent += "<span>" + ch + "</span>";
+            }
+            $elem.html(newContent);
+            $elem.attr("id", "highlight-" + index);
+            processResizeHighlight($elem);
+
+
+        });
+
+        function highlightPartsAreTheSame(id, parts) {
+            var lastParts = lastHighlightParts[id];
+            if (!lastParts || parts.length != lastParts.length) {
+                return false;
+            }
+            for (var i = 0; i < parts.length; i++) {
+                var part = parts[i];
+                var lastPart = lastParts[i];
+                if (part.top != lastPart.top ||
+                    part.left != lastPart.left ||
+                    part.height != lastPart.height ||
+                    part.width != lastPart.width) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function refreshHighlights() {
+            $(".high").each(function (_, elem) {
+                processResizeHighlight($(elem));
+            });
+        }
+
+        $(window).resize(refreshHighlights);
+        $(refreshHighlights);
+
+
+
+        anchors.options.placement = 'left';
+        anchors.options.visible = 'hover';
+        anchors.add('h2').add('h1').remove('.no-anchor');
+    </script>
+
+
+    <script> /* Google Analytics Code */
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66235500-1', 'auto');ga('send', 'pageview');
+</script>
+
+</body>
+
+</html>
