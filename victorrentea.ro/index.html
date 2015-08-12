@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Victor Rentea">
     <link rel="icon" href="academy-cap-icon.png">
     <title>Victor Rentea - Enterprise Java Training</title>
 
@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/cyberart.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,12 +24,16 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-        body {
-            padding-top: 70px;
+        @font-face {
+            font-family: Octin;
+            src: url(/fonts/octin.ttf);
         }
         
-        .anchorjs-link:hover {
-            text-decoration: none;
+        body {
+            background: rgba(126, 220, 202, 0.4);
+            padding-top: 50px;
+            font-family: Oswald;
+            font-weight: 300;
         }
         
         h2,
@@ -35,8 +41,74 @@
             padding-top: 70px;
         }
         
-        .highlight {
-            background-color: #FFFFFF;
+        #mainContainer {
+            background-image: url("hexa.png");
+            padding-top: 10px;
+            border-left: 1px solid #4FC7AF;
+            border-right: 1px solid #4FC7AF;
+        }
+        
+        #mainContainer h3 {
+            font-weight: 300;
+        }
+        
+        p {
+            letter-spacing: 1px;
+            font-family: Helvetica;
+            text-indent: 10px;
+        }
+        
+        .faceContainer img {
+            width: 80%;
+            float: left;
+            margin: 10%;
+            border: 6px solid #028269;
+        }
+        
+        .social img {
+            width: 30px;
+        }
+        
+        .social ul {
+            margin: 5px !important;
+            list-style-type: none;
+        }
+        
+        .social ul li {
+            float: left;
+            margin: 5px;
+        }
+        
+        .capital {
+            text-transform: uppercase;
+            font-size: 40px;
+            letter-spacing: 3px;
+            font-family: Octin;
+        }
+        
+        .capital span {
+            color: #4FC7AF;
+        }
+        
+        .uppermenu {
+            padding: 3% 0 3% 0;
+            border-top: 2px dotted #4FC7AF;
+            border-bottom: 2px dotted #4FC7AF;
+            box-shadow: 0px 3px 5px #888, 0px -3px 5px #888;
+            margin-left: -18px;
+            margin-right: -18px;
+            background-image: url("hexa.png");
+        }
+        
+        h1 {
+            text-align: center;
+            padding-bottom: 5px;
+            display: inline-block;
+            /* border-bottom:1px solid #7EDCCA; */
+        }
+        
+        .presentation {
+            padding-top: 8%;
         }
         
         section {
@@ -44,16 +116,28 @@
             padding-right: 15px;
         }
         
-        @media screen and (min-width: 0px) and (max-width: 950px) {
-            #rightNav {
-                display: none;
-            }
-        }
         .duration {
-            position:relative;
-            top:-10px;
+            position: relative;
+            top: -10px;
             font-style: italic;
         }
+        /* anchor js */
+        
+        .anchorjs-link:hover {
+            text-decoration: none;
+        }
+        
+       /* .anchorjs-link {
+            font-family: anchorjs-icons;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: 1;
+            position: absolute;
+            margin-left: -0.8em;
+            padding-right: 0.5em;
+        }*/
+        /* ==== RIGHT NAV ==== */
         
         #rightNav {
             position: fixed;
@@ -94,19 +178,29 @@
             text-decoration: none;
             color: #000000;
         }
+        
         #rightNav .duration-nav {
-            width:140%;
-            position:absolute;
-            right:90px;
+            width: 140%;
+            position: absolute;
+            right: 90px;
             background-color: rgba(200, 200, 200, 0.70);
             display: none;
         }
+        
         #rightNav li:hover .duration-nav {
             display: block;
         }
-        #rightNav li.selected:hover .duration-nav{
+        
+        #rightNav li.selected:hover .duration-nav {
             display: none;
         }
+        
+        @media screen and (min-width: 0px) and (max-width: 950px) {
+            #rightNav {
+                display: none;
+            }
+        }
+        /* ==== HIGHLIGHT ==== */
         
         .highlight-holder {
             display: inline;
@@ -114,15 +208,15 @@
         
         .highlight-part {
             position: absolute;
-            z-index: -1;
-            background-color: yellow;
+            background-color: rgba(255, 255, 0, 0.3);
         }
+        /* ==== CERTIFICARI ==== */
         
-    
         div.cert {
             text-align: center;
         }
-        div.cert img {         
+        
+        div.cert img {
             width: 150px;
             box-shadow: 4px 4px 2px grey;
             border: 1px solid grey;
@@ -154,21 +248,27 @@
             border-left: 1px solid #999;
             text-align: center;
         }
+        /* ==== GLOBAL FEEDBACK ==== */
+        
         div#global-feedback {
-            text-align:center;
+            text-align: center;
         }
+        
         div#global-feedback img {
             width: 500px;
         }
+        
         @media screen and (min-width: 0px) and (max-width: 600px) {
             div#global-feedback img {
                 width: 100%;
             }
         }
+        /* ===== CLIENT LOGOS ==== */
         
         div#client-logos {
             text-align: center;
         }
+        
         div#client-logos img {
             width: 200px;
             margin: 20px;
@@ -194,7 +294,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"><img src="semnatura.png" width="50px" style="display:inline;margin-top:-12px; position: absolute;" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Victor Rentea</a>
+                        <a class="navbar-brand" href="#"><img src="semnatura.png" width="50px" style="display:inline;margin-top:-12px; position: absolute;" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Victor Rentea</a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
@@ -259,16 +359,37 @@
         </div>
     </div>
 
-    <div class="container">
+    <div id="mainContainer" class="container">
+        <div class="social row">
+            <ul class="pull-right">
+                <li>
+                    <a title="Email me: victorrentea@gmail.com" href="mailto:victorrentea@gmail.com"><img style="margin-right:8px;" src="email.png">
+                    </a>
+                </li>
+                <li>
+                    <a title="Call me: (+4)0720.019.564" href="tel:+40720019564"><img style="margin-right:8px;" src="phone.png" alt="(+4)0720.019.564">
+                    </a>
+                </li>
+                <li>
+                    <a title="Find me on LinkedIN" href="https://ro.linkedin.com/pub/victor-rentea/4a/936/933"><img src="in.png">
+                    </a>
+                </li>
 
-        <div class="section">
-            <img src="face.jpg" style="float:right; margin: 0px 45px 45px 25px; border: 6px ridge gray;" width="230px" />
-            <h3>Hi,<h3>	
-	<h3>I'm Victor,</h3>
-            <h3>an enthusiast Clean&nbsp;Coder, Senior&nbsp;Java&nbsp;EE&nbsp;Developer, Technical&nbsp;Team&nbsp;Lead&nbsp;at&nbsp;IBM, and independent&nbsp;<a href="#training">Trainer</a>,</h3>
-            <h3>I am PhD&nbsp;in&nbsp;Computer&nbsp;Science and certified Oracle&nbsp;JavaEE<sup>6</sup>&nbsp;Architect.</h3>
+            </ul>
+        </div>
+        <div class="row uppermenu">
+            <div class="col-md-4 faceContainer">
+                <img src="face.jpg" />
+            </div>
+            <div class="col-md-8 presentation">
+                <h3 class="capital">Hi, I'm <span>Victor</span>,<h3>	
+            <h3>an enthusiast Clean&nbsp;Coder, Senior&nbsp;Java&nbsp;EE&nbsp;Developer, Tech&nbsp;Team&nbsp;Lead&nbsp;at&nbsp;IBM, and independent&nbsp;<a href="#training">Trainer</a>,</h3>
+                <h3>I am PhD&nbsp;in&nbsp;Computer&nbsp;Science and certified Oracle&nbsp;JavaEE<sup>6</sup>&nbsp;Architect.</h3>
 
-            <h3>If you are looking for an interactive custom training, keep reading.</h3>
+                <h3>If you are looking for an interactive custom training, keep reading</h3>
+            </div>
+
+
             <div class="cert">
                 <img src="cert-logo-scea.jpg" class="cert" />
                 <img src="cert-logo-sql.jpg" class="cert" />
@@ -294,7 +415,7 @@
             </ul>
 
             <p>I've personally created the training materials for these modules, investing hundreds of hours of hard work in <span class="high">distilling the 1-2 most distinguished books</span> (plus other sources) about each subject topic until the it met the above criteria.</p>
-            
+
             <p>Throughout the presentations, I've placed several key slides which can become the starting point of <span class="high">interactive digressions</span> about related concepts, in case the trainees want us to go there. And they usually do.</p>
 
 
@@ -306,23 +427,23 @@
             <h3>Every course is unique</h3>
             <p>Each classroom has its own interests or needs specific skills, so <span class="high">the course agenda is always personalized</span>. Perhaps you aren't sure yet what topics to choose. I can help you with that. We could sit together for a general discussion and explore what you may be looking for. Then, we could choose several modules, customize them or even add completely new ones.</p>
             <p>Each module is designed to take at most 2-hour long, including any demo, exercises or contests. In a regular day, 3 regular modules can be covered, plus a little extra practice or discussions. Trying to cover more than that usually just exhausts the participants with no (or even less) benefit.</p>
-                
+
             <h3>Industry-driven, Certified proficiency</h3>
-            <p>I have <span class="high">practical experience with all the technologies I teach</span>, except with the newer JavaEE6&amp;7. I've used them all to design, develop and deliver <span class="high">enterprise applications for demanding corporate clients</span> like world-leading flavors&amp;fragrances company, Belgium Post, or BNPParibas Bank. In each project, I was always the one who explored the boundary cases of the techonologies, those places where what you wanted was not readily available out-of-the-box. I started doing that right from the first year of my career. In each case, I always strived to provide the simplest solution to each specific need, while following <span class="high">the phylosophy of each technology</span>.</p>            
+            <p>I have <span class="high">practical experience with all the technologies I teach</span>, except with the newer JavaEE6&amp;7. I've used them all to design, develop and deliver <span class="high">enterprise applications for demanding corporate clients</span> like world-leading flavors&amp;fragrances company, Belgium Post, or BNPParibas Bank. In each project, I was always the one who explored the boundary cases of the techonologies, those places where what you wanted was not readily available out-of-the-box. I started doing that right from the first year of my career. In each case, I always strived to provide the simplest solution to each specific need, while following <span class="high">the phylosophy of each technology</span>.</p>
             <p>To be sure I covered all the corners of the Java EE specifications, I also obtained a <span class="high">long series of certifications</span>.</p>
-                
+
             <h3>Questions are what I want</h3>
             <p><span class="high">I am always expecting questions</span> any time during the trainings or breaks. The more questions I get from you, the more I manage to explain you. Honestly, there is no greater satisfaction for me but to answer your questions - it's only then that I'm sure I'm really helping you. The questions need not even be directly related to the topics we were talking about: I would be equally glad to be able to help you in any issues of your daily programmer life.</p>
             <p>I always say: for the sake of a classroom, <i>the dumbest question is the best question</i>. It makes everybody clarify their understanding, it rapidly involves everybody and opens up communication bridges. So- just ask! The best trainings happen when we manage to have <span class="high">a collaborative brainstorming-like athmosphere</span> in class. So- let's have a chat!</p>
 
-                
+
             <h3><img src="Quality%20guarantee.png" style="position:absolute; z-index:-1;margin-left:-90px;left:50%" width="180px"/>Quality Guarantee</h3>
             <p>From the very first training I delivered I started asking <span class="high">anonymous feedback</span>. The global results (from 297 feedback forms) is summarized in the chart bellow. Upon request, I can show you the feedback forms (~2kg:), or per-module statistics, where available.</p>
             <p><span class="high">Recommendations from senior developers</span> that attended my trainings are also availabe.</p>
             <p>Finally, the training contract will include a <span class="high">restitution clause in case of negative final feedback</span>.</p>
 
             <div id="global-feedback">
-                <img src="global-feedback.jpg"/>
+                <img src="global-feedback.jpg" />
             </div>
 
         </section>
@@ -331,7 +452,7 @@
         <section>
             <h2 id="training/object-oriented-design-patterns" code="OO-DP">Object-Oriented Design Patterns</h2>
             <span class="duration">2 parts x 2 hours</span>
-            <img src="politehnica.jpg" style="float:right; margin: 20px"/>
+            <img src="politehnica.jpg" style="float:right; margin: 20px" />
             <p>This is the star-training of my portfolio. Delivered <span class="high">more than 10 times</span> in various formats and setups, I also held it for the last two years as <span class="high">part of the "Java" faculty course</span> of the Automatics & Computers Department of Politehnica University of Bucharest.</p>
             <p>This 2-part presentation will cover the most used Object-Oriented Design Patterns from the reference <a href="https://en.wikipedia.org/wiki/Design_Patterns">Gang-of-Four book</a>. Although the material covers all the GoF patterns, I would recommend instead to focus and analyze in more depth those patterns that are most used to day, and omit the grayed-out patterns in the agenda. This way we might gain enough time to talk about related concepts such as Aspect-Oriented-Programming, dynamic Java Proxies, and more.</p>
             <p>The presentation is very dynamic, with <span class="high">a lot of real-life examples</span> to help you deeply understand the concepts and remember them <i>forever</i>.</p>
@@ -436,10 +557,9 @@
             <span class="duration">2 hours</span>
             <p>Developing Enterprise applications is hard. No one can argue that.</p>
             <p>But why? Is it because of their overly-complex business logic, their NFRs, the heterogenous teams, the business-IT gap, or maybe a combination of it all? Whatever the cause, <span class="high">enterprise applications tend to be very large</span>, with a considerable proportion of similar functionality. The perfect place for a pattern.</p>
-            <p>Enterprise application strive for order. They simply can't stand a chaotic unorganized approach that will render their <span class="high">maintainance a HELL</span> and eventually lead to the dreaded REWRITE.</p>
-            <p>This module covers the major design patterns used in the development of typical enterprise Java applications. The patterns are studied on layers, paying special attention to the Client and the Business Layer, the places where the actual creativity usually resides. The participants will learn the <span class="high">principles of a good JavaEE design</span> and solutions to various recurrent problems.</p>            
-            <p>With one of the largest bibliography of all my modules, this course is based on <span class="high">a considerable part of the Oracle Certified JavaEE6 Architect agenda</span>.</p>
-            <p>Even if the patterns are implemented using the Java EE5+ standard, most of these patterns can be used in any major middleware framework, like Spring.</p>
+            <p>Enterprise application strive for order. They simply can't stand a chaotic unorganized approach that will render their <span class="high">maintainance HELL</span> and eventually lead to the dreaded REWRITE.</p>
+            <p>This module covers the major design patterns used in the development of typical enterprise Java applications. The patterns are studied on layers, paying special attention to the Client and the Business Layer, the places where the actual creativity usually resides. The participants will learn the <span class="high">principles of a good JavaEE design</span> and solutions to various recurrent problems.</p>
+            <p>With one of the largest bibliography of all my modules, this course is based on <span class="high">a considerable part of the Oracle Certified JavaEE6 Architect agenda</span>. Even if the patterns are implemented using the Java EE5+ standard, most of these patterns can be used in any major middleware framework, like Spring.</p>
             <p>This module is probably the most difficuly one in my portfolio, so it is <span class="high">dedicated to those with certain experience</span> in JavaEE/Spring, but also to those who love challenges.</p>
             <p>Throughout the talk, we will stop on certain patterns to see how they look in code and to finalize certain incomplete implementations. However, the application part is rather scarce compared to my other modules due to the very abstract nature of the covered topics. </p>
             <p>NOTE: In case you want us to dissect a real-world example of an Java Enterprise application, I have such an example prepared that will take 1 more hour.</p>
@@ -704,8 +824,8 @@
             <h2 id="training/jpa" code="JPA">Java Persistence API</h2>
             <span class="duration">2+ hours</span>
             <span class="accordion-group">
-                <p>Imagine <span class="high">a project with no more SQL</span>. No more FK, sequences, weird column names, PreparedStatements and Result Sets. No more database schema diagram on your desktop, next to your Java domain model. No more lightLoad/fullLoad, no more storing IDs of other entities in fields. <span class="high">It's all just Java now</span>. The database remains 
-			<span class="accordion-heading"><a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#jpa-detail">just a detail</a></span>.</p>
+                <p>Imagine <span class="high">a project with no more SQL</span>. No more FK, sequences, weird column names, PreparedStatements and Result Sets. No more database schema diagram on your desktop, next to your Java domain model. No more lightLoad/fullLoad, no more storing IDs of other entities in fields. <span class="high">It's all just Java now</span>. The database remains
+            <span class="accordion-heading"><a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#jpa-detail">just a detail</a></span>.</p>
             <div id="jpa-detail" class="accordion-body collapse">
                 <div class="accordion-inner">
                     <p>We will also discuss the scenarios in which JPA is appropriate or not, and what to do in case you really need some database-specific feature (e.g. CONNECT BY, or /*-hints).</p>
@@ -849,13 +969,14 @@
                 <li>Publishing and Consuming JAX-WS web services</li>
                 <li>Publishing and Consuming RESTful web services</li>
             </ul>
-            
+
             <u>Part 5: Spring Batch</u>
-            <p><i>1h talk, 1h hands-on</i></p>
+            <p><i>1h talk, 1h hands-on</i>
+            </p>
             <p>This part is under construction, and it will be finalized upon your request.</p>
             <p>Experience: I have built an application on Spring Batch.</p>
             <img src="under-construction.jpg" width="200px" />
-            
+
 
             <div class="accordion-group">
                 <div class="accordion-heading">
@@ -873,7 +994,7 @@
             </div>
 
         </section>
-                
+
         <!-- JUnit ***************************** -->
         <section>
             <h2 id="training/junit" code="JUnit">JUnit Testing. Mocking.</h2>
@@ -886,7 +1007,8 @@
         <section>
             <h2 id="training/test-driven-development" code="TDD">Test-Driven Development</h2>
             <span class="duration">2 hours</span>
-            <p><span class="high">Meet the next level of software development.</span></p>
+            <p><span class="high">Meet the next level of software development.</span>
+            </p>
             <p>What if instead of writing some tests after writing the actual development, you would begin developing a new feature by first writing a unit test for it. <i>The test will fail!</i>, you would say. <i>It's meaningless!!</i> </p>
             <p>Not at all!</p>
             <p>Because as soon as you'll see the test passing, that feature is secured from then on. If you do it correctly, <span class="high">you will get 100% real test coverage!</span>.</p>
@@ -901,7 +1023,8 @@
                 <li>Definition
                     <ul>
                         <li>The 3 Rules of TDD</li>
-                        <li><span class="high">TDD Mantra: Red-Green-Refactor</span></li>
+                        <li><span class="high">TDD Mantra: Red-Green-Refactor</span>
+                        </li>
                     </ul>
                 </li>
                 <li>Advanced Unit Testing
@@ -997,7 +1120,7 @@
         <section>
             <h2 id="training/enterprise-integration-patterns" code="EIP">Enterprise Integration Patterns</h2>
             <span class="duration">1+ hour</span>
-            <p>We will study the <span class="high">classic Enterprise Integration Patterns</span> as described by Gregor Hope in <a href="www.amazon.com/Enterprise-Integration-Patterns-Designing-Deploying/dp/0321200683">his reference book</a>, walking them right of his <a href="http://www.enterpriseintegrationpatterns.com/">website</a>, explaining and discussing each in turn.</p>
+            <p>We will study the <span class="high">classic Enterprise Integration Patterns</span> as described by Gregor Hope in <a href="http://www.amazon.com/Enterprise-Integration-Patterns-Designing-Deploying/dp/0321200683">his reference book</a>, walking them right of his <a href="http://www.enterpriseintegrationpatterns.com/">website</a>, explaining and discussing each in turn.</p>
             <p>For the application, we will solve together in class an enterprise integration problem using a little <a href="http://projects.spring.io/spring-integration/">Spring Integration</a>-based application.</p>
             <p><i>40' talk &amp; discussions, 20+' Hands-on with Spring Integration</i>
             </p>
@@ -1122,8 +1245,8 @@
 </div>
 -->
         <!-- ***** CV ****** -->
-   
-<section>
+
+        <section>
             <h1 id="about" code="About Me">About Me</h1>
             <h3>Curriculum Vitae</h3>
             <p></p>
@@ -1135,7 +1258,7 @@
             </a>
 
 
-            <p>A more detailed assignment history is available upon request, together with accompnaying explanations.</p>
+            <p>A more detailed assignment history is available upon request, together with accompanying explanations.</p>
             <h3>PFA</h3>
             <p>I am an <span class="high">authorized physical person</span> (P.F.A.), so that the business we do together can be financially legal.</p>
             <p><b>CUI</b>: 34835235</p>
@@ -1143,37 +1266,42 @@
 
         </section>
 
-                
+
         <section>
             <h1 id="clients" code="Clients">Client Portfolio</h1>
             <p>I gained the majority of my training experience inside IBM, holding internal trainings to fellow employees. However, recently I've began holding trainings independently to interested companies. Their references are available upon request.
             </p>
             <div id="client-logos">
                 <img src="client-ibm.png" />
-                <img src="client-pro-management.png"/>
-                <img src="client-abs.png"/>
+                <img src="client-pro-management.png" />
+                <img src="client-abs.png" />
             </div>
         </section>
         <section>
             <h1 id="contact" code="Contact">Contact</h1>
-            <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp;<a href="tel:+40720019564">(+4)0720.019.564</a>
+                <p>
+            <a href="tel:+40720019564"><img src="phone.png" style="width:30px; margin-right: 5px" />(+4)0720.019.564</a>
             </p>
-            <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;<a href="mailto:victorrentea@gmail.com">victorrentea@gmail.com</a>
+            <p>
+                <a href="mailto:victorrentea@gmail.com"><img src="email.png" style="width:30px; margin-right: 5px" />victorrentea@gmail.com</a>
             </p>
-            <p><span class="fa fa-fw fa-linkedin" aria-hidden="true"></span><a href="https://ro.linkedin.com/pub/victor-rentea/4a/936/933">Victor Rentea</a>
+            <p>
+                <a href="https://ro.linkedin.com/pub/victor-rentea/4a/936/933"><img src="in.png" style="width:30px; margin-right: 5px" />Victor Rentea</a>
             </p>
-        </section>
-                
-        <p>
-            <br />
-            <br />
-            <br />
-      <a href="http://validator.w3.org/check?uri=referer"><img
-          src="http://www.w3.org/Icons/valid-xhtml10"
-          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
-    </p>
-<br>
+            <div style="text-align:center">
+        <img src="semnatura.png" width="300px" /></div>
+            <p>
 
+                </section>
+
+        
+      
+
+                <div style="text-align:center">
+                <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" />
+            </a>
+                    </div>
+                
     </div>
     <!-- /.container -->
 
@@ -1194,17 +1322,17 @@
 
     <script>
         /*$(window).resize(function () {
-                                    $('.section img').each(function (i, image) {
-                                        var hw = image.naturalHeight / image.naturalWidth;
-                                        var actualHeight = window.innerWidth * hw;
-                                        console.log("actual height: " + actualHeight);
-                                        if (actualHeight < $(image).attr("min-height")) {
+                                                    $('.section img').each(function (i, image) {
+                                                        var hw = image.naturalHeight / image.naturalWidth;
+                                                        var actualHeight = window.innerWidth * hw;
+                                                        console.log("actual height: " + actualHeight);
+                                                        if (actualHeight < $(image).attr("min-height")) {
 
-                                            console.log("XXXX");
-                                        }
-                                        //$('.section img');
-                                    })
-                                });*/
+                                                            console.log("XXXX");
+                                                        }
+                                                        //$('.section img');
+                                                    })
+                                                });*/
 
 
         function isScrolledIntoView(elem, delta) {
@@ -1305,7 +1433,7 @@
             var topHighligh = $title.prop("tagName") === "H1" ? "style='text-decoration: underline; margin-top:15px'" : "";
             var duration = $(elem).find(".duration").text();
             console.log(duration);
-            ulList.append("<li " + topHighligh + " title='" + $title.text().replace(/'/g, "&quot;") + "'><div class='duration-nav'>"+duration+"</div><a href='#" + $title.attr("id") + "'>" + $title.attr("code") + "</li>");
+            ulList.append("<li " + topHighligh + " title='" + $title.text().replace(/'/g, "&quot;") + "'><div class='duration-nav'>" + duration + "</div><a href='#" + $title.attr("id") + "'>" + $title.attr("code") + "</li>");
         });
 
 
@@ -1424,9 +1552,14 @@
             var $elem = $(elem);
             var s = $elem.text();
             var newContent = "<div class='highlight-holder'/>";
+            var lastWordBegin = 0;
             for (var i = 0; i < s.length; i++) {
-                var ch = s.charAt(i);
-                newContent += "<span>" + ch + "</span>";
+                while (s.charAt(i) != ' ' && i < s.length) {
+                    i++;
+                }
+                var word = s.substring(lastWordBegin, i);
+                lastWordBegin = i;
+                newContent += "<span>" + word + "</span>";
             }
             $elem.html(newContent);
             $elem.attr("id", "highlight-" + index);
@@ -1464,15 +1597,27 @@
 
 
 
-        anchors.options.placement = 'left';
+                anchors.options.placement = 'right';
         anchors.options.visible = 'hover';
         anchors.add('h2').add('h1').remove('.no-anchor');
     </script>
 
 
-    <script> /* Google Analytics Code */
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66235500-1', 'auto');ga('send', 'pageview');
-</script>
+    <script>
+        /* Google Analytics Code */
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-66235500-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 </body>
 
