@@ -273,6 +273,56 @@
             width: 200px;
             margin: 20px;
         }
+        
+        /* ====== STAR ====== */
+        
+        
+/*
+        @keyframes star-fade {
+            0%   {opacity: 0; margin-left:0px;margin-top:0px;width:5px;}
+            90%  {opacity: 1; margin-left:-120px; margin-top:40px; width:100px;}
+            100% {opacity: 0}
+        }
+        
+*/
+        @keyframes big-star-fade {
+            0%   {width:20px;margin-top:8px;margin-left:-40px;}
+            50%  {width:36px;margin-top:0px;margin-left:-48px;}
+            100%  {width:20px;margin-top:8px;margin-left:-40px;}
+        }
+
+        img.star {
+            width:35px; 
+            position: absolute;
+            margin-left: -40px;
+            animation-name: big-star-fade;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        
+        
+
+        img.small-star {
+            margin-left: -25px;
+            position: absolute;
+            width: 25px;
+        }
+        .recommendation {
+            background-image: url('quote.svg'); 
+            background-repeat: no-repeat;
+            background-position: left top;
+            padding-left: 60px;
+            padding-right: 60px;
+            margin-top:30px;
+        }
+        .recommendation-original {
+            text-decoration: underline;
+            font-size: smaller;
+        }
+        .recommendation-author {
+            font-weight: bold;
+            font-style: italic;
+        }
     </style>
 
 
@@ -294,7 +344,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"><img alt="ico" src="semnatura.png" width="50px" style="display:inline;margin-top:-12px; position: absolute;" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Victor Rentea</a>
+                        <a class="navbar-brand" href="#"><img alt="logo" src="semnatura.png" width="50px" style="display:inline;margin-top:-12px; position: absolute;" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Victor Rentea</a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
@@ -331,10 +381,12 @@
                     <a title="Email me: victorrentea@gmail.com" href="mailto:victorrentea@gmail.com"><img alt="ico" style="margin-right:8px;" src="mail2.png">
                     </a>
                 </li>
+<!--
                 <li>
                     <a title="Call me: (+4)0720.019.564" href="tel:+40720019564"><img style="margin-right:8px;" src="phone.png" alt="(+4)0720.019.564">
                     </a>
                 </li>
+-->
                 <li>
                     <a title="Find me on LinkedIN" href="https://ro.linkedin.com/pub/victor-rentea/4a/936/933"><img alt="ico" src="in.png">
                     </a>
@@ -348,20 +400,20 @@
             </div>
             <div class="col-md-8 presentation">
                 <h3 class="capital">Hi, I'm <span>Victor</span>,<h3>	
-            <h3>an enthusiast Clean&nbsp;Coder, Senior&nbsp;Java&nbsp;EE&nbsp;Developer, Tech&nbsp;Team&nbsp;Lead&nbsp;at&nbsp;IBM, and independent&nbsp;<a href="#training">Trainer</a>,</h3>
+            <h3>an enthusiast Clean&nbsp;Coder, Senior&nbsp;Java&nbsp;EE&nbsp;Developer, Technical&nbsp;Team&nbsp;Lead&nbsp;at&nbsp;IBM, and independent&nbsp;<a href="#training">Trainer</a>,</h3>
                 <h3>I am PhD&nbsp;in&nbsp;Computer&nbsp;Science and certified Oracle&nbsp;JavaEE<sup>6</sup>&nbsp;Architect.</h3>
 
-                <h3>If you are looking for an interactive custom training, keep reading</h3>
+                <h3>I provide <span class="high">interactive custom trainings for groups of employees</span>. Keep reading!</h3>
             </div>
 
 
             <div class="cert">
-                <img alt="ico" src="cert-logo-scea.jpg" class="cert" />
-                <img alt="ico" src="cert-logo-sql.jpg" class="cert" />
-                <img alt="ico" src="cert-logo-bcd.jpg" class="cert" />
-                <img alt="ico" src="cert-logo-wcd.jpg" class="cert" />
-                <img alt="ico" src="cert-logo-wsd.jpg" class="cert" />
-                <img alt="ico" src="cert-logo-scjp.jpg" class="cert" />
+                <img alt="Oracle Certified Master - Java EE6 Architect" src="cert-logo-scea.jpg" class="cert" />
+                <img alt="Oracle SQL Expert" src="cert-logo-sql.jpg" class="cert" />
+                <img alt="Oracle Certified Professional - Java EE5 Business Component" src="cert-logo-bcd.jpg" class="cert" />
+                <img alt="Sun Certified Web Component Developer" src="cert-logo-wcd.jpg" class="cert" />
+                <img alt="Sun Certified Web Services Developer" src="cert-logo-wsd.jpg" class="cert" />
+                <img alt="Sun Certified Java Programmer" src="cert-logo-scjp.jpg" class="cert" />
             </div>
 
         </div>
@@ -374,9 +426,9 @@
 <h3>A good training</h3>
             <ul>
                 <li><b>... should <span class="high">captivate you</span></b>: I'll keep you alive from minute 1 to the end with questions, brainstorming, animations, demos, videos, jokes and tests with prizes</li>
-                <li><b>... should help you <span class="high">understand the core concepts</span></b>: The driving purpose, the "WHY", the underlying phylosophy?</li>
+                <li><b>... should help you <span class="high">understand the core concepts</span></b>: The driving purpose, the "WHY", the underlying phylosophy</li>
                 <li><b>... should <span class="high">show most of the story</span></b>: I'll tell you a story with lots of examples and exercises; no dull APIs or values to memorize</li>
-                <li><b>... should <span class="high">explain the tricky parts</span></b>: I used intuitive animations or easy-to-remember diagrams for most of them. You'll love it! <span style="color:#ccc">(at least the feedback tells me so:)</span>. Also, each module includes best practices and pitfalls.</li>
+                <li><b>... should <span class="high">explain the tricky parts</span></b>: I elaborated intuitive animations or easy-to-remember diagrams for most of them. You'll love it! <span style="color:#ccc">(at least the feedback tells me so:)</span>. Also, each module includes best practices and pitfalls.</li>
             </ul>
 
             <p>I've personally created the training materials for these modules, investing hundreds of hours of hard work in <span class="high">distilling the 1-2 most distinguished books</span> (plus other sources) about each subject topic until the it met the above criteria.</p>
@@ -402,24 +454,24 @@
             <p>I always say: for the sake of a classroom, <i>the dumbest question is the best question</i>. It makes everybody clarify their understanding, it rapidly involves everybody and opens up communication bridges. So- just ask! The best trainings happen when we manage to have <span class="high">a collaborative brainstorming-like athmosphere</span> in class. So- let's have a chat!</p>
 
 
-            <h3><img alt="ico" src="Quality%20guarantee.png" style="position:absolute; z-index:-1;margin-left:-90px;left:50%" width="180px"/>Quality Guarantee</h3>
+            <h3><img alt="Quality Guarantee" src="Quality%20guarantee.png" style="position:absolute; z-index:-1;margin-left:-90px;left:50%" width="180px"/>Quality Guarantee</h3>
             <p>From the very first training I delivered I started asking <span class="high">anonymous feedback</span>. The global results (from 297 feedback forms) is summarized in the chart bellow. Upon request, I can show you the feedback forms (~2kg:), or per-module statistics, where available.</p>
-            <p><span class="high">Recommendations from senior developers</span> that attended my trainings are also availabe.</p>
-            <p>Finally, the training contract will include a <span class="high">restitution clause in case of negative final feedback</span>.</p>
+            <p><span class="high">Recommendations from senior developers</span> that attended my trainings are also <a href="#clients">available here</a>.</p>
+            <p>Finally, the training contract will include a <span class="high">restitution clause in case of negative final feedback</span>, although I'm quite sure it won't ever be the case.</p>
 
             <div id="global-feedback">
-                <img alt="ico" src="global-feedback.jpg" />
+                <img alt="Global Anonymous Feedback Chart" src="global-feedback.jpg" />
             </div>
 
         </section>
 
         <!-- OODP  ****************************************** -->
         <section>
-            <h2 id="training/object-oriented-design-patterns" code="OO-DP">Object-Oriented Design Patterns</h2>
+            <h2 id="training/object-oriented-design-patterns" code="OO-DP" class="star">Object-Oriented Design Patterns</h2>
             <span class="duration">2 parts x 2 hours</span>
-            <img alt="ico" src="politehnica.jpg" style="float:right; margin: 20px" />
+            <img alt="UPB" src="politehnica.jpg" style="float:right; margin: 20px; width: 20%" />
             <p>This is the star-training of my portfolio. Delivered <span class="high">more than 10 times</span> in various formats and setups, I also held it for the last two years as <span class="high">part of the "Java" faculty course</span> of the Automatics & Computers Department of Politehnica University of Bucharest.</p>
-            <p>This 2-part presentation will cover the most used Object-Oriented Design Patterns from the reference <a href="https://en.wikipedia.org/wiki/Design_Patterns">Gang-of-Four book</a>. Although the material covers all the GoF patterns, I would recommend instead to focus and analyze in more depth those patterns that are most used to day, and omit the grayed-out patterns in the agenda. This way we might gain enough time to talk about related concepts such as Aspect-Oriented-Programming, dynamic Java Proxies, and more.</p>
+            <p>This 2-part module will cover the most used Object-Oriented Design Patterns from the reference <a href="https://en.wikipedia.org/wiki/Design_Patterns">Gang-of-Four book</a>. Although the material covers all the GoF patterns, I would recommend instead to focus and analyze in more depth those patterns that are most used to day, and omit the grayed-out patterns in the agenda. This way we might gain enough time to talk about related concepts such as Aspect-Oriented-Programming, dynamic Java Proxies, and more.</p>
             <p>The presentation is very dynamic, with <span class="high">a lot of real-life examples</span> to help you deeply understand the concepts and remember them <i>forever</i>.</p>
             <p>The <span class="high">extensive application part</span> of this module however, is the one that will definetly shed light to all the quirks of the patterns. When your own hands will write the solutions to the exercises, you will have no choice but to fully understand the design patterns.</p>
             <p>The target audience includes any Object-Oriented programmers, on Java or .NET. </p>
@@ -518,7 +570,7 @@
 
         <!-- EEDP  ****************************************** -->
         <section>
-            <h2 id="training/java-ee-design-patterns" code="EE-DP">JavaEE Design Patterns</h2>
+            <h2 id="training/java-ee-design-patterns" code="EE-DP" class="star">JavaEE Design Patterns</h2>
             <span class="duration">2 hours</span>
             <p>Developing Enterprise applications is hard. No one can argue that.</p>
             <p>But why? Is it because of their overly-complex business logic, their NFRs, the heterogenous teams, the business-IT gap, or maybe a combination of it all? Whatever the cause, <span class="high">enterprise applications tend to be very large</span>, with a considerable proportion of similar functionality. The perfect place for a pattern.</p>
@@ -599,7 +651,7 @@
 
         <!-- Clean Code  ****************************************** -->
         <section>
-            <h2 id="training/clean-code" code="CleanCode">The Art of Clean Code</h2>
+            <h2 id="training/clean-code" code="CleanCode" class="star">The Art of Clean Code</h2>
             <span class="duration">2 parts x 2 hours (or shorter)</span>
             <p>The primary value of <span class="high">software is to be flexible</span>. The secondary value of software is to do what business wants it to do.</p>
             <p>Sounds insane? Just think a bit: what's the difference between IT and regular engineering? What propulsated IT that much? <span class="high">The ability to evolve, to adapt to new business needs</span>. And we all know how difficult it is to adapt and strech old, dirty, rigid code.</p>
@@ -880,21 +932,21 @@
         <section>
             <h2 id="training/web-services" code="SOAP WS">Web Services (.wsdl)</h2>
             <span class="duration">2-3 parts x 2 hours</span>
-            <p>This course is under construction, and it will be finalized upon your request.</p>
-            <img alt="ico" src="under-construction.jpg" width="200px" />
+            <p>This course will be finalized upon your request.</p>
+            <img alt="Under Construction" src="under-construction.jpg" width="200px" />
         </section>
 
         <!-- ****************** SPRING ******************** -->
         <section>
             <h2 id="training/spring" code="Spring">Spring Framework</h2>
             <span class="duration">5 parts x 2 hours</span>
-            <p>Meet <span class="high">the framework which fights a standard</span>. The debate will probably never end: Java EE or Spring.</p>
-            <p>Spring blossomed in the times of EJB 2.x, proposing a cleaner, extensible and more flexible approach to an immature and badly designed EJB API. Even if the Java EE standard greatly evolved, Spring remained a competing alternative to Servlets, EJBs and CDI beans.</p>
-            <p>You may wonder: why?, how is this possible? What about vendor/version-lock-in? And you would be right. However, lots of architects choose to lock their applications in Spring instead of coding to the JavaEE standard alone.</p>
-            <p>The major advantage of Spring is that <span class="high">you can do (pretty) almost you ever want to do</span> - you probably only need to configure some beans or extend some Spring helper classes. Whereas in JavaEE, as soon as you need something not available in the standard, you are lost - you would then probably need to lock yourself to the Application Server implementation (Managed beans, login modules, logging extensions, WAS SSL providers, etc).</p>
-            <p>Apart from this flexibility that lets you cover all those particular odd technical demands of your application, Spring also comes with several <span class="high">very-very nice helper classes</span> that help you reduce the boilerplate code in your application. JdbcTemplate and RestTemplate are the most renowed, effectively reducing the size of your DAO/ws client layer to a remarkable extent.</p>
-            <p>Spring integrates perfectly with all the services of the JavaEE platform, and all the other mature frameworks out there. Some say that <span class="high">if a java technology does not integrate with Spring, it's not mature enough</span> :)</p>
-            <p>Spring Batch is a time-proven framework for building batch applications that manipulate large sets of data in a streaming-like fashion, with features like restartability, resume, jdbc batches, flat file parsing, etc. Although its complexity is remarkable, the module will target the more basic usages necessary for vanilla batch applications.</p>
+            <p>Meet <span class="high">the framework which competes with a standard</span>. The debate will probably never end: Java EE vs Spring.</p>
+            <p>Spring blossomed in the times of EJB 2.x, enabling a cleaner, extensible and more flexible approach vs an immature and badly designed EJB specification. Even if the Java EE standard greatly evolved, Spring remained a competing alternative to Servlets, EJBs and CDI beans.</p>
+            <p>You may wonder: why?, how is this possible? What about vendor/version-lock-in? And you would be right. However, lots of architects choose to lock their applications to Spring instead of coding to the JavaEE standard alone.</p>
+            <p>The major advantage of Spring is that <span class="high">you can do (pretty) almost you ever want to do</span> - you probably only need to configure some beans or at most extend some Spring helper classes. Whereas in JavaEE, as soon as you need something not available in the standard, you are lost - you would then probably need to lock yourself to the Application Server implementation (Managed beans, login modules, logging extensions, WAS SSL providers, etc).</p>
+            <p>Apart from this flexibility that allows you to cover all those particular odd technical demands of your application, Spring also comes with several <span class="high">very-very nice helper classes</span> that help you reduce the boilerplate code in your application. JdbcTemplate and RestTemplate are the most renowed, effectively reducing the size of your DAO/ws client layer to a remarkable extent.</p>
+            <p>Spring integrates perfectly with all the services of the JavaEE platform, and all the other major frameworks out there. Some say that <span class="high">if a java technology does not integrate with Spring, it's not mature enough</span>, and perhaps you should reconsider the alternatives :)</p>
+            <p>The last part covers Spring Batch, a time-proven framework for building batch applications that manipulate large sets of data in a streaming-like fashion, with features like restartability, resume, jdbc batches, flat file parsing, etc. Although its complexity is remarkable, this part will target the more basic usages necessary for vanilla batch applications.</p>
             <p>The modules have a very pronounced applicative nature, with <span class="high">lots of exercises to fully understand the concepts</span>.</p>
             <p>For a <span class="high">full example of a real Spring enterprise application, an additional hour would be required</span> (not included in neither of the modules)</p>
 
@@ -945,8 +997,8 @@
             <span style="text-decoration:underline">Part 5: Spring Batch</span>
             <p><i>1h talk, 1h hands-on</i>
             </p>
-            <p>This part is under construction, and it will be finalized upon your request. I have the necessary experience: I have built and delivered an application on top of Spring Batch.</p>
-            <img alt="ico" src="under-construction.jpg" width="200px" />
+            <p>This part will be finalized upon your request. I have the necessary experience: I have built and delivered an application on top of Spring Batch.</p>
+            <img alt="Under Construction" src="under-construction.jpg" width="200px" />
 
 
             <div class="accordion-group">
@@ -970,13 +1022,13 @@
         <section>
             <h2 id="training/junit" code="JUnit">JUnit Testing. Mocking.</h2>
             <span class="duration">2 hours</span>
-            <p>This course is under construction, and it will be finalized upon your request.</p>
-            <img alt="ico" src="under-construction.jpg" width="200px" />
+            <p>This course will be finalized upon your request.</p>
+            <img alt="Under Construction" src="under-construction.jpg" width="200px" />
         </section>
 
         <!-- ****************** Test-Driven Development ******************** -->
         <section>
-            <h2 id="training/test-driven-development" code="TDD">Test-Driven Development</h2>
+            <h2 id="training/test-driven-development" code="TDD" class="star">Test-Driven Development</h2>
             <span class="duration">2 hours</span>
             <p><span class="high">Meet the next level of software development.</span>
             </p>
@@ -1032,8 +1084,8 @@
         <section>
             <h2 id="training/uml" code="UML">UML Modelling</h2>
             <span class="duration">2 parts x 1,5 hours</span>
-            <p><span class="high">A diagram is the most efficient way to communicate</span>, understand and reason about a software design. That’s why any professional application developer should talk UML fluently. This training covers the <span class="high">UML diagrams most frequently used in the daily practice</span> of a software developer, with particular emphasis on <span class="high">Class, Sequence and Activity Diagrams</span>. Other less common design-time diagrams are also presented, although without going into unnecessary details.</p>
-            <p>For each exercise, the classroom will be split in teams of 2-3 members, and each team will <span class="high">ellaborate a diagram for each exercise</span>. After the time elapses, each team in turn will explain their solution to the entire classroom to provide a starting point for discussions. Alternative modeling options and various design assumptions will be analyzed.</p>
+            <p><span class="high">A diagram is the most efficient way to communicate</span>, understand and reason about a software design. That’s why any professional application developer should talk UML fluently. This training covers the <span class="high">UML diagrams most frequently used in the daily practice</span> of a software developer, with particular emphasis on <span class="high">Class, Sequence and Activity Diagrams</span>. Other less common design-time diagrams are also covered, although without going into unnecessary details.</p>
+            <p>For each exercise, the classroom will be split in teams of 2-3 members, and each team will <span class="high">ellaborate a diagram for each exercise</span>. After the time elapses, each team in turn will explain their solution to the entire classroom to provide a starting point for <span class="high">in-class brainstorming</span>. Alternative modeling options and various design assumptions will be analyzed.</p>
 
             <span style="text-decoration:underline">Part 1</span>
             <p><i>1h talk, 30' in-class brainstorming: 2 class diagrams</i>
@@ -1073,7 +1125,7 @@
             <span class="duration">1 hour</span>
             <p><i>In the beginning, there were the Requirements.</i>
             </p>
-            <p>What are those? What kind of requirements are there and <span class="high">where should we search for them</span>? What are those “<span class="high">non-functional requirements</span>”, after all, and why should I care about them? This short module tries to answer those questions from the practical viewpoint of a software developer/architect.</p>
+            <p>What are those? What kind of requirements are there and <span class="high">where should I search for them</span>? What are those <span class="high">“non-functional requirements”</span>, after all, and why should I care about them? This short module tries to answer those questions from the practical viewpoint of a software developer/architect.</p>
 
             <p><i>1h talk &amp; discussions</i>
             </p>
@@ -1116,8 +1168,9 @@
         <section>
             <h2 id="training/web-security" code="WebSec">Web Security</h2>
             <span class="duration">1 hour</span>
-            <p>The course covers the <span class="high">Top 10 Web Security Attacks in 2013</span>, as reported by OWASP. Each attack is explained, exemplified and then one or more solutions are proposed to them.</p>
-            <p>Anyone can participate, although some minimum Knowledge of the web technologies is recommended (JavaScript, HTTP, HTML).</p>
+            <p>You probably have heard of Cross-Site-Request-Forging, SQL Injection or URL forging, but can you clearly define them? Do you truly understand what they are about, when do they happen and how can they be avoided?</p>
+            <p>The course covers the <span class="high">Top 10 Web Security Attacks in 2013</span>, as reported by OWASP. Each attack is explained, exemplified and then one or more solutions are proposed to them, in a <span class="high">workshop-like atmosphere</span>.</p>
+            <p>Anyone can participate, although some minimum knowledge of the web technologies is recommended (JavaScript, HTTP, HTML).</p>
 
             <p><i>1h talk &amp; discussions</i>
             </p>
@@ -1164,9 +1217,9 @@
             <h2 id="training/xsd-jaxb" code="XSD &amp; JAXB">XML Schema &amp; JAXB</h2>
             <span class="duration">2 hours</span>
             <p>XML is everywhere.</p>
-            <p>But do you know <span class="high">how to define the structure of such an XML</span>? And then, <span class="high">how do you work with XMLs from Java</span>?</p>
-            <p>This module explains the common structures of the XML Schema Definition. Although the XSD specification is remarkably complex, it is so in order to be as flexible as possible. For the vanilla enterprise applications however, this module covers more than enough of the XSD specification.</p>
-            <p>Ok, so you defined your XML structure (.xsd), what then? How do you read/write such XMLs? Do you struggle with SAX events or you cross your fingers and load the whole DOM in memory? Or maybe you are a litle fancier and you play with StAX? All of these three standards have their purposes, but for regular enterprise applications, <span class="high">you would probably like to work with JAXB objects resebling your Java Model</span> than with Nodes, Attributes or Events. Let's see how this JAXB works and perhaps how can we customize it a bit.</p>
+            <p>But do you know <span class="high">how to define the structure of such an XML</span>? And then, <span class="high">how do you work with XMLs in Java</span>?</p>
+            <p>The XML Schema Definition specification is remarkably complex, because it needs to be as flexible as possible. For regular enterprise applications however, only a (very) limited subset of all these features are used, for example: complex types, simple types, enumerated values, length/min/max restrictions, regex patterns, etc. This module covers all these common constructs, giving you more than 90% of all the XSD knowledge you will probably ever need.</p>
+            <p>Ok, so you defined your XML structure (.xsd), what then? How do you read/write such XMLs? Do you struggle with SAX events or you cross your fingers and load the whole DOM in memory? Or maybe you are a litle fancier and you play with StAX? All of these standards have their use cases, but for regular enterprise applications, <span class="high">you would probably like to work with JAXB objects that closely resemble your Java Model</span> than with Nodes, Attributes or Events. Let's see how this JAXB works and perhaps how can we customize it a bit.</p>
 
             <p><i>1:10 lecture, 40' hands-on XSD, 10' JAXB demo</i>
             </p>
@@ -1209,6 +1262,15 @@
 
         </section>
 
+        <!-- ****************** SCRUM ******************** -->
+        <section>
+            <h2 id="training/scrum" code="SCRUM">The SCRUM Methodology</h2>
+            <span class="duration">2 parts x 2 hours</span>
+            <p>SCRUM is the most used methodology for Agile projects.</p>
+            <p>This course will be finalized by the end of the year.</p>
+            <img alt="Under Construction" src="under-construction.jpg" width="200px" />
+        </section>
+
 
         <!--
 		<div id="consultancy" class="section">
@@ -1242,17 +1304,55 @@
             <h1 id="clients" code="Clients">Client Portfolio</h1>
             <p>I gained the majority of my training experience inside IBM, holding internal trainings to fellow employees. However, recently I've began holding trainings independently to interested companies. Their references are available upon request.
             </p>
+            
+            <p class="recommendation">Victor has an excellent mastery of the topics presented and managed to raise my expectations about how a technical coures should look like, both regarding the content, as well as its presentation. A consistent professional experience helped him to formulate an authentic practical perspective on the topics, something that was missing from many courses I participated to. <br />I believe that an important element in the success of his trainings is the personal and interactive aspect that he adds to the materials and to the presentation. This approach helped me remember a lot easier the discussed topics, and encourages a relaxed informal interaction between the instructor and the audience.<br />
+                He is one of the few trainers that add a substantial value to the presented materials and I trustfully recommend his courses.<br />
+                <span class="recommendation-original" title="Victor are o stapanire excelenta a materiei prezentate si a reusit sa-mi ridice asteptarile despre cum ar trebui sa arate un curs tehnic, atat din punct de vedere al continului cat si al prezentarii. O substantiala experienta in domeniu l-a ajutat sa aduca o perspectiva autentica de practicalitate si aplicabilitate, care mi-a lipsit din multe alte cursuri la care am participat.
+   Cred ca un element important in succesul cursurilor sale, este aspectul personal si interactiv pe care il adauga materialelor si prezentarii. Abordare sa m-a ajutat sa retin mul mai usor subiectele discutate, si incurajeaza o interactiune relaxata intre instructor si audienta.
+Este unul dintre putinii instructori care aduc o valoare substantiala materialelor prezentate si recomand cu toata increderea cursurile sale.">(hover for original Romanian feedback)</span><br />
+                <span class="recommendation-author">Sorin Moise, Senior (7+years) Java Developer and Technical Team Lead at IBM<br />Clean Coder, Test-Driven Developer</span>
+            </p> 
+                
+            <p class="recommendation">Victor is an extremely well prepared, versatile and experienced trainer with whom it’s been a pleasure to collaborate for consecutive years in presenting OO Design Patterns at my Object Oriented Programming course at the Faculty of Automatic Control and Computers, University Politehnica of Bucharest. His lectures consisted of 2 talks of 3 hours that took place together with his colleague from IBM, Florin Diaconu. Overall, their lectures were extremely well regarded by the students attending the course (all in all, a rather large audience as there are about 120 students enrolled in OOP course with about 50 students frequently attending the courses). In terms of his presentations, he has displayed charisma, was on top of any technical question my students asked him and it was really fun to organize the design patterns course with him.<br />
+                <span class="recommendation-author">Mihai DASCĂLU, PhD(CS), PhD(Edu), Lecturer at CS Dept/UPB, Fulbright Senior Alumnus<br />
+                    PMP, PMI-ACP, PMI-RMP, CBAP, CISA, CISSP, C|EH, OCMJD</span>   
+            </p>
+                              
+                
+            <p class="recommendation">I had 5 days Java Architecture training in May 2015, when our company decided to migrate our software product to a new server application and to use some newer java&amp;Spring technologies. The training was adapted to our needs and helped us a lot in choosing the right solutions for our business. It was an extremely good course, complete, dynamic, inspirational, answering all our questions.<br />
+For me it is the best training I ever had (courses at big companies like Oracle included).<br />
+Thank you so much for all your help!<br />
+                <span class="recommendation-author">
+                    Daniela Lacatus, Senior Java Developer, Technical Team Lead, and Business Analyst at Interdata ABS</span>   
+            </p>
+            <p class="recommendation">In 2014 I participated in a two-hour Rest WS course taught by Victor. I was impressed by his Java knowledge across multiple technologies. He was able to address all the questions asked by the participants and to bring clarification when it was needed.<br />
+                Victor wants to say so many things during his courses so the teaching rhythm is a very alert one. My recommendation: be prepared for an intense learning session !<br /><span class="recommendation-author">
+
+                Ionut Scutaru, Senior (15+ years) Java Developer and Architect, Technical Team Lead at IBM<br />
+Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
+                </span>
+            </p>
+            
+            <p class="recommendation">
+                I fully recommend the Java courses held by Victor Rentea, not only to those that begin their career in IT, but also to those with years of experience developing java enterprise applications, which want to keep up with the new technologies and patterns. During every module, Victor presents a considerable number of implementation examples that showcase the way of working with the technologies presented.<br />
+                I believe Victor's courses represent an excellent way for IT managers to grow their Java developers.<br />
+                <span class="recommendation-original" title="Recomand cursurile Java sustinute de Victor Rentea nu numai celor care isi incep cariera in domeniul IT dar si celor care au deja ani de experienta in domeniul aplicatiilor enterprise si doresc sa fie la curent cu noile tehnologii si patternuri. La fiecare curs Victor prezinta un numar mare de exemple de implementare care exemplifica modul de utilizare al tehnologiilor folosite.
+   Cursurile lui Victor reprezinta un bun mod prin care managerii de departamente IT pot sa isi initieze dezvoltatorii in lumea aplicatiilor java.">(hover for original Romanian feedback)</span><br />
+                <span class="recommendation-author">Dragos Moraru, Senior (13+ years) Java Developer and Architect, Technical Team Lead at IBM</span>
+            </p> 
+                
             <div id="client-logos">
-                <img alt="ico" src="client-ibm.png" />
-                <img alt="ico" src="client-pro-management.png" />
-                <img alt="ico" src="client-abs.png" />
+                <!--<img alt="ico" src="client-ibm.png" />-->
+                <img alt="ProManagement Training Center" src="client-pro-management.png" />
+                <img alt="ABS" src="client-abs.png" />
+                <img alt="UPB" src="politehnica.jpg" />
             </div>
         </section>
         <section>
             <h1 id="contact" code="Contact">Contact</h1>
-                <p>
+            <!--    <p>
             <a href="tel:+40720019564"><img alt="ico" src="phone.png" style="width:30px; margin-right: 5px" />(+4)0720.019.564</a>
-            </p>
+            </p>-->
             <p>
                 <a href="mailto:victorrentea@gmail.com"><img alt="ico" src="mail2.png" style="width:30px; margin-right: 5px" />victorrentea@gmail.com</a>
             </p>
@@ -1260,7 +1360,7 @@
                 <a href="https://ro.linkedin.com/pub/victor-rentea/4a/936/933"><img alt="ico" src="in.png" style="width:30px; margin-right: 5px" />Victor Rentea</a>
             </p>
             <div style="text-align:center">
-        <img alt="ico" src="semnatura.png" width="300px" /></div>
+        <img alt="logo" src="semnatura.png" width="300px" /></div>
             <p>
 
                 </section>
@@ -1382,7 +1482,10 @@
             var topHighligh = isTrainingSection ? "" : "style='text-decoration: underline; margin-top:15px'";
             var duration = $(elem).find(".duration").text();
             var escapedTitle = $title.text().replace(/'/g, "&quot;");
-            $rightNavUL.append("<li " + topHighligh + " title='" + escapedTitle + "'><div class='duration-nav'>" + duration + "</div><a href='#" + $title.attr("id") + "'>" + $title.attr("code") + "</li>");
+            if ($title.hasClass("star")) {
+                
+            }
+            $rightNavUL.append("<li " + topHighligh + " title='" + escapedTitle + "'><div class='duration-nav'>" + duration + "</div><a href='#" + $title.attr("id") + "'>" + ($title.hasClass("star")?"<img src='star.png' class='small-star'/>":"") + $title.attr("code") + "</li>");
             if (isTrainingSection) {
                 var durationShort = duration.replace(/ hours/g, "h").replace(/ hour/g, "h").replace(/ parts/g,"").replace(/\+h/g,"h+");
                 $trainingMenuUL.append("<li><a href='#"+$title.attr("id") + "'>" +escapedTitle+" <span style='color:#ccc'>"+durationShort+"</span></a></li>");
@@ -1564,8 +1667,10 @@
         anchors.add('h2').add('h1').remove('.no-anchor');
         
         $('.collapse.navbar-collapse').on('shown.bs.collapse', function(){
-    $('.dropdown').addClass('open');
-});
+            $('.dropdown').addClass('open');
+        });
+        
+        $(".star").prepend("<img src='star.png' class='star'/>");
     </script>
 
 
@@ -1586,5 +1691,13 @@
     </script>
 
 </body>
+        
+        <!--
 
+TODO: 
+- recalculate highlight on expand/collapse
+- sectiune recomandari + menu
+- Sigla -IBM +UPB
+- Parteneri
+-->
 </html>
