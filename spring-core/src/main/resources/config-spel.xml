@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+              http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+              http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+              http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+              http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+	<bean id="wsClient" class="victor.training.spring.basic.service.MyWSClient" factory-method="getInstance">
+		<property name="endpointURLs" value="#{endpointURLs}" />
+	</bean>
+
+	<util:list id="endpointURLs">
+		<value>http://ro.ibm.com/myws</value>
+		<value>http://localhost:8080/myws</value>
+	</util:list>
+
+	<bean id="spelSandbox" class="victor.training.spring.advanced.SpELSandbox">
+		<property name="stringProperty" value="#{otherBean.stringProperty?.toUpperCase()}" />
+		<property name="intProperty" value="#{otherBean.intProperty + 1}" />
+		<property name="booleanProperty" value="#{T(java.lang.Math).random() lt 0.5f}" />
+		<property name="childList" value="#{otherBean.childList.?[intProperty lt 15]}"/>
+		<property name="stringList" value="#{otherBean.childList.![intProperty]}" />
+	</bean>
+
+	<bean id="otherBean" class="victor.training.spring.advanced.SpELSandbox">
+		<property name="stringProperty" value="#{T(java.lang.Math).random() lt 0.5f?'A Beautiful Day':null}" />
+		<property name="booleanProperty" value="true" />
+		<property name="intProperty" value="10" />
+		<property name="childList">
+			<list>
+				<bean class="victor.training.spring.advanced.SpELSandbox" p:intProperty="10" />
+				<bean class="victor.training.spring.advanced.SpELSandbox" p:intProperty="20" />
+				<bean class="victor.training.spring.advanced.SpELSandbox" p:intProperty="30" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

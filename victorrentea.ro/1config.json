@@ -115,10 +115,10 @@
     "@dropdown-link-disabled-color": "@gray-light",
     "@dropdown-header-color": "@gray-light",
     "@dropdown-caret-color": "#000",
-    "@screen-xs": "380px",
+    "@screen-xs": "480px",
     "@screen-xs-min": "@screen-xs",
     "@screen-phone": "@screen-xs-min",
-    "@screen-sm": "500px",
+    "@screen-sm": "768px",
     "@screen-sm-min": "@screen-sm",
     "@screen-tablet": "@screen-sm-min",
     "@screen-md": "992px",
@@ -430,5 +430,5 @@
     "scrollspy.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=232beb9d8d4c55b2a1a8"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=b3cdd3f7b87812fa65f6"
 }

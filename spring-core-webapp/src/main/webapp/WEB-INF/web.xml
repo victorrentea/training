@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0">
+
+	<!-- Load Spring with a J2EE Context Loader Listener -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:application-config.xml</param-value>
+		<!-- how else ? /WEB-INF... -->
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- This (or a Filter) must be installed in order to use "session" or "request" scoped beans -->
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+
+	<!-- A test Servlet -->
+	<servlet>
+		<servlet-name>SpringTestServlet</servlet-name>
+		<servlet-class>spring.webapp.servlet.SpringTestServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SpringTestServlet</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>home</welcome-file>
+	</welcome-file-list>
+</web-app>

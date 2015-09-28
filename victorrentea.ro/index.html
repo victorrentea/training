@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="keywords" content="training,java,spring,enterprise,course,curs,jpa,ejb,bucuresti,clean code,design patterns,object-oriented,UML,arhitectura,architecture">
-    <meta name="description" content="Interactive custom training for enteprise Java application development, held by an industry-driven certified senior developer, clean coder and technical team lead, certified oracle Java EE Enterprise Architect, PhD(CS)">
+    <meta name="keywords" content="training,java,spring,enterprise,course,curs,jpa,ejb,bucuresti,clean code,design patterns,object-oriented,UML,arhitectura,architecture">
+    <meta name="description" content="Training custom interactiv pentru angajati de Enteprise Java Application Development cu multa parte practica, exercitii si explicatii, sustinut de un Trainer profesionist, Senior Developer, Architect and Technical Team Lead @ IBM, Oracle Certified Java EE Enterprise Architect. Dintre module: Clean Code, Object-Oriented Design Patterns, Enterprise Application Design Patterns, Spring Framework (MVC, DAO, AOP, Batch), Enterprise Java Beans, Java Persistence API, UML, CDI, REST and SOAP web services, Web Application Security, advanced Unit Testing and Test Driven Development, Agile and SCRUM Methodology, Integration Patterns, XSD JAXB. Reduceri substantiale pentru grupuri mari de angajati. Cursurile pot fi sustinute in romana sau engleza, in-class la sediul dumneavoastra si/sau remote prin desktop-sharing plus teleconferinta. Partile teoretice sunt sustinute cu numeroase workshop-uri, brainstormings, concursuri cu premii si exercitii aplicative, care va vor ajuta sa invatati si sa retineti pe termen lung conceptele discutate. Cititi aici pareri ale seniorilor.">
     <meta name="author" content="Victor Rentea">
     <link rel="icon" href="academy-cap-icon.png">
-    <title>Victor Rentea - Professional Java Trainings</title>
+    <link rel="publisher" href="https://plus.google.com/b/104211899563696126838/104211899563696126838/about" />
+    <title>Victor Rentea - Cursuri Java Enterprise Bucuresti: Clean Code, Design Patterns, Arhitectura, Spring Framework, UML, EJB, JPA, Unit Test, OOP, Agile, SCRUM</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -23,6 +24,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <style>
         @font-face {
             font-family: Octin;
@@ -111,9 +113,17 @@
             padding-top: 8%;
         }
         
+        #modules {
+            text-align: center;
+        }
+        #modules li{
+            font-size: 20px;
+            padding-top: 5px;
+        }
+        
         section {
             padding-left: 15px;
-            padding-right: 15px;            
+            padding-right: 15px;
         }
         
         .duration {
@@ -126,8 +136,7 @@
         .anchorjs-link:hover {
             text-decoration: none;
         }
-        
-       /* .anchorjs-link {
+        /* .anchorjs-link {
             font-family: anchorjs-icons;
             font-style: normal;
             font-variant: normal;
@@ -225,7 +234,7 @@
         
         @media screen and (min-width: 950px) {
             div.cert {
-                position: absolute;
+                position: fixed;
                 left: 10px;
                 top: 100px;
                 width: 120px;
@@ -273,11 +282,8 @@
             width: 200px;
             margin: 20px;
         }
-        
         /* ====== STAR ====== */
-        
-        
-/*
+        /*
         @keyframes star-fade {
             0%   {opacity: 0; margin-left:0px;margin-top:0px;width:5px;}
             90%  {opacity: 1; margin-left:-120px; margin-top:40px; width:100px;}
@@ -285,14 +291,27 @@
         }
         
 */
+        
         @keyframes big-star-fade {
-            0%   {width:20px;margin-top:8px;margin-left:-40px;}
-            50%  {width:36px;margin-top:0px;margin-left:-48px;}
-            100%  {width:20px;margin-top:8px;margin-left:-40px;}
+            0% {
+                width: 20px;
+                margin-top: 8px;
+                margin-left: -40px;
+            }
+            50% {
+                width: 36px;
+                margin-top: 0px;
+                margin-left: -48px;
+            }
+            100% {
+                width: 20px;
+                margin-top: 8px;
+                margin-left: -40px;
+            }
         }
-
+        
         img.star {
-            width:35px; 
+            width: 35px;
             position: absolute;
             margin-left: -40px;
             animation-name: big-star-fade;
@@ -300,25 +319,26 @@
             animation-iteration-count: infinite;
         }
         
-        
-
         img.small-star {
             margin-left: -25px;
             position: absolute;
             width: 25px;
         }
+        
         .recommendation {
-            background-image: url('quote.svg'); 
+            background-image: url('quote.svg');
             background-repeat: no-repeat;
             background-position: left top;
             padding-left: 60px;
             padding-right: 60px;
-            margin-top:30px;
+            margin-top: 30px;
         }
+        
         .recommendation-original {
             text-decoration: underline;
             font-size: smaller;
         }
+        
         .recommendation-author {
             font-weight: bold;
             font-style: italic;
@@ -381,7 +401,7 @@
                     <a title="Email me: victorrentea@gmail.com" href="mailto:victorrentea@gmail.com"><img alt="ico" style="margin-right:8px;" src="mail2.png">
                     </a>
                 </li>
-<!--
+                <!--
                 <li>
                     <a title="Call me: (+4)0720.019.564" href="tel:+40720019564"><img style="margin-right:8px;" src="phone.png" alt="(+4)0720.019.564">
                     </a>
@@ -400,10 +420,10 @@
             </div>
             <div class="col-md-8 presentation">
                 <h3 class="capital">Hi, I'm <span>Victor</span>,<h3>	
-            <h3>an enthusiast Clean&nbsp;Coder, Senior&nbsp;Java&nbsp;EE&nbsp;Developer, Technical&nbsp;Team&nbsp;Lead&nbsp;at&nbsp;IBM, and independent&nbsp;<a href="#training">Trainer</a>,</h3>
+            <h3>an enthusiast Clean&nbsp;Coder, Senior&nbsp;Java&nbsp;EE&nbsp;Developer, Architect &amp; Technical&nbsp;Team&nbsp;Lead&nbsp;at&nbsp;IBM, and <a href="#training">independent&nbsp;Trainer</a>,</h3>
                 <h3>I am PhD&nbsp;in&nbsp;Computer&nbsp;Science and certified Oracle&nbsp;JavaEE<sup>6</sup>&nbsp;Architect.</h3>
 
-                <h3>I provide <span class="high">interactive custom trainings for groups of employees</span>. Keep reading!</h3>
+                    <h3>If you're looking for an <span class="high">interactive custom training for a group of employees</span>, you'll find bellow <a href="#training">my concept of a good training</a> that I used to develop <a href="#training/modules">the&nbsp;20&nbsp;modules&nbsp;I&nbsp;teach</a>, and some <a href="#clients">valuable recommendations</a>.</h3>
             </div>
 
 
@@ -443,11 +463,11 @@
 
             <h3>Every course is unique</h3>
             <p>Each classroom has its own interests or needs specific skills, so <span class="high">the course agenda is always personalized</span>. Perhaps you aren't sure yet what topics to choose. I can help you with that. We could sit together for a general discussion and explore what you may be looking for. Then, we could choose several modules, customize them or even add completely new ones.</p>
-            <p>Each module is designed to take at most 2-hour long, including any demo, exercises or contests. In a regular day, 3 regular modules can be covered, plus a little extra practice or discussions. Trying to cover more than that usually just exhausts the participants with no (or even less) benefit.</p>
+            <p>Each module is designed to take at most 2-hour long, including any demo, exercises or contests. In a normal day, 3 regular (2h) modules can be covered, plus a little extra practice or discussions. Trying to cover more than that usually just exhausts the participants with no (or even less) benefit.</p>
 
             <h3>Industry-driven, Certified proficiency</h3>
-            <p>I have <span class="high">practical experience with all the technologies I teach</span>, except with the newer JavaEE6&amp;7. I've used them all to design, develop and deliver <span class="high">enterprise applications for demanding corporate clients</span> like world-leading flavors&amp;fragrances company, Belgium Post, or BNPParibas Bank. In each project, I was always the one who explored the boundary cases of the techonologies, those places where what you wanted was not readily available out-of-the-box. I started doing that right from the first year of my career. In each case, I always strived to provide the simplest solution to each specific need, while following <span class="high">the phylosophy of each technology</span>.</p>
-            <p>To be sure I covered all the corners of the Java EE specifications, I also obtained a <span class="high">long series of certifications</span>.</p>
+            <p>I have <span class="high">9 years of practical experience with all the technologies I teach</span>, except with the newer JavaEE6&amp;7. I've used them all to design, develop and deliver <span class="high">enterprise applications for demanding corporate clients</span> like world-leading flavors&amp;fragrances company, Belgium Post, or BNPParibas Bank. In each project, I was always the one who explored the boundary cases of the techonologies, those places where what you wanted was not readily available out-of-the-box. I started doing that right from the first year of my career in 2006. In each case, I always strived to provide the simplest solution to each specific need, while following <span class="high">the phylosophy of each technology</span>.</p>
+            <p>To be sure I covered all the corners of the Java EE specifications, I also obtained a <span class="high">long series of certifications</span>: Sun Certified Java Programmer (SCJP), Sun Certified Web Service Developer (.wsdl,JAX-WS), Oracle Certified JavaEE<sup>5</sup> Business Component Developer (EJB,JMS,JTA), Sun Certified Web Component Develiper (Servlet,JSP), Oracle Certified SQL Expert, <span style="font-weight:bold">Oracle Certified Java EE<sup>6</sup> Enterprise Architect</span></p>
 
             <h3>Questions are what I want</h3>
             <p><span class="high">I am always expecting questions</span> any time during the trainings or breaks. The more questions I get from you, the more I manage to explain you. Honestly, there is no greater satisfaction for me but to answer your questions - it's only then that I'm sure I'm really helping you. The questions need not even be directly related to the topics we were talking about: I would be equally glad to be able to help you in any issues of your daily programmer life.</p>
@@ -462,6 +482,11 @@
             <div id="global-feedback">
                 <img alt="Global Anonymous Feedback Chart" src="global-feedback.jpg" />
             </div>
+
+            <h3 id="training/modules" style="padding-top:60px">Training Modules</h3>
+            <ul id="modules">
+                
+            </ul>
 
         </section>
 
@@ -1265,9 +1290,10 @@
         <!-- ****************** SCRUM ******************** -->
         <section>
             <h2 id="training/scrum" code="SCRUM">The SCRUM Methodology</h2>
-            <span class="duration">2 parts x 2 hours</span>
-            <p>SCRUM is the most used methodology for Agile projects.</p>
-            <p>This course will be finalized by the end of the year.</p>
+            <span class="duration">2-3 parts x 2 hours</span>
+            <p>When constructing a building, once you lay the foundation for a hospital, it's quite unlikely that you will end up building a Theme Park. In a software project however, nothing is impossible. An application should be able to evolve towars whatever the business wants it to, changing its architecture to fit their current needs. And this is possible only through regular feedback and true collaboration with the business, along with other techniques and principles. Meet the Agile Methodlogy.</p>
+            <p>SCRUM is the most used methodology for Agile projects. It is a methodology encompassing the entire project lifecycle aimed to improve the flexibility and the 'agility' of the projects in order for them to handle partial, changing or late specification from the business. In such a dynamic business world, IT is the area which can best support changing requirements.</p>
+            <p>This course will be finalized by the end of the year, once I become a Professional Scrum Master (PSM I) or PSD.</p>
             <img alt="Under Construction" src="under-construction.jpg" width="200px" />
         </section>
 
@@ -1304,43 +1330,64 @@
             <h1 id="clients" code="Clients">Client Portfolio</h1>
             <p>I gained the majority of my training experience inside IBM, holding internal trainings to fellow employees. However, recently I've began holding trainings independently to interested companies. Their references are available upon request.
             </p>
-            
-            <p class="recommendation">Victor has an excellent mastery of the topics presented and managed to raise my expectations about how a technical coures should look like, both regarding the content, as well as its presentation. A consistent professional experience helped him to formulate an authentic practical perspective on the topics, something that was missing from many courses I participated to. <br />I believe that an important element in the success of his trainings is the personal and interactive aspect that he adds to the materials and to the presentation. This approach helped me remember a lot easier the discussed topics, and encourages a relaxed informal interaction between the instructor and the audience.<br />
-                He is one of the few trainers that add a substantial value to the presented materials and I trustfully recommend his courses.<br />
+
+            <p class="recommendation">Victor has an excellent mastery of the topics presented and managed to raise my expectations about how a technical course should look like, both regarding the content, as well as its presentation. <span class="high">A consistent professional experience helped him to formulate an authentic practical perspective</span> on the topics, something that was missing from many courses I participated to.
+                <br />I believe that an important element in the success of his trainings is the personal and interactive aspect that he adds to the materials and to the presentation. This approach helped me remember a lot easier the discussed topics, and <span class="high">encourages a relaxed informal interaction</span> between the instructor and the audience.
+                <br /> He is one of the few trainers that add a substantial value to the presented materials and I trustfully recommend his courses.
+                <br />
                 <span class="recommendation-original" title="Victor are o stapanire excelenta a materiei prezentate si a reusit sa-mi ridice asteptarile despre cum ar trebui sa arate un curs tehnic, atat din punct de vedere al continului cat si al prezentarii. O substantiala experienta in domeniu l-a ajutat sa aduca o perspectiva autentica de practicalitate si aplicabilitate, care mi-a lipsit din multe alte cursuri la care am participat.
    Cred ca un element important in succesul cursurilor sale, este aspectul personal si interactiv pe care il adauga materialelor si prezentarii. Abordare sa m-a ajutat sa retin mul mai usor subiectele discutate, si incurajeaza o interactiune relaxata intre instructor si audienta.
-Este unul dintre putinii instructori care aduc o valoare substantiala materialelor prezentate si recomand cu toata increderea cursurile sale.">(hover for original Romanian feedback)</span><br />
-                <span class="recommendation-author">Sorin Moise, Senior (7+years) Java Developer and Technical Team Lead at IBM<br />Clean Coder, Test-Driven Developer</span>
-            </p> 
-                
-            <p class="recommendation">Victor is an extremely well prepared, versatile and experienced trainer with whom it’s been a pleasure to collaborate for consecutive years in presenting OO Design Patterns at my Object Oriented Programming course at the Faculty of Automatic Control and Computers, University Politehnica of Bucharest. His lectures consisted of 2 talks of 3 hours that took place together with his colleague from IBM, Florin Diaconu. Overall, their lectures were extremely well regarded by the students attending the course (all in all, a rather large audience as there are about 120 students enrolled in OOP course with about 50 students frequently attending the courses). In terms of his presentations, he has displayed charisma, was on top of any technical question my students asked him and it was really fun to organize the design patterns course with him.<br />
-                <span class="recommendation-author">Mihai DASCĂLU, PhD(CS), PhD(Edu), Lecturer at CS Dept/UPB, Fulbright Senior Alumnus<br />
-                    PMP, PMI-ACP, PMI-RMP, CBAP, CISA, CISSP, C|EH, OCMJD</span>   
+Este unul dintre putinii instructori care aduc o valoare substantiala materialelor prezentate si recomand cu toata increderea cursurile sale.">(hover for original Romanian feedback)</span>
+                <br />
+                <span class="recommendation-author">Sorin Moise, Technical Team Lead, Senior (7+ years) Java Developer at IBM<br /><span class="high">Clean Coder, Test-Driven Developer</span></span>
             </p>
-                              
-                
-            <p class="recommendation">I had 5 days Java Architecture training in May 2015, when our company decided to migrate our software product to a new server application and to use some newer java&amp;Spring technologies. The training was adapted to our needs and helped us a lot in choosing the right solutions for our business. It was an extremely good course, complete, dynamic, inspirational, answering all our questions.<br />
-For me it is the best training I ever had (courses at big companies like Oracle included).<br />
-Thank you so much for all your help!<br />
-                <span class="recommendation-author">
-                    Daniela Lacatus, Senior Java Developer, Technical Team Lead, and Business Analyst at Interdata ABS</span>   
-            </p>
-            <p class="recommendation">In 2014 I participated in a two-hour Rest WS course taught by Victor. I was impressed by his Java knowledge across multiple technologies. He was able to address all the questions asked by the participants and to bring clarification when it was needed.<br />
-                Victor wants to say so many things during his courses so the teaching rhythm is a very alert one. My recommendation: be prepared for an intense learning session !<br /><span class="recommendation-author">
 
-                Ionut Scutaru, Senior (15+ years) Java Developer and Architect, Technical Team Lead at IBM<br />
+            <p class="recommendation">I have participated to other trainings before, but "Enterprise Architecture" course held by Victor was the most impressive. I was really amazed by the ability of Victor to <span class="high">share all the information in such a understandable way</span>, even when most of the training sessions were related to very high level topics. Interactive sessions, no questions without answers and very well organized presentations made us very involved in the course topics. 
+                <br />Also I had the chance to work on a project with Victor which was a great success. You can really see <span class="high">passion in every line of code or piece of design which Victor creates</span>. He likes challenges and always searches for better solutions. Beside all of these he is a very <span class="high">sociable person</span>, a bit rare to an IT guy :)
+                <br />
+                <span class="recommendation-author">Catalin Florea, Technical Team Lead, Senior (5+ years) Software Java/WebServices/Mobile Developer<br />OCP-JSE<sup>6</sup>P, OCE-JEE<sup>6</sup>-WSD</span>
+            </p>
+            
+            <p class="recommendation">Victor is an <span class="high">extremely well prepared, versatile and experienced trainer</span> with whom it’s been a pleasure to collaborate for consecutive years in presenting OO Design Patterns at my Object Oriented Programming course at the Faculty of Automatic Control and Computers, University Politehnica of Bucharest. His lectures consisted of 2 talks of 3 hours that took place together with his colleague from IBM, Florin Diaconu. Overall, their lectures were <span class="high">extremely well regarded by the students attending the course</span> (all in all, a rather large audience as there are about 120 students enrolled in OOP course with about 50 students frequently attending the courses). In terms of his presentations, he has displayed charisma, was on top of any technical question my students asked him and it was really fun to organize the design patterns course with him.
+                <br />
+                <span class="recommendation-author">Mihai DASCĂLU, PhD(CS), PhD(Edu), <span class="high">Lecturer at CS Dept/UPB</span>, Fulbright Senior Alumnus<br />
+                    PMP, PMI-ACP, PMI-RMP, CBAP, CISA, CISSP, C|EH, OCMJD</span>
+            </p>
+
+
+            <p class="recommendation">I had 5 days Java Architecture training in May 2015, when our company decided to migrate our software product to a new server application and to use some newer java&amp;Spring technologies. The training was <span class="high">adapted to our needs</span> and helped us a lot in choosing the right solutions for our business. It was <span class="high">an extremely good course, complete, dynamic, inspirational, answering all our questions</span>.
+                <br /> For me it is the best training I ever had (courses at big companies like Oracle included).
+                <br /> Thank you so much for all your help!
+                <br />
+                <span class="recommendation-author">
+                    Daniela Lacatus, Senior Java Developer, Technical Team Lead, and Business Analyst at Interdata ABS</span>
+            </p>
+            <p class="recommendation">In 2014 I participated in a two-hour Rest WS course taught by Victor. I was impressed by his Java knowledge across multiple technologies. He was able to address all the questions asked by the participants and to bring clarification when it was needed.
+                <br /> Victor wants to say so many things during his courses so the teaching rhythm is a very alert one. My recommendation: be prepared for an <span class="high">intense learning session !</span>
+                <br /><span class="recommendation-author">
+                Ionut Scutaru, Technical Team Lead, Senior (15+ years!) Java Developer and Architect at IBM<br />
 Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
                 </span>
             </p>
+
+            <p class="recommendation">
+                I fully recommend the Java courses held by Victor Rentea, not only to those that begin their career in IT, but also to those with years of experience developing java enterprise applications, which want to keep up with the new technologies and patterns. During every module, Victor presents a considerable number of implementation examples that showcase the way of working with the technologies presented.
+                <br /> I believe Victor's courses represent <span class="high">an excellent way for IT managers to grow their Java developers</span>.
+                <br />
+                <span class="recommendation-original" title="Recomand cursurile Java sustinute de Victor Rentea nu numai celor care isi incep cariera in domeniul IT dar si celor care au deja ani de experienta in domeniul aplicatiilor enterprise si doresc sa fie la curent cu noile tehnologii si patternuri. La fiecare curs Victor prezinta un numar mare de exemple de implementare care exemplifica modul de utilizare al tehnologiilor folosite.
+   Cursurile lui Victor reprezinta un bun mod prin care managerii de departamente IT pot sa isi initieze dezvoltatorii in lumea aplicatiilor java.">(hover for original Romanian feedback)</span>
+                <br />
+                <span class="recommendation-author">Dragos Moraru, Technical Team Lead, Senior (13+ years) Java Developer and Architect at IBM</span>
+            </p>
             
             <p class="recommendation">
-                I fully recommend the Java courses held by Victor Rentea, not only to those that begin their career in IT, but also to those with years of experience developing java enterprise applications, which want to keep up with the new technologies and patterns. During every module, Victor presents a considerable number of implementation examples that showcase the way of working with the technologies presented.<br />
-                I believe Victor's courses represent an excellent way for IT managers to grow their Java developers.<br />
-                <span class="recommendation-original" title="Recomand cursurile Java sustinute de Victor Rentea nu numai celor care isi incep cariera in domeniul IT dar si celor care au deja ani de experienta in domeniul aplicatiilor enterprise si doresc sa fie la curent cu noile tehnologii si patternuri. La fiecare curs Victor prezinta un numar mare de exemple de implementare care exemplifica modul de utilizare al tehnologiilor folosite.
-   Cursurile lui Victor reprezinta un bun mod prin care managerii de departamente IT pot sa isi initieze dezvoltatorii in lumea aplicatiilor java.">(hover for original Romanian feedback)</span><br />
-                <span class="recommendation-author">Dragos Moraru, Senior (13+ years) Java Developer and Architect, Technical Team Lead at IBM</span>
-            </p> 
-                
+                Taking part in a 5-days software architecture course taught by Victor was a rewarding experience. It was a great opportunity to improve my programming and application design technical knowledge. Victor presented the course in a straight forward, well-structured manner, encouraging us to ask questions and express our opinions. He showed both strong knowledge of programming concepts and <span class="high">patience</span> at explaining them. I would be very happy to recommend any course taught by him to any developer who wants to create better software.
+                <br />
+                <span class="recommendation-author">Laurentiu Spilca, Senior Java Developer &amp; Trainer</span>
+            </p>
+            
+            
+
             <div id="client-logos">
                 <!--<img alt="ico" src="client-ibm.png" />-->
                 <img alt="ProManagement Training Center" src="client-pro-management.png" />
@@ -1359,20 +1406,25 @@ Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
             <p>
                 <a href="https://ro.linkedin.com/pub/victor-rentea/4a/936/933"><img alt="ico" src="in.png" style="width:30px; margin-right: 5px" />Victor Rentea</a>
             </p>
+
+            <div class="g-page" data-width="293" data-href="//plus.google.com/u/0/104211899563696126838" data-rel="publisher"></div>
+            
             <div style="text-align:center">
-        <img alt="logo" src="semnatura.png" width="300px" /></div>
+                <img alt="logo" src="semnatura.png" width="300px" />
+            </div>
             <p>
 
-                </section>
+        </section>
 
-        
-      
 
-                <div style="text-align:center">
-                <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" />
+
+
+        <div style="text-align:center">
+            <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" />
             </a>
-                    </div>
-                
+        </div>
+        <div style="text-align:center">Google Analytics says: <span id="totalPageViews" style="font-weight:bold"></span> page views by <span id="totalUsers"  style="font-weight:bold"></span> users</div>
+
     </div>
     <!-- /.container -->
 
@@ -1393,8 +1445,6 @@ Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
     </div>
 
     <script>
-       
-
         function isScrolledIntoView(elem, delta) {
             var $elem = $(elem);
             var $window = $(window);
@@ -1475,7 +1525,7 @@ Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
         // --------------- RIGHT + HEADER NAV -----------------
         var $rightNavUL = $("#rightNav").children("ul");
         var $trainingMenuUL = $("#trainingsMenu");
-        
+
         $("section").each(function (_, elem) {
             var $title = getSectionTitle($(elem));
             var isTrainingSection = $title.prop("tagName") === "H2";
@@ -1483,16 +1533,18 @@ Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
             var duration = $(elem).find(".duration").text();
             var escapedTitle = $title.text().replace(/'/g, "&quot;");
             if ($title.hasClass("star")) {
-                
+
             }
-            $rightNavUL.append("<li " + topHighligh + " title='" + escapedTitle + "'><div class='duration-nav'>" + duration + "</div><a href='#" + $title.attr("id") + "'>" + ($title.hasClass("star")?"<img src='star.png' class='small-star'/>":"") + $title.attr("code") + "</li>");
+            $rightNavUL.append("<li " + topHighligh + " title='" + escapedTitle + "'><div class='duration-nav'>" + duration + "</div><a href='#" + $title.attr("id") + "'>" + ($title.hasClass("star") ? "<img src='star.png' class='small-star'/>" : "") + $title.attr("code") + "</li>");
             if (isTrainingSection) {
-                var durationShort = duration.replace(/ hours/g, "h").replace(/ hour/g, "h").replace(/ parts/g,"").replace(/\+h/g,"h+");
-                $trainingMenuUL.append("<li><a href='#"+$title.attr("id") + "'>" +escapedTitle+" <span style='color:#ccc'>"+durationShort+"</span></a></li>");
+                var durationShort = duration.replace(/ hours/g, "h").replace(/ hour/g, "h").replace(/ parts/g, "").replace(/\+h/g, "h+");
+                $trainingMenuUL.append("<li><a href='#" + $title.attr("id") + "'>" + escapedTitle + " <span style='color:#ccc'>" + durationShort + "</span></a></li>");
+                $("#modules").append("<li><a href='#" + $title.attr("id") + "'>" + escapedTitle + " <span style='color:#ccc'>" + durationShort + "</span></a></li>");
             }
+            
         });
-        
-         function getSectionTitle($section) {
+
+        function getSectionTitle($section) {
             if ($section.find("h1").length == 1) {
                 return $section.find("h1");
             } else if ($section.find("h2").length == 1) {
@@ -1581,7 +1633,7 @@ Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
             }
             $elem.children(".highlight-holder").html(highlightsHtml);
             $elem.children(".highlight-holder").children()
-                .on("enterView", function (event) {                    
+                .on("enterView", function (event) {
                     var $part = $(this);
                     processResizeHighlight($elem); // for expanable sections
                     var targetWidth = $part.attr("target-width");
@@ -1656,7 +1708,7 @@ Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
         }
 
         $(window).resize(refreshHighlights);
-        $(function() {
+        $(function () {
             setTimeout(refreshHighlights, 500);
         });
 
@@ -1665,11 +1717,11 @@ Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
         anchors.options.placement = 'right';
         anchors.options.visible = 'hover';
         anchors.add('h2').add('h1').remove('.no-anchor');
-        
-        $('.collapse.navbar-collapse').on('shown.bs.collapse', function(){
+
+        $('.collapse.navbar-collapse').on('shown.bs.collapse', function () {
             $('.dropdown').addClass('open');
         });
-        
+
         $(".star").prepend("<img src='star.png' class='star'/>");
     </script>
 
@@ -1690,9 +1742,132 @@ Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
         ga('send', 'pageview');
     </script>
 
-</body>
+
+
+    <!-- ====================---------------------------------------------------------------------------------------======= -->
         
-        <!--
+    <button id="auth-button" hidden>Authorize</button>
+    <textarea cols="80" rows="20" id="query-output" hidden></textarea>
+
+    
+    <script>
+        var CLIENT_ID = '700865470054-evv8ipmf44sshoi9o1d2jpp62v064p30.apps.googleusercontent.com';
+        var SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
+
+        function authorize(event) {
+            // Handles the authorization flow.
+            // `immediate` should be false when invoked from the button click.
+            var useImmdiate = event ? false : true;
+            var authData = {
+                client_id: CLIENT_ID,
+                scope: SCOPES,
+                immediate: useImmdiate
+            };
+
+            gapi.auth.authorize(authData, function (response) {
+                var authButton = document.getElementById('auth-button');
+                if (response.error) {
+                    authButton.hidden = false;
+                } else {
+                    authButton.hidden = true;
+                    queryAccounts();
+                }
+            });
+        }
+
+
+        function queryAccounts() {
+            gapi.client.load('analytics', 'v3').then(function () {
+                gapi.client.analytics.management.accounts.list().then(handleAccounts);
+            });
+        }
+
+
+        function handleAccounts(response) {
+            if (response.result.items && response.result.items.length) {
+                var firstAccountId = response.result.items[0].id;
+                queryProperties(firstAccountId);
+            } else {
+                console.log('No accounts found for this user.');
+            }
+        }
+
+        function queryProperties(accountId) {
+            gapi.client.analytics.management.webproperties.list({
+                    'accountId': accountId
+                })
+                .then(handleProperties)
+                .then(null, function (err) {
+                    console.log(err);
+                });
+        }
+
+
+        function handleProperties(response) {
+            if (response.result.items && response.result.items.length) {
+                var firstAccountId = response.result.items[0].accountId;
+                var firstPropertyId = response.result.items[0].id;
+                queryProfiles(firstAccountId, firstPropertyId);
+            } else {
+                console.log('No properties found for this user.');
+            }
+        }
+
+
+        function queryProfiles(accountId, propertyId) {
+            gapi.client.analytics.management.profiles.list({
+                    'accountId': accountId,
+                    'webPropertyId': propertyId
+                })
+                .then(handleProfiles)
+                .then(null, function (err) {
+                    console.log(err);
+                });
+        }
+
+
+        function handleProfiles(response) {
+            if (response.result.items && response.result.items.length) {
+                var firstProfileId = response.result.items[0].id;
+                queryCoreReportingApi(firstProfileId);
+            } else {
+                console.log('No views (profiles) found for this user.');
+            }
+        }
+
+
+        function queryCoreReportingApi(profileId) {
+            gapi.client.analytics.data.ga.get({
+                    'ids': 'ga:' + profileId,
+                    'start-date': '2015-07-01',
+                    'end-date': 'today',
+                    'metrics': 'ga:sessions,ga:Pageviews,ga:users'
+                })
+                .then(function (response) {
+                    var formattedJson = JSON.stringify(response.result, null, 2);
+                    var totalPageViews = response.result.totalsForAllResults["ga:Pageviews"];
+                    var totalUsers = response.result.totalsForAllResults["ga:users"];
+                    $("#totalUsers").text(totalUsers);
+                    $("#totalPageViews").text(totalPageViews);
+                    document.getElementById('query-output').value = formattedJson;
+                })
+                .then(null, function (err) {
+                    console.log(err);
+                });
+        }
+
+        // document.getElementById('auth-button').addEventListener('click', authorize);
+    </script>
+
+    <script src="https://apis.google.com/js/client.js?onload=authorize"></script>
+
+
+
+
+</body>
+
+
+<!--
 
 TODO: 
 - recalculate highlight on expand/collapse
@@ -1700,4 +1875,5 @@ TODO:
 - Sigla -IBM +UPB
 - Parteneri
 -->
+
 </html>
