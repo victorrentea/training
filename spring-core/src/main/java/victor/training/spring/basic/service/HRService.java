@@ -11,5 +11,7 @@ public interface HRService {
 	void removeEmployee(String employeeId);
 
 	void switchPhones(String employee1Id, String employee2Id);
+
+	String getMyProperty();
 	
 }

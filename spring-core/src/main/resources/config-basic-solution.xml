@@ -11,7 +11,8 @@
 
 	<bean id="hrService" class="victor.training.spring.basic.service.HRServiceImpl">
 		<property name="webServiceClient">
-			<bean class="victor.training.spring.basic.service.MyWSClient" factory-method="getInstance">
+			<bean class="victor.training.spring.basic.service.MyWSClient"
+				factory-method="getInstance">
 				<property name="endpointURLs">
 					<list>
 						<value>http://ro.ibm.com/myws</value>
@@ -20,13 +21,14 @@
 				</property>
 			</bean>
 		</property>
-		<property name="myProperty" value="lalala" />
+		<property name="myProperty" value="#{myString}" />
 	</bean>
 
 	<bean id="handshakeConverter" lazy-init="true"
 		class="victor.training.spring.basic.service.CurrencyConverterHandshakeImpl" />
 	<!-- init-method="" -->
-	<bean id="statlessConverter" class="victor.training.spring.basic.service.CurrencyConverterStatelessImpl" />
+	<bean id="statlessConverter"
+		class="victor.training.spring.basic.service.CurrencyConverterStatelessImpl" />
 
 
 	<bean id="dataSource"
@@ -37,11 +39,21 @@
 		<property name="password" value="" />
 	</bean>
 
-
 	<!-- @Autowired -->
 	<context:annotation-config />
 
 	<!-- @Component -->
 	<context:component-scan base-package="victor.training.spring.basic" />
+
+	<bean id="myAspectBean" class="victor.training.spring.advanced.MyAspect" />
+	<aop:aspectj-autoproxy>
+		<aop:include name="myAspectBean" />
+	</aop:aspectj-autoproxy>
+
+	<bean class="victor.training.spring.advanced.MyBeanPostProcessor" />
+
+	<bean id="myString" class="victor.training.spring.advanced.MyStringFactoryBean">
+		<property name="file" value="test.txt" />
+	</bean>
 
 </beans>

@@ -55,4 +55,17 @@
 	<!-- @Component -->
 	<!-- <context:component-...  -->
 
+
+	<!-- ***** ADVANCED ****** -->
+	<!-- <bean id="myAspectBean" class="...
+	<aop:aspectj-autoproxy>
+		<aop:include name="myAspectBean" />
+	</aop:aspectj-autoproxy>
+ 	-->
+ 	
+	<!-- <bean class="victor.training.spring.advanced.MyBeanPostProcessor" /> -->
+
+	<!-- <bean id="myString" class="victor.training.spring.advanced.MyStringFactoryBean">
+		<property name="file" value="test.txt" />
+	</bean> -->
 </beans>

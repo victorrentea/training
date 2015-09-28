@@ -63,4 +63,9 @@ public class HRServiceImpl implements HRService {
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 	}
+	
+	@Override
+	public String getMyProperty() {
+		return myProperty;
+	}
 }

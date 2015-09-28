@@ -20,5 +20,17 @@ public class HRServiceTest {
 	public void testSwitchPhoneSuccessful() {
 		hrService.createEmployee(new Employee());
 	}
+	
+	@Test
+	public void testGetEmployee() {
+		Employee e = hrService.getEmployeeById("1");
+		System.out.println(e);
+	}
+	
+	@Test
+	public void testHRService() {
+		System.out.println(hrService.getMyProperty());
+	}
+
 
 }
