@@ -1,4 +1,4 @@
-<%@page import="spring.webapp.service.UserService"%>
+<%@page import="victor.training.spring.basic.web.service.UserService"%>
 <%@page import="org.springframework.web.context.support.WebApplicationContextUtils"%>
 <%@ page language="java"%>
 <html>
