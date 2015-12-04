@@ -6,3 +6,5 @@ target
 .factorypath
 application.xml
 /profiling/tmp
+profiling/in.dat
+profiling/out.dat
