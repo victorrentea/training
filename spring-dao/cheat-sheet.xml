@@ -1,0 +1,154 @@
+<!-- ****************************** -->
+<!-- ************ JDBC ************ -->
+
+<!-- Setup a JDBC TransactionManager -->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="dataSource" />
+</bean>
+
+<!-- ****************************** -->
+<!-- ************* JPA ************ -->
+
+<!-- @PersistenceContex<!-- ****************************** -->
+<!-- ************ JDBC ************ -->
+
+<!-- @Autowired -->
+<context:annotation-config />
+
+<!-- Setup a JDBC TransactionManager -->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="dataSource" />
+</bean>
+
+<!-- ****************************** -->
+<!-- ************* JPA ************ -->
+
+<!-- @PersistenceContext -->
+<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+<!-- Create an EntityManagerFactory -->
+<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	<property name="dataSource" ref="dataSource" />
+	<property name="jpaVendorAdapter">
+		<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+			<property name="database" value="HSQL" />
+			<property name="showSql" value="false" /> <!-- TODO: ${log.showSql} -->
+			<property name="generateDdl" value="false" />
+			<property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
+		</bean>
+	</property>
+</bean>
+
+<!-- Setup a JPA TransactionManager -->	
+<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+	<property name="entityManagerFactory" ref="entityManagerFactory" />
+</bean>
+
+<!-- @Repository : convert DAO exceptions -->
+<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+
+<!-- ****************************** -->
+<!-- *********** Transaction ****** -->
+
+<!-- @Transactional -->
+<tx:annotation-driven />
+
+<!-- XML tx management -->
+<tx:advice id="txDaoAdvice">
+	<tx:attributes>
+		<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+		<tx:method name="*" propagation="MANDATORY" />
+	</tx:attributes>
+</tx:advice>
+
+<aop:config>
+	<aop:advisor pointcut="execution(* *..*DAO.*(..))" advice-ref="txDaoAdvice" />
+</aop:config>
+
+<!-- ****************************** -->
+<!-- *********** Properties ******* -->
+
+<!-- Resolve ${} from .properties -->
+<context:property-placeholder location="classpath:test-settings.properties" />
+
+
+<!-- ================= NOT USED IN COURSE EXERCISE ================== -->
+
+<!-- ****************************** -->
+<!-- ***** IN PRODUCTION ********** -->
+
+<!-- JTA transactionManager -->
+<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>
+
+<!-- fetch the datasource from JNDI -->
+<jee:jndi-lookup id="dataSource" jndi-name="/jdbc/MyAppDS" resource-ref="true" />
+
+<!-- (for JUnit on RDBMS) -->
+<bean id="dataSource" class="o.s.j.d.DriverManagerDataSource" p:driverClassName="org.hsqldb.jdbcDriver"
+	p:url="jdbc:hsqldb:hsql://localhost/app/db" p:username="admin" p:password="pass" />
+
+t -->
+<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+<!-- Create an EntityManagerFactory -->
+<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	<property name="dataSource" ref="dataSource" />
+	<property name="jpaVendorAdapter">
+		<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+			<property name="database" value="HSQL" />
+			<property name="showSql" value="false" /> 
+			<property name="generateDdl" value="false" />
+			<property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
+		</bean>
+	</property>
+</bean>
+
+<!-- Setup a JPA TransactionManager -->	
+<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+	<property name="entityManagerFactory" ref="entityManagerFactory" />
+</bean>
+
+<!-- @Repository : convert DAO exceptions -->
+<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+<!-- ****************************** -->
+<!-- *********** Transaction ****** -->
+
+<!-- @Transactional -->
+<tx:annotation-driven />
+
+<!-- XML tx management -->
+<tx:advice id="txDaoAdvice">
+	<tx:attributes>
+		<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+		<tx:method name="*" propagation="MANDATORY" />
+	</tx:attributes>
+</tx:advice>
+
+<aop:config>
+	<aop:advisor pointcut="execution(* *..*DAO.*(..))" advice-ref="txDaoAdvice" />
+</aop:config>
+
+<!-- ****************************** -->
+<!-- *********** Properties ******* -->
+
+<!-- Resolve ${} from .properties -->
+<context:property-placeholder location="classpath:test-settings.properties" />
+
+
+<!-- ================= NOT USED IN COURSE EXERCISE ================== -->
+
+<!-- ****************************** -->
+<!-- ***** IN PRODUCTION ********** -->
+
+<!-- JTA transactionManager -->
+<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>
+
+<!-- fetch the datasource from JNDI -->
+<jee:jndi-lookup id="dataSource" jndi-name="/jdbc/MyAppDS" resource-ref="true" />
+
+<!-- (for JUnit on RDBMS) -->
+<bean id="dataSource" class="o.s.j.d.DriverManagerDataSource" p:driverClassName="org.hsqldb.jdbcDriver"
+	p:url="jdbc:hsqldb:hsql://localhost/app/db" p:username="admin" p:password="pass" />
+
