@@ -1,8 +1,8 @@
-package spring.service;
+package victor.training.spring.service;
 
 import java.util.List;
 
-import spring.model.Employee;
+import victor.training.spring.model.Employee;
 
 public interface HRService {
 

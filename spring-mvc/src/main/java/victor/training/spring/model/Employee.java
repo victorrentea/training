@@ -1,4 +1,4 @@
-package spring.model;
+package victor.training.spring.model;
 
 import java.util.UUID;
 

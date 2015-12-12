@@ -1,10 +1,10 @@
-package spring.service;
+package victor.training.spring.service;
 
 import java.net.URI;
 import java.util.Date;
 
-import spring.model.Employee;
-import spring.model.Task;
+import victor.training.spring.model.Employee;
+import victor.training.spring.model.Task;
 
 public interface EmployeeWSClient {
 

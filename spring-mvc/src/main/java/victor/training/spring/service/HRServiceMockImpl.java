@@ -1,23 +1,20 @@
-package spring.service;
+package victor.training.spring.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import spring.model.Employee;
+import victor.training.spring.model.Employee;
 
 public class HRServiceMockImpl implements HRService {
-	
-	private static final Logger log = Logger.getLogger(HRServiceMockImpl.class);
-	
+	private final static Logger log = LoggerFactory.getLogger(HRServiceMockImpl.class);
+
 	private Map<String, Employee> employees = new HashMap<String, Employee>();
 
-	
-	
-	
 	public HRServiceMockImpl() {
 		Employee johnDoe = new Employee("John Doe", "0213151232");
 		johnDoe.setId("1");

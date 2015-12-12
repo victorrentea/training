@@ -1,26 +1,27 @@
-package spring.web.resource;
+package victor.training.spring.web.resource;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import spring.model.Employee;
-import spring.model.Task;
+import victor.training.spring.model.Employee;
+import victor.training.spring.model.Task;
 
-@Controller
+@RestController
 @RequestMapping("rest/employee")
 public class EmployeeResource {
 
-	private static final Logger log = Logger.getLogger(EmployeeResource.class);
-
+	private final static Logger log = LoggerFactory.getLogger(EmployeeResource.class);
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public HttpEntity<Task>	createEmployee(Employee employee) throws URISyntaxException {
 		log.info("Creating Employee");

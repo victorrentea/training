@@ -5,11 +5,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<bean id="employeeWSClient" class="spring.service.EmployeeWSClientImpl">
+	<bean id="employeeWSClient" class="victor.training.spring.service.EmployeeWSClientImpl">
 		<property name="base" value="${employeeWS.endpoint}" />
 	</bean>
 
-	<bean id="hrService" class="spring.service.HRServiceMockImpl" />
+	<bean id="hrService" class="victor.training.spring.service.HRServiceMockImpl" />
 	
 	<context:property-placeholder location="classpath:/ws-config.properties" />
 

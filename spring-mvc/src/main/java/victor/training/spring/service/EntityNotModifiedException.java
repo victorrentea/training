@@ -1,4 +1,4 @@
-package spring.service;
+package victor.training.spring.service;
 
 public class EntityNotModifiedException extends RuntimeException {
 

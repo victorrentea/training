@@ -13,8 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import spring.model.Employee;
-import spring.model.Task;
+import victor.training.spring.model.Employee;
+import victor.training.spring.model.Task;
+import victor.training.spring.service.EmployeeWSClient;
+import victor.training.spring.service.EntityNotModifiedException;
 
 @ContextConfiguration(locations = { "classpath:/application-config.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)

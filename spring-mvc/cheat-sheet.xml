@@ -27,7 +27,7 @@
 
 <!-- In Spring servlet context -->
 <!-- @Controller -->
-<context:component-scan base-package="spring.web.controller" />
+<context:component-scan base-package="victor.training.spring.web.controller" />
 
 
 <!-- ****************************** -->

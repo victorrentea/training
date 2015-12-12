@@ -24,7 +24,7 @@
 		<property name="intProperty" value="#{otherBean.intProperty + 1}" />
 		<property name="booleanProperty" value="#{T(java.lang.Math).random() lt 0.5f}" />
 		<property name="childList" value="#{otherBean.childList.?[intProperty lt 15]}"/>
-		<property name="stringList" value="#{otherBean.childList.![intProperty]}" />
+		<property name="stringList" value="#{otherBean.childList.?[stringProperty matches '.*e.*'].![intProperty]}" />
 	</bean>
 
 	<bean id="otherBean" class="victor.training.spring.advanced.SpELSandbox">
@@ -33,9 +33,9 @@
 		<property name="intProperty" value="10" />
 		<property name="childList">
 			<list>
-				<bean class="victor.training.spring.advanced.SpELSandbox" p:intProperty="10" />
-				<bean class="victor.training.spring.advanced.SpELSandbox" p:intProperty="20" />
-				<bean class="victor.training.spring.advanced.SpELSandbox" p:intProperty="30" />
+				<bean class="victor.training.spring.advanced.SpELSandbox" p:intProperty="10" p:stringProperty="One" />
+				<bean class="victor.training.spring.advanced.SpELSandbox" p:intProperty="20" p:stringProperty="Two" />
+				<bean class="victor.training.spring.advanced.SpELSandbox" p:intProperty="30" p:stringProperty="Three"/>
 			</list>
 		</property>
 	</bean>

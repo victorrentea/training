@@ -1,4 +1,4 @@
-package spring.service;
+package victor.training.spring.service;
 
 import java.net.URI;
 import java.util.Date;
@@ -6,8 +6,8 @@ import java.util.Date;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import spring.model.Employee;
-import spring.model.Task;
+import victor.training.spring.model.Employee;
+import victor.training.spring.model.Task;
 
 public class EmployeeWSClientImpl implements EmployeeWSClient {
 
