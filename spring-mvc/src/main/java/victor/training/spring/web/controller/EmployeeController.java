@@ -7,12 +7,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import victor.training.spring.model.Employee;
+import victor.training.spring.model.User;
 import victor.training.spring.service.HRService;
 
 @Controller
@@ -24,11 +26,16 @@ public class EmployeeController {
 	@Autowired
 	private HRService service;
 
+	@ModelAttribute //("user") // default is inferred from return type
+	public User getCurrentUsername() {
+		return new User("john.doe", "John Doe");
+	}
+	
 	@RequestMapping
 	public String showAllEmployees(Map<String, Object> model) {
 		List<Employee> list = service.getAllEmployees();
 		model.put("employeeList", list);
-		return "employeeHome";
+		return "employeeList";
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)

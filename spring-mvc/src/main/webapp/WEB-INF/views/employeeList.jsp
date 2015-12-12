@@ -4,7 +4,8 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <html>
 <body>
-	<h2>Employee List</h2>
+	Hi, <b><c:out value="${user.username}" /></b>
+	<h2>Employee List</h2>	
 	<table border="1" style="border-collapse: collapse;">
 		<tr>
 			<th>Employee Name</th>
