@@ -1,0 +1,1 @@
+C:\cygwin64\bin\mintty.exe -i /Cygwin-Terminal.ico 'cd /cygdrive/d/workspace/training/webservices'

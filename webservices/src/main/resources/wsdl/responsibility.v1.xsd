@@ -1,0 +1,68 @@
+<xsd:schema  elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 
+	      xmlns:tns="http://training.victor/ws/responsibility/domain/xmlbean/v1"
+	targetNamespace="http://training.victor/ws/responsibility/domain/xmlbean/v1">
+
+	<xsd:complexType name="Responsibility">
+		<xsd:annotation>
+		<xsd:documentation>
+			A Responsibility is a combination of Responsibility Rules and a Behavior. 
+			A Responsibility can contain different combinations of Responsibility Rules 
+			but all with same type of behavior: additive or restrictive.			
+		</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:sequence>
+			<xsd:element name="behavior" nillable="false">
+				<xsd:annotation>
+				<xsd:documentation>
+					Behavior is the way the Responsibilities are applied on applications' data. 
+					It can have one of the values: "+" means ADDITIVE and "-" means RESTRICTIVE. 		
+				</xsd:documentation>
+				</xsd:annotation>
+			
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="+"/>
+						<xsd:enumeration value="-"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="rule" type="tns:ResponsibilityRule" nillable="false" maxOccurs="unbounded">
+				<xsd:annotation>
+				<xsd:documentation>
+					List of Responsibility Rules for this Responsibility. 
+					There MUST be at least one Responsibility Rule.
+				</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="ResponsibilityRule">
+		<xsd:annotation>
+		<xsd:documentation>
+			A Responsibility Rule is composed of multiple criteria, represented by Dimension Values.
+		</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:sequence>
+			<xsd:element name="criterion" type="tns:RuleCriterion" nillable="false" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="RuleCriterion">
+		<xsd:annotation>
+		<xsd:documentation>
+			A Rule Criterion defines a single condition on the value of a certain level on a specified Dimension.
+		</xsd:documentation>
+		</xsd:annotation>
+		
+		<xsd:sequence>
+			<xsd:element name="dimension" type="xsd:string" nillable="false"/>
+			<xsd:element name="level" type="xsd:string"  nillable="false" minOccurs="0"/>
+			<xsd:element name="value" type="xsd:string"  nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>	
+</xsd:schema>

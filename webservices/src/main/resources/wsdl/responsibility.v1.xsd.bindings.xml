@@ -1,0 +1,17 @@
+<jaxb:bindings jaxb:version="2.0" node="/xsd:schema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"	
+	
+	schemaLocation="responsibility.v1.xsd" >
+
+	<jaxb:schemaBindings>
+		<!-- Specify the package name for the beans generated based on the "xml bean" XSD. -->
+		<jaxb:package name="victor.training.ws.responsibility.impl.dto" />
+		<jaxb:nameXmlTransform>
+			<!-- Add a common suffix to all the generated artifacts in this package, to easy distinguish them from other classes. -->
+			<jaxb:typeName suffix="Xml"/>
+		</jaxb:nameXmlTransform>
+	</jaxb:schemaBindings>
+</jaxb:bindings>

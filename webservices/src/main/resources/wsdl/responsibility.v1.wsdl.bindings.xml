@@ -1,0 +1,20 @@
+<jaxws:bindings jaxb:version="2.0" node="/wsdl:definitions" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	
+	wsdlLocation="responsibility.v1.wsdl">
+	
+	<!-- Specify the package name for the generated SEI -->
+	<jaxws:package name="victor.training.ws.responsibility.impl"/>
+
+	<jaxb:bindings node="wsdl:types/xsd:schema">
+		<jaxb:schemaBindings>
+			<!--Specify the package name for the input/output messages of this interface.-->
+			<jaxb:package name="victor.training.ws.responsibility.impl.messages"/>
+		</jaxb:schemaBindings>
+
+	</jaxb:bindings>
+
+</jaxws:bindings>

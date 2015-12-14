@@ -8,28 +8,21 @@
               http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
               http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.0.xsd">
 
-	<mvc:annotation-driven />
 
 	<context:component-scan base-package="victor.training.spring" />
-
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-		<property name="order" value="1" />
-	</bean>
 
 	<jee:jndi-lookup id="connectionFactory" jndi-name="ConnectionFactory" />
 
 	<jee:jndi-lookup id="questions" jndi-name="jms/queue/Questions" />
 	<jee:jndi-lookup id="briefAnswers" jndi-name="jms/queue/BriefAnswers" />
 	<jee:jndi-lookup id="extendedAnswers" jndi-name="jms/queue/ExtendedAnswers" />
+	<jee:jndi-lookup id="barfa" jndi-name="jms/topic/Barfa" />
 
 	<bean class="org.springframework.jms.core.JmsTemplate">
 		<constructor-arg ref="connectionFactory" />
 	</bean>
 
-	<bean id="dummyResponder" class="victor.training.spring.jms.DummyResponder" />
+	<bean id="dummyResponder" class="victor.training.spring.remoting.queue.DummyResponder" />
 	<bean id="jndiDestinationResolver" class="org.springframework.jms.support.destination.JndiDestinationResolver" />
 	
 	<jms:listener-container destination-resolver="jndiDestinationResolver" task-executor="taskExecutor">
@@ -39,5 +32,9 @@
 	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor" />
 
 
+	<bean id="BabaMaria" class="victor.training.spring.remoting.topic.Baba" />
+	<bean id="CoanaLenuta" class="victor.training.spring.remoting.topic.Baba" />
+	<bean id="TushaTantza" class="victor.training.spring.remoting.topic.Baba" />
+	<bean id="BabaNovac" class="victor.training.spring.remoting.topic.Baba" />
 
 </beans>

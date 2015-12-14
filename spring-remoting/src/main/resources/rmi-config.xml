@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+              http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+              http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+              http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+              http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.0.xsd">
+
+	<bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+		<property name="service">
+			<bean class="victor.training.spring.remoting.SumServiceRmi" />
+		</property>
+		<property name="serviceName" value="SumService" />
+		<property name="serviceInterface" value="victor.training.spring.remoting.ISumServiceRmi" />
+		<property name="registryPort" value="1199" />
+	</bean>
+
+</beans>

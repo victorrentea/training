@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="responsibility-service?wsdl" resourceRoot="" soapui-version="5.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ResponsibilityWSImplServiceSoapBinding" type="wsdl" bindingName="{http://impl.responsibility.ws.training.victor/}ResponsibilityWSImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8089/webservices/responsibility-service?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8089/webservices/responsibility-service?wsdl"><con:part><con:url>http://localhost:8089/webservices/responsibility-service?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ResponsibilityWSImplService" targetNamespace="http://impl.responsibility.ws.training.victor/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.responsibility.ws.training.victor/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://training.victor/ws/responsibility/v1">
+  <wsdl:import location="http://localhost:8089/webservices/responsibility-service?wsdl=ResponsibilitySEI.wsdl" namespace="http://training.victor/ws/responsibility/v1"></wsdl:import>
+  <wsdl:binding name="ResponsibilityWSImplServiceSoapBinding" type="ns1:ResponsibilitySEI">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getUserResponsibility">
+      <soap:operation soapAction="http://training.victor/responsibility/GetUserResponsibility" style="document"/>
+      <wsdl:input name="getUserResponsibility">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserResponsibilityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ResponsibilityWSImplService">
+    <wsdl:port binding="tns:ResponsibilityWSImplServiceSoapBinding" name="ResponsibilityWSImplPort">
+      <soap:address location="http://localhost:8089/webservices/responsibility-service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8089/webservices/responsibility-service?wsdl=ResponsibilitySEI.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ResponsibilitySEI" targetNamespace="http://training.victor/ws/responsibility/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://training.victor/ws/responsibility/v1/messages" xmlns:ns1="http://training.victor/ws/responsibility/v1">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://training.victor/ws/responsibility/v1/messages" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://training.victor/ws/responsibility/domain/xmlbean/v1">
+      <xs:import namespace="http://training.victor/ws/responsibility/domain/xmlbean/v1"/>
+      <xs:element name="getUserResponsibilityRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="domainBID" type="xs:string"/>
+            <xs:element name="userBID" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getUserResponsibilityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="responsibility" type="ns1:Responsibility"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema targetNamespace="http://training.victor/ws/responsibility/domain/xmlbean/v1" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://training.victor/ws/responsibility/domain/xmlbean/v1">
+      <xs:complexType name="Responsibility">
+        <xs:sequence>
+          <xs:element name="behavior" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="rule" type="tns:ResponsibilityRule"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResponsibilityRule">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="criterion" type="tns:RuleCriterion"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RuleCriterion">
+        <xs:sequence>
+          <xs:element name="dimension" type="xs:string"/>
+          <xs:element minOccurs="0" name="level" type="xs:string"/>
+          <xs:element name="value" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getUserResponsibilityResponse">
+    <wsdl:part element="ns2:getUserResponsibilityResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserResponsibility">
+    <wsdl:part element="ns2:getUserResponsibilityRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ResponsibilitySEI">
+    <wsdl:operation name="getUserResponsibility">
+      <wsdl:input message="ns1:getUserResponsibility" name="getUserResponsibility"></wsdl:input>
+      <wsdl:output message="ns1:getUserResponsibilityResponse" name="getUserResponsibilityResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8089/webservices/responsibility-service</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://training.victor/responsibility/GetUserResponsibility" name="getUserResponsibility" bindingOperationName="getUserResponsibility" type="Request-Response" outputName="getUserResponsibilityResponse" inputName="getUserResponsibility" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8089/webservices/responsibility-service</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://training.victor/ws/responsibility/v1/messages">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mes:getUserResponsibilityRequest>
+         <domainBID>a</domainBID>
+         <userBID>b</userBID>
+      </mes:getUserResponsibilityRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://training.victor/responsibility/GetUserResponsibility"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

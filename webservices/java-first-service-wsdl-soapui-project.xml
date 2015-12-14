@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="java-first-service?wsdl" resourceRoot="" soapui-version="5.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="JavaFirstWebServiceServiceSoapBinding" type="wsdl" bindingName="{http://impl.responsibility.ws.training.victor/}JavaFirstWebServiceServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8089/webservices/java-first-service?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8089/webservices/java-first-service?wsdl"><con:part><con:url>http://localhost:8089/webservices/java-first-service?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="JavaFirstWebServiceService" targetNamespace="http://impl.responsibility.ws.training.victor/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.responsibility.ws.training.victor/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:message name="sum">
+    <wsdl:part name="arg0" type="xsd:int"></wsdl:part>
+    <wsdl:part name="arg1" type="xsd:int"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sumResponse">
+    <wsdl:part name="return" type="xsd:int"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="JavaFirstWebService">
+    <wsdl:operation name="sum">
+      <wsdl:input message="tns:sum" name="sum"></wsdl:input>
+      <wsdl:output message="tns:sumResponse" name="sumResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="JavaFirstWebServiceServiceSoapBinding" type="tns:JavaFirstWebService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sum">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="sum">
+        <soap:body namespace="http://impl.responsibility.ws.training.victor/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sumResponse">
+        <soap:body namespace="http://impl.responsibility.ws.training.victor/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JavaFirstWebServiceService">
+    <wsdl:port binding="tns:JavaFirstWebServiceServiceSoapBinding" name="JavaFirstWebServicePort">
+      <soap:address location="http://localhost:8089/webservices/java-first-service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8089/webservices/java-first-service</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="sum" bindingOperationName="sum" type="Request-Response" outputName="sumResponse" inputName="sum" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1" useWsAddressing="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8089/webservices/java-first-service</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:impl="http://impl.responsibility.ws.training.victor/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <impl:sum>
+         <arg0>1</arg0>
+         <arg1>2</arg1>
+      </impl:sum>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://impl.responsibility.ws.training.victor/JavaFirstWebService/sum"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

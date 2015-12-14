@@ -1,4 +1,4 @@
-package victor.training.spring.jms;
+package victor.training.spring.remoting.queue;
 
 import javax.jms.Destination;
 import javax.jms.JMSException;
