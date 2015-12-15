@@ -25,12 +25,18 @@
 	<bean id="dummyResponder" class="victor.training.spring.remoting.queue.DummyResponder" />
 	<bean id="jndiDestinationResolver" class="org.springframework.jms.support.destination.JndiDestinationResolver" />
 	
-	<jms:listener-container destination-resolver="jndiDestinationResolver" task-executor="taskExecutor">
+	<jms:listener-container destination-resolver="jndiDestinationResolver"  task-executor="taskExecutor">
 		<jms:listener  destination="jms/queue/Questions" ref="dummyResponder"  />
 	</jms:listener-container>
 	
+	<jms:listener-container destination-resolver="jndiDestinationResolver" destination-type="topic" task-executor="taskExecutor">
+		<jms:listener  destination="jms/topic/Barfa" ref="BabaMaria"  />
+		<jms:listener  destination="jms/topic/Barfa" ref="CoanaLenuta"  />
+		<jms:listener  destination="jms/topic/Barfa" ref="TushaTantza"  />
+		<jms:listener  destination="jms/topic/Barfa" ref="BabaNovac"  />
+	</jms:listener-container>
+	
 	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.DefaultManagedTaskExecutor" />
-
 
 	<bean id="BabaMaria" class="victor.training.spring.remoting.topic.Baba" />
 	<bean id="CoanaLenuta" class="victor.training.spring.remoting.topic.Baba" />
