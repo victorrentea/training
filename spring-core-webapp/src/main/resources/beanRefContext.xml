@@ -8,16 +8,12 @@
               http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
-	<bean id="userService" class="victor.training.spring.webapp.UserServiceSingleton" lazy-init="true">
-		<property name="userSession" ref="userDetails" />
+
+	<bean id="mainApplicationContext" class="org.springframework.context.support.ClassPathXmlApplicationContext">
+		<constructor-arg>
+			<list>
+				<value>classpath*:/ejb-integration-config.xml</value>
+			</list>
+		</constructor-arg>
 	</bean>
-
-	<bean id="userDetails" class="victor.training.spring.webapp.UserSession" scope="session">
-		<aop:scoped-proxy/>
-	</bean>
-
-	<bean id="prototypeScopedBean" class="victor.training.spring.webapp.PrototypeStatefulBean" scope="prototype" />
-	<bean id="requestScopedBean" class="victor.training.spring.webapp.RequestBean" scope="request" />
-
-	<context:annotation-config/>
 </beans>

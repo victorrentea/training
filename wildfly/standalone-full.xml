@@ -380,10 +380,10 @@
                 </jms-connection-factories>
 
                 <jms-destinations>
-                    <jms-queue name="Barfa">
+                    <jms-topic name="Barfa">
                         <entry name="java:/jms/topic/Barfa"/>
-                    </jms-queue>
-					<jms-queue name="Questions">
+                    </jms-topic>
+                    <jms-queue name="Questions">
                         <entry name="java:/jms/queue/Questions"/>
                     </jms-queue>
                     <jms-queue name="BriefAnswers">
