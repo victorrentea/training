@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://training.victor/ws/responsibility/v1/messages">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mes:getUserResponsibilityRequest>
+         <domainBID>a</domainBID>
+         <userBID>b</userBID>
+      </mes:getUserResponsibilityRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+	
