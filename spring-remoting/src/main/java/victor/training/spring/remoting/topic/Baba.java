@@ -33,12 +33,12 @@ public class Baba implements SessionAwareMessageListener<TextMessage>, BeanNameA
 		log.debug("({}) I just found out that: {}", name, message.getText());		
 	}
 	
-	public void broadcastGossip(String gossip) {
+	public void broadcastGossip(final String gossip) {
 		log.debug("({}) Broadcasting gossip: {}", name, gossip);
 		jmsTemplate.send(barfa, new MessageCreator() {
 			@Override
 			public Message createMessage(Session session) throws JMSException {				
-				return session.createTextMessage("gossip");
+				return session.createTextMessage(gossip);
 			}
 		});
 		log.debug("({}) Broadcast done", name);

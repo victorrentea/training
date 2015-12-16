@@ -5,7 +5,7 @@
 
 	<servlet>
 		<servlet-name>JavaFirstWS</servlet-name>
-		<servlet-class>victor.training.ws.responsibility.impl.JavaFirstWebService</servlet-class>
+		<servlet-class>victor.training.ws.JavaFirstWebService</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>JavaFirstWS</servlet-name>
@@ -14,7 +14,7 @@
 
 	<servlet>
 		<servlet-name>ResponsibilityWS</servlet-name>
-		<servlet-class>victor.training.ws.responsibility.impl.ResponsibilityWSImpl</servlet-class>
+		<servlet-class>victor.training.ws.ResponsibilityWSImpl</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ResponsibilityWS</servlet-name>

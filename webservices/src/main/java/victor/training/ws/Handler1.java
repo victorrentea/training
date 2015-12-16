@@ -1,4 +1,4 @@
-package victor.training.ws.responsibility.impl;
+package victor.training.ws;
 
 import java.util.Collections;
 import java.util.Set;

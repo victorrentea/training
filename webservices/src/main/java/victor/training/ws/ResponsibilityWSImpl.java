@@ -1,9 +1,10 @@
-package victor.training.ws.responsibility.impl;
+package victor.training.ws;
 
 import javax.jws.HandlerChain;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
+import victor.training.ws.responsibility.impl.ResponsibilitySEI;
 import victor.training.ws.responsibility.impl.dto.ResponsibilityXml;
 import victor.training.ws.responsibility.impl.messages.GetUserResponsibilityRequest;
 import victor.training.ws.responsibility.impl.messages.GetUserResponsibilityResponse;

@@ -1,4 +1,4 @@
-package victor.training.ws.responsibility.impl;
+package victor.training.ws;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
