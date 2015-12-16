@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
+	<handler-chain>
+		<handler>
+			<handler-class>victor.training.ws.responsibility.impl.Handler1</handler-class>
+		</handler>
+	</handler-chain>
+</handler-chains> 

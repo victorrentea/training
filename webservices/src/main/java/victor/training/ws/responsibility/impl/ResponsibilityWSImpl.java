@@ -1,5 +1,6 @@
 package victor.training.ws.responsibility.impl;
 
+import javax.jws.HandlerChain;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
@@ -8,6 +9,7 @@ import victor.training.ws.responsibility.impl.messages.GetUserResponsibilityRequ
 import victor.training.ws.responsibility.impl.messages.GetUserResponsibilityResponse;
 
 @WebService
+@HandlerChain(file = "/my-handlers.xml")
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public class ResponsibilityWSImpl implements ResponsibilitySEI {
 
