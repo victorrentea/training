@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/address"
+	xmlns:tns="http://www.example.org/address">
+
+	<complexType name="Address">
+		<sequence>
+			<element name="city" type="string" />
+			<element name="street" type="string" />
+			<element name="streetNumber" type="string" />
+		</sequence>
+	</complexType>
+</schema>

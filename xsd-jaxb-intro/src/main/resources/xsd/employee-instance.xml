@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e:employee xmlns:e="http://www.example.org/employee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/employee employee.xsd">
+
+	<name>John Doe</name>
+	<cnp>1210186410071</cnp>
+	<!-- <birthDate>1986-13-21</birthDate> -->
+
+	<!-- <phone>760123456789</phone> -->
+
+	<!-- <address>
+		<city>Bucuresti</city>
+		<street>Viorele</street>
+		<streetNumber>4</streetNumber>
+	</address> -->
+	
+	 <!-- <gender>MAN</gender> --> 
+</e:employee>

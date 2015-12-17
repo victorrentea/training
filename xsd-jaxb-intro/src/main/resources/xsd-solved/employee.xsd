@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/employee"
+	targetNamespace="http://www.example.org/employee" xmlns:a="http://www.example.org/address">
+
+	<import schemaLocation="address.xsd" namespace="http://www.example.org/address" />
+
+
+	<element name="employeeList">
+		<complexType>
+			<sequence>
+				<element name="employee" maxOccurs="unbounded" type="tns:Employee" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="employee" type="tns:Employee" />
+
+	<complexType name="Employee">
+		<sequence>
+			<element name="name" type="tns:FullName" />
+			<element name="cnp" type="long" />
+			<element name="birthDate" type="date"></element>
+			<element name="phone" maxOccurs="unbounded">
+				<simpleType>
+					<restriction base="string">
+						<pattern value="0\d{9}" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="carLicensePlate" type="string" minOccurs="0" />
+			<element name="address" type="a:Address"></element>
+			<element name="gender" type="tns:Gender" />
+		</sequence>
+		<attribute name="id" type="decimal" />
+	</complexType>
+
+	<element name="manager" type="tns:Manager" />
+
+	<complexType name="Manager">
+		<complexContent>
+			<extension base="tns:Employee">
+				<sequence>
+					<element name="managedEmployeeId" maxOccurs="unbounded"
+						type="string" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+
+	<complexType name="FullName">
+		<sequence>
+			<element name="firstName" type="string"></element>
+			<element name="lastName" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<simpleType name="Gender">
+		<restriction base="string">
+			<enumeration value="MAN" />
+			<enumeration value="WOMAN" />
+		</restriction>
+	</simpleType>
+
+
+</schema>

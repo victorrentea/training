@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://www.example.org/employee"
+	targetNamespace="http://www.example.org/employee" >
+
+	<!-- <import ... /> -->
+
+	<element name="employee" type="tns:Employee" />
+
+	<complexType name="Employee">
+		<sequence>
+			<element name="name" type="" />
+			<element name="cnp" type="" />
+			<!-- <element name="birthDate" type=""/> -->
+		</sequence>
+		<!-- <attribute ... /> -->
+	</complexType>
+
+<!-- 	<simpleType name="Phone"> 
+		o RESTRICTIE a tipului de BAZA "string"
+		la un text care respecta 
+		PATTERN-ul regexp "0\d{9}"
+	</simpleType> -->
+
+<!-- 	<complexType name="FullName">
+		o SECVENTA formata din doua elemente:
+		"firstName" si
+		"lastName"
+	</complexType> -->
+	
+	<!-- TODO : Transforma-l in tip inline, in <element name="phone">  -->
+
+<!-- 	<simpleType name="Gender">
+		o RESTRICTIE a tipului de BAZA "string"
+		la doua valori: "MAN" si "WOMAN"
+			<enumeration ... />
+	</simpleType>
+ -->
+
+</schema>

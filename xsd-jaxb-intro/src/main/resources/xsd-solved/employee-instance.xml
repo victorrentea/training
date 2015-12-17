@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<e:employee  id="1234" xmlns:e="http://www.example.org/employee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/employee employee.xsd">
+
+	<name>
+		<firstName>John</firstName>
+		<lastName>Doe</lastName>
+	</name>
+	<cnp>1210186410071</cnp>
+	<birthDate>1986-10-21</birthDate>
+
+	<phone>0123456789</phone>
+
+	<address>
+		<city>Bucuresti</city>
+		<street>Viorele</street>
+		<streetNumber>4</streetNumber>
+	</address>
+	
+	 <gender>MAN</gender> 
+</e:employee>
