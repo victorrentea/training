@@ -20,4 +20,9 @@
 		<property name="serviceInterface" value="victor.training.spring.remoting.ISumServiceHttp" />
 	</bean>
 
+	<bean id="accountService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="http://localhost:8089/spring-remoting/SumServiceHessian" />
+		<property name="serviceInterface" value="victor.training.spring.remoting.ISumServiceHessian" />
+	</bean>
+
 </beans>
