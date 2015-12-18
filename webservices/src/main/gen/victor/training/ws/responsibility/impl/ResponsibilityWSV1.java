@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "ResponsibilityWS_v1", targetNamespace = "http://training.victor/ws/responsibility/v1", wsdlLocation = "file:/D:/workspace/training/webservices/src/wsdl/responsibility.v1.wsdl")
+@WebServiceClient(name = "ResponsibilityWS_v1", targetNamespace = "http://training.victor/ws/responsibility/v1", wsdlLocation = "file:/D:/workspace/training/webservices/src/main/resources/wsdl/responsibility.v1.wsdl")
 public class ResponsibilityWSV1
     extends Service
 {
@@ -30,7 +30,7 @@ public class ResponsibilityWSV1
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/D:/workspace/training/webservices/src/wsdl/responsibility.v1.wsdl");
+            url = new URL("file:/D:/workspace/training/webservices/src/main/resources/wsdl/responsibility.v1.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
