@@ -2,7 +2,7 @@ package spring.service;
 
 import spring.model.Employee;
 
-public interface HRService {
+public interface EmployeeService {
 
 	void createEmployee(Employee newEmployee);
 
@@ -11,5 +11,9 @@ public interface HRService {
 	void removeEmployee(String employeeId);
 
 	void switchPhones(String employee1Id, String employee2Id);
+
+	void m1();
+	
+	void m2();
 
 }

@@ -1,20 +1,38 @@
 package spring.service;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataRetrievalFailureException;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import spring.dao.EmployeeDAO;
 import spring.dao.NotificationDAO;
 import spring.model.Employee;
 import spring.model.Notification;
+import spring.test.util.TransactionUtil;
 
-public class HRServiceImpl implements HRService {
+public class EmployeeServiceImpl implements EmployeeService {
 
-	private static final Logger log = Logger.getLogger(HRServiceImpl.class);
+	private static final Logger log = Logger.getLogger(EmployeeServiceImpl.class);
 
 	private EmployeeDAO employeeDao;
 
 	private NotificationDAO notificationDao;
+	
+	@Autowired
+	private TransactionUtil txUtil;
+
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	public void m1() {
+		System.out.println(txUtil.getTransactionOpaqueIdentity());
+		m2();
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	public void m2() {
+		System.out.println(txUtil.getTransactionOpaqueIdentity());		
+	}
 
 	@Override
 	public Employee getEmployeeById(String employeeId) {

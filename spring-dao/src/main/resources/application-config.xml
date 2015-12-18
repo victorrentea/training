@@ -17,7 +17,7 @@
 
 	<bean id="notificationDao" class="spring.dao.NotificationDAOJpa" />
 
-	<bean id="employeeService" class="spring.service.HRServiceImpl">
+	<bean id="employeeService" class="spring.service.EmployeeServiceImpl">
 		<property name="employeeDao" ref="employeeDaoJpa" />
 		<property name="notificationDao" ref="notificationDao" />
 	</bean>
@@ -44,7 +44,8 @@
 	<!-- TODO: @Repository : convert DAO exceptions -->
 
 	<!-- ** Transactions ** -->
-
+	<!-- <tx:annotation-driven/> -->
+	
 	<!-- TODO: @Transactional -->
 
 	<!-- TODO: XML tx management instead of @Transactional DAO -->

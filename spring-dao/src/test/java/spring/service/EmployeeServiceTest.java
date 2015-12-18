@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +17,10 @@ import spring.test.util.TransactionUtil;
 
 @ContextConfiguration(locations = { "classpath:/test-config.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
-@Ignore
 public class EmployeeServiceTest {
 
 	@Autowired
-	private HRService employeeService;
+	private EmployeeService hrService;
 	
 	@Autowired
 	private NotificationDAO notificationDao;
@@ -34,31 +32,36 @@ public class EmployeeServiceTest {
 
 	@Before
 	public void setupInitialData() {
-		employeeService.createEmployee(inDatabase);
+		hrService.createEmployee(inDatabase);
+	}
+	
+	@Test
+	public void testTransactionLocal() {
+		hrService.m1();
 	}
 
 	@Test
 	public void testGetEmployeeById() {
-		employeeService.getEmployeeById(inDatabase.getId());
+		hrService.getEmployeeById(inDatabase.getId());
 	}
 	
 	@Test
 	public void testSwitchPhoneSuccessful() {
 		Employee e2 = new Employee("Mike", "000");
-		employeeService.createEmployee(e2);
+		hrService.createEmployee(e2);
 		
-		employeeService.switchPhones(inDatabase.getId(), e2.getId());
+		hrService.switchPhones(inDatabase.getId(), e2.getId());
 		
-		assertEquals("000", employeeService.getEmployeeById(inDatabase.getId()).getPhone());
-		assertEquals("111", employeeService.getEmployeeById(e2.getId()).getPhone());
+		assertEquals("000", hrService.getEmployeeById(inDatabase.getId()).getPhone());
+		assertEquals("111", hrService.getEmployeeById(e2.getId()).getPhone());
 	}
 	
 	@Test
 	@Transactional
 	public void testUpdatePhoneFailsAndNotificationIsSent() {
-		employeeService.switchPhones("unexistent id", "000");
+		hrService.switchPhones("unexistent id", "000");
 		assertTrue("Transaction is marked for rollback", txUtil.isTransactionRollbacked());
-		assertEquals("111", employeeService.getEmployeeById(inDatabase.getId()).getPhone());
+		assertEquals("111", hrService.getEmployeeById(inDatabase.getId()).getPhone());
 		
 		txUtil.executeWith_NOT_SUPPORTED(new Runnable(){
 			@Override
