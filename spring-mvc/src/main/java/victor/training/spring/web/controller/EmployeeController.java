@@ -46,13 +46,13 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping("{id}/delete")
-	public String delete(String employeeId) {
+	public String delete(@PathVariable("id") String employeeId) {
 		service.deleteEmployee(employeeId);
 		return "redirect:/employee/";
 	}
 		
 	@RequestMapping(value = "{id}", method = RequestMethod.POST)	
-	public String updateEmployee(String employeeId, Employee employee) {
+	public String updateEmployee(@PathVariable("id") String employeeId, Employee employee) {
 		service.updateEmployee(employeeId, employee);
 		return "redirect:/employee/";
 	}
@@ -62,7 +62,7 @@ public class EmployeeController {
 	public String findEmployeeByName(@RequestParam("name") String name,Map<String, Object> model) {
 		List<Employee> employeeList = service.findEmployeesByName(name);
 		model.put("employeeList", employeeList);
-		return "employeeHome";
+		return "employeeList";
 	}
 
 	// TODO handle GET for "/employee/{id}.xml" (full URI) carrying Accept: application/xml
