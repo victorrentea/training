@@ -1,4 +1,4 @@
-<table style="float:left;">
+<table style="float:left;background-color: gray;">
 	<tr>
 		<td>Link1</td>
 	</tr>

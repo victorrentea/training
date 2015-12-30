@@ -1,11 +1,10 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <html>
 <body>
-<%@ include file="menu.jsp" %>
-<br />
 	Hi, <b><c:out value="${user.fullName}" /></b>
 	<h2>Employee List</h2>	
 	<table border="1" style="border-collapse: collapse;">
@@ -28,15 +27,24 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<br /> 
+	<br />
 	<input type="text" value="<c:out value='${param[\"name\"]}' />" id="nameFilter" />
 	<input type="button" value="Filter by Name" onclick="javascript:window.location='?name='+document.getElementById('nameFilter').value;" />
-	<br /><br />
+	<br /> 
+	<br />
+	<h3>Create new Employee</h3>
+	<sf:form method="POST" action="create" modelAttribute="newEmployee" >
+		Name:<sf:input path="name" size="10" />&nbsp;&nbsp; 
+		Phone:<sf:input path="phone" size="10"/>
+		<input type="submit" value="Create" />
+	</sf:form>
+	<br />
 	<%-- 
 	You are logged in as "<security:authentication property="principal.username"/>".
 	<a href="<c:url value="../j_spring_security_logout" />" > Logout</a>
 	 --%>
 	 <h3>Playground</h3>
+<%@ include file="menu.jsp" %>
 	 <% 
 System.out.println("Hello JSP world!");  
 for (int i = 0; i < 10; i++ ) { 

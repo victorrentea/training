@@ -16,4 +16,6 @@ public interface HRService {
 
 	List<Employee> findEmployeesByName(String name);
 
+	void createEmployee(Employee employee);
+
 }

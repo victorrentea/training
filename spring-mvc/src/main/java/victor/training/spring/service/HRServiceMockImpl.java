@@ -24,7 +24,7 @@ public class HRServiceMockImpl implements HRService {
 		createEmployee(new Employee("Uncle Sam", "0123151323"));
 	}
 	
-	private void createEmployee(Employee employee) {
+	public void createEmployee(Employee employee) {
 		employees.put(employee.getId(), employee);
 	}
 	

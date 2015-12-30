@@ -35,6 +35,7 @@ public class EmployeeController {
 	public String showAllEmployees(Map<String, Object> model) {
 		List<Employee> list = service.getAllEmployees();
 		model.put("employeeList", list);
+		model.put("newEmployee", new Employee());
 		return "employeeList";
 	}
 
@@ -44,6 +45,12 @@ public class EmployeeController {
 		Employee employee = service.getEmployee(employeeId);
 		model.put("employee", employee);
 		return "employeeEdit";
+	}
+	
+	@RequestMapping(value = "create", method = RequestMethod.POST)
+	public String create(Employee employee) {
+		service.createEmployee(employee);
+		return "redirect:/employee/";
 	}
 	
 	@RequestMapping("{id}/delete")
