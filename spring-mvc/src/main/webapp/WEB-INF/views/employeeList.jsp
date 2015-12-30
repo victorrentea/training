@@ -4,6 +4,8 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <html>
 <body>
+<%@ include file="menu.jsp" %>
+<br />
 	Hi, <b><c:out value="${user.fullName}" /></b>
 	<h2>Employee List</h2>	
 	<table border="1" style="border-collapse: collapse;">
@@ -34,5 +36,15 @@
 	You are logged in as "<security:authentication property="principal.username"/>".
 	<a href="<c:url value="../j_spring_security_logout" />" > Logout</a>
 	 --%>
+	 <h3>Playground</h3>
+	 <% 
+System.out.println("Hello JSP world!");  
+for (int i = 0; i < 10; i++ ) { 
+    out.print("y");
+    %><b>x</b><% 
+    }
+%>
+<%=request.getParameter("param") %>
+<%=request.getAttribute("employeeList") %>
 </body>
 </html>

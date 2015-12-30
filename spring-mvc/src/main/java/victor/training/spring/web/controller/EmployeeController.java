@@ -39,7 +39,8 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	public String showEmployee(@PathVariable("id") String employeeId, Map<String, Object> model) {
+	public String showEmployee(@PathVariable("id") String employeeId, 
+			Map<String, Object> model) {
 		Employee employee = service.getEmployee(employeeId);
 		model.put("employee", employee);
 		return "employeeEdit";
