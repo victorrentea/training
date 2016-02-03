@@ -1,0 +1,7 @@
+{
+"auth.endpoint.uri": "https://authserver/v1/auth",
+"job.timeout": 3600,
+"sns.broadcast.topic_name": "broadcast",
+"score.factor": 2.4,
+"jpa.showSql": false
+}
