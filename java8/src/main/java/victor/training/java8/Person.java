@@ -1,4 +1,4 @@
-package victor.training.java8.streams;
+package victor.training.java8;
 
 public class Person {
 
