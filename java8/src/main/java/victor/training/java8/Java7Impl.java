@@ -41,16 +41,14 @@ public class Java7Impl {
 	}
 
 	public static String joinPeopleNames(List<Person> people) {
-		String label = "Names: ";
-		StringBuilder sb = new StringBuilder(label);
+		String result = "Names: ";
 		for (Person person : people) {
-			if (sb.length() > label.length()) {
-				sb.append(", ");
-			}
-			sb.append(person.getName());
+			result += person.getName()+ ", ";
 		}
-		sb.append(".");
-		return sb.toString();
+		if (!people.isEmpty()) {
+			result = result.substring(0, result.length()-2);
+		}
+		return result + ".";
 	}
 
 	public static Set<String> getKidNames(List<Person> people) {
@@ -110,5 +108,13 @@ public class Java7Impl {
 			newCollection.add(element.toUpperCase());
 		}
 		return newCollection;
+	}
+
+	public static double standardDev(List<Integer> numbers) {
+		int sumsq = 0;
+		for (int v : numbers) {
+			sumsq += v * v;
+		}
+		return Math.sqrt(sumsq) / numbers.size();
 	}
 }
