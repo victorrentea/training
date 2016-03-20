@@ -1,4 +1,4 @@
-package victor.training.spring.spa.controller;
+package victor.training.spring.spa.controller.util;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
