@@ -130,6 +130,11 @@ function updateCourse() {
 			$('#coursesMain').show();
 			$('#courseEditDiv').hide();
 			refreshCoursesTable();
+		},
+		error: function(a,b,c) {
+			if (a.responseText) {
+				toastr.error(a.responseText);
+			}
 		}
 	});
 }
@@ -147,6 +152,11 @@ function createCourse() {
 			$('#coursesMain').show();
 			$('#courseNewDiv').hide();
 			refreshCoursesTable();
+		},
+		error: function(a,b,c) {
+			if (a.responseText) {
+				toastr.error(a.responseText);
+			}
 		}
 	});
 }

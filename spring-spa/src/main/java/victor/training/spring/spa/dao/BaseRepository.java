@@ -9,7 +9,7 @@ import victor.training.spring.spa.domain.BaseEntity;
 
 public class BaseRepository<T extends BaseEntity> {
 
-	private HashMap<Long, T> map = new LinkedHashMap<Long, T>();
+	protected HashMap<Long, T> map = new LinkedHashMap<Long, T>();
 	private long nextId = 1;
 	
 	public T getById(Long id) {

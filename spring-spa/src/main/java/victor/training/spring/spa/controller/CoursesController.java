@@ -51,6 +51,9 @@ public class CoursesController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public void updateCourse(@PathVariable("id") Long id, @RequestBody CourseDto dto) throws ParseException {
+		if (courseRepo.getByName(dto.name) != null &&  !courseRepo.getByName(dto.name).getId().equals(id)) {
+			throw new IllegalArgumentException("Another course with that name already exists");
+		}
 		Course course = courseRepo.getById(id);
 		course.setName(dto.name);
 		course.setStartDate(new SimpleDateFormat("dd-MM-yyyy").parse(dto.startDate));
@@ -64,6 +67,9 @@ public class CoursesController {
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public void createCourse(@RequestBody CourseDto dto) throws ParseException {
+		if (courseRepo.getByName(dto.name) != null) {
+			throw new IllegalArgumentException("Another course with that name already exists");
+		}
 		courseRepo.save(map(dto));
 	}
 
