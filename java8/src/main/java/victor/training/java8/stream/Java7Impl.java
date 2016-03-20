@@ -1,4 +1,4 @@
-package victor.training.java8;
+package victor.training.java8.stream;
 
 import java.util.ArrayList;
 import java.util.HashMap;

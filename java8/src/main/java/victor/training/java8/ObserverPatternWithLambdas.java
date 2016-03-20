@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Subject {
+public class ObserverPatternWithLambdas {
 	@FunctionalInterface
 	public interface EventHandler {
 		void notify(String event);
@@ -25,5 +25,11 @@ public class Subject {
 		for (EventHandler observer : observers) {
 			observer.notify("Event now: " + new SimpleDateFormat("hh:mm:ss").format(new Date()));
 		}
+	}
+	
+	public static void main(String[] args) {
+		ObserverPatternWithLambdas subject = new ObserverPatternWithLambdas();
+		subject.addEventHandler(event -> System.out.println(event));
+		subject.fire();
 	}
 }

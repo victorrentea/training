@@ -1,4 +1,4 @@
-package victor.training.java8;
+package victor.training.java8.stream;
 
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
