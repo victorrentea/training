@@ -1,0 +1,15 @@
+<!-- effectively ignored at runtime: jboss standalone.xml (logging section) controls logging on server -->
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-8.8thread [%-5.5p] %-30.30class{1} %message%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="victor" level="DEBUG"/>
+	<logger name="org.springframework" level="WARN"/>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
