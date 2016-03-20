@@ -70,6 +70,7 @@ public class EmployeeController {
 	public String findEmployeeByName(@RequestParam("name") String name,Map<String, Object> model) {
 		List<Employee> employeeList = service.findEmployeesByName(name);
 		model.put("employeeList", employeeList);
+		model.put("newEmployee", new Employee());
 		return "employeeList";
 	}
 
