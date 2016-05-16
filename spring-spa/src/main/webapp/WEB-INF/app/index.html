@@ -6,41 +6,56 @@
 <script type="text/javascript" src="toastr.min.js"></script>
 </head>
 <body>
+	
+	<h2>Single Page Application</h2>
+	<h3>jQuery + Spring MVC</h3>
+	
+	
+	<div id="coursesMain" style="border:2px solid red">
+		<table id="coursesTable" border="1">
+			<tr><th>Course Name</th><th>Start Date</th><th>Teacher</th><th>Ops</th></tr>
+		</table>
+		<input type="button" value="Reload" onclick="refreshCoursesTable()">
+		<input type="button" value="Create New Course..." onclick="openCreateCourse()">
+	</div>
+	
+	<div id="courseNewDiv" style="display:none;border:2px solid green">
+		<h4>Create a New Course</h4>
+		Name:<input type="text" id="newName" /> <br />
+		Start Date (dd-mm-yyyy):<input type="text" id="newStartDate" /> <br />
+		Teacher: <select id="newTeacher"></select> <br />
+		<input type="button" value="Create" onclick="createCourse()">
+		<input type="button" value="Cancel" onclick="$('#courseNewDiv').hide();$('#coursesMain').show();">
+	</div>
+	
+	<div id="courseEditDiv" style="display:none; border:2px solid blue">
+		<h4>Edit a Course</h4>
+		<input type="hidden" id="editCourseId" /> 
+		Name:<input type="text" id="editName" /> <br />
+		Start Date (dd-mm-yyyy):<input type="text" id="editStartDate" /> <br />
+		Teacher: <select id="editTeacher"></select><br />
+		<input type="button" value="Save" onclick="updateCourse()">
+		<input type="button" value="Cancel" onclick="$('#courseEditDiv').hide();$('#coursesMain').show();">
+	</div>
 
-<h2>Single Page Application</h2>
-<h3>jQuery + Spring MVC</h3>
 
-<div id="coursesMain" style="border:2px solid red">
-
-<table id="coursesTable" border="1">
-	<tr><th>Course Name</th><th>Start Date</th><th>Teacher</th><th>Ops</th></tr>
-</table>
-
-<input type="button" value="Reload" onclick="refreshCoursesTable()">
-<input type="button" value="Create New Course..." onclick="openCreateCourse()">
-</div>
-
-<div id="courseNewDiv" style="display:none;border:2px solid green">
-<h4>Create a New Course</h4>
-Name:<input type="text" id="newName" /> <br />
-Start Date (dd-mm-yyyy):<input type="text" id="newStartDate" /> <br />
-Teacher: <select id="newTeacher"></select> <br />
-<input type="button" value="Create" onclick="createCourse()">
-<input type="button" value="Cancel" onclick="$('#courseNewDiv').hide();$('#coursesMain').show();">
-</div>
-
-<div id="courseEditDiv" style="display:none; border:2px solid blue">
-<h4>Edit a Course</h4>
-<input type="hidden" id="editCourseId" /> 
-Name:<input type="text" id="editName" /> <br />
-Start Date (dd-mm-yyyy):<input type="text" id="editStartDate" /> <br />
-Teacher: <select id="editTeacher"></select><br />
-<input type="button" value="Save" onclick="updateCourse()">
-<input type="button" value="Cancel" onclick="$('#courseEditDiv').hide();$('#coursesMain').show();">
-</div>
-
+<!-- <select multiple="multiple" id="coursesAvailable"><option value="a">A</option><option value="b">B</option></select>
+<input type="button" name=">>" onclick="moveSelectedOptions('#coursesAvailable', '#coursesSelected')"/>
+<input type="button" name="<<" onclick="moveSelectedOptions('#coursesSelected', '#coursesAvailable')"/>
+<select multiple="multiple" id="coursesSelected"></select> -->
 
 <script type="text/javascript">
+
+function moveSelectedOptions(fromId, toId) {
+	var selectedValues = $(fromId).val()
+	for (var i=0;i<selectedValues.length;i++) {		
+		var $leftSel = $(fromId+" option[value='"+selectedValues[i]+"']");
+		$(toId).append('<option value="'+selectedValues[i]+'">'+$leftSel.text()+'</option>');
+		console.log($leftSel.html());
+		$leftSel.remove();
+	}
+}
+
 
 function getContextPath() {
    return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
@@ -86,6 +101,8 @@ function populateTeacherCombo($teacherCombo) {
 }
 populateTeacherCombo($("#newTeacher"));
 populateTeacherCombo($("#editTeacher"));
+
+
 function deleteCourse(id) {
 	$.ajax(restEndpoint +"/courses/"+id, {
 		method: "DELETE",
@@ -96,12 +113,8 @@ function deleteCourse(id) {
 	});
 }
 
-function openCreateCourse() {
-	$("#newName").val("");
-	$("#newTeacher").val(null);
-	$('#coursesMain').hide();
-	$('#courseNewDiv').show();
-}
+//------------- COURSE: UPDATE SCREEN --------------------
+
 function openEditCourse(courseId) {
 	$.ajax(restEndpoint + "/courses/"+courseId, {
 		method: "GET",
@@ -115,7 +128,6 @@ function openEditCourse(courseId) {
 		}
 	});
 }
-
 function updateCourse() {
 	$.ajax(restEndpoint +"/courses/" +$("#editCourseId").val(), {
 		data: JSON.stringify({
@@ -137,6 +149,15 @@ function updateCourse() {
 			}
 		}
 	});
+}
+
+// ------------- COURSE: CREATE SCREEN --------------------
+
+function openCreateCourse() {
+	$("#newName").val("");
+	$("#newTeacher").val(null);
+	$('#coursesMain').hide();
+	$('#courseNewDiv').show();
 }
 function createCourse() {
 	$.ajax(restEndpoint +"/courses", {

@@ -24,6 +24,7 @@ public class BaseRepository<T extends BaseEntity> {
 	}
 	
 	public void delete(Long id) {
+		if (!map.containsKey(id)) throw new IllegalArgumentException("Entity not found with id " + id);
 		map.remove(id);
 	}
 	
