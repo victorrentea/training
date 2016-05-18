@@ -1,21 +1,14 @@
 package victor.training.mybatis;
 
 import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import victor.training.mybatis.model.Company;
 import victor.training.mybatis.model.Employee;
-import victor.training.mybatis.model.EmployeeDetails;
 import victor.training.mybatis.model.EmployeeSearchCriteria;
 import victor.training.mybatis.model.ProjectType;
 import victor.training.mybatis.persistence.DynamicQueryMapper;
@@ -25,67 +18,79 @@ import victor.training.mybatis.persistence.SimpleExamplesMapper;
 public class Main {
 
 	public static void main(String[] args) {
-
-		Random r = new Random(1);
-		Random r2 = new Random(1);
-		
-		System.out.println("First random number" + r.nextLong());
-		System.out.println("Second random number" + r2.nextLong()); 
-System.exit(1);
-		
 		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		applicationContext.getBean(Main.class).run();
 	}
 	
 	@Autowired
-	private SimpleExamplesMapper mapper;
+	private SimpleExamplesMapper simpleMapper;
 	
 	@Autowired
-	private DynamicQueryMapper mapper2;
+	private DynamicQueryMapper dynamicMapper;
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void run() {
-
+		// Move start of comment block down using ALT-DOWN
+		/*
+		System.out.println("All Employee names: " + simpleMapper.getAllEmployeeNames());
 		
-		System.out.println(mapper.getEmployeeBasicById(1));
+		System.out.println("Employee Basic by id: " + simpleMapper.getEmployeeBasicById(1));
 		
-		mapper.insertEmployeeDetails(new EmployeeDetails(100, new Date(), new Employee(1)));
+		System.out.println("Employee with resultMap: " + simpleMapper.getEmployeeWithResultMapById(1));
 		
-		mapper.updateEmployeeDetails(new EmployeeDetails(100, DateUtils.addYears(new Date(), -10)));
-
-		mapper.deleteEmployeeDetails(100);
-		
-		EmployeeDetails employeeDetails = new EmployeeDetails(100, new Date(), new Employee(1));
-		mapper.insertEmployeeDetailsWithSequence(employeeDetails);
-		System.out.println("Generated id: " + employeeDetails.getId());
+		System.out.println("EmployeeDetails via constructor: " + simpleMapper.getEmployeeDetailsForEmployee(1));
 		
 		Map<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("MANAGER_KEY", (Object) Employee.MANAGER_KEY);
+		paramMap.put("MANAGER_KEY", Employee.MANAGER_KEY);
 		paramMap.put("ORDER_BY_COLUMN", "name");
-		System.out.println(mapper.getAllManagerNames(paramMap));
+		System.out.println("All manager names: " + simpleMapper.getAllManagerNames(paramMap));
+
+		System.out.println("Polymorphic Employees: " + simpleMapper.getPolymorphicEmployeesForCompany(1));
 		
-		System.out.println(mapper.getEmployeeWithResultMapById(1));
 		
-		System.out.println(mapper.getProjectFullById(1));
+		System.out.println("\n\n*********** Associations ************\n");
 		
-		System.out.println(mapper.getEmployeesForCompany(1));
+		System.out.println("Employee with details: " + simpleMapper.getEmployeeWithDetails(1));
 		
-		Company company = mapper.getCompanyWithLazyEmployees(1);
+		System.out.println("Project N+1: " + simpleMapper.getProjectFullById(1));
+
+		Company company = simpleMapper.getCompanyWithLazyEmployees(1);
 		System.out.println("Got Company id " + company.getId());
-		System.out.println(company);
+		System.out.println("Full Company - will trigger lazy load: " +company.getEmployees().size());
+		
+		System.out.println("\n\n*********** DML ************\n");
+		
+		simpleMapper.insertEmployeeDetails(new EmployeeDetails(100, new Date(), new Employee(1)));
+
+		EmployeeDetails employeeDetails = new EmployeeDetails(100, new Date(), new Employee(1));
+		simpleMapper.insertEmployeeDetailsWithSequence(employeeDetails);
+		System.out.println("Generated id: " + employeeDetails.getId());
+
+		simpleMapper.updateEmployeeDetails(new EmployeeDetails(100, DateUtils.addYears(new Date(), -10)));
+
+		simpleMapper.deleteEmployeeDetails(100);
+		
+		
+		System.out.println("Tough query");
+
+		System.out.println("!!! Insane Project: " + simpleMapper.getProjectInsaneById(1));
+		
+		*/
+		System.out.println("\n\n********* Dynamic Query **********\n");
 		
 		EmployeeSearchCriteria criteria = new EmployeeSearchCriteria();
 		criteria.setName("Jo");
-		System.out.println("Search users : " + mapper2.searchEmployees(criteria ));
+		System.out.println("Search users : " + dynamicMapper.searchEmployees(criteria ));
 		
 		
 		Employee partialEmployee = new Employee();
 		partialEmployee.setName("NEw Name");
 		partialEmployee.setId(1);
-		mapper2.updateEmployeeSelectively(partialEmployee );
+		dynamicMapper.updateEmployeeSelectively(partialEmployee );
 		
-		System.out.println("Searched projects : " + mapper2.searchProjects(Arrays.asList(ProjectType.PRIVATE, ProjectType.PUBLIC)));
+		System.out.println("Searched projects : " + dynamicMapper.searchProjects(Arrays.asList(ProjectType.PRIVATE, ProjectType.PUBLIC)));
+		
 	}
 
 }

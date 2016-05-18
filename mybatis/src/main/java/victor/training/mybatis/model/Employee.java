@@ -5,9 +5,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-public class Employee {
-	public static final String MANAGER_KEY = "MANAGER";
-	public static final String EMPLOYEE_KEY = "EMPLOYEE";
+public class Employee {	
 	private Integer id;
 	private String name;
 	private String phoneNumber;
@@ -21,6 +19,9 @@ public class Employee {
 
 	private List<Project> projects = new ArrayList<>();
 
+	public static final String MANAGER_KEY = "MANAGER";
+	public static final String EMPLOYEE_KEY = "EMPLOYEE";
+	
 	public Employee() {
 	}
 

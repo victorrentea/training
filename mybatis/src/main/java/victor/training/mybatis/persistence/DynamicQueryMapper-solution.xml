@@ -31,7 +31,10 @@
   	select id, name, type
   	from projects
   	where type IN 
-  	<foreach collection="list" item="item" open="(" close=")" separator=",">#{item}</foreach>
+  	<foreach collection="list" item="item" 
+  		  open="(" close=")" separator=",">
+  		#{item}
+  	</foreach>
   </select>
 
 </mapper>

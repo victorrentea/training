@@ -35,10 +35,12 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="typeAliasesPackage" value="victor.training.mybatis.model" />
+        <property name="configLocation" value="classpath:/mybatis-config.xml"/>
     </bean>
 
     <!-- scan for mappers and let them be autowired -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="victor.training.mybatis.persistence" />
     </bean>
+    
 </beans>

@@ -8,9 +8,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 public class Project {
 	private Integer id;
 	private String name;
-
 	private ProjectType type;
-
 	private Manager manager;
 
 	private List<Employee> employees = new ArrayList<>();

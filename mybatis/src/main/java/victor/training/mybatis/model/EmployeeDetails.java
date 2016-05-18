@@ -6,9 +6,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 public class EmployeeDetails {
 	private Integer id;
-
 	private Date startDate;
-
 	private Employee employee;
 	
 	public EmployeeDetails() {

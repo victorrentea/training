@@ -1,36 +1,37 @@
 package victor.training.mybatis.persistence;
 
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import victor.training.mybatis.model.Company;
-import victor.training.mybatis.model.Employee;
-import victor.training.mybatis.model.EmployeeDetails;
-import victor.training.mybatis.model.Project;
-
 @Transactional(propagation = Propagation.SUPPORTS)
 public interface SimpleExamplesMapper {
-
-	Employee getEmployeeBasicById(int id);
-
-	void insertEmployeeDetails(EmployeeDetails employeeDetails);
+//  Uncomment each line using CTRL-/
 	
-	void updateEmployeeDetails(EmployeeDetails employeeDetails);
+//	List<String> getAllEmployeeNames();
 
-	void deleteEmployeeDetails(int id);
+//	Employee getEmployeeBasicById(int id);
 
-	void insertEmployeeDetailsWithSequence(EmployeeDetails employeeDetails);
+//	void insertEmployeeDetails(EmployeeDetails employeeDetails);
 	
-	List<String> getAllManagerNames(Map<String, Object> paramMap);
-	
-	Employee getEmployeeWithResultMapById(int id);
+//	void updateEmployeeDetails(EmployeeDetails employeeDetails);
 
-	Project getProjectFullById(int i);
+//	void deleteEmployeeDetails(int id);
 
-	List<? extends Employee> getEmployeesForCompany(int i);
+//	void insertEmployeeDetailsWithSequence(EmployeeDetails employeeDetails);
 	
-	Company getCompanyWithLazyEmployees(int id);
+//	List<String> getAllManagerNames(Map<String, Object> paramMap);
+	
+//	Employee getEmployeeWithResultMapById(int id);
+
+//	Employee getEmployeeWithDetails(int id);
+	
+//	Project getProjectFullById(int i);
+
+//	List<? extends Employee> getPolymorphicEmployeesForCompany(int i);
+	
+//	Company getCompanyWithLazyEmployees(int id);
+	
+//	Project getProjectInsaneById(int i);
+
+//	Employee getEmployeeDetailsForEmployee(int i);
 }
