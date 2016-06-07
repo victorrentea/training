@@ -6,18 +6,17 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 
-import victor.perf.leaks.CachingMethodObject.UserRightsCalculator;
-
 @Path("leak3")
 public class Leak3Resource {
 	@Context
     private HttpServletRequest request;
 	
 	@GET
-	public String test() {
-		UserRightsCalculator rights = new CachingMethodObject().createRightsCalculator();
+	public String test() {		
+		// Clear JSESSIONID cookie
 		HttpSession session = request.getSession();
-		session.setAttribute("rights",rights);
+		System.out.println("was new session: " + session.isNew());
+		session.setAttribute("rights",new BigObject80MB());
 		return "even more subtle";
 	}
 }

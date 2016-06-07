@@ -15,8 +15,13 @@ public class Leak1Resource {
 		s+="Remaining Memory: " + Runtime.getRuntime().freeMemory();
 		
 		threadLocal.set(bigData);
-		System.out.println(s);
-
+		try {
+			
+			
+			System.out.println(s);
+		} finally {
+			threadLocal.remove();
+		}
 		return s;
 	}
 }

@@ -15,7 +15,7 @@ public class SessionContext implements Serializable {
 	
 	public BigObject20MB tryCache(String key, Callable<BigObject20MB> loadMethod) throws Exception {
 		if (cache.containsKey(key)) {
-			return cache.get(key);
+			return cache.get(key); // cache hit
 		}
 		BigObject20MB newObject = loadMethod.call();
 		cache.put(key, newObject);

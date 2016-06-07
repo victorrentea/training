@@ -33,8 +33,8 @@ public class StockResource {
         EntityManagerFactory emf = new MockStockPriceEntityManagerFactory("MockEntityManager");
         em = emf.createEntityManager();
     }
-	@PostConstruct
-	public void setup() {
+	
+	{
 		System.out.println("Created resource instance " + hashCode()); 
 	}
 	

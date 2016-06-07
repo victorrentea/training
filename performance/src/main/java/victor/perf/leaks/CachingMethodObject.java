@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CachingMethodObject {
-	public class UserRightsCalculator {
+	public static class UserRightsCalculator {
 		public void doStuff() {
 			System.out.println("Intelligent Code");
 		}

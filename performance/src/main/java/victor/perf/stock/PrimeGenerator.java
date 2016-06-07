@@ -8,19 +8,27 @@ import victor.perf.leaks.BigObject200KB;
 
 public class PrimeGenerator {
 	private static final BigDecimal TWO = new BigDecimal("2");
-	public static BigObject200KB[] arr;
+	public static BigObject200KB[] bigarr;
+	public static BigDecimal[] arr;
 	public static Random rand = new Random(); 
 	
 
 	public static void main(String[] args) {
-		arr = new BigObject200KB[10000];
+		bigarr = new BigObject200KB[10000];
+		arr = new BigDecimal[10000];
 		Stream.iterate(new BigDecimal("3"), d->d.add(TWO))
 //			.parallel()
 			.filter(PrimeGenerator::isPrime)
 			.limit(20000)
 			.forEach(d-> {
 //				arr[rand.nextInt(arr.length)] = d;
-				arr[rand.nextInt(arr.length)] = new BigObject200KB();
+				bigarr[rand.nextInt(arr.length)] = new BigObject200KB();
+				try {
+					Thread.sleep(1);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 //				System.out.println(d);
 			});
 	}

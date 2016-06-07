@@ -23,7 +23,7 @@ public class Launcher {
 		
 //		String command = StockPriceHistoryBatcher.class.getCanonicalName() + " ";
 //		String command = " -XX:+UseConcMarkSweepGC -XX:+UseParNewGC " + StockPriceHistoryBatcher.class.getCanonicalName() ;
-		String command =  " -XX:+UseConcMarkSweepGC -XX:+UseParNewGC " +PrimeGenerator.class.getCanonicalName() ;
+		String command =  " -XX:ReservedCodeCacheSize=2496K -XX:+PrintFlagsFinal -XX:+PrintCompilation " +PrimeGenerator.class.getCanonicalName() ;
 		
 		String fullCommand = "java -cp target/classes"+File.pathSeparatorChar+classpathJars+" " + command;
 		System.out.println(fullCommand);

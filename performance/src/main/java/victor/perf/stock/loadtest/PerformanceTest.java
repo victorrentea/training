@@ -21,7 +21,7 @@ import org.apache.commons.io.IOUtils;
 public class PerformanceTest {
 	
 	private static final int TEST_WINDOW_SEC = 6;
-	private static final int N_THREADS = 16;
+	private static final int N_THREADS = 8;
 	static final String URI = "http://localhost:8089/performance/stock?cacheMB=100";
 	
 	public static void main(String[] args) throws IOException, Exception {
