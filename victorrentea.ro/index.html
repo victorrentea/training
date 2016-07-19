@@ -164,7 +164,7 @@
         
         #rightNav li {
             width: 100px;
-            height: 26px;
+            height: 22px;
             line-height: 26px;
             background-color: rgba(200, 200, 200, 0.70);
             margin-bottom: 2px;
@@ -290,8 +290,8 @@
         }
         
         div#client-logos img {
-            width: 200px;
-            margin: 20px;
+            /*height: 80px;*/
+            margin: 15px;
         }
         /* ====== STAR ====== */
         /*
@@ -515,7 +515,7 @@
                 <span class="weight2">sa123das</span>
                 <span class="weight2">s11adaas</span>-->
             </div>
-            <h3><i>Over <span class="high">200 hours</span> of training held to over <span class="high">800 persons</span>, in Romanian and English, <span class="high">in-class and remote</span>, including in <a href="#training/object-oriented-design-patterns">academic setup</a>.</i><h3>
+            <h3><i>Over <span class="high">300 hours</span> of training held to more than <span class="high">1000 persons</span>, in Romanian and English, <span class="high">in-class and remote</span>, including in <a href="#training/object-oriented-design-patterns">academic setup</a>.</i><h3>
 
 <h3>A good training should...</h3>
             <ul class="phylosophy">
@@ -1014,6 +1014,130 @@
                     </ul>
                 </li>
                 <li>Best practices &amp; Pitfalls</li>                
+            </ul>
+        </section>
+                
+                
+        <!-- Coding for Performance  ****************************************** -->
+        <section>
+            <h2 id="training/performance-coding" code="Performance Coding" class="weight2">Performance Coding</h2>
+            <span class="duration">2-4 hours</span>
+            <p>This advanced module gives general advice on how to write high-performance code in Java. The contents aims to be just a starting point for long discussions, as I will often ask the participants how would THEY implement a certain functionality already available in JVM (example: String.intern()). That's why this module is more of a brainstorm than a classic training, and highly motivated professionals would make it a very-very-very interesting session. The discussions may easily divagate to general algorithms and macro-design decisions. Any real problems the participants bring with them are MOST WELCOME: we will dissect them together in class, discuss tradeoffs and pitfalls.</p>
+            
+            <p>The target audience has at least a couple of years of experience in Java and they like to think 'out of the box'. </p>
+
+            <p><i>2:00 Lecture+Brainstorming</i>
+            </p>
+            <ul>
+                <li>Opening Thoughts: Performance in Java Enterprise App</li>
+                <li>Effective Memory Usage
+                    <ul><li>Lazy Init, Eager Deinit</li>
+                    <li>Canonicalization, String.intern()</li>
+                    <li>Object Pools: WHY ?</li>
+                    <li>Thread Locals</li>
+                    <li>Weak, Soft References + Practice</li></ul>
+                </li>
+                <li>Effective Multi-Threading
+                    <ul>
+                        <li>Amdhal's Law</li>
+                        <li>Synchronization Cost</li>
+                        <li>CPU Register Flushing</li>
+						<li>How to Avoid Synchronization</li>						
+                    </ul>
+                </li>
+                <li>Thread Pools
+                    <ul>
+                        <li>Executor Types</li>
+                        <li>Sizing the Queue</li>
+                        <li>Sizing the Thread Pool</li>
+						<li>Fork-Join-Pool (1 word)</li>						
+                    </ul>
+                </li>
+                <li>Database
+                    <ul>
+                        <li>JDBC</li>
+                        <li>JPA (+Discussions....)</li>                        			
+                    </ul>
+                </li>                
+            </ul>
+        </section>
+                
+        <!-- Java Performance Tuning  ****************************************** -->
+        <section>
+            <h2 id="training/performance-tuning" code="Performance Tuning" class="weight2">Java Performance Tuning</h2>
+            <span class="duration">1 day</span>
+            <p>You need to tune the performance of your Java applications? You don't understand the outcomes of the tunings you experimented? You want to learn how to write high-performance enterprise Java code? You want to know how to find a memory leak in a Heap Dump? Or you simply want to learn a lot about how your 'dear' JVM actually does its amazing(!!!) job?</p>
+            <p>Whatever the case, you should already have a number of years of experience in Java and the terms like CPU register, heap, stack and thread should not be strange to you.</p>
+            <p>This course is not intended to be a full reference of all the possible tuning options. Instead, the goal is for the trainees to fully understand the core concepts and principles underlying the performance of the JVM. Of course, the training explains in quite a detail the major tuning options, that 90% of the cases are enough to reach the performance goals. Multiple experiments will prove the effects of these tuning options in practice.</p>
+            <p>The trainees will be able to practice JVM monitoring and tunings on their own machines.</p>
+
+            <p><i>1 FULL day = 4:00-5:00 Talk, 3:00 exercises (on beamer and then on each one's machines)</i>
+            
+            <p><span style="text-decoration:underline">Module 1 - Intorduction to Performance</span>
+                <br/> <i>1h talk</i>
+            </p>
+            <ul>
+                <li>Measure Don't Guess</li>
+                <li>Beware of Tools</li>
+                <li>Core Measurings: Responsivity, Throughput, Load, Work Load, Utilization</li>
+                <li>Gowing Slower to go Faster: discharge the bottleneck</li>                   
+                <li>Finding the Dominating Consumer algorithm</li>
+                <li>CPU counters</li>
+                <li>Time Budgeting</li>
+                <li>Stress Tests: Types</li>                
+            </ul>
+            
+            <p><span style="text-decoration:underline">Module 2 - Garbage Collector</span>
+                <br/> <i>1:30h talk, 0:30-1:00 practice</i>
+            </p>
+            <ul>
+                <li>GC Principles: Generations, Heap Fragmentation, ..</li>
+                <li>GC Algorithms
+                    <ul>
+                        <li>Serial Collector</li>
+                        <li>Parallel/Throughput Collector</li>
+                        <li>CMS Collector</li>
+                        <li>G1 Collector</li>
+                    </ul>
+                </li>
+                
+                <li>Choosing a GC: general guidelines</li>
+                <li>System.gc</li>
+                <li>Sizing for Heap, Generations, PermGen/Metaspace</li>
+                <li>Monitoring GC: jvm GC log output, jconsole, jstat, jVisualVM, HPJMeter</li>
+                <li>Tuning GC: Throughput, CMS</li>
+                <li>Thread Local Allocation Buffers</li>
+            </ul>
+            
+            <p><span style="text-decoration:underline">Module 3 - Finding Memory Leaks</span>
+                <br/> <i>30h talk, 0:30-1:00 practice</i>
+            </p>
+            <ul>
+                <li>OutOfMemoryError: Causes</li>
+                <li>Out of Heap: possible leak sources</li>
+                <li>GC Roots</li>
+                <li>Investigating Leak using Tools: a full example                    
+                    <ul>
+                        <li>Visualize the Leak (jvisualVm, hpjmeter)</li>
+                        <li>Heap Dump Analysis(jvisualvm, Eclipse MAT): largest set of instances for a class, path to nearest GC Root</li>
+                        <li>Memory Profiling (jvisualVm): How many objects were just created, how many generations, by who?</li>
+                    </ul>
+                </li>
+                <li>GC Recap Quiz</li>
+            </ul>
+            
+             <p><span style="text-decoration:underline">Module 4 - Just-In-Time Compiler</span>
+                <br/> <i>1h talk, 0:15 practice</i>
+            </p>
+            <ul>
+                <li>Interpreted vs Compiled Code</li>
+                <li>Hot Spot Compiler</li>
+                <li>Optimizations: Static vs Dynamic</li>
+                <li>Example: Dynamic Optimizations with Escape Analysis</li>
+                <li>JIT Compiler: Levels, Monitoring</li>
+                <li>Code Cache</li>
+                <li>General Coding Advices</li>
+                <li>Leftovers.. (upon request)</li>
             </ul>
         </section>
 
@@ -1539,18 +1663,20 @@
             
             <div id="client-logos">
                 <!--<img alt="ico" src="client-ibm.png" />-->
-                <img alt="ABS" src="client-abs.png" />
-                <img alt="UPB" src="politehnica.jpg" />
-				<img alt="Deutche Bank" src="deutche-bank.jpg" />
-				<img alt="ING Bank" src="ing.jpg" />&nbsp;&nbsp;&nbsp;
-				<span style="font-family:'Arial Black', Gadget, sans-serif; font-size:38pt; " alt="IBM logo" title="Logo issues">IBM</span>
+                <img alt="ABS" width="150" src="client-abs.png" />
+				<img alt="eMAG" width="140" src="client-emag.png" />
+                
+				<img alt="Deutche Bank" width="140" src="deutche-bank.jpg" />
+				<img alt="ING Bank" width="140" src="ing.jpg" />
+				<span style="font-family:'Arial Black', Gadget, sans-serif;color:rgb(38,101,200); font-size:30pt; " alt="IBM logo" title="Logo issues">IBM</span>
 				<br />
-                <img alt="Voxxed Days Bucharest" src="voxxed-bucharest.png" />
-                <img alt="Bucharest Java User Group" src="bjug.png" />
+				<img alt="UPB" width="120" src="politehnica.jpg" />
+                <img alt="Voxxed Days Bucharest" width="200" src="voxxed-bucharest.png" />
+                <img alt="Bucharest Java User Group" width="120" src="bjug.png" />
                 <br />
-				via: 
-                <img alt="ProManagement Training Center" src="client-pro-management.png" />
-				<img alt="Brain Concert" src="brain-concert.jpg" />
+				<a href="http://www.esolutions.ro" width="120" target="_blank"><img alt="eSolutions" src="client-esolutions.png" /></a>
+                <img alt="ProManagement Training Center" width="160" src="client-pro-management.png" />
+				<img alt="Brain Concert" width="120" src="brain-concert.jpg" />
             </div>
             
             <p>I gained the majority of my training experience inside IBM, holding internal trainings to fellow employees. However, in mid 2015 I've began holding trainings independently to interested companies. Their references are available upon request.
