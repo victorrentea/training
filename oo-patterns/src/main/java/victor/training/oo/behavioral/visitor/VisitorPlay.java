@@ -3,31 +3,32 @@ package victor.training.oo.behavioral.visitor;
 import java.util.Arrays;
 import java.util.List;
 
-import victor.training.oo.behavioral.visitor.model.ExternalProduct;
-import victor.training.oo.behavioral.visitor.model.Product;
-import victor.training.oo.behavioral.visitor.model.RegularProduct;
+import victor.training.oo.behavioral.visitor.model.Circle;
+import victor.training.oo.behavioral.visitor.model.Shape;
+import victor.training.oo.behavioral.visitor.model.Square;
 
 public class VisitorPlay {
 
 	public static void main(String[] args) {
-		List<Product> productList = Arrays.asList(
-				new RegularProduct("Table",10), 
-				new ExternalProduct("Chair", 5), 
-				new RegularProduct("Sofa", 23));
+		List<Shape> productList = Arrays.asList(
+				new Square(10), 
+				new Circle(5), 
+				new Square(5));
 
-		ReportGeneratorVisitor reportVisitor = new ReportGeneratorVisitor();
-		for (Product product : productList) {
-			product.accept(reportVisitor);
+		PerimeterCalculatorVisitor perimiterCalculator = new PerimeterCalculatorVisitor();
+		for (Shape product : productList) {
+			product.accept(perimiterCalculator);
 		}
+		System.out.println("Total perimeter: " + perimiterCalculator.getTotal());
 		
 		// TODO implements a TotalPriceCalculatorVIsitor
 		
 		// SOLUTION(
-		TotalPriceCalculatorVisitor totalVisitor = new TotalPriceCalculatorVisitor();
-		for (Product product : productList) {
-			product.accept(totalVisitor);
+		AreaCalculatorVisitor areaCalculator = new AreaCalculatorVisitor();
+		for (Shape product : productList) {
+			product.accept(areaCalculator);
 		}
-		System.out.println("Total price: " + totalVisitor.getTotal());
+		System.out.println("Total area: " + areaCalculator.getTotalArea());
 		// SOLUTION)
 
 	}
