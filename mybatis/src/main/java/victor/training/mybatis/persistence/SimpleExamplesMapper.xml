@@ -83,7 +83,7 @@
 
 
    <!-- 
-   <resultMap id="EmployeeWithDetailsMap" type="Employee">
+   <resultMap id="EmployeeWithDetailsMap" type="EmployeeDetails">
     <id column="id" property="id"/>
   	<result property="name" column="name" />
   	<result property="phoneNumber" column="phone_number" />
@@ -148,7 +148,7 @@
   
   <!-- 
   <insert id="insertEmployeeDetailsWithSequence" >
- 	<selectKey keyProperty="???" resultType="INT">select seq.nextval from dual</selectKey>
+ 	<selectKey keyProperty="???" resultType="INT" order="BEFORE">select seq.nextval from dual</selectKey>
   	insert into employee_details(id, employee_id, employement_date)
   	values (#{id}, #{employee.id}, #{startDate})
   </insert>

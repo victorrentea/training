@@ -11,27 +11,32 @@ public interface SimpleExamplesMapper {
 
 //	Employee getEmployeeBasicById(int id);
 
-//	void insertEmployeeDetails(EmployeeDetails employeeDetails);
-	
-//	void updateEmployeeDetails(EmployeeDetails employeeDetails);
-
-//	void deleteEmployeeDetails(int id);
-
-//	void insertEmployeeDetailsWithSequence(EmployeeDetails employeeDetails);
-	
-//	List<String> getAllManagerNames(Map<String, Object> paramMap);
-	
 //	Employee getEmployeeWithResultMapById(int id);
 
+//	EmployeeDetails getEmployeeDetailsForEmployee(int i);
+	
+//	List<String> getAllManagerNames(Map<String, Object> paramMap);
+
+//	List<? extends Employee> getPolymorphicEmployeesForCompany(int i);
+	
+	
+	
 //	Employee getEmployeeWithDetails(int id);
 	
 //	Project getProjectFullById(int i);
 
-//	List<? extends Employee> getPolymorphicEmployeesForCompany(int i);
-	
 //	Company getCompanyWithLazyEmployees(int id);
+	
+	
+	
+//	void insertEmployeeDetails(EmployeeDetails employeeDetails);
+	
+//	void insertEmployeeDetailsWithSequence(EmployeeDetails employeeDetails);
+
+//	void updateEmployeeDetails(EmployeeDetails employeeDetails);
+
+//	void deleteEmployeeDetails(int id);
 	
 //	Project getProjectInsaneById(int i);
 
-//	Employee getEmployeeDetailsForEmployee(int i);
 }

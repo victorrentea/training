@@ -135,7 +135,7 @@
   </insert>
   
   <insert id="insertEmployeeDetailsWithSequence" >
- 	<selectKey keyProperty="id" resultType="INT">select seq.nextval from dual</selectKey>
+ 	<selectKey keyProperty="id" resultType="INT" order="BEFORE">select seq.nextval from dual</selectKey>
   	insert into employee_details(id, employee_id, employement_date)
   	values (#{id}, #{employee.id}, #{startDate})
   </insert>

@@ -61,6 +61,10 @@ values (3, 'Manager2', '085555555', 2, 3, 'MANAGER');
 INSERT INTO EMPLOYEES(ID, NAME, PHONE_NUMBER, COMPANY_ID, SITE_ID, DISCRIMINATOR) 
 values (4, 'Jane Doe', '087777777', 3, 4, 'EMPLOYEE');
 
+INSERT INTO EMPLOYEE_DETAILS(ID, EMPLOYEE_ID, EMPLOYEMENT_DATE) 
+values (1, 1, to_date('2016-01-01', 'RRRR-MM-DD'));
+
+	
 insert into projects(id, name, type, manager_id) 
 values (1, 'MyBatis POC', 'PRIVATE', 2);
 

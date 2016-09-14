@@ -23,13 +23,10 @@
   	
   	set 
   	
-  	<set>
-  		<if test=""></if>
-  	</set>
-  		<!-- daca e nenull -->
+  		<!-- iff is not null -->
   		name=#{name},
-  		<!-- daca e nenull -->
-  		phone_number=#{phoneNumber}, 
+  		<!-- iff is not null -->
+  		phone_number=#{phoneNumber} 
   	where id=#{id}
   </update>
   
