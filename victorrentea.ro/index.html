@@ -25,6 +25,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+	 <script src="js/jssor.slider-21.1.6.min.js" type="text/javascript"></script>
+	
+
     <style>
         @font-face {
             font-family: Octin;
@@ -401,8 +404,65 @@
         }
     </style>
 
+	
+	<style>
+        /* jssor slider bullet navigator skin 01 css */
+        /*
+        .jssorb01 div           (normal)
+        .jssorb01 div:hover     (normal mouseover)
+        .jssorb01 .av           (active)
+        .jssorb01 .av:hover     (active mouseover)
+        .jssorb01 .dn           (mousedown)
+        */
+        .jssorb01 {
+            position: absolute;
+        }
+        .jssorb01 div, .jssorb01 div:hover, .jssorb01 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 12px;
+            height: 12px;
+            filter: alpha(opacity=70);
+            opacity: .7;
+            overflow: hidden;
+            cursor: pointer;
+            border: #000 1px solid;
+        }
+        .jssorb01 div { background-color: gray; }
+        .jssorb01 div:hover, .jssorb01 .av:hover { background-color: #d3d3d3; }
+        .jssorb01 .av { background-color: #fff; }
+        .jssorb01 .dn, .jssorb01 .dn:hover { background-color: #555555; }
 
-
+        /* jssor slider arrow navigator skin 02 css */
+        /*
+        .jssora02l                  (normal)
+        .jssora02r                  (normal)
+        .jssora02l:hover            (normal mouseover)
+        .jssora02r:hover            (normal mouseover)
+        .jssora02l.jssora02ldn      (mousedown)
+        .jssora02r.jssora02rdn      (mousedown)
+        .jssora02l.jssora02lds      (disabled)
+        .jssora02r.jssora02rds      (disabled)
+        */
+        .jssora02l, .jssora02r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url('img/a02.png') no-repeat;
+            overflow: hidden;
+        }
+        .jssora02l { background-position: -3px -33px; }
+        .jssora02r { background-position: -63px -33px; }
+        .jssora02l:hover { background-position: -123px -33px; }
+        .jssora02r:hover { background-position: -183px -33px; }
+        .jssora02l.jssora02ldn { background-position: -3px -33px; }
+        .jssora02r.jssora02rdn { background-position: -63px -33px; }
+        .jssora02l.jssora02lds { background-position: -3px -33px; opacity: .3; pointer-events: none; }
+        .jssora02r.jssora02rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
+    </style>
 </head>
 
 <body>
@@ -497,30 +557,134 @@
         
         div#client-logos img {
             /*height: 80px;*/
-            margin: 5px 20px 5px 20px;
+            margin: 5px 15px 5px 15px;
         }
 		</style>
 
 		<div id="client-logos">
+				<br />
+				Trained at:
+				<br />
                 <!--<img alt="ico" src="client-ibm.png" />-->
-                <img alt="ABS" width="150" src="client-abs.png" />
-				<img alt="eMAG" width="140" src="client-emag.png" />
+                <img title="ABS" width="150" src="client-abs.png" />
+				<img title="eMAG" width="120" src="client-emag.png" />
                 
-				<img alt="Deutche Bank" width="140" src="deutche-bank.jpg" />
-				<img alt="ING Bank" width="140" src="ing.jpg" />
+				<img title="Deutche Bank" width="140" src="deutche-bank.jpg" />
+				<img title="ING Bank" width="130" src="ing.jpg" />
+				<img title="Thales Group" width="130" src="client-thales.jpg" />
 				<span style="font-family:'Arial Black', Gadget, sans-serif;color:rgb(38,101,200); font-size:30pt; " alt="IBM logo" title="Logo issues">IBM</span>
 				<br />
-				<img alt="UPB" width="100" src="politehnica.jpg" />
-                <img alt="Voxxed Days Bucharest" width="200" src="voxxed-bucharest.png" />
-				<img alt="Voxxed Days Belgrade" width="150" src="speaking-voxxed-belgrade.png" />
-                <img alt="Bucharest Java User Group" width="100" src="bjug.png" />
+				Spoke at:
+				<br />
+				<img title="Politechnica University of Bucharest, Design Patterns course at OOP curricula" width="100" src="politehnica.jpg" />
+				<img title="Devoxx Morocco 2016 (pending)" width="180" src="devoxx-morocco.png" />
+                <img title="Voxxed Days Bucharest 2016" width="180" src="voxxed-bucharest.png" />
+				<img title="Voxxed Days Belgrade 2016" width="180" src="voxxed-belgrade-2016.jpg" />
+				<img title="IMWorld Bucharest 2016" width="180" src="imworld-2016.jpg" />
+                <img title="Bucharest Java User Group" width="100" src="bjug.png" />
                 <br />
-				<a href="http://www.esolutions.ro" target="_blank"><img alt="eSolutions" width="120" src="client-esolutions.png" /></a>
-                <img alt="ProManagement Training Center" width="160" src="client-pro-management.png" />
-				<img alt="Brain Concert" width="120" src="brain-concert.jpg" />
+				Delivered through:
+				<br />
+				<a href="http://www.esolutions.ro" target="_blank"><img title="eSolutions" width="120" src="client-esolutions.png" /></a>
+                <img title="ProManagement Training Center" width="160" src="client-pro-management.png" />
+				<img title="Brain Concert" width="120" src="brain-concert.jpg" />
             </div>
         <!-- Training ****** -->
-                
+         
+
+		 
+		 <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; visibility: hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
+            <div data-p="112.50">
+                <img data-u="image" src="poze/Clean Code @ eSolutions 2016.jpg" />                
+            </div>    
+			<div data-p="112.50">
+                <img data-u="image" src="poze/CleanCode & DesignPatterns @ EMAG 2016 Iasi.jpg" />                
+            </div>  			
+			<div data-p="112.50">
+                <img data-u="image" src="poze/Design Patterns @ EMAG 2016.jpg" />                
+            </div>  			
+			<div data-p="112.50">
+                <img data-u="image" src="poze/Design Patterns @ EMAG 2016-2.jpg" />                
+            </div>  			
+			<div data-p="112.50">
+                <img data-u="image" src="poze/Java Performance Tuning @ DB 2016.jpg" />                
+            </div>  			
+			<div data-p="112.50">
+                <img data-u="image" src="poze/Spring & CleanCode @ DB 2016.jpg" />                
+            </div>  			
+			<div data-p="112.50">
+                <img data-u="image" src="poze/Spring & CleanCode @ DB 2016-2.jpg" />                
+            </div>  			
+			<div data-p="112.50">
+                <img data-u="image" src="poze/Spring + CleanCode @Thales 2016 show.jpg" />                
+            </div>  			
+			<div data-p="112.50">
+                <img data-u="image" src="poze/Spring Framework @ ING 2015.jpg" />                
+            </div>  			
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb01" style="bottom:16px;right:16px;">
+            <div data-u="prototype" style="width:12px;height:12px;"></div>
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora02r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
+    </div>
+	
+	<script type="text/javascript">
+        jssor_1_slider_init = function() {
+
+
+            var jssor_1_options = {
+              $AutoPlay: true,
+			  $FillMode: 2,
+              $Idle: 2000,
+              $CaptionSliderOptions: {
+                $Class: $JssorCaptionSlideo$,
+                $Breaks: [
+                  [{d:2000,b:1000}]
+                ]
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+              }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            /*responsive code begin*/
+            /*you can remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 600);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            /*responsive code end*/
+        };
+    </script>
+    <script type="text/javascript">jssor_1_slider_init();</script>
+		 
+		
+
+				 
             
         <section>
             <h1 id="training" code="Training" style="padding-top:20px">Training</h1>
@@ -1672,6 +1836,8 @@
             <li><p>11 march 2016 - Talked about "<b>The Art of Clean Code</b>" at Voxxed Days Conference, Bucharest</p></li>
             <li><p>23 march 2016 - Talked + Workshop on "<b>Clean Code</b>" at a Bucharest Java User Group (BJUG) Meetup, organized at IBM Romania (GDC building). Stacked room (110+ persons). Extraordinary athmosphere!</p></li>
             <li><p>29 march 2016 - "<b>Java – Still The Most Popular Coding Language after 20 years</b>" at Bucharest Java Bootcamp, held at TechHub</p></li>
+			<li><p>29 september 2016 - "<b>The Art of Clean Code</b>" at VoxxedDays Belgrade 2016</p></li>
+			<li><p>6 october 2016 - "<b>Clean Lambdas</b>" at IMWorld Bucharest 2016</p></li>
             </ul>
             
             
@@ -2139,27 +2305,6 @@ Java EE5 Enterprise Architect, Oracle JPA Expert, SCBCD, SCJP
         }
 
 
-        function queryCoreReportingApi(profileId) {
-            gapi.client.analytics.data.ga.get({
-                    'ids': 'ga:' + profileId,
-                    'start-date': '2015-07-01',
-                    'end-date': 'today',
-                    'metrics': 'ga:sessions,ga:Pageviews,ga:users'
-                })
-                .then(function (response) {
-                    var formattedJson = JSON.stringify(response.result, null, 2);
-                    var totalPageViews = response.result.totalsForAllResults["ga:Pageviews"];
-                    var totalUsers = response.result.totalsForAllResults["ga:users"];
-                    $("#totalUsers").text(totalUsers);
-                    $("#totalPageViews").text(totalPageViews);
-                    document.getElementById('query-output').value = formattedJson;
-                })
-                .then(null, function (err) {
-                    console.log(err);
-                });
-        }
-
-        // document.getElementById('auth-button').addEventListener('click', authorize);
     </script>
 
     <script src="https://apis.google.com/js/client.js?onload=authorize"></script>
