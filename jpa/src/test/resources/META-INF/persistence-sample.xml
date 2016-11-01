@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+  <persistence-unit name="demoPU" transaction-type="RESOURCE_LOCAL">
+
+		<class>victor.training.jpa.test.entity.employee.Company</class>
+		<class>victor.training.jpa.test.entity.employee.Site</class>
+  		<class>victor.training.jpa.test.entity.employee.Employee</class>
+		<class>victor.training.jpa.test.entity.employee.Manager</class>
+		<class>victor.training.jpa.test.entity.employee.EmployeeDetails</class>
+		<class>victor.training.jpa.test.entity.employee.Project</class>
+  	
+		<class>victor.training.jpa.test.entity.teacher.Course</class>
+		<class>victor.training.jpa.test.entity.teacher.Room</class>
+		<class>victor.training.jpa.test.entity.teacher.Student</class>
+		<class>victor.training.jpa.test.entity.teacher.StudentHistory</class>
+		<class>victor.training.jpa.test.entity.teacher.Teacher</class>
+  	
+	
+	    <properties>
+	      <property name="hibernate.hbm2ddl.auto" value="validate" />
+	    </properties>
+	   
+  </persistence-unit>
+</persistence>
