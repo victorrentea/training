@@ -40,8 +40,10 @@ public class CustomsManager {
 		foreach ($this->algorithms as $algo) {
 			if ($algo->canHandle($package)) {
 				$algo.calculate($package->getValue());	
+				return;
 			}
 		}
+		throw new RuntimeExce();
 		
 	}
 }
@@ -53,10 +55,6 @@ public class CustomsManager {
 		$this->customsManager->add(new ChineTvaCalculator());
 		$this->customsManager->add(new UeTvaCalculator());
 		$this->customsManager->add(new DefaultTvaCalculator());
-		$this->customsManager->add(new class implements CustomsCalculator {
-			function calculate($value) {return $value * 1.50;}
-			function canHandle($countryIso) {return true;}
-		})
 		
 		
 		button.addClickListener($handler);

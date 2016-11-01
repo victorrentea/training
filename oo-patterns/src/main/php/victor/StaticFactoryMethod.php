@@ -43,7 +43,18 @@ class Booking
 	}
 	
 	
-
+	public function myMethod() {
+		args...
+	}
+	public function MyMethodWith1Param($p1) {
+		
+	}
+	
+	public function MyMethodWith2Param($p1, $p2) {
+		
+	}
+	
+	
 	
 	
 	

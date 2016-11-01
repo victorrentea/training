@@ -66,7 +66,7 @@ class OrderBuilder
 			->withCreationDate(new Date())
 			->withItem(new OrderItem())
 			->withDeliveryAddress(new AddressBuilder()
-				.withStreetName("Sos Bucuresti Nord"));
+				->withStreetName("Sos Bucuresti Nord"));
 				
 		$order1 = orderBuilder
 				->withCreationDate(altaData)
@@ -80,7 +80,7 @@ class OrderBuilder
 	
 	class ObjectMother {
 		public static function anOrder() {
-			return new Order()
+			return new OrderBuiler()
 				->withItem(...);
 		}
 	}
