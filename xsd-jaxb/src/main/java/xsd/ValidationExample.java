@@ -33,12 +33,12 @@ public class ValidationExample {
 			Validator validator = schema.newValidator();
 
 			validator.validate(new StreamSource(xmlStream));
+			System.out.println("XML is valid !");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
 			e.printStackTrace();
 		}
-		System.out.println("XML is valid !");
 	}
 
 	private static InputStream openSchema(String xsdFileName) {
