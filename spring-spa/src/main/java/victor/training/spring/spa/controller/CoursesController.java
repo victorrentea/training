@@ -20,8 +20,8 @@ import victor.training.spring.spa.dao.TeacherRepository;
 import victor.training.spring.spa.domain.Course;
 import victor.training.spring.spa.service.CoursesService;
 
-@RestController
-@RequestMapping("/rest/courses")
+@RestController // SOLUTION
+@RequestMapping("/rest/courses") // SOLUTION
 public class CoursesController {
 	
 	private final static Logger log = LoggerFactory.getLogger(CoursesController.class);
@@ -35,22 +35,24 @@ public class CoursesController {
 	@Autowired
 	private TeacherRepository teacherRepo;
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET) // SOLUTION
 	public List<CourseDto> getAllCourses() {
 		List<CourseDto> dtos = new ArrayList<CourseDto>();
 		for (Course course : courseRepo.getAll()) {
-			dtos.add(map(course));
+			dtos.add(mapToDto(course));
 		}
 		return dtos;
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public CourseDto getCourseById(@PathVariable("id") Long id) {
-		return mapWithDetails(courseRepo.getById(id));
+	//public CourseDto getCourseById(Long id) { // INITIAL
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET) // SOLUTION
+	public CourseDto getCourseById(@PathVariable("id") Long id) { // SOLUTION
+		return mapToDto(courseRepo.getById(id));
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public void updateCourse(@PathVariable("id") Long id, @RequestBody CourseDto dto) throws ParseException {
+	//public void updateCourse(Long id, CourseDto dto) throws ParseException {// INITIAL
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT) // SOLUTION
+	public void updateCourse(@PathVariable("id") Long id, @RequestBody CourseDto dto) throws ParseException { // SOLUTION
 		if (courseRepo.getByName(dto.name) != null &&  !courseRepo.getByName(dto.name).getId().equals(id)) {
 			throw new IllegalArgumentException("Another course with that name already exists");
 		}
@@ -58,42 +60,40 @@ public class CoursesController {
 		course.setName(dto.name);
 		course.setStartDate(new SimpleDateFormat("dd-MM-yyyy").parse(dto.startDate));
 		course.setTeacher(teacherRepo.getById(dto.teacherId));
+		course.setDescription(dto.description); // SOLUTION
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void deleteCourseById(@PathVariable("id") Long id) {
+	//public void deleteCourseById(Long id) { // INITIAL
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE) // SOLUTION
+	public void deleteCourseById(@PathVariable("id") Long id) { // SOLUTION
 		courseRepo.delete(id);
 	}
 	
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	public void createCourse(@RequestBody CourseDto dto) throws ParseException {
+	//public void createCourse(CourseDto dto) throws ParseException { // INITIAL
+	@RequestMapping(value = "", method = RequestMethod.POST) // SOLUTION
+	public void createCourse(@RequestBody CourseDto dto) throws ParseException { // SOLUTION
 		if (courseRepo.getByName(dto.name) != null) {
 			throw new IllegalArgumentException("Another course with that name already exists");
 		}
-		courseRepo.save(map(dto));
+		courseRepo.save(mapToEntity(dto));
 	}
 
-	private CourseDto map(Course course) {
+	private CourseDto mapToDto(Course course) {
 		CourseDto dto = new CourseDto();
 		dto.id = course.getId();
 		dto.name = course.getName();
 		dto.startDate = new SimpleDateFormat("dd-MM-yyyy").format(course.getStartDate());
 		dto.teacherId = course.getTeacher().getId();
 		dto.teacherName = course.getTeacher().getName();
+		dto.description = course.getDescription(); // SOLUTION
 		return dto ;
 	}
 	
-	private CourseDto mapWithDetails(Course course) {
-		CourseDto dto = map(course);
-		dto.description = course.getDescription();
-		return dto ;
-	}
-	
-	private Course map(CourseDto dto) throws ParseException {
+	private Course mapToEntity(CourseDto dto) throws ParseException {
 		Course newEntity = new Course();
 		newEntity.setName(dto.name);
 		newEntity.setStartDate(new SimpleDateFormat("dd-MM-yyyy").parse(dto.startDate));
-		newEntity.setDescription(dto.description);
+		newEntity.setDescription(dto.description); // SOLUTION
 		newEntity.setTeacher(teacherRepo.getById(dto.teacherId));
 		return newEntity;
 	}

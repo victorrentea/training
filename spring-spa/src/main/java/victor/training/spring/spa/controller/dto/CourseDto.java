@@ -6,5 +6,5 @@ public class CourseDto {
 	public Long teacherId;
 	public String teacherName;
 	public String startDate;
-	public String description;
+	public String description; // SOLUTION
 }

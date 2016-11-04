@@ -24,6 +24,7 @@
 		Name:<input type="text" id="newName" /> <br />
 		Start Date (dd-mm-yyyy):<input type="text" id="newStartDate" /> <br />
 		Teacher: <select id="newTeacher"></select> <br />
+		Description: <textarea id="newDescription" rows="3" cols="60"></textarea><br /> <!-- // SOLUTION -->
 		<input type="button" value="Create" onclick="createCourse()">
 		<input type="button" value="Cancel" onclick="$('#courseNewDiv').hide();$('#coursesMain').show();">
 	</div>
@@ -34,6 +35,7 @@
 		Name:<input type="text" id="editName" /> <br />
 		Start Date (dd-mm-yyyy):<input type="text" id="editStartDate" /> <br />
 		Teacher: <select id="editTeacher"></select><br />
+		Description: <textarea id="editDescription" rows="3" cols="60"></textarea><br /> <!-- // SOLUTION -->
 		<input type="button" value="Save" onclick="updateCourse()">
 		<input type="button" value="Cancel" onclick="$('#courseEditDiv').hide();$('#coursesMain').show();">
 	</div>
@@ -123,6 +125,7 @@ function openEditCourse(courseId) {
 			$("#editCourseId").val(data.id);
 			$("#editStartDate").val(data.startDate);
 			$("#editTeacher").val(data.teacherId);
+			$("#editDescription").val(data.description); // SOLUTION
 			$('#coursesMain').hide();
 			$('#courseEditDiv').show();
 		}
@@ -130,12 +133,13 @@ function openEditCourse(courseId) {
 }
 function updateCourse() {
 	$.ajax(restEndpoint +"/courses/" +$("#editCourseId").val(), {
+		method: "PUT",
 		data: JSON.stringify({
 			name:$("#editName").val(),
 			startDate:$("#editStartDate").val(),
+			description:$("#editDescription").val(), // SOLUTION
 			teacherId:$("#editTeacher").val()
 		}),
-		method: "PUT",
 		contentType: "application/json",
 		success: function(data) {
 			toastr.success("Course Updated");
@@ -164,6 +168,7 @@ function createCourse() {
 		data: JSON.stringify({
 			name:$("#newName").val(),
 			startDate:$("#newStartDate").val(),
+			description:$("#newDescription").val(), // SOLUTION
 			teacherId:$("#newTeacher").val()
 		}),
 		method: "POST",

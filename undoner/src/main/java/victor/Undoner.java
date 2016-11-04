@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -101,7 +100,7 @@ public class Undoner {
 //				if (cleanFolder.isSelected()) {
 //					cleanDestFolder();
 //				}
-				File inputSrcFolder = new File("../" + projectsCombo.getSelectedItem() + "/src/main/java");
+				File inputSrcFolder = new File("../" + projectsCombo.getSelectedItem() + "/src/main");
 				boolean undone;
 				if (isVictorMachine()) {
 					undone = undoFolders(inputSrcFolder, new File("../../training-undone/"+projectsCombo.getSelectedItem()+"/src/main/java"), false);
