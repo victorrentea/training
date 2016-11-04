@@ -1,4 +1,4 @@
-package victor.training.jpa.repository;
+package victor.training.jpa.repository.data;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,37 +8,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.springframework.stereotype.Repository;
-
 import victor.training.jpa.entity.employee.Employee;
 
-@Repository
-public class EmployeeRepository {
-
+public class EmployeeDataRepositoryImpl implements EmployeeDataRepositoryCustom {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void persist(Employee employee) {
-		entityManager.persist(employee);
-	}
-
-	public Employee getById(Integer employeeId) {
-		return entityManager.find(Employee.class, employeeId);
-	}
-	
-	public Long countByName(String name) {
-		TypedQuery<Long> query = entityManager.createNamedQuery("Employee_countByName", Long.class);
-		query.setParameter("name", name);
-		return query.getSingleResult();
-	}
-	
-	public List<Employee> getAllFetchProjects() {
-		String jpql = "SELECT e FROM Employee e LEFT JOIN FETCH e.projects"; // SOLUTION
-		//String jpql = "SELECT e FROM Employee e"; // TODO FETCH here // INITIAL
-		TypedQuery<Employee> query = entityManager.createQuery(jpql, Employee.class);
-		return query.getResultList();
-	}
-	
+	@Override
 	public List<Employee> search(String name, String siteName) {
 		Map<String, Object> paramMap = new HashMap<>();
 		String jpql = "SELECT e FROM Employee e WHERE 1=1 ";
@@ -58,5 +34,4 @@ public class EmployeeRepository {
 		}
 		return query.getResultList();
 	}
-	
 }

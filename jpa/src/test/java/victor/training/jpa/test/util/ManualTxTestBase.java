@@ -22,9 +22,10 @@ public abstract class ManualTxTestBase {
 	@PersistenceUnit
 	protected EntityManagerFactory emFactory;
 	
-	protected EntityManager em;
+	protected EntityManager entityManager;
 
-	protected Employee employeeInDB = new Employee("inDatabase");
+	protected Integer employeeId;
+	
 	
 	@Before
 	public void setupInitialEM() {
@@ -32,16 +33,21 @@ public abstract class ManualTxTestBase {
 	}
 	
 	public EntityManager usingANewEntityManager() {
-		return em = emFactory.createEntityManager();
+		return entityManager = emFactory.createEntityManager();
 	}
 	
 	protected void startTransaction() {
-		em.getTransaction().begin();
+		entityManager.getTransaction().begin();
 	}
 
 	protected void commitTransaction() {
-		em.getTransaction().commit();
-		em.close(); // in a regular EE setup, the EntityManager is closed automatically
+		entityManager.getTransaction().commit();
+		entityManager.close(); // in a regular EE setup, the EntityManager is closed automatically
+	}
+	
+	protected void rollbackTransaction() {
+		entityManager.getTransaction().rollback();
+		entityManager.close(); // in a regular EE setup, the EntityManager is closed automatically
 	}
 
 
@@ -57,9 +63,11 @@ public abstract class ManualTxTestBase {
 	public void persistInitialData() {
 		usingANewEntityManager();
 		startTransaction();
-		em.persist(employeeInDB);
-		em.persist(newProjectWithEmployee(employeeInDB));
-		em.persist(newProjectWithEmployee(employeeInDB));
+		Employee employeeInDB = new Employee("inDatabase");
+		entityManager.persist(employeeInDB);
+		employeeId = employeeInDB.getId();
+		entityManager.persist(newProjectWithEmployee(employeeInDB));
+		entityManager.persist(newProjectWithEmployee(employeeInDB));
 		commitTransaction();
 		usingANewEntityManager();
 	}

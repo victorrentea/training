@@ -1,33 +1,39 @@
 package victor.training.jpa;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import javax.persistence.TypedQuery;
 
 import org.hibernate.LazyInitializationException;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import victor.training.jpa.entity.employee.Employee;
+import victor.training.jpa.service.EmployeeService;
 import victor.training.jpa.test.util.ManualTxTestBase;
 
-public class ManualTxTest extends ManualTxTestBase {
+public class LazyEagerTest extends ManualTxTestBase {
+	
+	@Autowired
+	private EmployeeService service;
 
 	@Test
 	public void dummy() {
-		em.find(Employee.class, employeeInDB.getId());
+		assertNotNull(entityManager.find(Employee.class, employeeId));
 	}
 
 	@Test
 	public void changesToAnEntityInsideATransactionAreAutomaticallyFlushedToTheDBAtTransactionCommit() {
 		startTransaction();
-		Employee e = em.find(Employee.class, employeeInDB.getId());
-		assertTrue("Entity is attached", em.contains(e));
+		Employee e = entityManager.find(Employee.class, employeeId);
+		assertTrue("Entity is attached", entityManager.contains(e));
 		e.setName("NewName");
 		commitTransaction();
 
 		// sometime after...
-		Employee anotherEntity = usingANewEntityManager().find(Employee.class, employeeInDB.getId());
+		Employee anotherEntity = usingANewEntityManager().find(Employee.class, employeeId);
 		assertEquals("NewName", anotherEntity.getName());
 	}
 	
@@ -35,14 +41,14 @@ public class ManualTxTest extends ManualTxTestBase {
 	@Test
 	public void changesToAnEntityAfterTheTxEndAreNotPersistedInTheDB() {
 		startTransaction();
-		Employee employee = em.find(Employee.class, employeeInDB.getId());
+		Employee employee = entityManager.find(Employee.class, employeeId);
 		employee.setName("Attached");
 		commitTransaction();
 
 		employee.setName("Detached"); // will run, but the new value won't get persisted in DB
 
 		// sometime after...
-		Employee anotherEntity = usingANewEntityManager().find(Employee.class, employeeInDB.getId());
+		Employee anotherEntity = usingANewEntityManager().find(Employee.class, employeeId);
 		assertEquals("Attached", anotherEntity.getName());
 	}
 
@@ -50,7 +56,7 @@ public class ManualTxTest extends ManualTxTestBase {
 	@Test
 	public void listsAreLazilyLoadedWithinATransaction() {
 		startTransaction();
-		Employee e = em.find(Employee.class, employeeInDB.getId());
+		Employee e = entityManager.find(Employee.class, employeeId);
 		System.out.println("*** Before requesting the projects list");
 		assertEquals(2, e.getProjects().size());
 		System.out.println("*** After Hibernate has gone to DB to lazy load the list of projects");
@@ -60,7 +66,7 @@ public class ManualTxTest extends ManualTxTestBase {
 	@Test(expected = LazyInitializationException.class)
 	public void lazyLoadingOutOfTransactionFailsWithException() {
 		startTransaction();
-		Employee e = em.find(Employee.class, employeeInDB.getId());
+		Employee e = entityManager.find(Employee.class, employeeId);
 		commitTransaction();
 		e.getProjects().size(); // this causes an exception, as Tx had ended
 	}
@@ -70,17 +76,19 @@ public class ManualTxTest extends ManualTxTestBase {
 		startTransaction();
 		
 		// @NamedQueries are validated by Hibernate at deploy
-		TypedQuery<Employee> query = em.createNamedQuery("getWithProjects", Employee.class); 
+		TypedQuery<Employee> query = entityManager.createNamedQuery("Employee_getWithProjects", Employee.class); 
 		
 //		String jpql = "SELECT e FROM Employee e JOIN FETCH e.projects WHERE e.id = :id";
 //		TypedQuery<Employee> query = em.createQuery(jpql, Employee.class);
 		
-		query.setParameter("id", employeeInDB.getId());
+		query.setParameter("id", employeeId);
 		Employee employee = query.getSingleResult();
 		commitTransaction();
 		
 		System.out.println(employee.getProjects().size()); // this won't crack, the list was explicitly eagerly JOIN FETCHED 
 	}
+	
+	
 	
 	
 }

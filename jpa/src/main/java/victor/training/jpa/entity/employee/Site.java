@@ -25,6 +25,15 @@ public class Site {
 	@OneToMany(mappedBy = "site")
 	private List<Employee> employees;
 
+	public Site() {
+	}
+	
+	public Site(String name) {
+		this.name = name;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}

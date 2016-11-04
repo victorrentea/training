@@ -26,10 +26,15 @@ import javax.persistence.Version;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "DISCRIMINATOR")
 @DiscriminatorValue("EMPLOYEE")
-@NamedQueries(@NamedQuery(
-	name="getWithProjects", 
-	query="SELECT e FROM Employee e JOIN FETCH e.projects WHERE e.id = :id"
-))
+@NamedQueries({
+@NamedQuery(
+	name="Employee_countByName", 
+	query="SELECT count(e) FROM Employee e WHERE UPPER(e.name) = UPPER(:name)"
+), 
+@NamedQuery(
+	name="Employee_getWithProjects", 
+	query="SELECT e FROM Employee e LEFT JOIN FETCH e.projects WHERE e.id = :id"
+)})
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
