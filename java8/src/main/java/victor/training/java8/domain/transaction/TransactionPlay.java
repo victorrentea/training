@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import org.junit.Test;
@@ -15,6 +16,10 @@ import org.junit.Test;
 
 public class TransactionPlay {
 	
+	
+
+
+
 	private Trader raoul = new Trader("Raoul", "Cambridge");
 	private Trader mario = new Trader("Mario","Milan");
 	private Trader alan = new Trader("Alan","Cambridge");
@@ -129,6 +134,7 @@ public class TransactionPlay {
 		assertEquals(1000, max);
 	}
 
+	
 	@Test
 	public void transaction_with_smallest_value() {
 		Transaction expected = tx[0];
@@ -152,4 +158,65 @@ public class TransactionPlay {
 		assertEquals(expected, fib10);
 		// SOLUTION)
 	}
+	
+	@Test
+	public void a_transaction_from_2012() {
+		Transaction expected = tx[1];
+		// SOLUTION(
+		Transaction tx2012 = transactions.stream()
+			.filter(transaction -> transaction.getYear() == 2012)
+			.findFirst()
+			.get();
+		
+		assertEquals(expected, tx2012);
+		// SOLUTION)
+	}
+	
+	@Test
+	public void uniqueCharactersOfManyWords() {
+		List<String> expected = Arrays.asList("a", "b", "c", "d", "f");
+		List<String> wordsStream = Arrays.asList("abcd", "acdf");
+		
+		// SOLUTION(
+		List<String> actual = wordsStream.stream()
+				.flatMap(word -> Arrays.asList(word.split("")).stream())
+				.distinct()
+				.sorted()
+				.collect(toList());
+		assertEquals(expected, actual);
+		// SOLUTION)
+	}
+	
+	
+	
+	@Test
+	public void advanced_sum_using_consumer() {
+		List<Integer> numere = Arrays.asList(1, 3, 6, 8,9);
+		// SOLUTION(
+		MySmartConsumerIBM summer = new MySmartConsumerIBM();
+		
+		numere.stream().forEach(summer);
+		System.out.println("Suma = " +summer.getSum());
+		
+		int sum = 0;
+		for (int n : numere) {
+			sum += n;
+		}
+		// SOLUTION)
+	}
+	
+	// SOLUTION(
+	private static class MySmartConsumerIBM implements Consumer<Integer> {
+		int sum = 0;
+
+		@Override
+		public void accept(Integer n) {
+			sum += n;
+		}
+		
+		public int getSum() {
+			return sum;
+		}
+	}
+	// SOLUTION)
 }
