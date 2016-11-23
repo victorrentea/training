@@ -105,7 +105,7 @@ public class TransactionPlay {
 	
 	@Test //6 
 	public void sum_of_values_of_transactions_from_Cambridge_traders() { 
-		//int sum = -1; //INITIAL
+		//int sum = -1; // INITIAL
 		// SOLUTION(
 		int sum = transactions.stream()									
 			.filter(t-> "Cambridge".equals(t.getTrader().getCity()))
@@ -118,7 +118,7 @@ public class TransactionPlay {
 	
 	@Test //7
 	public void max_transaction_value() {
-		//int max = -1; //INITIAL
+		//int max = -1; // INITIAL
 		// SOLUTION(
 		int max = transactions.stream()									
 			.max(Comparator.comparing(Transaction::getValue))
