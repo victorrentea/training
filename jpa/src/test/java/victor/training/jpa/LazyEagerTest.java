@@ -89,6 +89,17 @@ public class LazyEagerTest extends ManualTxTestBase {
 	}
 	
 	
+	@Test
+	public void lazilyLoadToOneFieldUsingBytecodeEnhancement() {
+		startTransaction();
+		Employee e = entityManager.find(Employee.class, employeeId);
+		System.out.println("*** Before requesting the employee company");
+		System.out.println("employee.company.class = " + e.getCompany().getClass());
+		System.out.println("employee.company.toString() = " + e.getCompany());
+		System.out.println("*** After requesting the employee company");
+		commitTransaction();
+	}
+	
 	
 	
 }

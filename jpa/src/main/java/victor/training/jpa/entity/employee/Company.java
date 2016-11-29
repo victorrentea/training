@@ -20,6 +20,15 @@ public class Company {
 	@OneToMany(mappedBy = "company")
 	private List<Employee> employees = new ArrayList<>();
 
+	public Company() {
+	}
+	
+	public Company(String name) {
+		this.name = name;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}

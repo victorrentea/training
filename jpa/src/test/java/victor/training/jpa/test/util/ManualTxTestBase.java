@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import victor.training.jpa.entity.employee.Company;
 import victor.training.jpa.entity.employee.Employee;
 import victor.training.jpa.entity.employee.Project;
 import victor.training.jpa.entity.employee.ProjectType;
@@ -64,6 +65,9 @@ public abstract class ManualTxTestBase {
 		usingANewEntityManager();
 		startTransaction();
 		Employee employeeInDB = new Employee("inDatabase");
+		Company company = new Company("Microsoft SRL");
+		employeeInDB.setCompany(company);
+		entityManager.persist(company);
 		entityManager.persist(employeeInDB);
 		employeeId = employeeInDB.getId();
 		entityManager.persist(newProjectWithEmployee(employeeInDB));

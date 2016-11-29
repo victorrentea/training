@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,7 +46,8 @@ public class Employee {
 	@JoinColumn(name = "SITE_ID")
 	private Site site;
 
-	@ManyToOne
+	//@ManyToOne // TODO mark lazy ? // INITIAL
+	@ManyToOne(fetch = FetchType.LAZY) // SOLUTION
 	@JoinColumn(name = "COMPANY_ID")
 	private Company company;
 
