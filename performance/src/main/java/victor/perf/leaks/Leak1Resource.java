@@ -20,7 +20,7 @@ public class Leak1Resource {
 			
 			System.out.println(s);
 		} finally {
-			threadLocal.remove();
+//			threadLocal.remove();
 		}
 		return s;
 	}
