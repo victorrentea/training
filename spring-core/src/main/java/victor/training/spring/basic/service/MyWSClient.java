@@ -34,4 +34,9 @@ public class MyWSClient {
 		return ToStringBuilder.reflectionToString(this);
 	}
 
+	public int callWebService(String param) {
+		// DO serious stuff
+		return 1; // call real webservice endpoint method 
+	}
+
 }

@@ -1,5 +1,10 @@
 package victor.training.spring;
 
+import static org.junit.Assert.assertNotNull;
+
+import java.text.ParseException;
+
+import org.apache.commons.lang.time.DateUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +20,9 @@ public class HRServiceTest {
 
 	@Autowired
 	private HRService hrService;
+	
+//	@Autowired
+//	private MyWSClient mockWsClient;
 
 	@Test
 	public void testSwitchPhoneSuccessful() {
@@ -28,9 +36,14 @@ public class HRServiceTest {
 	}
 	
 	@Test
-	public void testHRService() {
-		System.out.println(hrService.getMyProperty());
+	public void getPrimitiveProperty() {
+		assertNotNull(hrService.getMyProperty());
 	}
 
+	@Test
+	public void callExternalWebService() throws ParseException {
+		hrService.callMyService(DateUtils.parseDate("2016-01-01", new String[]{"yyyy-MM-dd"}));
+//		verify(mockWsClient).callWebService("2016-01-01");
+	}
 
 }
