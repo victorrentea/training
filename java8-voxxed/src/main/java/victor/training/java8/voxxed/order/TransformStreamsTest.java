@@ -14,7 +14,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import victor.training.java8.voxxed.order.dto.OrderDto;
 import victor.training.java8.voxxed.order.entity.Customer;
@@ -23,6 +25,7 @@ import victor.training.java8.voxxed.order.entity.Order.PaymentMethod;
 import victor.training.java8.voxxed.order.entity.OrderLine;
 import victor.training.java8.voxxed.order.entity.Product;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TransformStreamsTest {
 	
 	private TransformStreams service = new TransformStreams();
@@ -31,7 +34,7 @@ public class TransformStreamsTest {
 	private LocalDate yesterday = LocalDate.now().minusDays(1);
 	
 	@Test
-	public void toDtos() {
+	public void p1_toDtos() {
 		Order order1 = new Order().setCreationDate(today).setTotalPrice(BigDecimal.TEN);
 		Order order2 = new Order().setCreationDate(yesterday).setTotalPrice(BigDecimal.ONE);
 		
@@ -43,7 +46,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void getUsedPaymentMethods() {
+	public void p2_getUsedPaymentMethods() {
 		Order cardOrder = new Order().setPaymentMethod(PaymentMethod.CARD);
 		Order cardOrder2 = new Order().setPaymentMethod(PaymentMethod.CARD);
 		Order cashOnDeliveryOrder = new Order().setPaymentMethod(PaymentMethod.CASH_ON_DELIVERY);
@@ -53,7 +56,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void getOrderDatesAscending() {
+	public void p3_getOrderDatesAscending() {
 		Order order1 = new Order().setCreationDate(today);
 		Order order1bis = new Order().setCreationDate(today);
 		Order order2 = new Order().setCreationDate(yesterday);
@@ -65,7 +68,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void mapOrdersById() {
+	public void p4_mapOrdersById() {
 		Order order1 = new Order(1L);
 		
 		Map<Long, Order> actual = service.mapOrdersById(new Customer(order1));
@@ -74,7 +77,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void getAllOrderedProducts() {
+	public void p5_getAllOrderedProducts() {
 		Product chair = new Product("Chair");
 		Product table = new Product("Table");
 		
@@ -89,7 +92,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void getProductsByPaymentMethod() {
+	public void p6_getProductsByPaymentMethod() {
 		Order order1 = new Order().setPaymentMethod(PaymentMethod.CARD);
 		Order order2 = new Order().setPaymentMethod(PaymentMethod.CASH_ON_DELIVERY);
 		Order order3 = new Order().setPaymentMethod(PaymentMethod.CARD);
@@ -99,7 +102,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void getProductCount() {
+	public void p7_getProductCount() {
 		Product chair = new Product("Chair");
 		Product table = new Product("Table");
 		
@@ -119,7 +122,7 @@ public class TransformStreamsTest {
 
 	
 	@Test
-	public void getApproximateTotalOrdersPrice() {
+	public void p8_getApproximateTotalOrdersPrice() {
 		Order order1 = new Order().setTotalPrice(BigDecimal.TEN);
 		Order order2 = new Order().setTotalPrice(BigDecimal.ONE);
 		
@@ -128,7 +131,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void readOrderFromFile() {
+	public void p9_readOrderFromFile() {
 		List<OrderLine> orderLines = service.readOrderFromFile(new File("test.ok.txt"));
 		assertEquals("Chair", orderLines.get(0).getProduct().getName());
 		assertEquals(2, orderLines.get(0).getItems());
@@ -137,7 +140,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void readOrderFromFile_throws() {
+	public void p10_readOrderFromFile_throws() {
 		service.readOrderFromFile(new File("test.invalid.txt")); // look at stacktrace
 		// TODO uncomment to see the exception trace :S
 	}

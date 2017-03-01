@@ -24,6 +24,7 @@ import victor.training.java8.voxxed.order.dto.AuditDto;
 import victor.training.java8.voxxed.order.entity.Audit;
 import victor.training.java8.voxxed.order.entity.Customer;
 import victor.training.java8.voxxed.order.entity.Order;
+import victor.training.java8.voxxed.order.entity.Order.Status;
 import victor.training.java8.voxxed.order.entity.OrderLine;
 import victor.training.java8.voxxed.order.entity.Product;
 import victor.training.java8.voxxed.order.repo.OrderLineRepository;
@@ -101,7 +102,7 @@ public class CleanLambdas {
 
 	public List<Product> getProductsSortedByHits(List<Order> orders) {
 		Map<Product, Integer> productHits = orders.stream()
-				.filter(deliveryDueAfter(now().minusWeeks(1)).or(Order::isActive))
+				.filter(deliveryDueAfter(now().minusWeeks(1)).or(order -> order.getStatus() == Status.ACTIVE))
 				.flatMap(order-> order.getOrderLines().stream())
 				.sorted(comparing(orderLine -> orderLine.getProduct().getName()))
 				.collect(groupingBy(OrderLine::getProduct, summingInt(OrderLine::getItems)));

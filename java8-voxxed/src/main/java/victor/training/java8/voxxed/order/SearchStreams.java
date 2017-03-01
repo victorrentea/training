@@ -11,6 +11,15 @@ import victor.training.java8.voxxed.order.entity.Order;
 public class SearchStreams {
 	
 	/**
+	 * FIRST OF ALL: Add the following "Favourite" static imports:
+	 * Eclipse: Window > Preferences > type "Favo" > Favorites >
+	 * 					> New Type > Browse > and type the class name for:
+		+ java.time.LocalDate
+		+ java.util.stream.Collectors
+		+ java.util.Comparator
+	 */
+	
+	/**
 	 * #1
 	 */
 	public List<Order> getActiveOrders(Customer customer) {	
