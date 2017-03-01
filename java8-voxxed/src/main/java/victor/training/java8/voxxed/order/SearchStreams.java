@@ -16,11 +16,11 @@ public class SearchStreams {
 	 * 					> New Type > Browse > and type the class name for:
 		+ java.time.LocalDate
 		+ java.util.stream.Collectors
-		+ java.util.Comparator
 	 */
 	
 	/**
 	 * #1
+	 * - shorten/clean it up
 	 */
 	public List<Order> getActiveOrders(Customer customer) {	
 		//return customer.getOrders(); // INITIAL
@@ -34,7 +34,7 @@ public class SearchStreams {
 	/**
 	 * #2
 	 * @return the Order in the list with the given id  
-	 * - what do you do when you don't find it ?
+	 * - what do you do when you don't find it ? null/throw/Optional ?
 	 * - ...Any or ...First ?
 	 */
 	public Order getOrderById(List<Order> orders, long orderId) {
@@ -52,7 +52,7 @@ public class SearchStreams {
 	 * @return true if customer has at least one ACTIVE order
 	 */
 	public boolean hasActiveOrders(Customer customer) {
-		//return false; // INITIAL
+		//return true; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream() 
 				//.filter(order -> order.getCreationDate().getYear() == LocalDate.now().getYear())// Change: daca v-as fi spus ca intre orderurile din anul curent ?
@@ -66,7 +66,7 @@ public class SearchStreams {
 	 * any special offer order lines (OrderLine.isSpecialOffer)
 	 */
 	public boolean canBeReturned(Order order) {
-		//return false; // INITIAL
+		//return true; // Order.getOrderLines() // INITIAL
 		// SOLUTION(
 		return order.getOrderLines().stream()
 					//.filter(OrderLine::wasDelivered) // Change: daca v-as fi spus ca doar orderline-urile livrate...
@@ -79,7 +79,7 @@ public class SearchStreams {
 	/**
 	 * #5
 	 * The order with the maximum price. 
-	 * i.e. the most expensive Order 
+	 * i.e. the most expensive Order, or null if no Orders
 	 */
 	public Order getMaxPriceOrder(Customer customer) {
 		//return null; // INITIAL

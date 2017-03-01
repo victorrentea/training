@@ -37,7 +37,16 @@ public class TransformStreams {
 	 * Discussion:.. Make it cleanest!
 	 */
 	public List<OrderDto> toDtos(List<Order> orders) {
-		//return null; // INITIAL
+		// INITIAL(
+		//List<OrderDto> dtos = new ArrayList<>();
+		//for (Order order : orders) {
+		//	OrderDto dto = new OrderDto();
+		//	dto.totalPrice = order.getTotalPrice(); 
+		//	dto.creationDate = order.getCreationDate();
+		//	dtos.add(dto);
+		//}
+		//return dtos;
+		// INITIAL)
 		// SOLUTION(
 		return orders.stream()
 					.map(order -> {

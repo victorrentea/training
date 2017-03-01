@@ -1,7 +1,10 @@
 package victor.training.java8.voxxed.order.entity;
 
+import static java.util.stream.Collectors.joining;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -121,4 +124,14 @@ public class Order {
 	}
 
 
+	@Override
+	public String toString() {
+		List<String> details = new ArrayList<>();
+		if (creationDate != null) {
+			details.add("creationDate="+creationDate);
+		}
+		String detailsStr = details.stream().collect(joining(", "));
+		return "Order#"+hashCode() + "{"+detailsStr + "}";
+	}
+	
 }
