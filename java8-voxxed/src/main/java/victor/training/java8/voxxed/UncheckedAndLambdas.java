@@ -6,25 +6,21 @@ import java.util.Arrays;
 
 import org.jooq.lambda.Unchecked;
 
-public class Goodies {
+public class UncheckedAndLambdas {
 	public static void main(String[] args) {
-		listAbsoluteFilesInDirectory(new File("."));
-	}
-
-	public static void listAbsoluteFilesInDirectory(File dir) {
+		File dir = new File(".");
 		Arrays.stream(dir.listFiles()).forEach(file -> {
 			try {
 				System.out.println(file.getCanonicalPath());
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
-
+		
 			// Ouch, my fingers hurt! All this typing!
 		});
-
-		// instead ... 
-		System.out.println("==========");
-
+		
+		
+		// TODO use Unchecked.consumer from JOOL library
 		Arrays.stream(dir.listFiles()).forEach(Unchecked.consumer(file -> {
 			System.out.println(file.getCanonicalPath());
 		}));

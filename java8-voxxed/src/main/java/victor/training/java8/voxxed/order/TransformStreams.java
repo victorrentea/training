@@ -2,7 +2,7 @@ package victor.training.java8.voxxed.order;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.summingInt;
+import static java.util.stream.Collectors.summingLong;
 import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
@@ -38,7 +38,7 @@ public class TransformStreams {
 	 */
 	public List<OrderDto> toDtos(List<Order> orders) {
 		// INITIAL(
-		//List<OrderDto> dtos = new ArrayList<>();
+//		List<OrderDto> dtos = new ArrayList<>();
 		//for (Order order : orders) {
 		//	OrderDto dto = new OrderDto();
 		//	dto.totalPrice = order.getTotalPrice(); 
@@ -61,7 +61,8 @@ public class TransformStreams {
 	
 	/**
 	 * #2
-	 * What PaymentMethods has the Customer ever used ?
+	 * What PaymentMethods has the Customer ever used on his Orders ?
+	 * Note: Order.getPaymentMethod()
 	 */
 	public Set<PaymentMethod> getUsedPaymentMethods(Customer customer) {
 		//return null; // INITIAL
@@ -75,6 +76,7 @@ public class TransformStreams {
 	/**
 	 * #3
 	 * When did the customer created orders ?
+	 * Note: Order.getCreationDate()
 	 */
 	public SortedSet<LocalDate> getOrderDatesAscending(Customer customer) {
 		//return null; // INITIAL
@@ -99,8 +101,39 @@ public class TransformStreams {
 		// SOLUTION)
 	}
 	
-	/**
+	
+	// ------------- grouping --------------
+	
+	/** 
 	 * #5
+	 * No comment. Check signature.
+	 */
+	public Map<PaymentMethod, List<Order>> getProductsByPaymentMethod(Customer customer) {
+		//return null; // INITIAL
+		// SOLUTION(
+		return customer.getOrders().stream()	
+					.collect(groupingBy(Order::getPaymentMethod));
+		// SOLUTION)
+	}
+	
+	/** 
+	 * #6
+	 * Get total number of products bought by a customer, 
+	 * across all her orders.
+	 * Customer --->* Order --->* OrderLines(.items  .product)
+	 * The sum of all items for the same product.
+	 */
+	public Map<Product, Long> getProductCount(Customer customer) {
+		//return null; // INITIAL
+		// SOLUTION(
+		return customer.getOrders().stream()
+					.flatMap(order -> order.getOrderLines().stream())
+					.collect(groupingBy(OrderLine::getProduct, summingLong(OrderLine::getItems)));
+		// SOLUTION)
+	}
+	
+	/**
+	 * #7
 	 * All the unique products bought by the customer, 
 	 * sorted by Product.name.
 	 */
@@ -117,42 +150,14 @@ public class TransformStreams {
 	}
 	
 	
-	// ------------- grouping --------------
-	
-	/** 
-	 * #6
-	 * No comment. Check signature.
-	 */
-	public Map<PaymentMethod, List<Order>> getProductsByPaymentMethod(Customer customer) {
-		//return null; // INITIAL
-		// SOLUTION(
-		return customer.getOrders().stream()	
-					.collect(groupingBy(Order::getPaymentMethod));
-		// SOLUTION)
-	}
-	
-	/** 
-	 * #7
-	 * Get total number of products ordered by a customer, 
-	 * across all her orders.
-	 */
-	public Map<Product, Integer> getProductCount(Customer customer) {
-		//return null; // INITIAL
-		// SOLUTION(
-		return customer.getOrders().stream()
-					.flatMap(order -> order.getOrderLines().stream())
-					.collect(groupingBy(OrderLine::getProduct, summingInt(OrderLine::getItems)));
-		// SOLUTION)
-	}
-	
 	// ---------- joining ----------
 	
 	/**
 	 * #8
-	 * The names of all the products ordered by Customer,
+	 * The names of all the products bought by Customer,
 	 * sorted and then concatenated by ",".
 	 * Example: "Armchair,Chair,Table".
-	 * Hint: Try to reuse a function above.
+	 * Hint: Reuse the previous function.
 	 */
 	public String getProductsJoined(Customer customer) {
 		//return null; // INITIAL

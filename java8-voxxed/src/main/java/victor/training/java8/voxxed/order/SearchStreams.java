@@ -80,6 +80,7 @@ public class SearchStreams {
 	 * #5
 	 * The order with the maximum price. 
 	 * i.e. the most expensive Order, or null if no Orders
+	 * - Challenge: return an Optional<creationDate>
 	 */
 	public Order getMaxPriceOrder(Customer customer) {
 		//return null; // INITIAL

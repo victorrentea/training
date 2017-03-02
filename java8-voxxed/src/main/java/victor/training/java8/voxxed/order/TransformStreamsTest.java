@@ -34,7 +34,7 @@ public class TransformStreamsTest {
 	private LocalDate yesterday = LocalDate.now().minusDays(1);
 	
 	@Test
-	public void p1_toDtos() {
+	public void p01_toDtos() {
 		Order order1 = new Order().setCreationDate(today).setTotalPrice(BigDecimal.TEN);
 		Order order2 = new Order().setCreationDate(yesterday).setTotalPrice(BigDecimal.ONE);
 		
@@ -46,7 +46,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void p2_getUsedPaymentMethods() {
+	public void p02_getUsedPaymentMethods() {
 		Order cardOrder = new Order().setPaymentMethod(PaymentMethod.CARD);
 		Order cardOrder2 = new Order().setPaymentMethod(PaymentMethod.CARD);
 		Order cashOnDeliveryOrder = new Order().setPaymentMethod(PaymentMethod.CASH_ON_DELIVERY);
@@ -56,7 +56,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void p3_getOrderDatesAscending() {
+	public void p03_getOrderDatesAscending() {
 		Order order1 = new Order().setCreationDate(today);
 		Order order1bis = new Order().setCreationDate(today);
 		Order order2 = new Order().setCreationDate(yesterday);
@@ -68,7 +68,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void p4_mapOrdersById() {
+	public void p04_mapOrdersById() {
 		Order order1 = new Order(1L);
 		
 		Map<Long, Order> actual = service.mapOrdersById(new Customer(order1));
@@ -76,8 +76,40 @@ public class TransformStreamsTest {
 		assertEquals(expected, actual);
 	}
 	
+	
 	@Test
-	public void p5_getAllOrderedProducts() {
+	public void p05_getProductsByPaymentMethod() {
+		Order order1 = new Order().setPaymentMethod(PaymentMethod.CARD);
+		Order order2 = new Order().setPaymentMethod(PaymentMethod.CASH_ON_DELIVERY);
+		Order order3 = new Order().setPaymentMethod(PaymentMethod.CARD);
+		Map<PaymentMethod, List<Order>> actual = service.getProductsByPaymentMethod(new Customer(order1, order2, order3));
+		assertEquals(Arrays.asList(order2), actual.get(PaymentMethod.CASH_ON_DELIVERY));
+		assertEquals(Arrays.asList(order1, order3), actual.get(PaymentMethod.CARD));
+	}
+	
+	
+	@Test
+	public void p06_getProductCount() {
+		Product chair = new Product("Chair");
+		Product table = new Product("Table");
+		
+		Order order1 = new Order(
+				new OrderLine(chair, 3));
+		Order order2 = new Order(
+				new OrderLine(table, 1),
+				new OrderLine(chair, 1));
+		
+		Map<Product, Long> actual = service.getProductCount(new Customer(order1, order2));
+		Map<Product, Long> expected = new HashMap<Product, Long>(){{
+			put(chair, 4L);
+			put(table, 1L);
+		}};
+		assertEquals(expected, actual);
+	}
+	
+	
+	@Test
+	public void p07_getAllOrderedProducts() {
 		Product chair = new Product("Chair");
 		Product table = new Product("Table");
 		
@@ -92,37 +124,25 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void p6_getProductsByPaymentMethod() {
-		Order order1 = new Order().setPaymentMethod(PaymentMethod.CARD);
-		Order order2 = new Order().setPaymentMethod(PaymentMethod.CASH_ON_DELIVERY);
-		Order order3 = new Order().setPaymentMethod(PaymentMethod.CARD);
-		Map<PaymentMethod, List<Order>> actual = service.getProductsByPaymentMethod(new Customer(order1, order2, order3));
-		assertEquals(Arrays.asList(order2), actual.get(PaymentMethod.CASH_ON_DELIVERY));
-		assertEquals(Arrays.asList(order1, order3), actual.get(PaymentMethod.CARD));
-	}
-	
-	@Test
-	public void p7_getProductCount() {
+	public void p08_getAllOrderedProducts() {
+		Product armchair = new Product("Armchair");
 		Product chair = new Product("Chair");
 		Product table = new Product("Table");
 		
 		Order order1 = new Order(
 				new OrderLine(chair, 3));
 		Order order2 = new Order(
+				new OrderLine(armchair, 1),
 				new OrderLine(table, 1),
 				new OrderLine(chair, 1));
 		
-		Map<Product, Integer> actual = service.getProductCount(new Customer(order1, order2));
-		Map<Product, Integer> expected = new HashMap<Product, Integer>(){{
-			put(chair, 4);
-			put(table, 1);
-		}};
-		assertEquals(expected, actual);
+		String actual = service.getProductsJoined(new Customer(order1, order2));
+		assertEquals("Armchair,Chair,Table", actual);
 	}
-
+	
 	
 	@Test
-	public void p8_getApproximateTotalOrdersPrice() {
+	public void p09_getApproximateTotalOrdersPrice() {
 		Order order1 = new Order().setTotalPrice(BigDecimal.TEN);
 		Order order2 = new Order().setTotalPrice(BigDecimal.ONE);
 		
@@ -131,7 +151,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void p9_readOrderFromFile() {
+	public void p10_readOrderFromFile() {
 		List<OrderLine> orderLines = service.readOrderFromFile(new File("test.ok.txt"));
 		assertEquals("Chair", orderLines.get(0).getProduct().getName());
 		assertEquals(2, orderLines.get(0).getItems());
@@ -140,7 +160,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void p10_readOrderFromFile_throws() {
+	public void readOrderFromFile_throws() {
 		service.readOrderFromFile(new File("test.invalid.txt")); // look at stacktrace
 		// TODO uncomment to see the exception trace :S
 	}
