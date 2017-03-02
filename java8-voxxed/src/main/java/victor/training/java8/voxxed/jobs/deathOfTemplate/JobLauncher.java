@@ -1,8 +1,10 @@
 package victor.training.java8.voxxed.jobs.deathOfTemplate;
 
 import victor.training.java8.fake.Autowired;
+import victor.training.java8.fake.Service;
 import victor.training.java8.voxxed.jobs.JobParameters;
 
+@Service
 public class JobLauncher {
 
 	@Autowired

@@ -2,8 +2,10 @@ package victor.training.java8.voxxed.jobs.birthOfLambdas;
 
 import java.util.function.Supplier;
 
+import victor.training.java8.fake.Service;
 import victor.training.java8.voxxed.jobs.JobResults;
 
+@Service
 public class JobService {
 	
 	public void start(Supplier<JobResults> doWork) {

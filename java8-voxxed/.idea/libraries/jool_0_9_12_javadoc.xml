@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jool-0.9.12-javadoc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jool-0.9.12.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/jool-0.9.12-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/jool-0.9.12-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
