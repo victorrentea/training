@@ -7,13 +7,13 @@ public class OrderLine {
 	}
 
 	private Product product;
-	private int items;
+	private int count;
 	private boolean specialOffer;
 	private Status status;
 
 	public OrderLine(Product product, int items) {
 		this.product = product;
-		this.items = items;
+		this.count = items;
 	}
 	public OrderLine() {
 	}
@@ -38,12 +38,12 @@ public class OrderLine {
 		this.product = product;
 	}
 
-	public int getItems() {
-		return items;
+	public int getCount() {
+		return count;
 	}
 
-	public void setItems(int items) {
-		this.items = items;
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 	public Status getStatus() {

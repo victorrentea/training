@@ -21,8 +21,10 @@ public class UncheckedAndLambdas {
 		
 		
 		// TODO use Unchecked.consumer from JOOL library
+		// SOLUTION(
 		Arrays.stream(dir.listFiles()).forEach(Unchecked.consumer(file -> {
 			System.out.println(file.getCanonicalPath());
 		}));
+		// SOLUTION)
 	}
 }

@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
@@ -30,50 +31,57 @@ public class SearchStreamsTest {
 		Order order2 = new Order(Status.ACTIVE);
 		Order order3 = new Order(Status.DRAFT);
 		Customer customer = new Customer(order1, order2, order3);
-		assertEquals(Arrays.asList(order1, order2), service.getActiveOrders(customer));
+		assertEquals(Arrays.asList(order1, order2), service.p1_getActiveOrders(customer));
 	}
 
 	@Test
 	public void p2_getOrderById() {
 		List<Order> orders = Arrays.asList(new Order(1L), new Order(2L), new Order(3L));
-		assertEquals(1L, (long) service.getOrderById(orders, 1L).getId());
+		assertEquals(1L, (long) service.p2_getOrderById(orders, 1L).getId());
+	}
+	
+	@Test
+	@Ignore
+	public void p2_getOrderById_whenIdNotFound() {
+		List<Order> orders = Arrays.asList(new Order(1L));
+		assertEquals(null, (long) service.p2_getOrderById(orders, 1000L).getId());
 	}
 
 	@Test
 	public void p3_hasActiveOrders_true() {
 		Customer customer = new Customer(new Order(Status.INACTIVE), new Order(Status.ACTIVE));
-		assertTrue(service.hasActiveOrders(customer));
+		assertTrue(service.p3_hasActiveOrders(customer));
 	}
 
 	@Test
 	public void p3_hasActiveOrders_false() {
 		Customer customer = new Customer(new Order(Status.INACTIVE));
-		assertFalse(service.hasActiveOrders(customer));
+		assertFalse(service.p3_hasActiveOrders(customer));
 	}
 	
 	@Test
 	public void p4_canBeReturned_frue() {
 		Order order = new Order(new OrderLine());
-		assertTrue(service.canBeReturned(order));
+		assertTrue(service.p4_canBeReturned(order));
 	}
 	
 	@Test
 	public void p4_canBeReturned_false() {
 		OrderLine specialOffer = new OrderLine().setSpecialOffer(true);
 		Order order = new Order(specialOffer, new OrderLine());
-		assertFalse(service.canBeReturned(order));
+		assertFalse(service.p4_canBeReturned(order));
 	}
 	
 	@Test
 	public void p5_getMaxPriceOrder() {
 		Order order1 = new Order().setTotalPrice(BigDecimal.ONE);
 		Order order2 = new Order().setTotalPrice(BigDecimal.TEN);
-		assertEquals(order2, service.getMaxPriceOrder(new Customer(order1, order2)));
+		assertEquals(order2, service.p5_getMaxPriceOrder(new Customer(order1, order2)));
 	}
 	
 	@Test
 	public void p5_getMaxPriceOrder_returnsNothing() {
-		assertNull(service.getMaxPriceOrder(new Customer()));
+		assertNull(service.p5_getMaxPriceOrder(new Customer()));
 	}
 	
 	@Test
@@ -84,7 +92,7 @@ public class SearchStreamsTest {
 		Order order4 = new Order().setCreationDate(LocalDate.parse("2016-01-04"));
 		
 		Customer customer = new Customer(order1, order2, order3, order4);
-		assertEquals(Arrays.asList(order4,order3,order2), service.getLast3Orders(customer));
+		assertEquals(Arrays.asList(order4,order3,order2), service.p6_getLast3Orders(customer));
 	}
 	
 	@Test
@@ -93,13 +101,13 @@ public class SearchStreamsTest {
 		Order order2 = new Order().setCreationDate(LocalDate.parse("2016-01-02"));
 		
 		Customer customer = new Customer(order1, order2);
-		assertEquals(Arrays.asList(order2, order1), service.getLast3Orders(customer));
+		assertEquals(Arrays.asList(order2, order1), service.p6_getLast3Orders(customer));
 	}
 	
 	@Test
 	public void p6_getLast3Orders_whenNoOrders() {
 		Customer customer = new Customer();
-		assertEquals(Arrays.asList(), service.getLast3Orders(customer));
+		assertEquals(Arrays.asList(), service.p6_getLast3Orders(customer));
 	}
 	
 

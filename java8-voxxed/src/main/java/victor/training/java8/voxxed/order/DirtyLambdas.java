@@ -81,10 +81,10 @@ public class DirtyLambdas {
 			if (newLine == null) {
 				continue;
 			}
-			if (oldLine.getItems() == newLine.getItems()) {
+			if (oldLine.getCount() == newLine.getCount()) {
 				continue;
 			}
-			oldLine.setItems(newLine.getItems());
+			oldLine.setCount(newLine.getCount());
 			// can't afford to DELETE and INSERT back, as I want to keep the values of the other fields
 			repo.update(oldLine); 
 		}
@@ -100,7 +100,7 @@ public class DirtyLambdas {
 	
 		Map<Product, Integer> productHits = new HashMap<>();
 		for (OrderLine line : lines1) {
-			int newCount = productHits.getOrDefault(line.getProduct(), 0) + line.getItems();
+			int newCount = line.getCount() + productHits.getOrDefault(line.getProduct(), 0);
 			productHits.put(line.getProduct(), newCount);
 		}
 		

@@ -40,18 +40,18 @@ public class DirtyLambdaTest {
 
 	@InjectMocks
 	private DirtyLambdas target;
-	
+
 	private LocalDate today = LocalDate.now();
 	private LocalDate yesterday = LocalDate.now().minusDays(1);
-	
+
 	@Test
 	public void toDtos() {
-		Audit audit1 = new Audit().setDate(yesterday).setAction(Action.ACTIVATE).setUser("jdoe");
-		Audit audit2 = new Audit().setDate(today).setAction(Action.MODIFY).setUser("janedoe");
-		Audit audit3 = new Audit().setDate(today).setAction(Action.MODIFY).setUser("janedoe");
-		List<Audit> audits = Arrays.asList(audit1, audit2, audit3);
-		List<AuditDto> dtos = new ArrayList<>(target.toDtos(audits));
-		assertEquals("Number of DTOs", 2, dtos.size());
+        Audit audit1 = new Audit().setDate(yesterday).setAction(Action.ACTIVATE).setUser("jdoe");
+        Audit audit3 = new Audit().setDate(today).setAction(Action.MODIFY).setUser("janedoe");
+        Audit audit2 = new Audit().setDate(today).setAction(Action.MODIFY).setUser("janedoe");
+        List<Audit> audits = Arrays.asList(audit1, audit2, audit3);
+        List<AuditDto> dtos = new ArrayList<>(target.toDtos(audits));
+        assertEquals("Number of DTOs", 2, dtos.size());
 		assertEquals("janedoe", dtos.get(0).username);
 		assertEquals(today, dtos.get(0).date);
 		assertEquals(Action.MODIFY, dtos.get(0).action);
@@ -59,7 +59,7 @@ public class DirtyLambdaTest {
 		assertEquals(yesterday, dtos.get(1).date);
 		assertEquals(Action.ACTIVATE, dtos.get(1).action);
 	}
-	
+
 	@Test
 	public void getCustomersToNotifyOfOverdueOrders() {
 		Customer c1 = new Customer(), c2 = new Customer(), c3 = new Customer();
@@ -75,10 +75,10 @@ public class DirtyLambdaTest {
 				.setCustomer(c3)
 				.setDeliveryDueDate(now().plusDays(2)));
 		Set<Customer> actual = target.getCustomersToNotifyOfOverdueOrders(orders, warningDate);
-		
+
 		assertEquals(singleton(c3), actual);
 	}
-	
+
 	@Test
 	public void updateOrderLines() {
 		Product p1 = new Product("p1"), p2 = new Product("p2"), p3 = new Product("p3");
@@ -86,10 +86,10 @@ public class DirtyLambdaTest {
 		Order newOrder = new Order(new OrderLine(p2, 2), new OrderLine(p3, 1));
 		target.updateOrderLines(oldOrder, newOrder);
 		verify(repo).delete(Mockito.argThat(matcher(line -> line.getProduct() == p1)));
-		verify(repo).update(Mockito.argThat(matcher(line -> line.getProduct() == p2 && line.getItems() == 2)));
+		verify(repo).update(Mockito.argThat(matcher(line -> line.getProduct() == p2 && line.getCount() == 2)));
 		verify(repo).insert(Mockito.argThat(matcher(line -> line.getProduct() == p3)));
 	}
-	
+
 	private static <T> Matcher<T> matcher(Predicate<T> test) {
 		return new BaseMatcher<T>() {
 			@Override
@@ -103,8 +103,8 @@ public class DirtyLambdaTest {
 			}
 		};
 	}
-	
-	
+
+
 	@Test
 	public void getProductsSortedByHits() {
 		Product p1 = new Product("p1"), p2 = new Product("p2"), p3 = new Product("p3"), p4 = new Product("p4");
@@ -118,7 +118,7 @@ public class DirtyLambdaTest {
 			new Order(new OrderLine(p2, 50), new OrderLine(p3,70))
 				.setStatus(Order.Status.INACTIVE)
 				.setDeliveryDueDate(now()));
-		
+
 		List<Product> expected = Arrays.asList(p2, p4, p3);
 		List<Product> actual = target.getProductsSortedByHits(orders);
 		assertEquals(expected, actual);

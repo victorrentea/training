@@ -90,11 +90,11 @@ public class CleanLambdas {
 
 		// update old lines
 		Map<Product, Integer> productToNewCount = newOrder.getOrderLines().stream()
-				.collect(toMap(OrderLine::getProduct, OrderLine::getItems));
+				.collect(toMap(OrderLine::getProduct, OrderLine::getCount));
 		oldOrder.getOrderLines().stream()
 			.filter(oldLine -> newProducts.contains(oldLine.getProduct()))
 			.forEach(oldLine -> {
-				oldLine.setItems(productToNewCount.get(oldLine.getProduct()));
+				oldLine.setCount(productToNewCount.get(oldLine.getProduct()));
 				repo.update(oldLine);
 			});
 	}
@@ -105,7 +105,7 @@ public class CleanLambdas {
 				.filter(deliveryDueAfter(now().minusWeeks(1)).or(order -> order.getStatus() == Status.ACTIVE))
 				.flatMap(order-> order.getOrderLines().stream())
 				.sorted(comparing(orderLine -> orderLine.getProduct().getName()))
-				.collect(groupingBy(OrderLine::getProduct, summingInt(OrderLine::getItems)));
+				.collect(groupingBy(OrderLine::getProduct, summingInt(OrderLine::getCount)));
 		System.out.println("productHits: " + productHits);
 		
 		Map<Integer, List<Product>> hitsToProducts = productHits.entrySet().stream()

@@ -36,7 +36,7 @@ public class TransformStreams {
 	 * Transform all entities to DTOs.
 	 * Discussion:.. Make it cleanest!
 	 */
-	public List<OrderDto> toDtos(List<Order> orders) {
+	public List<OrderDto> p01_toDtos(List<Order> orders) {
 		// INITIAL(
 //		List<OrderDto> dtos = new ArrayList<>();
 		//for (Order order : orders) {
@@ -61,10 +61,9 @@ public class TransformStreams {
 	
 	/**
 	 * #2
-	 * What PaymentMethods has the Customer ever used on his Orders ?
 	 * Note: Order.getPaymentMethod()
 	 */
-	public Set<PaymentMethod> getUsedPaymentMethods(Customer customer) {
+	public Set<PaymentMethod> p02_getUsedPaymentMethods(Customer customer) {
 		//return null; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream()
@@ -78,7 +77,7 @@ public class TransformStreams {
 	 * When did the customer created orders ?
 	 * Note: Order.getCreationDate()
 	 */
-	public SortedSet<LocalDate> getOrderDatesAscending(Customer customer) {
+	public SortedSet<LocalDate> p03_getOrderDatesAscending(Customer customer) {
 		//return null; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream()
@@ -93,7 +92,7 @@ public class TransformStreams {
 	 * #4
 	 * @return a map order.id -> order
 	 */
-	public Map<Long, Order> mapOrdersById(Customer customer) {
+	public Map<Long, Order> p04_mapOrdersById(Customer customer) {
 		//return null; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream()
@@ -106,9 +105,9 @@ public class TransformStreams {
 	
 	/** 
 	 * #5
-	 * No comment. Check signature.
+	 * Products grouped by payment methods
 	 */
-	public Map<PaymentMethod, List<Order>> getProductsByPaymentMethod(Customer customer) {
+	public Map<PaymentMethod, List<Order>> p05_getProductsByPaymentMethod(Customer customer) {
 		//return null; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream()	
@@ -118,17 +117,24 @@ public class TransformStreams {
 	
 	/** 
 	 * #6
-	 * Get total number of products bought by a customer, 
-	 * across all her orders.
-	 * Customer --->* Order --->* OrderLines(.items  .product)
-	 * The sum of all items for the same product.
+	 * SLOW DOWN!
+	 * Get total number of products bought by a customer, across all her orders.
+	 * Customer --->* Order --->* OrderLines(.count .product)
+	 * The sum of all counts for the same product.
 	 */
-	public Map<Product, Long> getProductCount(Customer customer) {
-		//return null; // INITIAL
+	public Map<Product, Long> p06_getProductCount(Customer customer) {
+		// INITIAL(
+		//List<OrderLine> allLines = new ArrayList<>();
+		//
+		//for (Order order : customer.getOrders()) {
+		//	allLines.addAll(order.getOrderLines());
+		//}
+		//return null; 
+		// INITIAL)
 		// SOLUTION(
 		return customer.getOrders().stream()
 					.flatMap(order -> order.getOrderLines().stream())
-					.collect(groupingBy(OrderLine::getProduct, summingLong(OrderLine::getItems)));
+					.collect(groupingBy(OrderLine::getProduct, summingLong(OrderLine::getCount)));
 		// SOLUTION)
 	}
 	
@@ -137,7 +143,7 @@ public class TransformStreams {
 	 * All the unique products bought by the customer, 
 	 * sorted by Product.name.
 	 */
-	public List<Product> getAllOrderedProducts(Customer customer) {
+	public List<Product> p07_getAllOrderedProducts(Customer customer) {
 		//return null; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream()
@@ -159,10 +165,10 @@ public class TransformStreams {
 	 * Example: "Armchair,Chair,Table".
 	 * Hint: Reuse the previous function.
 	 */
-	public String getProductsJoined(Customer customer) {
+	public String p08_getProductsJoined(Customer customer) {
 		//return null; // INITIAL
 		// SOLUTION(
-		return getAllOrderedProducts(customer).stream()
+		return p07_getAllOrderedProducts(customer).stream()
 					.map(Product::getName)
 					.sorted()
 					.collect(joining(","));
@@ -171,10 +177,9 @@ public class TransformStreams {
 	
 	/**
 	 * #9
-	 * Total money payed by the Customer. 
-	 * Approximate to Long.
+	 * Sum of all Order.getTotalPrice(), truncated to Long.
 	 */
-	public Long getApproximateTotalOrdersPrice(Customer customer) {
+	public Long p09_getApproximateTotalOrdersPrice(Customer customer) {
 		//return null; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream()
@@ -195,8 +200,15 @@ public class TransformStreams {
 	 * - Parse those to OrderLine using the function bellow
 	 * - Validate the created OrderLine. Throw ? :S
 	 */
-	public List<OrderLine> readOrderFromFile(File file) {
-		//return null; // INITIAL
+	public List<OrderLine> p10_readOrderFromFile(File file) throws IOException {
+		// INITIAL(
+		////.map(line -> line.split(";"))
+		////.filter(cell -> "LINE".equals(cell[0]))
+		////.map(this::parseOrderLine)
+		////.peek(this::validateOrderLine)
+		////.collect(toList());
+		//return null;
+		// INITIAL)
 		// SOLUTION(
 		try (Stream<String> lines = Files.lines(file.toPath())) {
 			return lines.skip(2) // skip the header
@@ -205,8 +217,6 @@ public class TransformStreams {
 				.map(this::parseOrderLine)
 				.peek(this::validateOrderLine) // vezi exceptia
 				.collect(toList());
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		}
 		// SOLUTION)
 	}
@@ -216,8 +226,12 @@ public class TransformStreams {
 	}
 	
 	private void validateOrderLine(OrderLine orderLine) {
-		if (orderLine.getItems() < 0) {
+		if (orderLine.getCount() < 0) {
 			throw new IllegalArgumentException("Negative items");			
 		}
 	}
+	
+	
+	// TODO print cannonical paths of all files in current directory
+	// use Unchecked... stuff
 }

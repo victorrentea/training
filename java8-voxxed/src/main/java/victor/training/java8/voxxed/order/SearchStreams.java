@@ -22,8 +22,8 @@ public class SearchStreams {
 	 * #1
 	 * - shorten/clean it up
 	 */
-	public List<Order> getActiveOrders(Customer customer) {	
-		//return customer.getOrders(); // INITIAL
+	public List<Order> p1_getActiveOrders(Customer customer) {	
+		//return customer.getOrders().stream().collect(toList()); // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream()
 				.filter(order -> order.isActive())
@@ -34,10 +34,10 @@ public class SearchStreams {
 	/**
 	 * #2
 	 * @return the Order in the list with the given id  
-	 * - what do you do when you don't find it ? null/throw/Optional ?
 	 * - ...Any or ...First ?
+	 * - what do you do when you don't find it ? null/throw/Optional ?
 	 */
-	public Order getOrderById(List<Order> orders, long orderId) {
+	public Order p2_getOrderById(List<Order> orders, long orderId) {
 		//return null; // orders.stream()// INITIAL
 		// SOLUTION(
 		return orders.stream()
@@ -49,9 +49,9 @@ public class SearchStreams {
 	
 	/**
 	 * #3
-	 * @return true if customer has at least one ACTIVE order
+	 * @return true if customer has at least one order with status ACTIVE
 	 */
-	public boolean hasActiveOrders(Customer customer) {
+	public boolean p3_hasActiveOrders(Customer customer) {
 		//return true; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream() 
@@ -63,10 +63,10 @@ public class SearchStreams {
 	/**
 	 * #4
 	 * An Order can be returned if it doesn't contain 
-	 * any special offer order lines (OrderLine.isSpecialOffer)
+	 * any OrderLine with isSpecialOffer()==true
 	 */
-	public boolean canBeReturned(Order order) {
-		//return true; // Order.getOrderLines() // INITIAL
+	public boolean p4_canBeReturned(Order order) {
+		//return true; // Order.getOrderLines().stream() // INITIAL
 		// SOLUTION(
 		return order.getOrderLines().stream()
 					//.filter(OrderLine::wasDelivered) // Change: daca v-as fi spus ca doar orderline-urile livrate...
@@ -78,11 +78,11 @@ public class SearchStreams {
 	
 	/**
 	 * #5
-	 * The order with the maximum price. 
+	 * The order with maximum price. 
 	 * i.e. the most expensive Order, or null if no Orders
 	 * - Challenge: return an Optional<creationDate>
 	 */
-	public Order getMaxPriceOrder(Customer customer) {
+	public Order p5_getMaxPriceOrder(Customer customer) {
 		//return null; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream()
@@ -93,9 +93,9 @@ public class SearchStreams {
 	
 	/**
 	 * #6
-	 * by the creationDate.
+	 * sorted descending by creationDate
 	 */
-	public List<Order> getLast3Orders(Customer customer) {
+	public List<Order> p6_getLast3Orders(Customer customer) {
 		//return null; // INITIAL
 		// SOLUTION(
 		return customer.getOrders().stream()
