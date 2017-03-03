@@ -2,7 +2,7 @@ package victor.training.java8.voxxed.order.entity;
 
 public class Product {
 
-	private String name;
+	private final String name;
 
 	public Product(String name) {
 		this.name = name;

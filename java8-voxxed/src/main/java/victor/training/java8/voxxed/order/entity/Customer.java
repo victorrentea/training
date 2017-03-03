@@ -8,11 +8,11 @@ public class Customer {
 
 	private List<Order> orders = new ArrayList<>();
 
-	public final List<Order> getOrders() {
+	public List<Order> getOrders() {
 		return orders;
 	}
 
-	public final void setOrders(List<Order> orders) {
+	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
 

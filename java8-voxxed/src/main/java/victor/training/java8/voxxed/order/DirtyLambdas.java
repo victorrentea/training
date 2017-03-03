@@ -27,12 +27,15 @@ public class DirtyLambdas {
 	private OrderLineRepository repo;
 
 	
+	/**
+	 * No duplicate DTOs should be returned (cf sorting comparator).
+	 */
 	public Collection<AuditDto> toDtos(List<Audit> audits) { 
 		Set<AuditDto> dtos = new TreeSet<>(
 				Comparator.comparing(AuditDto::getDate).reversed().thenComparing(Comparator.comparing(AuditDto::getAction))
 						.thenComparing(Comparator.comparing(AuditDto::getUsername)));
 		audits.forEach(audit -> {
-			AuditDto dto = new AuditDto(); // move to constructor
+			AuditDto dto = new AuditDto(); // extract mapping logic
 			dto.username = audit.getUser();
 			dto.date = audit.getDate();
 			dto.action = audit.getAction();

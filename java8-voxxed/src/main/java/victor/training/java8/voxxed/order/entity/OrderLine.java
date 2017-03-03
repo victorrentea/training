@@ -21,36 +21,36 @@ public class OrderLine {
 	public OrderLine(Status status) {
 		this.status = status;
 	}
-	public final boolean isSpecialOffer() {
+	public boolean isSpecialOffer() {
 		return specialOffer;
 	}
 
-	public final OrderLine setSpecialOffer(boolean specialOffer) {
+	public OrderLine setSpecialOffer(boolean specialOffer) {
 		this.specialOffer = specialOffer;
 		return this;
 	}
 
-	public final Product getProduct() {
+	public Product getProduct() {
 		return product;
 	}
 
-	public final void setProduct(Product product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 
-	public final int getItems() {
+	public int getItems() {
 		return items;
 	}
 
-	public final void setItems(int items) {
+	public void setItems(int items) {
 		this.items = items;
 	}
 
-	public final Status getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public final void setStatus(Status status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 	

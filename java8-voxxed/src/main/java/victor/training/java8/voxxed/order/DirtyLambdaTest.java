@@ -51,7 +51,7 @@ public class DirtyLambdaTest {
 		Audit audit3 = new Audit().setDate(today).setAction(Action.MODIFY).setUser("janedoe");
 		List<Audit> audits = Arrays.asList(audit1, audit2, audit3);
 		List<AuditDto> dtos = new ArrayList<>(target.toDtos(audits));
-		assertEquals(2, dtos.size());
+		assertEquals("Number of DTOs", 2, dtos.size());
 		assertEquals("janedoe", dtos.get(0).username);
 		assertEquals(today, dtos.get(0).date);
 		assertEquals(Action.MODIFY, dtos.get(0).action);
