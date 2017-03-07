@@ -32,7 +32,6 @@ import victor.training.java8.voxxed.order.entity.Product;
 public class TransformStreams {
 
 	/**
-	 * #1
 	 * Transform all entities to DTOs.
 	 * Discussion:.. Make it cleanest!
 	 */
@@ -60,7 +59,6 @@ public class TransformStreams {
 	}
 	
 	/**
-	 * #2
 	 * Note: Order.getPaymentMethod()
 	 */
 	public Set<PaymentMethod> p02_getUsedPaymentMethods(Customer customer) {
@@ -73,7 +71,6 @@ public class TransformStreams {
 	}
 	
 	/**
-	 * #3
 	 * When did the customer created orders ?
 	 * Note: Order.getCreationDate()
 	 */
@@ -89,7 +86,6 @@ public class TransformStreams {
 	
 	
 	/**
-	 * #4
 	 * @return a map order.id -> order
 	 */
 	public Map<Long, Order> p04_mapOrdersById(Customer customer) {
@@ -100,11 +96,7 @@ public class TransformStreams {
 		// SOLUTION)
 	}
 	
-	
-	// ------------- grouping --------------
-	
 	/** 
-	 * #5
 	 * Products grouped by payment methods
 	 */
 	public Map<PaymentMethod, List<Order>> p05_getProductsByPaymentMethod(Customer customer) {
@@ -115,9 +107,10 @@ public class TransformStreams {
 		// SOLUTION)
 	}
 	
+	// -------------- MOVIE BREAK :p --------------------
+	
 	/** 
-	 * #6
-	 * SLOW DOWN!
+	 * A hard one !
 	 * Get total number of products bought by a customer, across all her orders.
 	 * Customer --->* Order --->* OrderLines(.count .product)
 	 * The sum of all counts for the same product.
@@ -139,7 +132,6 @@ public class TransformStreams {
 	}
 	
 	/**
-	 * #7
 	 * All the unique products bought by the customer, 
 	 * sorted by Product.name.
 	 */
@@ -156,10 +148,7 @@ public class TransformStreams {
 	}
 	
 	
-	// ---------- joining ----------
-	
 	/**
-	 * #8
 	 * The names of all the products bought by Customer,
 	 * sorted and then concatenated by ",".
 	 * Example: "Armchair,Chair,Table".
@@ -176,7 +165,6 @@ public class TransformStreams {
 	}
 	
 	/**
-	 * #9
 	 * Sum of all Order.getTotalPrice(), truncated to Long.
 	 */
 	public Long p09_getApproximateTotalOrdersPrice(Customer customer) {
@@ -194,7 +182,6 @@ public class TransformStreams {
 	// ----------- IO ---------------
 	
 	/**
-	 * #10
 	 * - Read lines from file as Strings. 
 	 * - Where do you close the opened file?
 	 * - Parse those to OrderLine using the function bellow

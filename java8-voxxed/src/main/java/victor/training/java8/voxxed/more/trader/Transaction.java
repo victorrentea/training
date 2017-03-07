@@ -1,4 +1,4 @@
-package victor.training.java8.voxxed.trader;
+package victor.training.java8.voxxed.more.trader;
 
 public class Transaction {
 

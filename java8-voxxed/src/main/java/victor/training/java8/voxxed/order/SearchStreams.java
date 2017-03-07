@@ -19,7 +19,6 @@ public class SearchStreams {
 	 */
 	
 	/**
-	 * #1
 	 * - shorten/clean it up
 	 */
 	public List<Order> p1_getActiveOrders(Customer customer) {	
@@ -32,7 +31,6 @@ public class SearchStreams {
 	}
 	
 	/**
-	 * #2
 	 * @return the Order in the list with the given id  
 	 * - ...Any or ...First ?
 	 * - what do you do when you don't find it ? null/throw/Optional ?
@@ -48,7 +46,6 @@ public class SearchStreams {
 	}
 	
 	/**
-	 * #3
 	 * @return true if customer has at least one order with status ACTIVE
 	 */
 	public boolean p3_hasActiveOrders(Customer customer) {
@@ -61,12 +58,11 @@ public class SearchStreams {
 	}
 
 	/**
-	 * #4
 	 * An Order can be returned if it doesn't contain 
 	 * any OrderLine with isSpecialOffer()==true
 	 */
 	public boolean p4_canBeReturned(Order order) {
-		//return true; // Order.getOrderLines().stream() // INITIAL
+		//return true; // order.getOrderLines().stream() // INITIAL
 		// SOLUTION(
 		return order.getOrderLines().stream()
 					//.filter(OrderLine::wasDelivered) // Change: daca v-as fi spus ca doar orderline-urile livrate...
@@ -77,7 +73,6 @@ public class SearchStreams {
 	// ---------- select the best ------------
 	
 	/**
-	 * #5
 	 * The order with maximum price. 
 	 * i.e. the most expensive Order, or null if no Orders
 	 * - Challenge: return an Optional<creationDate>
@@ -92,7 +87,6 @@ public class SearchStreams {
 	}
 	
 	/**
-	 * #6
 	 * sorted descending by creationDate
 	 */
 	public List<Order> p6_getLast3Orders(Customer customer) {

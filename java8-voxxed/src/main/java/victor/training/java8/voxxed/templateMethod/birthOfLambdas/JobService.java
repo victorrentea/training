@@ -1,9 +1,9 @@
-package victor.training.java8.voxxed.jobs.birthOfLambdas;
+package victor.training.java8.voxxed.templateMethod.birthOfLambdas;
 
 import java.util.function.Supplier;
 
-import victor.training.java8.fake.Service;
-import victor.training.java8.voxxed.jobs.JobResults;
+import victor.training.java8.voxxed.more.fake.Service;
+import victor.training.java8.voxxed.templateMethod.JobResults;
 
 @Service
 public class JobService {

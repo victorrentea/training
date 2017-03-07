@@ -1,5 +1,6 @@
 package victor.training.java8.voxxed.order;
 
+import static java.time.LocalDate.now;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -74,9 +75,11 @@ public class SearchStreamsTest {
 	
 	@Test
 	public void p5_getMaxPriceOrder() {
-		Order order1 = new Order().setTotalPrice(BigDecimal.ONE);
-		Order order2 = new Order().setTotalPrice(BigDecimal.TEN);
+		LocalDate yesterday = now().minusDays(1);
+		Order order1 = new Order().setTotalPrice(BigDecimal.ONE).setCreationDate(now());
+		Order order2 = new Order().setTotalPrice(BigDecimal.TEN).setCreationDate(yesterday);
 		assertEquals(order2, service.p5_getMaxPriceOrder(new Customer(order1, order2)));
+		// assertEquals(yesterday, service.p5_getMaxPriceOrder(new Customer(order1, order2)));
 	}
 	
 	@Test

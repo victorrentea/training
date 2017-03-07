@@ -36,15 +36,19 @@ import victor.training.java8.voxxed.order.repo.OrderLineRepository;
 public class CleanLambdas {
 	
 	private OrderLineRepository repo;
+
+	public Set<Customer> getCustomersToNotifyOfOverdueOrders(List<Order> orders, LocalDate warningDate) {
+		return orders.stream()
+			.filter(deliveryDueBefore(warningDate))
+			.filter(this::hasOrderLinesNotInStock)
+			.map(Order::getCustomer)
+			.collect(toSet());
+	}
 	
-	public Collection<AuditDto> toDtos(List<Audit> audits) { 
-//		Comparator<AuditDto> comparator = comparing(AuditDto::getDate).reversed()
-//						.thenComparing(comparing(AuditDto::getAction))
-//						.thenComparing(comparing(AuditDto::getUsername));
-//		return audits.stream()
-//				.map(AuditDto::new)
-//				.toCollection(() -> new TreeSet<>(comparator));
-		return null;
+	private boolean hasOrderLinesNotInStock(Order order) {
+		return order.getOrderLines().stream()
+			 	.anyMatch(line -> line.getStatus() != OrderLine.Status.IN_STOCK);
+		//	 	.anyMatch(OrderLine::notInStock); 
 	}
 	
 	public static class OrderPredicates {// would go global
@@ -59,18 +63,37 @@ public class CleanLambdas {
 		
 	}
 	
-	public Set<Customer> getCustomersToNotifyOfOverdueOrders(List<Order> orders, LocalDate warningDate) {
-		return orders.stream()
-			.filter(deliveryDueBefore(warningDate))
-			.filter(this::hasOrderLinesNotInStock)
-			.map(Order::getCustomer)
-			.collect(toSet());
+	public Collection<AuditDto> toDtos(List<Audit> audits) { 
+//		Comparator<AuditDto> comparator = comparing(AuditDto::getDate).reversed()
+//						.thenComparing(comparing(AuditDto::getAction))
+//						.thenComparing(comparing(AuditDto::getUsername));
+//		return audits.stream()
+//				.map(AuditDto::new)
+//				.toCollection(() -> new TreeSet<>(comparator));
+		return null;
 	}
 	
-	private boolean hasOrderLinesNotInStock(Order order) {
-		return order.getOrderLines().stream()
-			 	.anyMatch(line -> line.getStatus() != OrderLine.Status.IN_STOCK);
-		//	 	.anyMatch(OrderLine::notInStock); 
+	
+
+
+	public List<Product> getProductsSortedByHits(List<Order> orders) {
+		Map<Product, Integer> productHits = orders.stream()
+				.filter(deliveryDueAfter(now().minusWeeks(1)).or(order -> order.getStatus() == Status.ACTIVE))
+				.flatMap(order-> order.getOrderLines().stream())
+				.sorted(comparing(orderLine -> orderLine.getProduct().getName()))
+				.collect(groupingBy(OrderLine::getProduct, summingInt(OrderLine::getCount)));
+		System.out.println("productHits: " + productHits);
+		
+		Map<Integer, List<Product>> hitsToProducts = productHits.entrySet().stream()
+				.collect(groupingBy(Map.Entry::getValue, HashMap::new, 
+							mapping(Map.Entry::getKey, toList())));
+		System.out.println("hitsToProducts: " + hitsToProducts);
+		
+		return hitsToProducts.keySet().stream()
+				.sorted(Comparator.reverseOrder())
+				.map(hitsToProducts::get)
+				.flatMap(products -> products.stream().sorted(comparing(Product::getName)))
+				.collect(toList());
 	}
 	
 	
@@ -99,26 +122,6 @@ public class CleanLambdas {
 			});
 	}
 	
-
-	public List<Product> getProductsSortedByHits(List<Order> orders) {
-		Map<Product, Integer> productHits = orders.stream()
-				.filter(deliveryDueAfter(now().minusWeeks(1)).or(order -> order.getStatus() == Status.ACTIVE))
-				.flatMap(order-> order.getOrderLines().stream())
-				.sorted(comparing(orderLine -> orderLine.getProduct().getName()))
-				.collect(groupingBy(OrderLine::getProduct, summingInt(OrderLine::getCount)));
-		System.out.println("productHits: " + productHits);
-		
-		Map<Integer, List<Product>> hitsToProducts = productHits.entrySet().stream()
-				.collect(groupingBy(Map.Entry::getValue, HashMap::new, 
-							mapping(Map.Entry::getKey, toList())));
-		System.out.println("hitsToProducts: " + hitsToProducts);
-		
-		return hitsToProducts.keySet().stream()
-				.sorted(Comparator.reverseOrder())
-				.map(hitsToProducts::get)
-				.flatMap(products -> products.stream().sorted(comparing(Product::getName)))
-				.collect(toList());
-	}
 	
 	
 }

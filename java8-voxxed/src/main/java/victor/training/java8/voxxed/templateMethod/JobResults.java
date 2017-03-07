@@ -1,4 +1,4 @@
-package victor.training.java8.voxxed.jobs;
+package victor.training.java8.voxxed.templateMethod;
 
 public class JobResults {
 

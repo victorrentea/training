@@ -1,8 +1,8 @@
-package victor.training.java8.voxxed.jobs.birthOfLambdas;
+package victor.training.java8.voxxed.templateMethod.birthOfLambdas;
 
-import victor.training.java8.fake.Autowired;
-import victor.training.java8.fake.Service;
-import victor.training.java8.voxxed.jobs.JobParameters;
+import victor.training.java8.voxxed.more.fake.Autowired;
+import victor.training.java8.voxxed.more.fake.Service;
+import victor.training.java8.voxxed.templateMethod.JobParameters;
 
 @Service
 public class JobLauncher {

@@ -26,6 +26,14 @@ public class DirtyLambdas {
 	
 	private OrderLineRepository repo;
 
+	public Set<Customer> getCustomersToNotifyOfOverdueOrders(List<Order> orders, LocalDate warningDate) {
+		return orders.stream()
+			.filter(order -> order.getDeliveryDueDate().isBefore(warningDate) && 
+							 order.getOrderLines().stream()
+							 	.anyMatch(line -> line.getStatus() != OrderLine.Status.IN_STOCK))
+			.map((Order o) -> {return o.getCustomer();})
+			.collect(toSet());
+	}
 	
 	/**
 	 * No duplicate DTOs should be returned (cf sorting comparator).
@@ -45,51 +53,7 @@ public class DirtyLambdas {
 	}
 	
 	
-	public Set<Customer> getCustomersToNotifyOfOverdueOrders(List<Order> orders, LocalDate warningDate) {
-		return orders.stream()
-			.filter(order -> order.getDeliveryDueDate().isBefore(warningDate) && 
-							 order.getOrderLines().stream()
-							 	.anyMatch(line -> line.getStatus() != OrderLine.Status.IN_STOCK))
-			.map((Order o) -> {return o.getCustomer();})
-			.collect(toSet());
-	}
-	
-	
-	public void updateOrderLines(Order oldOrder, Order newOrder) {
-		// delete unused old lines
-		List<OrderLine> toDelete = new ArrayList<>(oldOrder.getOrderLines());
-		for (OrderLine newLine: newOrder.getOrderLines()) {
-			OrderLine oldLine = toDelete.stream().filter(line -> line.getProduct().equals(newLine.getProduct())).findAny().orElse(null);
-			toDelete.remove(oldLine);
-		}
-		for (OrderLine line : toDelete) {
-			repo.delete(line);
-		}
-		
-		// insert new lines
-		newOrder.getOrderLines().forEach(newLine -> {
-			if (oldOrder.getOrderLines().stream().noneMatch(line -> line.getProduct().equals(newLine.getProduct()))) {
-				repo.insert(newLine);
-			}
-		});
-		
-		// update old lines
-		for (OrderLine oldLine : oldOrder.getOrderLines()) {
-			OrderLine newLine = newOrder.getOrderLines().stream()
-					.filter(line -> line.getProduct().equals(oldLine.getProduct()))
-					.findAny().orElse(null);
-			if (newLine == null) {
-				continue;
-			}
-			if (oldLine.getCount() == newLine.getCount()) {
-				continue;
-			}
-			oldLine.setCount(newLine.getCount());
-			// can't afford to DELETE and INSERT back, as I want to keep the values of the other fields
-			repo.update(oldLine); 
-		}
-			
-	}
+
 	
 	public List<Product> getProductsSortedByHits(List<Order> orders) {
 		List<OrderLine> lines1 = new ArrayList<>();
@@ -126,5 +90,40 @@ public class DirtyLambdas {
 		return topProducts;
 	}
 	
+	public void updateOrderLines(Order oldOrder, Order newOrder) {
+		// delete unused old lines
+		List<OrderLine> toDelete = new ArrayList<>(oldOrder.getOrderLines());
+		for (OrderLine newLine: newOrder.getOrderLines()) {
+			OrderLine oldLine = toDelete.stream().filter(line -> line.getProduct().equals(newLine.getProduct())).findAny().orElse(null);
+			toDelete.remove(oldLine);
+		}
+		for (OrderLine line : toDelete) {
+			repo.delete(line);
+		}
+		
+		// insert new lines
+		newOrder.getOrderLines().forEach(newLine -> {
+			if (oldOrder.getOrderLines().stream().noneMatch(line -> line.getProduct().equals(newLine.getProduct()))) {
+				repo.insert(newLine);
+			}
+		});
+		
+		// update old lines
+		for (OrderLine oldLine : oldOrder.getOrderLines()) {
+			OrderLine newLine = newOrder.getOrderLines().stream()
+					.filter(line -> line.getProduct().equals(oldLine.getProduct()))
+					.findAny().orElse(null);
+			if (newLine == null) {
+				continue;
+			}
+			if (oldLine.getCount() == newLine.getCount()) {
+				continue;
+			}
+			oldLine.setCount(newLine.getCount());
+			// can't afford to DELETE and INSERT back, as I want to keep the values of the other fields
+			repo.update(oldLine); 
+		}
+			
+	}
 	
 }

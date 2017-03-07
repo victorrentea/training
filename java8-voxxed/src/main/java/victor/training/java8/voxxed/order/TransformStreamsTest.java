@@ -125,7 +125,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test
-	public void p08_getAllOrderedProducts() {
+	public void p08_getProductsNamesJoined() {
 		Product armchair = new Product("Armchair");
 		Product chair = new Product("Chair");
 		Product table = new Product("Table");

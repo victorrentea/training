@@ -1,7 +1,7 @@
-package victor.training.java8.voxxed.jobs.deathOfTemplate;
+package victor.training.java8.voxxed.templateMethod.deathOfTemplate;
 
-import victor.training.java8.voxxed.jobs.JobParameters;
-import victor.training.java8.voxxed.jobs.JobResults;
+import victor.training.java8.voxxed.templateMethod.JobParameters;
+import victor.training.java8.voxxed.templateMethod.JobResults;
 
 public abstract class BaseJob {
 	public void start(JobParameters params) {

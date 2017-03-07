@@ -1,4 +1,4 @@
-package victor.training.java8.patterns;
+package victor.training.java8.voxxed.more.patterns;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
