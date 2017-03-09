@@ -123,15 +123,13 @@ public class Order {
 		return this;
 	}
 
-
-	@Override
 	public String toString() {
 		List<String> details = new ArrayList<>();
 		if (creationDate != null) {
-			details.add("creationDate="+creationDate);
+			details.add("created="+creationDate);
 		}
 		String detailsStr = details.stream().collect(joining(", "));
-		return "Order#"+hashCode() + "{"+detailsStr + "}";
+		return "Order{"+detailsStr + "}";
 	}
 	
 }

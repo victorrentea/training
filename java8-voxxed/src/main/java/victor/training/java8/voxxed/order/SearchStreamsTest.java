@@ -79,12 +79,13 @@ public class SearchStreamsTest {
 		Order order1 = new Order().setTotalPrice(BigDecimal.ONE).setCreationDate(now());
 		Order order2 = new Order().setTotalPrice(BigDecimal.TEN).setCreationDate(yesterday);
 		assertEquals(order2, service.p5_getMaxPriceOrder(new Customer(order1, order2)));
-		// assertEquals(yesterday, service.p5_getMaxPriceOrder(new Customer(order1, order2)));
+		// assertEquals(yesterday, service.p5_getMaxPriceOrder(new Customer(order1, order2)).get());
 	}
 	
 	@Test
-	public void p5_getMaxPriceOrder_returnsNothing() {
+	public void p5_getMaxPriceOrder_whenNoOrders_returnsNothing() {
 		assertNull(service.p5_getMaxPriceOrder(new Customer()));
+		// assertFalse(service.p5_getMaxPriceOrder(new Customer()).isPresent());
 	}
 	
 	@Test

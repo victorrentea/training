@@ -57,6 +57,9 @@ public class OrderLine {
 	public boolean wasDelivered() {
 		return true;
 	}
+	public boolean isNotInStock() {
+		return status != OrderLine.Status.IN_STOCK;
+	}
 	
 	
 	

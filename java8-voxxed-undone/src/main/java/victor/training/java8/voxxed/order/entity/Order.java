@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import victor.training.java8.voxxed.order.entity.Order.Status;
+
 
 public class Order {
 
@@ -32,6 +34,10 @@ public class Order {
 	private Customer customer;
 
 	public Order() {
+	}
+	
+	public boolean isActive() {
+		return status == Status.ACTIVE;
 	}
 	
 	public Order(Status status) {
@@ -122,10 +128,10 @@ public class Order {
 	public String toString() {
 		List<String> details = new ArrayList<>();
 		if (creationDate != null) {
-			details.add("creationDate="+creationDate);
+			details.add("created="+creationDate);
 		}
 		String detailsStr = details.stream().collect(joining(", "));
-		return "Order#"+hashCode() + "{"+detailsStr + "}";
+		return "Order{"+detailsStr + "}";
 	}
 	
 }

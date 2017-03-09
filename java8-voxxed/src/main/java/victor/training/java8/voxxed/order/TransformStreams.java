@@ -97,7 +97,7 @@ public class TransformStreams {
 	}
 	
 	/** 
-	 * Products grouped by payment methods
+	 * Orders grouped by Order.paymentMethod
 	 */
 	public Map<PaymentMethod, List<Order>> p05_getProductsByPaymentMethod(Customer customer) {
 		//return null; // INITIAL
@@ -192,9 +192,9 @@ public class TransformStreams {
 		// INITIAL(
 		//Stream<String> lines = null; // ??
 		////return lines
-		////.map(line -> line.split(";"))
+		////.map(line -> line.split(";")) // Stream<String[]>
 		////.filter(cell -> "LINE".equals(cell[0]))
-		////.map(this::parseOrderLine)
+		////.map(this::parseOrderLine) // Stream<OrderLine>
 		////.peek(this::validateOrderLine)
 		////.collect(toList());
 		//return null;

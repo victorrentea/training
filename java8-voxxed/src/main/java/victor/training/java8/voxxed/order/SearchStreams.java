@@ -14,8 +14,7 @@ public class SearchStreams {
 	 * FIRST OF ALL: Add the following "Favourite" static imports:
 	 * Eclipse: Window > Preferences > type "Favo" > Favorites >
 	 * 					> New Type > Browse > and type the class name for:
-		+ java.time.LocalDate
-		+ java.util.stream.Collectors
+		java.util.stream.Collectors
 	 */
 	
 	/**
@@ -73,7 +72,7 @@ public class SearchStreams {
 	// ---------- select the best ------------
 	
 	/**
-	 * The order with maximum price. 
+	 * The Order with maximum getTotalPrice. 
 	 * i.e. the most expensive Order, or null if no Orders
 	 * - Challenge: return an Optional<creationDate>
 	 */
@@ -87,7 +86,7 @@ public class SearchStreams {
 	}
 	
 	/**
-	 * sorted descending by creationDate
+	 * last 3 Orders sorted descending by creationDate
 	 */
 	public List<Order> p6_getLast3Orders(Customer customer) {
 		//return null; // INITIAL
