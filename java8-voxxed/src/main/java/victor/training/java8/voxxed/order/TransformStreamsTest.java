@@ -161,7 +161,7 @@ public class TransformStreamsTest {
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void readOrderFromFile_throws() throws IOException {
+	public void p10_readOrderFromFile_throws() throws IOException {
 		service.p10_readOrderFromFile(new File("test.invalid.txt")); // look at stacktrace
 		// TODO uncomment to see the exception trace :S
 	}

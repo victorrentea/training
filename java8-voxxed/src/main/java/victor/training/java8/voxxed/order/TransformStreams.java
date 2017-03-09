@@ -114,6 +114,7 @@ public class TransformStreams {
 	 * Get total number of products bought by a customer, across all her orders.
 	 * Customer --->* Order --->* OrderLines(.count .product)
 	 * The sum of all counts for the same product.
+	 * i.e. SELECT PROD_ID, SUM(COUNT) FROM PROD GROUPING BY PROD_ID
 	 */
 	public Map<Product, Long> p06_getProductCount(Customer customer) {
 		// INITIAL(
@@ -189,6 +190,8 @@ public class TransformStreams {
 	 */
 	public List<OrderLine> p10_readOrderFromFile(File file) throws IOException {
 		// INITIAL(
+		//Stream<String> lines = null; // ??
+		////return lines
 		////.map(line -> line.split(";"))
 		////.filter(cell -> "LINE".equals(cell[0]))
 		////.map(this::parseOrderLine)
