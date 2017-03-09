@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import victor.training.java8.voxxed.order.entity.Order.Status;
-
 
 public class Order {
 
@@ -34,10 +32,6 @@ public class Order {
 	private Customer customer;
 
 	public Order() {
-	}
-	
-	public boolean isActive() {
-		return status == Status.ACTIVE;
 	}
 	
 	public Order(Status status) {
@@ -123,8 +117,6 @@ public class Order {
 		return this;
 	}
 
-
-	@Override
 	public String toString() {
 		List<String> details = new ArrayList<>();
 		if (creationDate != null) {

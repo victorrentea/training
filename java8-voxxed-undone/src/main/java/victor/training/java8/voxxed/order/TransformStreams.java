@@ -12,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
@@ -20,11 +19,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
-import org.jooq.lambda.Unchecked;
-
-import victor.training.java8.voxxed.more.fake.Autowired;
 import victor.training.java8.voxxed.order.dto.OrderDto;
 import victor.training.java8.voxxed.order.entity.Customer;
 import victor.training.java8.voxxed.order.entity.Order;
@@ -39,29 +36,23 @@ public class TransformStreams {
 	 * Discussion:.. Make it cleanest!
 	 */
 	public List<OrderDto> p01_toDtos(List<Order> orders) {
-		return orders.stream().map(orderMapper::toDto).collect(toList());		
-	}
-	
-	@Autowired
-	private OrderMapper orderMapper = new OrderMapper();
-
-	public static class OrderMapper {
-		private OrderDto toDto(Order order) {
+		
+		List<OrderDto> dtos = new ArrayList<>();
+		for (Order order : orders) {
 			OrderDto dto = new OrderDto();
 			dto.totalPrice = order.getTotalPrice(); 
 			dto.creationDate = order.getCreationDate();
-			return dto;
+			dtos.add(dto);
 		}
+		return dtos;
+		
 	}
-	
 	
 	/**
 	 * Note: Order.getPaymentMethod()
 	 */
 	public Set<PaymentMethod> p02_getUsedPaymentMethods(Customer customer) {
-		return customer.getOrders().stream()
-				.map(Order::getPaymentMethod)
-				.collect(toSet()); 
+		return null; 
 	}
 	
 	/**
@@ -69,9 +60,7 @@ public class TransformStreams {
 	 * Note: Order.getCreationDate()
 	 */
 	public SortedSet<LocalDate> p03_getOrderDatesAscending(Customer customer) {
-		return customer.getOrders().stream()
-				.map(Order::getCreationDate)
-				.collect(toCollection(TreeSet::new)); 
+		return null; 
 	}
 	
 	
@@ -79,16 +68,14 @@ public class TransformStreams {
 	 * @return a map order.id -> order
 	 */
 	public Map<Long, Order> p04_mapOrdersById(Customer customer) {
-		return customer.getOrders().stream()
-				.collect(toMap(Order::getId, o->o)); 
+		return null; 
 	}
 	
 	/** 
-	 * Orders grouped by payment methods
+	 * Orders grouped by Order.paymentMethod
 	 */
 	public Map<PaymentMethod, List<Order>> p05_getProductsByPaymentMethod(Customer customer) {
-		return customer.getOrders().stream()
-				.collect(groupingBy(Order::getPaymentMethod)); 
+		return null; 
 	}
 	
 	// -------------- MOVIE BREAK :p --------------------
@@ -101,9 +88,13 @@ public class TransformStreams {
 	 * i.e. SELECT PROD_ID, SUM(COUNT) FROM PROD GROUPING BY PROD_ID
 	 */
 	public Map<Product, Long> p06_getProductCount(Customer customer) {
-		return customer.getOrders().stream()
-				.flatMap(order -> order.getOrderLines().stream())
-				.collect(groupingBy(OrderLine::getProduct, summingLong(OrderLine::getCount)));
+		
+		List<OrderLine> allLines = new ArrayList<>();
+		
+		for (Order order : customer.getOrders()) {
+			allLines.addAll(order.getOrderLines());
+		}
+		return null; 
 		
 	}
 	
@@ -112,12 +103,7 @@ public class TransformStreams {
 	 * sorted by Product.name.
 	 */
 	public List<Product> p07_getAllOrderedProducts(Customer customer) {
-		return customer.getOrders().stream()
-				.flatMap(order -> order.getOrderLines().stream()) // returns a stream of OrderLines
-				.map(OrderLine::getProduct) // returns a Stream<Product>
-				.distinct()
-				.sorted(Comparator.comparing(Product::getName))
-				.collect(toList()); 
+		return null; 
 	}
 	
 	
@@ -128,23 +114,14 @@ public class TransformStreams {
 	 * Hint: Reuse the previous function.
 	 */
 	public String p08_getProductsJoined(Customer customer) {
-		return p07_getAllOrderedProducts(customer).stream() // Stream<Product>
-				.map(Product::getName)
-				.collect(joining(",")); 
+		return null; 
 	}
 	
 	/**
 	 * Sum of all Order.getTotalPrice(), truncated to Long.
 	 */
 	public Long p09_getApproximateTotalOrdersPrice(Customer customer) {
-		return customer.getOrders().stream()
-				.map(Order::getTotalPrice) // Stream<BigDecimal>
-//				.mapToLong(BigDecimal::longValue) // LongStream
-//				.sum()
-//				.reduce(BigDecimal.ZERO, (bd1, bd2) -> bd1.add(bd2))
-				.reduce(BigDecimal.ZERO, BigDecimal::add)
-				.longValue()
-				;  
+		return null; 
 	}
 	
 	// ----------- IO ---------------
@@ -156,14 +133,16 @@ public class TransformStreams {
 	 * - Validate the created OrderLine. Throw ? :S
 	 */
 	public List<OrderLine> p10_readOrderFromFile(File file) throws IOException {
-		try (Stream<String> lines = Files.lines(file.toPath())) {
-			return lines
-				.map(line -> line.split(";")) // Stream<String[]>
-				.filter(cell -> "LINE".equals(cell[0]))
-				.map(this::parseOrderLine) // Stream<OrderLine>
-				.peek(this::validateOrderLine)
-				.collect(toList());
-		}
+		
+		Stream<String> lines = null; // ??
+		//return lines
+		//.map(line -> line.split(";")) // Stream<String[]>
+		//.filter(cell -> "LINE".equals(cell[0]))
+		//.map(this::parseOrderLine) // Stream<OrderLine>
+		//.peek(this::validateOrderLine)
+		//.collect(toList());
+		return null;
+		
 	}
 	
 	private OrderLine parseOrderLine(String[] cells) {
@@ -179,17 +158,4 @@ public class TransformStreams {
 	
 	// TODO print cannonical paths of all files in current directory
 	// use Unchecked... stuff
-	
-	public static void main(String[] args) {
-		Stream.of(new File(".").listFiles())
-//			.map(file -> {
-//				try {
-//					return file.getCanonicalPath();
-//				} catch (Exception e) {
-//					throw new RuntimeException(e);
-//				}
-//			})
-			.map(Unchecked.function(File::getCanonicalPath))
-			.forEach(System.out::println);
-	}
 }
