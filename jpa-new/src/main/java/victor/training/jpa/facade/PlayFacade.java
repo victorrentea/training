@@ -1,9 +1,13 @@
 package victor.training.jpa.facade;
 
+import static java.util.stream.Collectors.toList;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -17,6 +21,7 @@ import victor.training.jpa.entity.Employee;
 import victor.training.jpa.entity.EmployeeDetails;
 import victor.training.jpa.entity.Project;
 import victor.training.jpa.entity.Site;
+import victor.training.jpa.entity.search.EmployeeSearchCriteria;
 import victor.training.jpa.facade.dto.CompanyDto;
 import victor.training.jpa.facade.dto.EmployeeDto;
 import victor.training.jpa.facade.dto.ProjectDto;
@@ -78,6 +83,32 @@ public class PlayFacade {
 		}
 		// SOLUTION)
 		return dto;
+	}
+	
+	// Takeaways:
+	// - how to do a search query with JPQL
+	public List<EmployeeDto> searchEmployees(EmployeeSearchCriteria criteria) {
+		String jpql = "SELECT e FROM Employee e WHERE 1=1 ";
+		Map<String, Object> params = new HashMap<>();
+		// SOLUTION(
+		if (criteria.name != null) {
+			jpql += " AND UPPER(e.name) LIKE '%' + UPPER(:name) | '%' ";
+			params.put("name", criteria.name);
+		}
+		if (criteria.siteId != null) {
+			jpql += " AND e.site.id = :siteId ";
+			params.put("siteId", criteria.siteId);
+		}
+		TypedQuery<Employee> query = em.createQuery(jpql, Employee.class);
+		for (String key : params.keySet()) {
+			query.setParameter(key, params.get(key));
+		}
+		List<Employee> employees = query.getResultList();
+		// SOLUTION)
+		// List<Employee> employees = emptyList();		// INITIAL
+		return employees.stream()
+				.map(EmployeeDto::new)
+				.collect(toList());
 	}
 	
 	// Takeaways: 

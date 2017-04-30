@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import victor.training.jpa.entity.search.EmployeeSearchCriteria;
 import victor.training.jpa.facade.PlayFacade;
 import victor.training.jpa.facade.dto.CompanyDto;
 import victor.training.jpa.facade.dto.EmployeeDto;
@@ -40,6 +41,11 @@ public class PlayController {
 		return facade.getProjectWithEmployees(projectId);
 	}
 	
+	@RequestMapping(value = "/employees/search", method = RequestMethod.POST)
+	public List<EmployeeDto> searchEmployees(@RequestBody EmployeeSearchCriteria criteria) {
+		return facade.searchEmployees(criteria);
+	}
+	
 	@RequestMapping(value = "/sites", method = RequestMethod.POST)
 	public void createSite(@RequestBody SiteDto siteDto) {
 		facade.createSite(siteDto);
@@ -51,7 +57,7 @@ public class PlayController {
 	}
 
 	@RequestMapping(value = "/employees", method = RequestMethod.POST)
-	public int createEmployee(EmployeeDto employeeDto) {
+	public int createEmployee(@RequestBody EmployeeDto employeeDto) {
 		return facade.createEmployee(employeeDto);
 	}
 	
@@ -69,7 +75,7 @@ public class PlayController {
 		facade.removeEmployeeFromProject(employeeId, projectId);
 	}
 	
-	@RequestMapping(value = "/projects.csv", method = RequestMethod.GET)
+	@RequestMapping(value = "/projects/export.csv", method = RequestMethod.GET)
 	public void exportProjects(HttpServletResponse response) throws IOException {
 		facade.exportAllProjects(response.getWriter());
 	}

@@ -1,62 +1,25 @@
 package victor.training.jpa.repository;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import victor.training.jpa.entity.Employee;
 
 @Repository
-public class EmployeeRepository {
+public interface EmployeeRepository extends JpaRepository<Employee, Integer>, EmployeeRepositoryCustom {
 
-	@PersistenceContext
-	private EntityManager entityManager;
+	@Query("SELECT e FROM Employee e LEFT JOIN FETCH e.projects")
+	public List<Employee> getAllFetchProjects();
 
-	public void persist(Employee employee) {
-		entityManager.persist(employee);
-	}
-
-	public Employee getById(Integer employeeId) {
-		return entityManager.find(Employee.class, employeeId);
-	}
+	public Employee getById(Integer employeeId);
 	
-	public Long countByName(String name) {
-		TypedQuery<Long> query = entityManager.createNamedQuery("Employee_countByName", Long.class);
-		query.setParameter("name", name);
-		return query.getSingleResult();
-	}
+	public Optional<Employee> getByName(Integer employeeId);
 	
-	public List<Employee> getAllFetchProjects() {
-		String jpql = "SELECT e FROM Employee e LEFT JOIN FETCH e.projects"; // SOLUTION
-		//String jpql = "SELECT e FROM Employee e"; // TODO FETCH here // INITIAL
-		TypedQuery<Employee> query = entityManager.createQuery(jpql, Employee.class);
-		return query.getResultList();
-	}
+	public Long countByName(String name);
 	
-	public List<Employee> search(String name, String siteName) {
-		Map<String, Object> paramMap = new HashMap<>();
-		String jpql = "SELECT e FROM Employee e WHERE 1=1 ";
-		
-		if (name != null) {
-			jpql+= " AND e.name = :name ";
-			paramMap.put("name", name);
-		}
-		if (siteName != null) {
-			jpql+= " AND e.site.name = :siteName ";
-			paramMap.put("siteName", siteName);
-		}
-		
-		TypedQuery<Employee> query = entityManager.createQuery(jpql, Employee.class);
-		for (String key : paramMap.keySet()) {
-			query.setParameter(key, paramMap.get(key));
-		}
-		return query.getResultList();
-	}
-	
+	// TODO extends my own super common interface (take from Core)
 }

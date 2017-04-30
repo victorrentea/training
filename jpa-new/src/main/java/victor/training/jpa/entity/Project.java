@@ -15,10 +15,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-/**
- * @author VictorRentea
- * 
- */
 @Entity
 public class Project {
 	@Id
