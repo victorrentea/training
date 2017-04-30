@@ -1,8 +1,8 @@
 package victor.training.jpa.facade;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import victor.training.jpa.entity.Employee;
@@ -11,7 +11,7 @@ import victor.training.jpa.entity.Project;
 @Service
 public class EmployeeService {
 
-	@Autowired
+	@PersistenceContext
 	private EntityManager em;
 	
 	public void removeFromProject(int employeeId, int projectId) {

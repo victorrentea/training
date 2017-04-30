@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,9 @@ import victor.training.jpa.facade.dto.SiteDto;
 @Service
 @Transactional
 public class PlayFacade {
+	// TODO Logging AOP on "...Facade"
  
-	@Autowired
+	@PersistenceContext
 	private EntityManager em;
 	
 	
@@ -92,7 +94,7 @@ public class PlayFacade {
 		Map<String, Object> params = new HashMap<>();
 		// SOLUTION(
 		if (criteria.name != null) {
-			jpql += " AND UPPER(e.name) LIKE '%' + UPPER(:name) | '%' ";
+			jpql += " AND UPPER(e.name) LIKE '%' | UPPER(:name) | '%' ";
 			params.put("name", criteria.name);
 		}
 		if (criteria.siteId != null) {
