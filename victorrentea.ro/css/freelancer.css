@@ -218,6 +218,7 @@ section.success {
 }
 #portfolio .portfolio-item,
 #clients .client-item,
+#conferences .conf-item,
 .cert-item {
   margin: 0 0 15px;
   right: 0;
@@ -264,6 +265,7 @@ section.success {
 @media (min-width: 767px) {
   #portfolio .portfolio-item, 
   #clients .client-item,
+  #conferences .conf-item,
   .cert-item  {
     margin: 0 0 30px;
   }
