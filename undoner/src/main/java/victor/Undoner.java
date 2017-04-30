@@ -103,7 +103,7 @@ public class Undoner {
 				File inputSrcFolder = new File("../" + projectsCombo.getSelectedItem() + "/src/main");
 				boolean undone;
 				if (isVictorMachine()) {
-					undone = undoFolders(inputSrcFolder, new File("../../training-undone/"+projectsCombo.getSelectedItem()+"/src/main/java"), false);
+					undone = undoFolders(inputSrcFolder, new File("../../training-undone/"+projectsCombo.getSelectedItem()+"/src/main"), false);
 				} else {
 					undone = undoFolders(inputSrcFolder, inputSrcFolder, false);
 				}
