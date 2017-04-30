@@ -9,3 +9,8 @@ application.xml
 profiling/in.dat
 profiling/out.dat
 java7/tmp
+jpa-new/--dbname.0.lck
+jpa-new/--dbname.0.log
+jpa-new/--dbname.0.properties
+jpa-new/--dbname.0.script
+jpa-new/WebContent/META-INF/MANIFEST.MF
