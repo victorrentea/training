@@ -18,6 +18,7 @@ import victor.training.jpa.facade.dto.CompanyDto;
 import victor.training.jpa.facade.dto.EmployeeDto;
 import victor.training.jpa.facade.dto.ProjectDto;
 import victor.training.jpa.facade.dto.SiteDto;
+import victor.training.jpa.repository.NativeRepository;
 
 @RestController
 @RequestMapping("/rest")
@@ -78,6 +79,13 @@ public class PlayController {
 	@RequestMapping(value = "/projects/export.csv", method = RequestMethod.GET)
 	public void exportProjects(HttpServletResponse response) throws IOException {
 		facade.exportAllProjects(response.getWriter());
+	}
+	
+	@Autowired
+	private NativeRepository debugRepo; // never inject Repos in Controllers!
+	@RequestMapping(value = "/db", produces="text/html")
+	public String printDbToString() {
+		return debugRepo.allDatabaseToString();
 	}
 	
 }

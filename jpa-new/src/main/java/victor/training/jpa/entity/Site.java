@@ -1,5 +1,6 @@
 package victor.training.jpa.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,7 +24,7 @@ public class Site {
 	private Company company;
 
 	@OneToMany(mappedBy = "site")
-	private List<Employee> employees;
+	private List<Employee> employees = new ArrayList<>();
 
 	public Site() {
 	}
