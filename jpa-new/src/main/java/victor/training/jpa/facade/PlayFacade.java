@@ -93,7 +93,7 @@ public class PlayFacade {
 		Map<String, Object> params = new HashMap<>();
 		// SOLUTION(
 		if (criteria.name != null) {
-			jpql += " AND UPPER(e.name) LIKE '%' | UPPER(:name) | '%' ";
+			jpql += " AND UPPER(e.name) LIKE '%' || UPPER(:name) || '%' ";
 			params.put("name", criteria.name);
 		}
 		if (criteria.siteId != null) {
