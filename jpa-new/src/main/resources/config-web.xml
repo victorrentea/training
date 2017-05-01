@@ -7,9 +7,6 @@
 
 	<mvc:annotation-driven />
 	
-	<context:component-scan base-package="victor.training"/>
-	<mvc:resources mapping="/app/**" location="/WEB-INF/app/" />
-	
-	<mvc:view-controller path="/app" view-name="index"/>
+	<context:component-scan base-package="victor.training.jpa.web"/>
 	
 </beans>

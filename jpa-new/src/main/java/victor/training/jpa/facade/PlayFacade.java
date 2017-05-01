@@ -31,7 +31,6 @@ import victor.training.jpa.facade.dto.SiteDto;
 @Service
 @Transactional
 public class PlayFacade {
-	// TODO Logging AOP on "...Facade"
  
 	@PersistenceContext
 	private EntityManager em;

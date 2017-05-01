@@ -53,6 +53,10 @@ public class DummyDataCreator {
 		c1.setName("Kepler");
 		em.persist(c1);
 		
+		Company c2 = new Company();
+		c2.setName("Dixi");
+		em.persist(c2);
+		
 		Site s1 = new Site();
 		s1.setName("Dimitrie Pompei");
 		s1.setCompany(c1);
