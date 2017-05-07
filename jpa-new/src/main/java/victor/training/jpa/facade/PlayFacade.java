@@ -106,7 +106,7 @@ public class PlayFacade {
 		}
 		List<Employee> employees = query.getResultList();
 		// SOLUTION)
-		// List<Employee> employees = emptyList();		// INITIAL
+		// List<Employee> employees = new ArrayList<>();		// INITIAL
 		return employees.stream()
 				.map(EmployeeDto::new)
 				.collect(toList());
@@ -200,7 +200,7 @@ public class PlayFacade {
 	}
 	
 	// Takeaways: 
-	// - N+1 Queries (a SELECT CHILDREN query for each parent in the list)
+	// - N+1 Queries (1 SELECT CHILDREN query for each parent in the list)
 //	public String exportAllProjects() { // INITIAL
 //		return "ProjName;EmployeeName1;EmployeeName2;...";// INITIAL
 	// SOLUTION(

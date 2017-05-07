@@ -18,7 +18,9 @@ public class EmployeeService {
 		Employee employee = em.find(Employee.class, employeeId);
 		Project project = em.find(Project.class, projectId);
 		System.out.println("Project from UserService: " + project);
-		project.removeEmployee(employee);
+		project.removeEmployee(employee); // SOLUTION
+		// project.getEmployees().remove(employee); // INITIAL
+		// employee.getProjects().remove(project); // INITIAL
 	}
 
 }
