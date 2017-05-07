@@ -79,7 +79,7 @@ public class PlayController {
 	@RequestMapping(value = "/projects/export.csv", method = RequestMethod.GET)
 //	public String exportProjects() throws IOException { // INITIAL
 	public void exportProjects(HttpServletResponse response) throws IOException { // SOLUTION
-		facade.exportAllProjects(response.getWriter()); //SOLUTION
+		facade.exportAllProjects(response.getWriter()); // SOLUTION
 		// return facade.exportAllProjects(); // INITIAL
 	}
 	
