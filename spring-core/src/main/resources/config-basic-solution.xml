@@ -55,5 +55,7 @@
 	<bean id="myString" class="victor.training.spring.advanced.MyStringFactoryBean">
 		<property name="file" value="test.txt" />
 	</bean>
+	
+	
 
 </beans>
