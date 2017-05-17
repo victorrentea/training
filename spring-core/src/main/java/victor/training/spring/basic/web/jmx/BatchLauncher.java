@@ -1,11 +1,13 @@
 package victor.training.spring.basic.web.jmx;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Component;
 
+@Profile("web")
 @Component
 @ManagedResource(objectName="bean:name=batchLauncher")
 public class BatchLauncher {

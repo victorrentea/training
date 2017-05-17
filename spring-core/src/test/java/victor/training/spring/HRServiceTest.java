@@ -1,6 +1,6 @@
 package victor.training.spring;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 
 import java.text.ParseException;
 
@@ -15,6 +15,7 @@ import victor.training.spring.basic.model.Employee;
 import victor.training.spring.basic.service.HRService;
 
 @ContextConfiguration(locations = { "classpath:/config-test.xml" })
+//@ContextConfiguration(classes = ConfigSolution.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class HRServiceTest {
 
@@ -37,7 +38,7 @@ public class HRServiceTest {
 	
 	@Test
 	public void getPrimitiveProperty() {
-		assertNotNull(hrService.getMyProperty());
+		assertEquals("My Property Value", hrService.getMyProperty());
 	}
 
 	@Test

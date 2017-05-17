@@ -13,6 +13,16 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<context-param>
+		<param-name>my.prop</param-name>
+		<param-value>CONTEXT</param-value>
+	</context-param>
+	
+	<context-param>
+	    <param-name>spring.profiles.active</param-name>
+	    <param-value>web</param-value>
+	</context-param>
 
 	<!-- This (or a Filter) must be installed in order to use "session" or "request" scoped beans -->
 	<listener>

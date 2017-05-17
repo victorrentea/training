@@ -36,6 +36,7 @@
 		<task:scheduled ref="batchLauncher" method="startJob1" cron="*/5 * * * * *"/>
 	</task:scheduled-tasks>
 	
+	<context:property-placeholder  location="classpath:/config-web.properties" />
 
 	<!-- 
 	<bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
