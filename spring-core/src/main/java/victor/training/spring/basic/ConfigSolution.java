@@ -20,10 +20,11 @@ import victor.training.spring.basic.service.HRService;
 import victor.training.spring.basic.service.MyWSClient;
 
 @Configuration
-@PropertySource("classpath:/config-basic.properties")
-@ComponentScan(basePackages="victor")
+@PropertySource("classpath:/config-basic.properties") // SOLUTION
+@ComponentScan(basePackages="victor") // SOLUTION
 public class ConfigSolution {
 
+	// SOLUTION (
 	@Autowired
 	private Environment env;
 	
@@ -60,5 +61,6 @@ public class ConfigSolution {
 		dataSource.setUsername("SA");
 		return dataSource;
 	}
+	// SOLUTION )
 	
 }

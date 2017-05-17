@@ -5,8 +5,7 @@ import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Component;
 
 @Component
-@ManagedResource(
-        objectName="bean:name=calculator")
+@ManagedResource(objectName="bean:name=calculator")
 public class Calculator {
 
 	@ManagedOperation
