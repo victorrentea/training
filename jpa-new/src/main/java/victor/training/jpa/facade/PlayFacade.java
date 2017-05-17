@@ -35,57 +35,6 @@ public class PlayFacade {
 	@PersistenceContext
 	private EntityManager em;
 	
-	
-	public List<CompanyDto> getAllCompanies() {
-		List<Company> companies = em.createQuery("SELECT c FROM Company c", Company.class)
-				.getResultList();
-		
-		List<CompanyDto> dtos = new ArrayList<>();
-		for (Company company : companies) {
-			CompanyDto dto = new CompanyDto();
-			dto.id = company.getId();
-			dto.name = company.getName();
-			dtos.add(dto);
-		}
-		return dtos;
-	} 
-	
-	// Takeaway: campurile primitive si @...ToOne sunt incarcate automat, cu toate campurile (logs)
-	public List<SiteDto> getAllSites() {
-		// SOLUTION(
-		List<Site> companies = em.createQuery("SELECT s FROM Site s", Site.class).getResultList(); 
-		
-		List<SiteDto> dtos = new ArrayList<>();
-		for (Site site : companies) {
-			SiteDto dto = new SiteDto();
-			dto.id = site.getId();
-			dto.name = site.getName();
-			dto.companyId = site.getCompany().getId(); //was already brought from DB by JPA (check logs)
-			dto.companyName = site.getCompany().getName(); 
-			dtos.add(dto);
-		}
-		return dtos;
-		// SOLUTION)
-		//return null; // INITIAL
-	}
-	
-	// Takeaways: 
-	// - colectiile de copii sunt accesibile- Lazy Load (Versailles Syndrome) -check Logs
-	// - if parent is not attached, "... no session" exception
-	// - lookout for Transaction boundaries
-	public ProjectDto getProjectWithEmployees(int projectId) {
-		ProjectDto dto = new ProjectDto();
-		// SOLUTION(
-		Project project = em.find(Project.class, projectId);
-		dto.id = project.getId();
-		dto.name = project.getName();
-		for (Employee e : project.getEmployees()) { // SWEEP OVER CHILDREN AS IF ALL IN MEMORY
-			dto.employeeIds.add(e.getId());  // LAZY LOAD!! (check console)
-		}
-		// SOLUTION)
-		return dto;
-	}
-	
 	// Takeaways:
 	// - how to do a search query with JPQL
 	public List<EmployeeDto> searchEmployees(EmployeeSearchCriteria criteria) {
@@ -185,8 +134,62 @@ public class PlayFacade {
 		// SOLUTION)
 	}
 	
+	
+	public List<CompanyDto> getAllCompanies() {
+		List<Company> companies = em.createQuery("SELECT c FROM Company c", Company.class)
+				.getResultList();
+		
+		List<CompanyDto> dtos = new ArrayList<>();
+		for (Company company : companies) {
+			CompanyDto dto = new CompanyDto();
+			dto.id = company.getId();
+			dto.name = company.getName();
+			dtos.add(dto);
+		}
+		return dtos;
+	} 
+	
+	// ======== HARD STUFF ==========
+	
+	
+	// Takeaway: campurile primitive si @...ToOne sunt incarcate automat, cu toate campurile (logs)
+	public List<SiteDto> getAllSites() {
+		// SOLUTION(
+		List<Site> companies = em.createQuery("SELECT s FROM Site s", Site.class).getResultList(); 
+		
+		List<SiteDto> dtos = new ArrayList<>();
+		for (Site site : companies) {
+			SiteDto dto = new SiteDto();
+			dto.id = site.getId();
+			dto.name = site.getName();
+			dto.companyId = site.getCompany().getId(); //was already brought from DB by JPA (check logs)
+			dto.companyName = site.getCompany().getName(); 
+			dtos.add(dto);
+		}
+		return dtos;
+		// SOLUTION)
+		//return null; // INITIAL
+	}
+	
+	// Takeaways: 
+	// - colectiile de copii sunt accesibile- Lazy Load (Versailles Syndrome) -check Logs
+	// - if parent is not attached, "... no session" exception
+	// - lookout for Transaction boundaries
+	public ProjectDto getProjectWithEmployees(int projectId) {
+		ProjectDto dto = new ProjectDto();
+		// SOLUTION(
+		Project project = em.find(Project.class, projectId);
+		dto.id = project.getId();
+		dto.name = project.getName();
+		for (Employee e : project.getEmployees()) { // SWEEP OVER CHILDREN AS IF ALL IN MEMORY
+			dto.employeeIds.add(e.getId());  // LAZY LOAD!! (check console)
+		}
+		// SOLUTION)
+		return dto;
+	}
+	
 	@Autowired
-	private EmployeeService userService;
+	private EmployeeService myService;
 	
 	// Takeaways:
 	// - EntityManager = 1st Level Cache of the ORM
@@ -194,7 +197,7 @@ public class PlayFacade {
 	public void removeEmployeeFromProject(int employeeId, int projectId) {
 		Project project = em.find(Project.class, projectId);
 		System.out.println("Initial project employee count: " + project.getEmployees().size());
-		userService.removeFromProject(employeeId, projectId);
+		myService.removeFromProject(employeeId, projectId);
 		System.out.println("Final project employee count: " + project.getEmployees().size());
 		System.out.println("Project from Facade: " + project);
 	}
