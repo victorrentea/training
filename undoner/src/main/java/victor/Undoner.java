@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,9 +34,12 @@ public class Undoner {
 			boolean skippingSolution = false;
 			boolean uncommentingInitial = false;
 			for (String line : inLines) {
-				if (line.contains("// SOLUTION(") || line.contains("// SOLUTION (")) {
+				List<String> startSolutionTokens = Arrays.asList("// SOLUTION(", "// SOLUTION (", "<!-- SOLUTION (", "<!-- SOLUTION(");
+				List<String> endSolutionTokens = Arrays.asList("// SOLUTION)", "// SOLUTION )", "<!-- SOLUTION)", "<!-- SOLUTION )");
+				final String origLine = line;
+				if (startSolutionTokens.stream().anyMatch(token -> origLine.contains(token))) {
 					skippingSolution = true;
-				} else if (line.contains("// SOLUTION)") || line.contains("// SOLUTION )")) {
+				} else if (endSolutionTokens.stream().anyMatch(token -> origLine.contains(token))) {
 					skippingSolution = false;
 					continue;
 				} else if (line.contains("// SOLUTION")) {
