@@ -33,9 +33,9 @@ public class Undoner {
 			boolean skippingSolution = false;
 			boolean uncommentingInitial = false;
 			for (String line : inLines) {
-				if (line.contains("// SOLUTION(")) {
+				if (line.contains("// SOLUTION(") || line.contains("// SOLUTION (")) {
 					skippingSolution = true;
-				} else if (line.contains("// SOLUTION)")) {
+				} else if (line.contains("// SOLUTION)") || line.contains("// SOLUTION )")) {
 					skippingSolution = false;
 					continue;
 				} else if (line.contains("// SOLUTION")) {
