@@ -24,7 +24,7 @@ import victor.training.spring.basic.service.MyWSClient;
 @ComponentScan(basePackages="victor") // SOLUTION
 public class ConfigSolution {
 
-	// SOLUTION (
+	// SOLUTION(
 	@Autowired
 	private Environment env;
 	
@@ -61,6 +61,6 @@ public class ConfigSolution {
 		dataSource.setUsername("SA");
 		return dataSource;
 	}
-	// SOLUTION )
+	// SOLUTION)
 	
 }
