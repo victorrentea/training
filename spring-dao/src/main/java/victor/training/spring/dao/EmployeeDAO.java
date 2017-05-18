@@ -1,4 +1,4 @@
-package spring.dao;
+package victor.training.spring.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,19 +7,26 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import spring.model.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-public class EmployeeDAOJdbc implements EmployeeDAO {
+import victor.training.spring.domain.Employee;
 
-	// private SimpleJdbcTemplate jdbcTemplate;
+@Repository
+public class EmployeeDAO {
+
+	// private JdbcTemplate jdbcTemplate;
 	private DataSource dataSource;
 
-	public EmployeeDAOJdbc(DataSource dataSource) {
-		// this.jdbcTemplate = new SimpleJdbcTemplate(dataSource);
+	@Autowired
+	public EmployeeDAO(DataSource dataSource) {
+		// this.jdbcTemplate = new JdbcTemplate(dataSource);
 		this.dataSource = dataSource;
 	}
 
-	@Override
+	
 	public void persist(Employee employee) {
 		String sql = "INSERT INTO employee(id, name, phone) VALUES (?, ?, ?)";
 		Connection conn = null;
@@ -32,12 +39,14 @@ public class EmployeeDAOJdbc implements EmployeeDAO {
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO: something, don't know what..
+			throw new RuntimeException(e);
 		} finally {
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
 					// TODO: something, don't know what..
+					throw new RuntimeException(e);
 				}
 			}
 		}
@@ -46,7 +55,7 @@ public class EmployeeDAOJdbc implements EmployeeDAO {
 		
 	}
 
-	@Override
+	
 	public void removeById(String employeeId) {
 		String sql = "DELETE FROM employee WHERE id = ?";
 		Connection conn = null;
@@ -57,24 +66,27 @@ public class EmployeeDAOJdbc implements EmployeeDAO {
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO: something, don't know what..
+			throw new RuntimeException(e);
 		} finally {
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
 					// TODO: something, don't know what..
+					throw new RuntimeException(e);
 				}
 			}
 		}
 		// jdbcTemplate.update(sql, employeeId);
 	}
 
-	@Override
+	
 	public void update(Employee employee) {
-		String sql = "UPDATE employee SET name = :name, phone = :phone WHERE id = :id";
+		String sql = "UPDATE employee SET name = ?, phone = ? WHERE id = ?";
 		Connection conn = null;
 		try {
 			conn = dataSource.getConnection();
+//			conn = DataSourceUtils.getConnection(dataSource);
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, employee.getName());
 			ps.setString(2, employee.getPhone());
@@ -82,12 +94,14 @@ public class EmployeeDAOJdbc implements EmployeeDAO {
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO: something, don't know what..
+			throw new RuntimeException(e);
 		} finally {
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
 					// TODO: something, don't know what..
+					throw new RuntimeException(e);
 				}
 			}
 		}
@@ -96,8 +110,17 @@ public class EmployeeDAOJdbc implements EmployeeDAO {
 		// jdbcTemplate.update("sql using :namedParam", args);
 	}
 
-	@Override
+	@Transactional(propagation = Propagation.SUPPORTS) // ! Needed for SPring to Proxy this method. The proxy will kill the Tx when you exit on Exception
 	public Employee getById(String employeeId) {
+		Employee employee = findById(employeeId);
+		if (employee == null) {
+			throw new RuntimeException("Employee not found for id " + employeeId);
+		}
+		return employee;
+	}
+	
+	/** @return null when not found */
+	public Employee findById(String employeeId) {
 		String sql = "SELECT id, name, phone FROM employee WHERE id = ?";
 		Connection conn = null;
 		try {
@@ -114,17 +137,46 @@ public class EmployeeDAOJdbc implements EmployeeDAO {
 			}
 		} catch (SQLException e) {
 			// TODO: something, don't know what..
+			throw new RuntimeException(e);
 		} finally {
 			if (conn != null) {
 				try {
 					conn.close();
-				} catch (SQLException e) {
+				} catch (SQLException e) {	
 					// TODO: something, don't know what..
+					throw new RuntimeException(e);
 				}
 			}
 		}
 		return null;
 		// return jdbcTemplate.queryForObject(sql, new RowMapper<Employee>() {
 		// }, employeeId);
+	}
+
+
+	public int countByPhone(String newPhone) {
+		String sql = "SELECT count(*) FROM employee WHERE phone = ?";
+		Connection conn = null;
+		try {
+			conn = dataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, newPhone);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			return rs.getInt(1);
+		} catch (SQLException e) {
+			// TODO: something, don't know what..
+			throw new RuntimeException(e);
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {	
+					// TODO: something, don't know what..
+					throw new RuntimeException(e);
+				}
+			}
+		}
+		// return jdbcTemplate.queryFor...
 	}
 }

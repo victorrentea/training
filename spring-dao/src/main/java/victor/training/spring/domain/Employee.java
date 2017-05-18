@@ -1,15 +1,9 @@
-package spring.model;
+package victor.training.spring.domain;
 
 import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-
-@Entity
 public class Employee {
 
-	@Id
 	private String id = UUID.randomUUID().toString();
 	private String name;
 	private String phone;

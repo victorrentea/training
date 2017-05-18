@@ -1,4 +1,4 @@
-package spring.test.util;
+package victor.training.spring.test.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.JdbcTransactionObjectSupport;
@@ -85,7 +85,7 @@ public class TransactionUtilImpl implements TransactionUtil {
 
 	@Override
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)
-	public void executeWith_NOT_SUPPORTED(Runnable runnable) {
+	public void executeInNewTransaction(Runnable runnable) {
 		runnable.run();
 	}
 

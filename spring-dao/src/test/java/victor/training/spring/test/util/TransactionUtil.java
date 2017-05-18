@@ -1,4 +1,4 @@
-package spring.test.util;
+package victor.training.spring.test.util;
 
 public interface TransactionUtil {
 	boolean hasTransaction();
@@ -11,7 +11,7 @@ public interface TransactionUtil {
 	void executeWith_REQUIRED(Runnable runnable);
 	void executeWith_REQUIRES_NEW(Runnable runnable);
 	void executeWith_MANDATORY(Runnable runnable);
-	void executeWith_NOT_SUPPORTED(Runnable runnable);
+	void executeInNewTransaction(Runnable runnable);
 
 
 

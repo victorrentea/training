@@ -1,4 +1,4 @@
-package spring.service;
+package victor.training.spring.test.util;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotSame;
@@ -14,8 +14,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.IllegalTransactionStateException;
 import org.springframework.transaction.annotation.Transactional;
-
-import spring.test.util.TransactionUtil;
 
 @ContextConfiguration(locations = { "classpath:/test-config.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -62,7 +60,7 @@ public class TransactionUtilTest {
 	@Transactional
 	public void testNotSupportedExecutesWithoutTxWhenInvokedFromWithinTx() {
 		final Object txHandle = txUtil.getTransactionOpaqueIdentity();
-		txUtil.executeWith_NOT_SUPPORTED(new AssertDoesnHaveTx());
+		txUtil.executeInNewTransaction(new AssertDoesnHaveTx());
 		assertSame("Running again in Tx1", txHandle, txUtil.getTransactionOpaqueIdentity());
 	}
 
