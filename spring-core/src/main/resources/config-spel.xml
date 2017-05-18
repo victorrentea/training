@@ -10,7 +10,7 @@
               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 
-	<bean id="wsClient" class="victor.training.spring.basic.service.MyWSClient" factory-method="getInstance">
+	<bean id="wsClient" class="victor.training.spring.service.MyWSClient" factory-method="getInstance">
 		<property name="endpointURLs" value="#{endpointURLs}" />
 	</bean>
 

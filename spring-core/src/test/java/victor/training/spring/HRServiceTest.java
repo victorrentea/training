@@ -1,6 +1,6 @@
 package victor.training.spring;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.text.ParseException;
 
@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import victor.training.spring.basic.model.Employee;
-import victor.training.spring.basic.service.HRService;
+import victor.training.spring.model.Employee;
+import victor.training.spring.service.HRService;
 
 @ContextConfiguration(locations = { "classpath:/config-test.xml" })
 //@ContextConfiguration(classes = ConfigSolution.class)
@@ -22,6 +22,7 @@ public class HRServiceTest {
 	@Autowired
 	private HRService hrService;
 	
+	// TODO How about using a mock in Tests to override a real implem bean 
 //	@Autowired
 //	private MyWSClient mockWsClient;
 
@@ -31,14 +32,24 @@ public class HRServiceTest {
 	}
 	
 	@Test
-	public void testGetEmployee() {
+	public void getEmployee() {
 		Employee e = hrService.getEmployeeById("1");
 		System.out.println(e);
 	}
 	
 	@Test
+	public void getAllQuestions() {
+		assertNotNull(hrService.getAllQuestions());
+	}
+	
+	@Test
+	public void removeEmployee() {
+		hrService.removeEmployee("1");
+	}
+	
+	@Test
 	public void getPrimitiveProperty() {
-		assertEquals("My Property Value", hrService.getMyProperty());
+		assertNotNull(hrService.getMyProperty());
 	}
 
 	@Test

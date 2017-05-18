@@ -12,23 +12,23 @@
               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 
-	<bean id="userService" class="victor.training.spring.basic.web.service.UserServiceImpl" lazy-init="true">
+	<bean id="userService" class="victor.training.spring.web.service.UserService" lazy-init="true">
 		<property name="userDetails" ref="userDetails" />
 	</bean>
 
-	<bean id="userDetails" class="victor.training.spring.basic.web.service.UserDetailsHolderImpl" scope="session">
+	<bean id="userDetails" class="victor.training.spring.web.service.UserRequestContext" scope="session">
 		<aop:scoped-proxy/>
 	</bean>
 
-	<bean id="prototypeScopedBean" class="victor.training.spring.basic.web.PrototypeScopedBean" scope="prototype" />
-	<bean id="requestScopedBean" class="victor.training.spring.basic.web.RequestScopedBean" scope="request" />
+	<bean id="prototypeScopedBean" class="victor.training.spring.web.PrototypeScopedBean" scope="prototype" />
+	<bean id="requestScopedBean" class="victor.training.spring.web.RequestScopedBean" scope="request" />
 
 
 	<task:executor id="jobExecutor" pool-size="1"/>
 	
 	<task:annotation-driven />
 
-	<context:component-scan base-package="victor.training.spring.basic.web" />
+	<context:component-scan base-package="victor.training.spring.web" />
 
 	<context:mbean-export />
 	

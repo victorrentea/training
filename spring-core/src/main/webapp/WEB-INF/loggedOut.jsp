@@ -8,7 +8,7 @@
 <body>
 	You are not logged in
 	<p>
-		<a href="home?login&username=<%=randomUsername%>">Login Now as <%=randomUsername%></a>
+		<a href="home?login=true&username=<%=randomUsername%>">Login Now as <%=randomUsername%></a>
 	<p>
 		Timestamp:
 		<%=new java.util.Date()%>

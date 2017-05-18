@@ -11,7 +11,7 @@
 	<import resource="classpath:config-basic.xml"/>
 
 	<!-- <bean id="wsClientMock" class="org.mockito.Mockito" factory-method="mock">
-		<constructor-arg value="victor.training.spring.basic.service.MyWSClient" />
+		<constructor-arg value="victor.training.spring.service.MyWSClient" />
 	</bean>
 	<alias id="wsClientMock" alias="wsClient"/> -->
 

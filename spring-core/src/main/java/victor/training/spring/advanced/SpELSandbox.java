@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import victor.training.spring.basic.model.Employee;
+import victor.training.spring.model.Employee;
 
 public class SpELSandbox {
 

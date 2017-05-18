@@ -9,9 +9,9 @@
               http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<bean id="hrService" class="victor.training.spring.basic.service.HRService">
+	<bean id="hrService" class="victor.training.spring.service.HRService">
 		<property name="webServiceClient">
-			<bean class="victor.training.spring.basic.service.MyWSClient"
+			<bean class="victor.training.spring.service.MyWSClient"
 				factory-method="getInstance">
 				<property name="endpointURLs">
 					<list>
@@ -25,10 +25,10 @@
 	</bean>
 
 	<bean id="handshakeConverter" lazy-init="true"
-		class="victor.training.spring.basic.service.CurrencyConverterHandshakeImpl" />
+		class="victor.training.spring.service.CurrencyConverterHandshakeImpl" />
 	<!-- init-method="" -->
 	<bean id="statlessConverter"
-		class="victor.training.spring.basic.service.CurrencyConverterStatelessImpl" />
+		class="victor.training.spring.service.CurrencyConverterStatelessImpl" />
 
 
 	<bean id="dataSource"
@@ -43,7 +43,7 @@
 	<context:annotation-config />
 
 	<!-- @Component -->
-	<context:component-scan base-package="victor.training.spring.basic" />
+	<context:component-scan base-package="victor.training.spring" />
 
 	<bean id="myAspectBean" class="victor.training.spring.advanced.MyAspect" />
 	<aop:aspectj-autoproxy>

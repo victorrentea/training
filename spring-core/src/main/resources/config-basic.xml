@@ -9,7 +9,7 @@
               http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	
-	<bean id="employeeDao" class="victor.training.spring.basic.dao.EmployeeDaoImpl">
+	<bean id="employeeDao" class="victor.training.spring.dao.EmployeeDaoImpl">
 	</bean>
 	
 	<!-- 
@@ -18,12 +18,12 @@
 	-->
 
 	<!-- 
-	<bean id="wsClient" class="victor.training.spring.basic.service.MyWSClient" factory-...>
+	<bean id="wsClient" class="victor.training.spring.service.MyWSClient" factory-...>
 	</bean> 
 	-->
 	<!-- endpointURLs http://ro.ibm.com/myws http://localhost:8080/myws -->
 
-	<bean id="hrService" class="victor.training.spring.basic.service.HRService">
+	<bean id="hrService" class="victor.training.spring.service.HRService">
 		<!-- 
 		<property name="employeeDao" ref="" /> 
 		<property name="interviewDao">
@@ -36,9 +36,9 @@
 		-->
 	</bean>
 
-	<bean id="handshakeConverter" lazy-init="true" class="victor.training.spring.basic.service.CurrencyConverterHandshakeImpl" />
+	<bean id="handshakeConverter" lazy-init="true" class="victor.training.spring.service.CurrencyConverterHandshakeImpl" />
 	    <!-- init-method="" --> 
-	<bean id="statlessConverter" class="victor.training.spring.basic.service.CurrencyConverterStatelessImpl" />
+	<bean id="statlessConverter" class="victor.training.spring.service.CurrencyConverterStatelessImpl" />
 
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -48,9 +48,6 @@
 		<property name="password" value="" />
 	</bean>
 
-
-	<!-- @Autowired -->
-	<!-- <context:annotation-...  -->
 
 	<!-- @Component -->
 	<!-- <context:component-...  -->
@@ -69,7 +66,7 @@
 		<property name="file" value="test.txt" />
 	</bean> -->
 	
-	<beans profile="client1">
+	<beans profile="handshake">
 		<!-- <bean class="" /> -->
 	</beans>
 </beans>
