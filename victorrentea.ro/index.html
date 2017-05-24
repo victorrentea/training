@@ -70,6 +70,9 @@
                     </li>
                 </ul>
             </div>
+			
+			
+			
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
@@ -79,14 +82,16 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-xs-8 col-xs-offset-2">
-                    <img class="img-responsive" src="fata.jpg" alt="">
+                <div class="col-xs-8 col-xs-offset-2" >
+                    <img class="img-responsive" src="fata.jpg" alt="" style="margin-bottom: 0px">
 				</div>
 				<div class="col-lg-12">
                     <div class="intro-text">
                         <span class="name">Victor Rentea</span>
                         <hr class="star-light">
-                        <span class="skills">Independent Trainer - Technical Coach - Consultant</span>
+                        <span class="skills">
+						<a href="#contact" style="color:white; text-decoration:underline;">Independent</a> Trainer - Technical Coach - Consultant</span> <br />
+						<a href="#portfolio" style="color:white; text-decoration:underline;"><span class="skills">1000+ trainees over 1500+ hours</span></a>
                     </div>
                 </div>
             </div>
@@ -101,7 +106,7 @@
                     <h2>Training Offer</h2>
                     <hr class="star-primary">
                 </div>
-            </div>
+            </div>			
             <div class="row">
                 <div class="col-sm-3 col-xs-6 portfolio-item">
                     <a href="#clean-code" class="portfolio-link" data-toggle="modal">
@@ -246,6 +251,27 @@
 				</div>
 			</div>
         </div>
+		<div class="row">
+				<div class="col-lg-12 text-center">
+				<br />
+				<br />
+				<h3>Download Virtual Machine</h3>
+					<p>
+					Enter password to generate download link: 
+					<input type="text" id="vm-db-password" onkeyup="recreateLink()" />
+					<script type="text/javascript">
+					function recreateLink() {
+						var link = makeDropboxUrl($('#vm-db-password').val());
+						$('#download-vm-link').prop('href',link);
+						$('#download-vm-link').text(link);
+					}
+					</script>
+					</p> 
+					<p>
+						<a href="linkSpan" id="download-vm-link" target="_blank" >asdd</a>
+					</p>
+				</div>
+			</div>
     </section>
 	
 	
@@ -332,6 +358,14 @@
 							<div data-p="112.50">
 								<img data-u="image" src="poze/Coding Dojo @ UPB.jpg" />                
 							</div>
+							<div data-p="112.50">
+								<img data-u="image" src="poze/Betfair 18-19 mai 2017.jpg" />                
+							</div>
+							<div data-p="112.50">
+								<img data-u="image" src="poze/DB apr 2017.jpg" />                
+							</div>
+							
+							
 							
 							
 							
@@ -353,6 +387,7 @@
 
 				</div>
 			</div>
+			
 			<div class="row">
                 <div class="col-sm-3 col-xs-6 client-item">					
 					<img title="ABS" src="client-abs.jpg" class="img-responsive img-centered" />
@@ -362,7 +397,10 @@
 				</div>
 				<div class="col-sm-3 col-xs-6 client-item">
 					<img title="Deutche Bank" src="client-deutsche-bank.png"  class="img-responsive img-centered" />
-				</div>				
+				</div>	
+				<div class="col-sm-3 col-xs-6 client-item">
+					<img title="IBM" src="client-betfair.jpg" class="img-responsive img-centered"/>
+                </div>				
 				<div class="col-sm-3 col-xs-6 client-item">
 					<img title="IBM" src="client-ibm.jpg" class="img-responsive img-centered"/>
                 </div>
@@ -631,7 +669,7 @@
 					<p>Senior&nbsp;Java&nbsp;Engineer, Technical&nbsp;Team&nbsp;Lead and Java&nbsp;Coach at IBM, and </p>
 					<p>Independent&nbsp;Trainer and Technical&nbsp;Coach.</p>
 					<p>PhD(CS) and Oracle&nbsp;JavaEE<sup>6</sup>&nbsp;Architect.</p>
-					<p>Over <span class="high">500&nbsp;hours</span> of training held to more than <span class="high">1000&nbsp;persons</span>, in&nbsp;Romanian&nbsp;and&nbsp;English, including in academic setup (ACS@UPB).</p>
+					<p>Over <span class="high">1500&nbsp;hours</span> of training held to more than <span class="high">1000&nbsp;persons</span>, in&nbsp;Romanian&nbsp;and&nbsp;English, including in academic setup (ACS@UPB).</p>
 				</div>
 				
 				<div class="col-lg-5 col-lg-offset-1">
@@ -778,10 +816,14 @@
 					</a>
                 </div>
 				
-				<div class="col-lg-1 col-lg-offset-1 text-center">
+				<div class="col-lg-2 col-lg-offset-1 text-center">
 					<br />
 					<a href="https://ro.linkedin.com/pub/victor-rentea/4a/936/933" class="btn btn-info btn-lg">
 						<i style="font-size:24px" class="fa fa-linkedin"></i>
+					</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="https://ro.linkedin.com/pub/victor-rentea/4a/936/933" class="btn btn-info btn-lg">
+						<i style="font-size:24px" class="fa fa-facebook"></i>
 					</a>
                 </div>
             </div>
@@ -1810,8 +1852,20 @@
 								<li>Publishing and Consuming JAX-WS web services</li>
 								<li>Publishing and Consuming RESTful web services</li>
 							</ul>
+							
+							<h3>Part 5: Spring Boot</h3>
+							<p><i>2h talk + hands-on: Spring REST endpoint + JPA using Spring Boot </i>
+							</p>
+							<ul class="agenda">								
+								<li>start.spring.io</li>
+								<li>Auto-Configuration</li>
+								<li>Environment Abstraction</li>
+								<li>Profiles</li>
+								<li>Embedded Servlet Container</li>								
+								<li>Deploying to an App Server</li>
+							</ul>
 
-							<h3>Part 5: Spring Batch</h3>
+							<h3>Part 6: Spring Batch</h3>
 							<p><i>1h talk, 1h hands-on</i>
 							</p>
 							<p>This part will be finalized upon your request. I have the necessary experience: I have built and delivered an application on top of Spring Batch.</p>
@@ -2460,9 +2514,14 @@
   //shortcut for $(document).ready
   $(function(){
    
+   var sectionHrefs = $(".navbar-nav a").map(function() {return $(this).attr('href');}).get();
+   function isPortfolioHash(hash) { return sectionHrefs.indexOf(hash) < 0;  }
+   
 	if (window.location.hash) {
-          var hash = window.location.hash;
-          $(hash).modal('toggle');
+          var hash = window.location.hash;		  
+		  if (isPortfolioHash(hash)) {	  
+			$(hash).modal('toggle');
+		  }
     }
   
   
@@ -2479,7 +2538,7 @@
 		if (!location.hash){
 			$('.modal').modal('hide');
 		} else {
-			if (!linkJustClicked) {
+			if (!linkJustClicked && isPortfolioHash(location.hash)) {
 				$(location.hash).modal('show');
 			}
 			linkJustClicked = false;
@@ -2498,6 +2557,95 @@
 
 
  });
+ 
+function encrypt() {
+	
+
+}
+
+function base64ToNumbers(s) {
+	var arr=[];
+	for (var i = 0; i < s.length; i++) {
+		arr.push(base64CharToInt("" + s[i]));
+	}
+	return arr;
+}
+function base64CharToInt(ch) {
+	var ascii = ch.charCodeAt(0);
+	if (ch >= '0' && ch <= '9') {
+		return 52 + (ascii - '0'.charCodeAt(0));
+	} else if (ch == '+') {
+		return 62;
+	} else if (ch == '/') {
+		return 63;
+	} else if (ch >= 'A' && ch <= 'Z') {
+		return ascii - 'A'.charCodeAt(0);
+	} else if (ch >= 'a' && ch <= 'z') {
+		return 26 + ascii - 'a'.charCodeAt(0);
+	} else {
+		throw "Not a base 64 char: " + ch;
+	}
+}
+
+function numbersToBase64(arr) {
+	var s="";
+	for (var i = 0; i < arr.length; i++) {
+		s += intToBase64Char(arr[i]);
+	}
+	return s;
+}
+function intToBase64Char(n) {
+	if (n >= 52 && n <= 61) {
+		return String.fromCharCode(n - 52 + '0'.charCodeAt(0));
+	} else if (n == 62) {
+		return "+";
+	} else if (n == 63) {
+		return '/';
+	} else if (n >= 0 && n <= 25) {
+		return String.fromCharCode(n + 'A'.charCodeAt(0));
+	} if (n >= 26 && n <= 51) {
+		return  String.fromCharCode(n - 26 + 'a'.charCodeAt(0));
+	} else {
+		throw "Not a base 64 code: " + n;
+	}
+}
+
+function loopApply(a, key) {
+	var result=[];
+	for (var i = 0; i < a.length; i++) {
+		result.push(a[i] ^ key[i % key.length]);
+	}
+	return result;
+}
+
+function loopApplyStrings(aStr, keyStr) {
+	return numbersToBase64(loopApply(base64ToNumbers(aStr), base64ToNumbers(keyStr)));
+}
+
+var dropBoxURL = {
+	prefix:"https://www.dropbox.com/sh/",
+	encrypted:"WQyDfTJVxFmQMRwUailfNOjINuHEoThp6fXiShG",
+	suffix:"-a?dl=0"
+};
+
+function normalizePassword(s) {
+	return s.replace(/ /g,'').toLowerCase();
+}
+
+function makeDropboxUrl(password) {
+	return dropBoxURL.prefix + 
+		loopApplyStrings(dropBoxURL.encrypted, normalizePassword(password)) + 
+		dropBoxURL.suffix;
+}
+function openDropboxForVM(password) {
+	if (!password) {
+		alert("Please enter the password that was given to you");
+		return;
+	}
+	alert("Let's try...\nIf you entered an invalid password, an incorrect DropBox link will be generated, and you'll get a 'Not Found' error.")
+	window.open(makeDropboxUrl(password));
+}
+ 
  
 </script>
 
