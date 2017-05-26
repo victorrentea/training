@@ -8,9 +8,10 @@ public class OrderLine {
 		UNAVAILABLE
 	}
 	
+	private Status status;
+	
 	public Status getStatus() {
-		// TODO Auto-generated method stub
-		return null;
+		return status;
 	}
-
+	
 }

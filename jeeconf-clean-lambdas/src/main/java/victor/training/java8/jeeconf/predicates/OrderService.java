@@ -14,8 +14,9 @@ public class OrderService {
 		LocalDate warningDate = LocalDate.now().plusDays(3);
 		
 		Set<Customer> customersToNotify = orders.stream()
-				.filter(order -> order.getDeliveryDueDate().isBefore(warningDate)
-						&& order.getOrderLines().stream().anyMatch(line -> line.getStatus() != Status.IN_STOCK))
+				.filter(order -> order.getDeliveryDueDate().isBefore(warningDate) && 
+						order.getOrderLines().stream()
+						.anyMatch(orderLine -> orderLine.getStatus() != Status.IN_STOCK))
 				.map(Order::getCustomer).collect(toSet());
 	
 		for (Customer customer : customersToNotify) {

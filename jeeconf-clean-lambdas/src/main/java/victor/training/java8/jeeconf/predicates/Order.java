@@ -20,8 +20,10 @@ public class Order {
 	}
 
 	public List<OrderLine> getOrderLines() {
-		// TODO Auto-generated method stub
 		return null;
+	}
+	public boolean isConfidential() {
+		return true;
 	}
 	
 }
