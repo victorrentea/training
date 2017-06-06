@@ -23,6 +23,5 @@ class Movie {
 		case NEW_RELEASE: return 10 + 0.5 * daysRented;
 		default: throw new IllegalArgumentException();
 		}
-//		return 0; // ?! Panic!
 	}
 }
