@@ -31,6 +31,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+	<!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+
 
 </head>
 
@@ -252,24 +256,45 @@
 			</div>
         </div>
 		<div class="row">
-				<div class="col-lg-12 text-center">
+			<div class="col-lg-12 text-center">
+				<br />
+				<br />
+				<h3>Checkout Exercise Code</h3>
+				<p><a href="https://github.com/victorrentea/training" target="_blank">https://github.com/victorrentea/training</a></p>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 text-center">
 				<br />
 				<br />
 				<h3>Download Virtual Machine</h3>
 					<p>
 					Enter password to generate download link: 
 					<input type="text" id="vm-db-password" onkeyup="recreateLink()" />
-					<script type="text/javascript">
-					function recreateLink() {
-						var link = makeDropboxUrl($('#vm-db-password').val());
-						$('#download-vm-link').prop('href',link);
-						$('#download-vm-link').text(link);
-					}
-					</script>
+					</p>
+					<p>
+						<span id="invalid-password" style="color:red">Invalid Password</span>
 					</p> 
 					<p>
-						<a href="linkSpan" id="download-vm-link" target="_blank" >asdd</a>
+						<a href="linkSpan" id="download-vm-link" target="_blank" ></a>
 					</p>
+					<script type="text/javascript">
+					
+					function recreateLink() {						
+						var link = makeDropboxUrl($('#vm-db-password').val());
+						$('#invalid-password').hide();
+						if ($('#download-vm-link').text() != "") return;
+						setTimeout(function() {
+							if (link.hashCode() == 1289763411) {
+								$('#download-vm-link').prop('href',link);
+								$('#download-vm-link').text(link);
+								$('#invalid-password').hide();
+							} else {
+								$('#invalid-password').show();
+							}	
+						}, 100);
+					}
+					$(function() {$('#invalid-password').hide();});
+					</script>
 				</div>
 			</div>
     </section>
@@ -608,9 +633,9 @@
 					
 					<li><p style="color:lightgray">[Accepted, Pending] <b>Clean Lambdas</b> at Dev Talks Bucharest, 8 june 2017</p></li>
 					
-					<li><p style="color:lightgray">[Accepted, Pending] <b>The Art of Clean Code</b> at jPrime Sofia, 30-31 may 2017</p></li>					
+					<li><p><b>The Art of Clean Code</b> at jPrime Sofia, 30 may 2017, (<a href="https://www.slideshare.net/VictorRentea/the-art-of-clean-code" target="_blank">slides</a>)</p></li>					
 					
-					<li><p style="color:lightgray">[Accepted, Pending] <b>The Art of Clean Code</b> at JEEConf Kiev, 26-27 may 2017</p></li>
+					<li><p><b>The Art of Clean Code</b> at JEEConf Kiev, 27 may 2017, (<a href="https://www.slideshare.net/VictorRentea/the-art-of-clean-code" target="_blank">slides</a>)</p></li>
 					
 					<li><p><b>The Art of Clean Code</b> at Codecamp Iasi, 13 may 2017 
 						(<a href="#codecamp-clean-code-teaser" class="portfolio-link" data-toggle="modal">teaser</a>)					
@@ -712,7 +737,7 @@
 					<p>The cerifications bellow provided me with a broad overview on most of the technologies and techniques employed in enterprise applications development.</p>
 					
 					<div class="text-center">
-						<a href="CV-Victor-Rentea.EN.pdf" class="btn btn-lg btn-outline" target="_blank"><i class="fa fa-download"></i> Check CV</a>
+						<a href="CV-Victor-Rentea.EN.pdf" class="btn btn-lg btn-outline" target="_blank"><i class="fa fa-download"></i> Download CV</a>
 					</div>
 				</div>
 				<div class="col-lg-5">						
@@ -2448,8 +2473,6 @@
 	
 	
 
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -2645,6 +2668,17 @@ function openDropboxForVM(password) {
 	alert("Let's try...\nIf you entered an invalid password, an incorrect DropBox link will be generated, and you'll get a 'Not Found' error.")
 	window.open(makeDropboxUrl(password));
 }
+
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr;
+  if (this.length === 0) return hash;
+  for (i = 0; i < this.length; i++) {
+    chr   = this.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+};
  
  
 </script>
