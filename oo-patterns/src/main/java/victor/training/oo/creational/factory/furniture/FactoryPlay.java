@@ -1,11 +1,11 @@
-package victor.training.oo.creational.factory;
+package victor.training.oo.creational.factory.furniture;
 
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import victor.training.oo.creational.factory.spi.FurnitureFactory;
-import victor.training.oo.creational.factory.valeni.ValeniFurnitureFactory;
+import victor.training.oo.creational.factory.furniture.spi.FurnitureFactory;
+import victor.training.oo.creational.factory.furniture.valeni.ValeniFurnitureFactory;
 
 public class FactoryPlay {
 
@@ -16,7 +16,7 @@ public class FactoryPlay {
 
 		List<Object> kitchen = distributor.getKitchenFurniture();
 
-		System.out.println("Delivered tables: " + kitchen);
+		System.out.println("Delivered objects: " + kitchen);
 
 		// 2
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

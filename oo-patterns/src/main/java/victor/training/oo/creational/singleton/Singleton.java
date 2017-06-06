@@ -15,14 +15,14 @@ public class Singleton {
 		return INSTANCE;
 	} // SOLUTION)
 
-	private String data;
+	private String sharedData;
 
-	public String getData() {
-		return data;
+	public String getSharedData() {
+		return sharedData;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+	public void setSharedData(String data) {
+		this.sharedData = data;
 	}
 
 }
