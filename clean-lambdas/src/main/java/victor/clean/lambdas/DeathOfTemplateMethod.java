@@ -12,7 +12,7 @@ public class DeathOfTemplateMethod {
 		int MAX_RETRIES = 3;
 		for (int i = 0; i < MAX_RETRIES; i++ ) {
 			Email email = new Email(); // constructor generates new unique ID
-			email.setSender("john.doe@corp.com");
+			email.setSender("noreply@corp.com");
 			email.setReplyTo("/dev/null");
 			email.setTo(emailAddress);
 			email.setSubject("Order Received");

@@ -1,7 +1,5 @@
 package victor.clean.lambdas;
 
-import java.util.Optional;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,26 +10,17 @@ public class OptionalVsNPE {
 				.setProfile(new Profile()
 					.setGoldCard(new GoldCard().setDiscount(1d))
 					);
-//		double discount = customer.getProfile().getGoldCard().getDiscount();
-		double discount = customer.getProfileOpt().map(Profile::getGoldCard).map(GoldCard::getDiscount).orElse(0d);
+		double discount = customer.getProfile().getGoldCard().getDiscount();
 		System.out.println("discount:  "+discount);
 	}
 }
 
 class Customer {
 	@Getter @Setter private Profile profile;
-	
-	public Optional<Profile> getProfileOpt() {
-		return Optional.ofNullable(profile);
-	}
 }
 
 class Profile {
 	@Getter @Setter private GoldCard goldCard;
-	
-	public Optional<GoldCard> getGoldCardOpt() {
-		return Optional.ofNullable(goldCard);
-	}
 }
 
 class GoldCard {
