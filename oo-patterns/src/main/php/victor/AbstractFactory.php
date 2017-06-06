@@ -56,7 +56,7 @@ class SteelThemeButton implements IButton {
 // -----------
 class HelloKittyThemeComponentFactory implements UIComponentFactory {
 	public function createButton() {
-		return new SteelThemeButton();
+		return new HelloKittyThemeButton();
 	}
 	public function createPanel();
 	public function createTextField();

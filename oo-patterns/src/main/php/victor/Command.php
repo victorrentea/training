@@ -16,19 +16,22 @@ class MyDependency {
 
 class MessageConsumer {
 	private $myDependency;
+	private $myDependency2;
 	public function consumeMessage($message) { // va fi invocata de supervizor
 		// roaga-te putin
 		// ba, da ce-o fi cumesaju asta ?
 		// ce tre sa fac cu el
 		if ($message instanceof DoStuffCommand) {
 			$this->myDependency->doStuff($message->nr);
-		} elseif 
+		} elseif ($message instanceof DoStuff2Command) {
+			$this->myDependency2->doStuff($message->nr);
+		}
 	}
 }
 
 class MessagePublisher {
 	public function sendMessage($command) {
-		ia coada, pune pe coada, vezi exceptii, roaga-te putin
+		// ia coada, pune pe coada, vezi exceptii, roaga-te putin
 	}
 }
 
