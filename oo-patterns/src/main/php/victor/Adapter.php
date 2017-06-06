@@ -35,11 +35,11 @@ class SmsSenderAdapter {
 		@var Phone $phone
 		..
 	*/
-	public function sendSms($phone, $textMessage) {		
+	public function sendSms(PhoneNumber $phone, string $textMessage) {		
 		try {
-			$delegate->sendSMS($phone->toString(), $textMessage);
+			$delegate->sendSMSXCADA($phone->toString(), $textMessage);
 		} catch (Exception $exception) {
-			throw new EmagException($exception);
+			throw new EmagException($exception); //:)
 		} 
 	}
 }

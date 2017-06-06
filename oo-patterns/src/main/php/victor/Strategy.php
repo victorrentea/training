@@ -17,9 +17,11 @@ public class UeTvaCalculator implements CustomsCalculator {
 	function canHandle($countryIso) {return inarray(UE_COUNTRIES, $package->getDestinationCountryISO();}
 }
 
-public class ChineTvaCalculator implements CustomsCalculator {
+public class ChinaTvaCalculator implements CustomsCalculator {
 	function calculate($value) { return $value*2; }
-	function canHandle($countryIso) { return $package->getDestinationCountryISO() == "CH";}
+	function canHandle($countryIso) { 
+		return $package->getDestinationCountryISO() == "CH";
+	}
 }
 
 public class DefaultTvaCalculator implements CustomsCalculator {
@@ -30,7 +32,7 @@ public class DefaultTvaCalculator implements CustomsCalculator {
 
 public class CustomsManager {
 	
-	private $algorithms;
+	private $algorithms = [];
 	
 	public function addAlgo($algo) {
 		$this->algorithms->add($algo);
@@ -38,13 +40,12 @@ public class CustomsManager {
 	
 	public function calculateCustoms($package) {
 		foreach ($this->algorithms as $algo) {
-			if ($algo->canHandle($package)) {
+			if ($algo->canHandle($package->getCountryIso())) {
 				$algo.calculate($package->getValue());	
 				return;
 			}
 		}
 		throw new RuntimeExce();
-		
 	}
 }
 
@@ -54,9 +55,16 @@ public class CustomsManager {
 	function () {
 		$this->customsManager->add(new ChineTvaCalculator());
 		$this->customsManager->add(new UeTvaCalculator());
+		$this->customsManager->add(new GreatBrexitTvaCalculator());
 		$this->customsManager->add(new DefaultTvaCalculator());
 		
 		
+		if (package->getOriginCountryIso() == "GB") {
+			tvaCalculator = new GreatBrexitTvaCalculator();
+		} else if () {}
+		
+		/** @var IActionHander */
+		var $handler = ;
 		button.addClickListener($handler);
 )
 	}
