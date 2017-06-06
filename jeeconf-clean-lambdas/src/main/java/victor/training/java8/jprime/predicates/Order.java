@@ -1,4 +1,4 @@
-package victor.training.java8.jeeconf.predicates;
+package victor.training.java8.jprime.predicates;
 
 import java.time.LocalDate;
 import java.util.List;
