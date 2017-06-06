@@ -2,7 +2,7 @@ package victor.training.oo.creational.builder;
 
 public class Address {
 	private String streetName;
-	private String streetNumber;
+	private Integer streetNumber;
 	private String city;
 	private String country;
 
@@ -13,6 +13,13 @@ public class Address {
 			address.setStreetName(streetName);
 			return this;
 		}
+		
+		// SOLUTION(
+		public Builder withStreetNumber(int streetNumber) {
+			address.setStreetNumber(streetNumber);
+			return this;
+		}
+		// SOLUTION)
 
 		public Address build() {
 			return address;
@@ -25,14 +32,6 @@ public class Address {
 
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
-	}
-
-	public String getStreetNumber() {
-		return streetNumber;
-	}
-
-	public void setStreetNumber(String streetNumber) {
-		this.streetNumber = streetNumber;
 	}
 
 	public String getCity() {
@@ -51,4 +50,14 @@ public class Address {
 		this.country = country;
 	}
 
+	public final Integer getStreetNumber() {
+		return streetNumber;
+	}
+
+	public final void setStreetNumber(Integer streetNumber) {
+		this.streetNumber = streetNumber;
+	}
+
+	
+	
 }
