@@ -17,13 +17,11 @@ class Movie {
 	@Getter @Setter private Type type;
 	
 	public double computePrice(int daysRented) {
-		
 		switch (type) {
-		
 		case CHILDREN: return 5;
 		case REGULAR: return 8 + 0.3 * (daysRented - 8);
 		case NEW_RELEASE: return 10 + 0.5 * daysRented;
-		default: throw new IllegalArgumentException();
 		}
+		return 0; // ?! Panic!
 	}
 }
