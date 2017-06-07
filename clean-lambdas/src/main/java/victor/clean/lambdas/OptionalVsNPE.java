@@ -6,10 +6,7 @@ import lombok.Setter;
 public class OptionalVsNPE {
 
 	public static void main(String[] args) {
-		Customer customer = new Customer()
-				.setProfile(new Profile()
-					.setGoldCard(new GoldCard().setDiscount(1d))
-					);
+		Customer customer = new Customer();
 		double discount = customer.getProfile().getGoldCard().getDiscount();
 		System.out.println("discount:  "+discount);
 	}
