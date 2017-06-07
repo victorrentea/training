@@ -2,7 +2,7 @@ package victor.clean.lambdas.higher;
 
 public class WrapAround {
 	public static void main(String[] args) {
-		insertCustomers();
+		insertLanguages();
 		insertCountries();
 	}
 	
@@ -10,8 +10,8 @@ public class WrapAround {
 	// System.nanoTime();
 
 	// existing
-	public static void insertCustomers() {
-		System.out.println("Insert customers");
+	public static void insertLanguages() {
+		System.out.println("Insert languages");
 	}
 
 	public static void insertCountries() {

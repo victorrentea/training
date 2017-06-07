@@ -3,15 +3,17 @@ package victor.clean.lambdas;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.summingInt;
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Set;
 
 public class StreamWrecks {
 	
-	public List<Product> stuff(List<Order> orders) {
+	public Set<Product> stuff(List<Order> orders) {
 		return orders.stream()
 			.filter(Order::isNotDelivered)
 			.map(Order::getOrderLines)
@@ -19,7 +21,7 @@ public class StreamWrecks {
 			.filter(line -> !line.isInStock())
 			.map(OrderLine::getProduct)
 			.filter(Product::isNotHidden)
-			.collect(toList());
+			.collect(toSet());
 	}
 	
 	public List<Product> stuff2(List<Order> orders) {
@@ -33,7 +35,6 @@ public class StreamWrecks {
 				.filter(e -> e.getValue() >= 10)
 				.map(Entry::getKey)
 				.filter(p->excludedProductIds.contains(p.getId()))
-				.sorted()
 				.collect(toList());
 	}
 
