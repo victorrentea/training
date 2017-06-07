@@ -12,6 +12,7 @@ public class NameYourLambdas {
 
 	//@Autowired
 	private ARepo aRepo;
+	
 	private List<B> getAllA() {
 		List<A> allA = aRepo.findAll();
 		return allA.stream()

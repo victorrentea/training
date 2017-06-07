@@ -4,6 +4,7 @@ import java.util.Random;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 public class DeathOfTemplateMethod {
 
@@ -25,10 +26,12 @@ public class DeathOfTemplateMethod {
 
 class EmailContext {
 	public boolean send(Email email) {
-		return new Random().nextBoolean();
+		System.out.println("Trying to send " + email);
+		return new Random(System.nanoTime()).nextBoolean();
 	}
 }
 
+@ToString
 class Email {
 	@Getter @Setter private String sender;
 	@Getter @Setter private String subject;

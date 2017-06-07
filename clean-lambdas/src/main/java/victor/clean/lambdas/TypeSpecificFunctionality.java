@@ -12,7 +12,7 @@ public class TypeSpecificFunctionality {
 
 class Movie {
 	enum Type {
-		CHILDREN, NEW_RELEASE, REGULAR
+		CHILDREN, REGULAR, NEW_RELEASE
 	}
 	@Getter @Setter private Type type;
 	
