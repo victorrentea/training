@@ -94,8 +94,9 @@
                         <span class="name">Victor Rentea</span>
                         <hr class="star-light">
                         <span class="skills">
-						<a href="#contact" style="color:white; text-decoration:underline;">Independent</a> Trainer - Technical Coach - Consultant</span> <br />
-						<a href="#portfolio" style="color:white; text-decoration:underline;"><span class="skills">1000+ trainees over 1500+ hours</span></a>
+						<a href="#contact" style="color:white; text-decoration:underline;">Independent</a> Trainer - Coach - Consultant</span> <br />
+						<a href="#portfolio" style="color:white; text-decoration:underline;"><span class="skills">1000+ trainees/1500+ hours</span></a> <br />						
+						<a href="CV-Victor-Rentea.EN.pdf" style="color:white;" target="_blank"><span class="skills"><i class="fa fa-download"></i> CV</span></a>
                     </div>
                 </div>
             </div>
@@ -111,6 +112,11 @@
                     <hr class="star-primary">
                 </div>
             </div>			
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<p>Click on any item to see the full agenda</p>
+				</div>
+			</div>
             <div class="row">
                 <div class="col-sm-3 col-xs-6 portfolio-item">
                     <a href="#clean-code" class="portfolio-link" data-toggle="modal">
@@ -254,49 +260,51 @@
 					<img src="curricula.jpg" class="img-responsive img-centered" />
 				</div>
 			</div>
-        </div>
+        
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<br />
 				<br />
 				<h3>Checkout Exercise Code</h3>
-				<p><a href="https://github.com/victorrentea/training" target="_blank">https://github.com/victorrentea/training</a></p>
+				<p><a href="https://github.com/victorrentea/training" style="word-wrap: break-word;" target="_blank">https://github.com/victorrentea/training</a></p>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<br />
 				<br />
-				<h3>Download Virtual Machine</h3>
-					<p>
-					Enter password to generate download link: 
-					<input type="text" id="vm-db-password" onkeyup="recreateLink()" />
-					</p>
-					<p>
-						<span id="invalid-password" style="color:red">Invalid Password</span>
-					</p> 
-					<p>
-						<a href="linkSpan" id="download-vm-link" target="_blank" ></a>
-					</p>
-					<script type="text/javascript">
-					
-					function recreateLink() {						
-						var link = makeDropboxUrl($('#vm-db-password').val());
-						$('#invalid-password').hide();
-						if ($('#download-vm-link').text() != "") return;
-						setTimeout(function() {
-							if (link.hashCode() == 1289763411) {
-								$('#download-vm-link').prop('href',link);
-								$('#download-vm-link').text(link);
-								$('#invalid-password').hide();
-							} else {
-								$('#invalid-password').show();
-							}	
-						}, 100);
-					}
-					$(function() {$('#invalid-password').hide();});
-					</script>
-				</div>
+				<h3>Practice Virtual Machine</h3>
+				<p>
+				Enter password to generate download link: 
+				<input type="text" id="vm-db-password" onkeyup="recreateLink()" />
+				</p>
+				<p>
+					<span id="invalid-password" style="color:red">Invalid Password</span>
+				</p> 
+				<p>
+					<a href="about:blank" id="download-vm-link" target="_blank" style="word-wrap: break-word;" ></a>
+				</p>
+				<script type="text/javascript">
+				
+				function recreateLink() {						
+					var link = makeDropboxUrl($('#vm-db-password').val());
+					$('#invalid-password').hide();
+					if ($('#download-vm-link').text() != "") return;
+					setTimeout(function() {
+						if (link.hashCode() == 1289763411) {
+							$('#download-vm-link').prop('href',link);
+							$('#download-vm-link').text(link);
+							$('#invalid-password').hide();
+						} else {
+							$('#invalid-password').show();
+						}	
+					}, 100);
+				}
+				$(function() {$('#invalid-password').hide();});
+				</script>
 			</div>
+		</div>
+		</div>
     </section>
 	
 	
@@ -354,7 +362,7 @@
 								<img data-u="image" src="poze/Spring + Clean Code @ DB 2016.jpg" />                
 							</div>	
 							<div data-p="112.50">
-								<img data-u="image" src="poze/Clean Code & DesignPatterns @ EMAG 2016 Craiova.jpg" />                
+								<img data-u="image" src="poze/Clean Code & DesignPatterns @ EMAG 2016 Craiova.jpg" />
 							</div>	
 							<div data-p="112.50">
 								<img data-u="image" src="poze/Java Performance @ DB 2016-2.jpg" />                
@@ -378,9 +386,6 @@
 								<img data-u="image" src="poze/voxxed-buc-2017.jpg" />                
 							</div>
 							<div data-p="112.50">
-								<img data-u="image" src="poze/Design Patterns + Clean Code @ EMAG 2017Q1.jpg" />                
-							</div>
-							<div data-p="112.50">
 								<img data-u="image" src="poze/Coding Dojo @ UPB.jpg" />                
 							</div>
 							<div data-p="112.50">
@@ -389,6 +394,10 @@
 							<div data-p="112.50">
 								<img data-u="image" src="poze/DB apr 2017.jpg" />                
 							</div>
+							<div data-p="112.50">
+								<img data-u="image" src="poze/cursanti db 22-25 mai 2017.jpg" />                
+							</div>
+							
 							
 							
 							
@@ -631,7 +640,7 @@
 
 					<li><p style="color:lightgray">[Accepted, Pending] <b>Clean Lambdas</b> at JBCNConf, Barcelona, 25-27 june 2017</p></li>
 					
-					<li><p style="color:lightgray">[Accepted, Pending] <b>Clean Lambdas</b> at Dev Talks Bucharest, 8 june 2017</p></li>
+					<li><p><b>Clean Lambdas</b> at Dev Talks Bucharest, 8 june 2017, <a href="https://youtu.be/guiDxfwfVGQ" target="_blank">screen cast</a> - soundless, sorry :((</p></li>
 					
 					<li><p><b>The Art of Clean Code</b> at jPrime Sofia, 30 may 2017, (<a href="https://www.slideshare.net/VictorRentea/the-art-of-clean-code" target="_blank">slides</a>)</p></li>					
 					
@@ -852,6 +861,29 @@
 					</a>
                 </div>
             </div>
+			<div class="row">
+			<div class="col-lg-6 col-lg-offset-3 text-center">
+				<br />
+				<a class="twitter-follow-button"  href="https://twitter.com/victorrentea" data-size="large">Follow me</a>
+				<script>window.twttr = (function(d, s, id) {
+					  var js, fjs = d.getElementsByTagName(s)[0],
+						t = window.twttr || {};
+					  if (d.getElementById(id)) return t;
+					  js = d.createElement(s);
+					  js.id = id;
+					  js.src = "https://platform.twitter.com/widgets.js";
+					  fjs.parentNode.insertBefore(js, fjs);
+
+					  t._e = [];
+					  t.ready = function(f) {
+						t._e.push(f);
+					  };
+
+					  return t;
+					}(document, "script", "twitter-wjs"));
+				</script>
+			</div>
+			</div>
 		</div>
 	</section>
 	
@@ -859,13 +891,14 @@
         <div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3 text-center">
-					<h2>Some Closing thoughts</h2>
+					<h2>Random Thoughts</h2>
 					<hr class="star-light">
 					<a class="twitter-timeline" href="https://twitter.com/victorrentea" data-widget-id="715637212658970626">Tweets by @victorrentea</a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 					
 				</div>
 			</div>
+			
         </div>
     </section>
 
