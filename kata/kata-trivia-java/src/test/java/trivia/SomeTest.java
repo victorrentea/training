@@ -1,4 +1,4 @@
-package com.adaptionsoft.games.trivia;
+package trivia;
 
 import static org.junit.Assert.*;
 

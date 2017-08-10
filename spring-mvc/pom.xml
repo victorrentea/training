@@ -92,9 +92,13 @@
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>6.2.0</version>
-			<scope>runtime</scope>
 		</dependency>
-		
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

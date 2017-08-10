@@ -3,21 +3,51 @@ package victor.training.spring.service;
 import java.net.URI;
 import java.util.Date;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
 import victor.training.spring.model.Employee;
 import victor.training.spring.model.Task;
 
-public interface EmployeeWSClient {
+public class EmployeeWSClient {
 
-	Employee getEmployee(String employeeId);
-	
-	Employee getEmployeeOnlyIfNewer(String employeeId, Date date);
+	// TODO 2: inject directly here (nothing in Spring xml)
+	private String base;
 
-	URI createEmployee(Employee employee);
+	public Employee getEmployee(String employeeId) {
+		return new RestTemplate().getForObject(
+				base + "/employee/{id}", Employee.class, employeeId);
+	}
 	
-	Task createEmployeeAsync(Employee employee);
+	public Employee getEmployeeOnlyIfNewer(String employeeId, Date date) {
+		ResponseEntity<Employee> response = new RestTemplate().getForEntity(
+				base + "/employee/{id}", Employee.class, employeeId);
+		
+		if (!date.before(new Date(response.getHeaders().getLastModified()))) {
+			throw new IllegalStateException("Entity did not change");
+		} else {
+			return response.getBody();
+		}
+	}
 	
-	void removeEmployee(String employeeId);
+	public Task createEmployeeAsync(Employee employee) {
+		return new RestTemplate().postForObject(base + "/employee", employee, Task.class);
+	}
 	
-	void updateEmployee(Employee employee);
+	public URI createEmployee(Employee employee) {
+		return new RestTemplate().postForLocation(base + "/employee", employee);
+	}
+
+	public void removeEmployee(String employeeId) {
+		new RestTemplate().delete("/employee/{id}", employeeId);
+	}
+	
+	public void updateEmployee(Employee employee) {
+		new RestTemplate().put(base + "/employee/{id}", employee, employee.getId()); 
+	}
+
+	public void setBase(String base) {
+		this.base = base;
+	}
 	
 }

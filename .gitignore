@@ -4,6 +4,7 @@ target
 .apt_generated
 .classpath
 .factorypath
+.idea
 application.xml
 /profiling/tmp
 profiling/in.dat

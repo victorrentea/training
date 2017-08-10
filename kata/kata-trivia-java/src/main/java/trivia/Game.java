@@ -1,4 +1,4 @@
-package com.adaptionsoft.games.uglytrivia;
+package trivia;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

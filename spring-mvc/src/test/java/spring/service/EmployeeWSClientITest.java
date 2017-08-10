@@ -16,7 +16,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import victor.training.spring.model.Employee;
 import victor.training.spring.model.Task;
 import victor.training.spring.service.EmployeeWSClient;
-import victor.training.spring.service.EntityNotModifiedException;
 
 @ContextConfiguration(locations = { "classpath:/application-config.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -53,7 +52,7 @@ public class EmployeeWSClientITest {
 		assertEquals("John Doe", employee.getName());
 	}
 	
-	@Test(expected = EntityNotModifiedException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testGetEmployeeOnlyIfNewer_withException() throws ParseException {
 		wsClient.getEmployeeOnlyIfNewer(
 				"1", new SimpleDateFormat("dd/MM/yyyy").parse("31/12/2013"));

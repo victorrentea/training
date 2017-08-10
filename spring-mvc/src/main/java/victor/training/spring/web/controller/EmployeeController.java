@@ -6,16 +6,27 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import victor.training.spring.model.Employee;
 import victor.training.spring.model.User;
 import victor.training.spring.service.HRService;
+
+import javax.validation.Valid;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 @RequestMapping("/employee")
@@ -28,7 +39,9 @@ public class EmployeeController {
 
 	@ModelAttribute //("user") // default is inferred from return type
 	public User getCurrentUsername() {
-		return new User("john.doe", "John Doe");
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String currentPrincipalName = authentication.getName();
+		return new User(currentPrincipalName, authentication.getAuthorities().toString());
 	}
 	
 	@RequestMapping
@@ -39,29 +52,31 @@ public class EmployeeController {
 		return "employeeList";
 	}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	public String showEmployee(@PathVariable("id") String employeeId, 
-			Map<String, Object> model) {
+	@RequestMapping(value = "{id}", method = GET)
+	public String showEmployee(@PathVariable("id") String employeeId, Model model) {
 		Employee employee = service.getEmployee(employeeId);
-		model.put("employee", employee);
+		model.addAttribute(employee);
 		return "employeeEdit";
 	}
 	
-	@RequestMapping(value = "create", method = RequestMethod.POST)
+	@RequestMapping(value = "create", method = POST)
 	public String create(Employee employee) {
 		service.createEmployee(employee);
 		return "redirect:/employee/";
 	}
-	
+
 	@RequestMapping("{id}/delete")
-	public String delete(@PathVariable("id") String employeeId) {
-		service.deleteEmployee(employeeId);
+	public String delete(@PathVariable String id) {
+		service.deleteEmployee(id);
 		return "redirect:/employee/";
 	}
 		
-	@RequestMapping(value = "{id}", method = RequestMethod.POST)	
-	public String updateEmployee(@PathVariable("id") String employeeId, Employee employee) {
-		service.updateEmployee(employeeId, employee);
+	@RequestMapping(value = "{id}", method = POST)
+	public String updateEmployee(@PathVariable String id, @Valid Employee employee, Errors errors) {
+	    if (errors.hasErrors()) {
+	        return "employeeEdit";
+        }
+		service.updateEmployee(id, employee);
 		return "redirect:/employee/";
 	}
 	

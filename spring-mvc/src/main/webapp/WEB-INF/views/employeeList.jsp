@@ -5,7 +5,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <html>
 <body>
-	Hi, <b><c:out value="${user.fullName}" /></b>
+	Hi, <b><c:out value="${user.username}" /></b>
 	<h2>Employee List</h2>	
 	<table border="1" style="border-collapse: collapse;">
 		<tr>
@@ -20,16 +20,16 @@
 				<td><c:out value="${employee.phone}" /></td>
 				<td><a href="${employee.id}">edit</a></td>
 				<td width="30">
-					<%--<security:authorize url="/employee/${employee.id}/delete">--%>
+					<security:authorize url="/employee/${employee.id}/delete">
 						<a href="${employee.id}/delete">delete</a>
-					<%--</security:authorize>--%>
+					</security:authorize>
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br />
 	<input type="text" value="<c:out value='${param[\"name\"]}' />" id="nameFilter" />
-	<input type="button" value="Filter by Name" onclick="javascript:window.location='?name='+document.getElementById('nameFilter').value;" />
+	<input type="button" value="Filter by Name" onclick="window.location='?name='+document.getElementById('nameFilter').value;" />
 	<br /> 
 	<br />
 	<h3>Create new Employee</h3>

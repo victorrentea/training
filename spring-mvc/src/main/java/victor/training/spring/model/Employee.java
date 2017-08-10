@@ -1,14 +1,25 @@
 package victor.training.spring.model;
 
+
 import java.util.UUID;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Employee {
 	private String id = UUID.randomUUID().toString();
+	@NotNull
+	@Size(min = 2, max = 50)
 	private String name;
+	@NotNull
+	@Size(min = 8, max = 14)
 	private String phone;
+
+	@NotNull
+	private Integer birthYear;
 
 	public Employee() {
 	}

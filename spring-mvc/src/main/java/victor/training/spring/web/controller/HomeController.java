@@ -1,13 +1,12 @@
 package victor.training.spring.web.controller;
 
+import net.sf.jasperreports.engine.JREmptyDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import net.sf.jasperreports.engine.JREmptyDataSource;
 
 @Controller
 @RequestMapping("/")
@@ -20,10 +19,8 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("pdf")
+	@RequestMapping(value = "first.pdf", produces = "application/pdf")
 	public ModelAndView exportAPdf(ModelMap modelMap) {
-		log.error("Hello world!");
-		log.debug("Hello world!");
 		modelMap.put("datasource", new JREmptyDataSource());
 		modelMap.put("format", "pdf");
 		return new ModelAndView("FirstJasper.jasper", modelMap);
