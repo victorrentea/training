@@ -58,7 +58,7 @@ class Parking(private val size:Int, private val pedestrianIndexes:Set[Int], disa
   }
 }
 
-trait ParkingSlot {
+abstract sealed class ParkingSlot {
   def index: Int
 	def isFree: Boolean
 	val isDisabled: Boolean
@@ -66,7 +66,7 @@ trait ParkingSlot {
   def unpark():Boolean
   def toCharCode:Character
 }
-class NormalSlot(val index : Int) extends ParkingSlot {
+case class NormalSlot(val index : Int) extends ParkingSlot {
   var carType:Option[Character] = None
   def isFree = carType.isEmpty
   val isDisabled = false
@@ -84,14 +84,14 @@ class NormalSlot(val index : Int) extends ParkingSlot {
   }
   override def toString() = s"Normal(${index})=${carType}"
 }
-class PedestrianSlot(val index : Int) extends ParkingSlot {
+case class PedestrianSlot(val index : Int) extends ParkingSlot {
 	def isFree = false
 	val isDisabled = false
 	def park(carType:Char) = throw new NotImplementedError
   val unpark = false
   val toCharCode = '='
 }
-class DisabledSlot(val index : Int) extends ParkingSlot {
+case class DisabledSlot(val index : Int) extends ParkingSlot {
   private var free = true
   def isFree = free
   val isDisabled = true
