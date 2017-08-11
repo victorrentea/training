@@ -384,49 +384,63 @@
 				
 
             </div>
-			
+	
+
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<br />
+				<br />
+				<h2>In Images</h2>
+				<hr class="star-light">
+			</div>
+		</div>	
 			
 		<div class="row">
+		<style>.g-item{
+    /*width: 200px;*/
+    height: 120px;
+}
+</style>
 			<script>
 				var poze = [
+					"Scala @ Deloitte 2017.jpg",
 					"Clean Code + Coding Dojo @ EMAG 2017 no1.jpg",
 					"Clean Code + Coding Dojo @ EMAG 2017 no2.jpg",
+					"Spring + Clean Code @ Deutche Bank 2017 no1.jpg",
+					"Spring + Clean Code @ Deutche Bank 2017 no2.jpg",
+					"Design Patterns @ EMAG 2017 no1.jpg",
+					"Coding Dojo @ AgileWorks @ UPB 2017.jpg",
+					"Spring, Design Patterns, Java8 and Clean Code @ ABS 2017.jpg",
+					"Talks about Clean Code, Clean Architecture and Clean Lambdas (2016-09 -- 2017-07).jpg",
 					"Clean Code + Design Patterns @ EMAG 2016 Craiova.jpg",
 					"Clean Code + Design Patterns @ EMAG 2016 Iasi.jpg",
 					"Clean Code @ eSolutions 2016.jpg",
 					"Clean Lambdas workshop @ VoxxedDays Bucharest 2017.jpg",
-					"Coding Dojo @ AgileWorks @ UPB.jpg",
 					"Design Patterns @ EMAG 2016 no1.jpg",
 					"Design Patterns @ EMAG 2016 no2.jpg",
-					"Design Patterns @ EMAG 2017 no1.jpg",
 					"Design Patterns @ OOP Course @ UPB 2016.jpg",
-					"EJB + JPA @ Magdeburg, Germany 2014.jpg",
 					"Java Performance Tunning+Programming@ DB 2016 no1.jpg",
 					"Java Performance Tunning+Programming@ DB 2016 no2.jpg",
 					"Java Performance Tunning+Programming@ DB 2017 no1.jpg",
-					"Scala @ Deloitte 2017.jpg",
 					"Spring + Clean Code @ Betfair, Cluj 2017.jpg",
 					"Spring + Clean Code @ Deutche Bank 2016 no1.jpg",
 					"Spring + Clean Code @ Deutche Bank 2016 no2.jpg",
 					"Spring + Clean Code @ Deutche Bank 2016 no3.jpg",
-					"Spring + Clean Code @ Deutche Bank 2017 no1.jpg",
-					"Spring + Clean Code @ Deutche Bank 2017 no2.jpg",
 					"Spring + Clean Code @ Thales 2016.jpg",
 					"Spring @ ING 2015.jpg",
-					"Spring, Design Patterns, Java8 and Clean Code @ ABS.jpg",
-					"Talks about Clean Code, Clean Architecture and Clean Lambdas (2016-09 -- 2017-07).jpg"				
+					"EJB + JPA @ Magdeburg, Germany 2014.jpg",
 				];
 				
 				for (var i = 0; i < poze.length; i++) {
 					var fullSizePath = "poze/" + poze[i]
 					var thumbPath = "poze/" + poze[i]//.replace(".jpg", ".small.jpg")
 					var titlu = poze[i].replace(".jpg","")
-					document.write('<div class="col-lg-2 col-md-3 col-xs-4 padding-0">')
+					document.write('<div class="col-lg-2 col-md-3 col-xs-4 padding-0"><div class="g-item"">')
 					document.write('<a href="'+fullSizePath+'" data-toggle="lightbox" data-gallery="example-gallery" data-title="'+titlu+'">')
 					document.write('<img class="img-responsive" src="'+thumbPath + '" alt="'+poze[i]+'"></img>')
 					
 					document.write('</a>')
-					document.write('</div>')
+					document.write('</div></div>')
 				}
 			</script>
 		</div>
@@ -542,6 +556,16 @@
 				</div>
 			</div>
 			-->
+			<div class="row">
+				<div class="col-lg-12 text-center">
+				<br />
+				<br />
+				<br />
+				<br />
+					<h2>In Words</h2>
+					<hr class="star-light">
+				</div>
+			</div>	
 			
 			<div class="row"> 
 				<div class="col-sm-6 recommendation">
