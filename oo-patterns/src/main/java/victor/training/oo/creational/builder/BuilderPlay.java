@@ -4,25 +4,28 @@ public class BuilderPlay {
 
 	public static void main(String[] args) {
 		
-//		Customer customer = new Customer(); // INITIAL
-//		customer.setName("John Doe"); // INITIAL
-//		List<String> labels = new ArrayList<String>(); // INITIAL
-//		labels.add("Label1"); // INITIAL
-//		customer.setLabels(labels); // INITIAL
-//		Address address = new Address(); // INITIAL
-//		address.setStreetName("Viorele"); // INITIAL
-//		address.setStreetNumber(4); // INITIAL
-//		customer.setAddress(address); // INITIAL
+		// INITIAL(
+//		Customer customer = new Customer(); 
+//		customer.setName("John Doe"); 
+//		List<String> labels = new ArrayList<String>(); 
+//		labels.add("Label1"); 
+//		customer.setLabels(labels); 
+//		Address address = new Address(); 
+//		address.setStreetName("Viorele"); 
+//		address.setStreetNumber(4); 
+//		address.setCity("Bucharest");
+//		customer.setAddress(address); 
+		// INITIAL)
 		
 		
 		// SOLUTION(
-		Customer customer = new Customer.Builder()
+		Customer customer = new CustomerBuilder()
 			.withName("John Doe")
 			.withLabel("Label1")
-			.withAddress(new Address.Builder()
+			.withAddress(new AddressBuilder()
 				.withStreetName("Viorele")
-				.withStreetNumber(4)				
-				.build())
+				.withStreetNumber(4)
+				.withCity("Bucharest"))
 			.build();
 		// SOLUTION)
 		

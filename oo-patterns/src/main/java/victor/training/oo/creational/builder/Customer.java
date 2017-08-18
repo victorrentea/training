@@ -12,32 +12,6 @@ public class Customer {
 	private Address address;
 	private Date createDate;
 
-	public static class Builder {
-		private final Customer customer = new Customer();
-
-		public Builder withName(String name) {
-			customer.setName(name);
-			return this;
-		}
-
-		// SOLUTION(
-		
-		public Builder withLabel(String label) {
-			customer.getLabels().add(label);
-			return this;
-		}
-
-		public Builder withAddress(Address address) { 
-			customer.setAddress(address);
-			return this;
-		}
-		// SOLUTION)
-
-		public Customer build() {
-			return customer;
-		}
-	}
-
 	public Address getAddress() {
 		return address;
 	}

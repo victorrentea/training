@@ -6,26 +6,6 @@ public class Address {
 	private String city;
 	private String country;
 
-	public static class Builder {
-		private final Address address = new Address();
-
-		public Builder withStreetName(String streetName) {
-			address.setStreetName(streetName);
-			return this;
-		}
-		
-		// SOLUTION(
-		public Builder withStreetNumber(int streetNumber) {
-			address.setStreetNumber(streetNumber);
-			return this;
-		}
-		// SOLUTION)
-
-		public Address build() {
-			return address;
-		}
-	}
-
 	public String getStreetName() {
 		return streetName;
 	}
@@ -57,7 +37,5 @@ public class Address {
 	public final void setStreetNumber(Integer streetNumber) {
 		this.streetNumber = streetNumber;
 	}
-
-	
 	
 }
