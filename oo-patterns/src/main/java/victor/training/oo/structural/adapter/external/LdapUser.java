@@ -37,8 +37,6 @@ public class LdapUser {
 		this.creationDate = creationDate;
 	}
 	
-	
-	
 	public final String getWorkEmail() {
 		return workEmail;
 	}
@@ -51,7 +49,5 @@ public class LdapUser {
 	public final void setEmailAddresses(List<LdapUserPhone> emailAddresses) {
 		this.emailAddresses = emailAddresses;
 	}
-	
-	
 	
 }

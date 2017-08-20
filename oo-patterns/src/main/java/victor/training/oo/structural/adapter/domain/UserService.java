@@ -14,9 +14,9 @@ public class UserService {
 	}
 
 	public void importUserFromLdap(String username) {
-		List<LdapUser> list = wsClient.search(username, null, null);
+		List<LdapUser> list = wsClient.search(username.toUpperCase(), null, null);
 		if (list.size() != 1) {
-			throw new IllegalArgumentException("There is no user with username " + username);
+			throw new IllegalArgumentException("There is no single user matching username " + username);
 		}
 		LdapUser ldapUser = list.get(0);
 		String fullName = ldapUser.getfName() + " " + ldapUser.getlName().toUpperCase();
@@ -29,7 +29,7 @@ public class UserService {
 	}
 	
 	public List<User> searchUserInLdap(String username) {
-		List<LdapUser> list = wsClient.search(username, null, null);
+		List<LdapUser> list = wsClient.search(username.toUpperCase(), null, null);
 		List<User> results = new ArrayList<>();
 		for (LdapUser ldapUser : list) {
 			String fullName = ldapUser.getfName() + " " + ldapUser.getlName().toUpperCase();
