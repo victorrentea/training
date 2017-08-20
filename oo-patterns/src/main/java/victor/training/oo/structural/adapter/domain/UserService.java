@@ -18,9 +18,9 @@ public class UserService {
 		if (list.size() != 1) {
 			throw new IllegalArgumentException("There is no user with username " + username);
 		}
-		LdapUser theLdapUser = list.get(0);
-		String fullName = theLdapUser.getfName() + " " + theLdapUser.getlName().toUpperCase();
-		User user = new User(username, fullName, theLdapUser.getWorkEmail());
+		LdapUser ldapUser = list.get(0);
+		String fullName = ldapUser.getfName() + " " + ldapUser.getlName().toUpperCase();
+		User user = new User(username, fullName, ldapUser.getWorkEmail());
 		
 		if (user.getWorkEmail() != null) {
 			System.out.println("Send welcome email to " + user.getWorkEmail());
