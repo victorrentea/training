@@ -26,10 +26,16 @@ public class Undoner {
 	static File sourceDir;
 	static File destDir;
 	
+	@SuppressWarnings("unchecked")
 	static boolean undoFile(File source, File destination, boolean dryRun) {
 		try {
-			@SuppressWarnings("unchecked")
-			List<String> inLines = IOUtils.readLines(new FileReader(source));
+			List<String> inLines;
+			try (FileReader reader = new FileReader(source)) {
+				inLines = IOUtils.readLines(reader);
+			}
+			if (inLines.get(0).contains("SOLUTION")) {
+				source.delete();
+			}
 			List<String> outLines = new ArrayList<>();
 			boolean skippingSolution = false;
 			boolean uncommentingInitial = false;
