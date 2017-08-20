@@ -8,7 +8,7 @@ public class GameRunner {
 	private static boolean notAWinner;
 
 	public static void main(String[] args) {
-		Game aGame = new Game();
+		IGame aGame = new Game();
 		
 		aGame.add("Chet");
 		aGame.add("Pat");
@@ -17,7 +17,6 @@ public class GameRunner {
 		Random rand = new Random();
 	
 		do {
-			
 			aGame.roll(rand.nextInt(5) + 1);
 			
 			if (rand.nextInt(9) == 7) {
@@ -25,8 +24,6 @@ public class GameRunner {
 			} else {
 				notAWinner = aGame.wasCorrectlyAnswered();
 			}
-			
-			
 			
 		} while (notAWinner);
 		

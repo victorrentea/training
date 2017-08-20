@@ -14,37 +14,38 @@ import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
 public class GoldenMasterTest {
+	
 	@Parameters
 	public static Collection<Object[]> data() {
-		return IntStream.range(0, 1000).mapToObj(i -> new Integer[]{i}).collect(toList());
+		return IntStream.range(0, 10).mapToObj(i -> new Object[]{i}).collect(toList());
 	}
 	
-	private final int seed;
-
+	final int seed;
+	
 	public GoldenMasterTest(int seed) {
 		this.seed = seed;
 	}
-	
-	public static class GameToRefactor extends Game {
-		// TODO do not extend, but copy the implem here and start refactoring it
-	}
 
 	@Test
-	public void testOutputIsTheSameAsOriginal() {
-		String expectedOutput = CapturingSystemOutDemo.captureOutput(() -> playGame(new Game(), new Random(seed)));
-		String actualOutput = CapturingSystemOutDemo.captureOutput(() -> playGame(new GameToRefactor(), new Random(seed)));
+	public void m() {
+		String expectedOutput = CapturingSystemOutDemo.captureOutput(() -> runOld(seed));
+		String actualOutput = CapturingSystemOutDemo.captureOutput(() -> runNew(seed));
 		assertEquals(expectedOutput, actualOutput);
 	}
-
-	private void playGame(Game game, Random random) {
+	
+	private void runOld(int seed) {
+		Game game = new Game();
 		game.add("Chet");
 		game.add("Pat");
 		game.add("Sue");
 		
+		Random rand = new Random(seed);
+		
 		boolean notAWinner;
 		do {
-			game.roll(random.nextInt(5) + 1);
-			if (random.nextInt(9) == 7) {
+			game.roll(rand.nextInt(5) + 1);
+			
+			if (rand.nextInt(9) == 7) {
 				notAWinner = game.wrongAnswer();
 			} else {
 				notAWinner = game.wasCorrectlyAnswered();
@@ -52,4 +53,25 @@ public class GoldenMasterTest {
 			
 		} while (notAWinner);
 	}
+	private void runNew(int seed) {
+		BetterGame game = new BetterGame();
+		game.add("Chet");
+		game.add("Pat");
+		game.add("Sue");
+		
+		Random rand = new Random(seed);
+	
+		boolean notAWinner;
+		do {
+			game.roll(rand.nextInt(5) + 1);
+			
+			if (rand.nextInt(9) == 7) {
+				notAWinner = !game.wrongAnswer();
+			} else {
+				notAWinner = !game.wasCorrectlyAnswered();
+			}
+			
+		} while (notAWinner);
+	}
+
 }

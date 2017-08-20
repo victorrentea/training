@@ -15,7 +15,11 @@ public class ParameterizedJUnitTestsDemo {
 	
 	@Parameters
 	public static Collection<Object[]> data() {
-		return Arrays.asList(new Object[]{0}, new Object[]{1}, new Object[]{2}, new Object[]{3});
+		return Arrays.asList(
+				new Object[]{0}, 
+				new Object[]{1}, 
+				new Object[]{2}, 
+				new Object[]{3});
 	}
 	
 	private final int param;

@@ -3,7 +3,7 @@ package trivia;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Game {
+public class Game implements IGame {
     ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
@@ -26,14 +26,17 @@ public class Game {
     	}
     }
 
+	@Override
 	public String createRockQuestion(int index){
 		return "Rock Question " + index;
 	}
 	
+	@Override
 	public boolean isPlayable() {
 		return (howManyPlayers() >= 2);
 	}
 
+	@Override
 	public boolean add(String playerName) {
 		
 		
@@ -47,10 +50,12 @@ public class Game {
 		return true;
 	}
 	
+	@Override
 	public int howManyPlayers() {
 		return players.size();
 	}
 
+	@Override
 	public void roll(int roll) {
 		System.out.println(players.get(currentPlayer) + " is the current player");
 		System.out.println("They have rolled a " + roll);
@@ -112,6 +117,7 @@ public class Game {
 		return "Rock";
 	}
 
+	@Override
 	public boolean wasCorrectlyAnswered() {
 		if (inPenaltyBox[currentPlayer]){
 			if (isGettingOutOfPenaltyBox) {
@@ -152,6 +158,7 @@ public class Game {
 		}
 	}
 	
+	@Override
 	public boolean wrongAnswer(){
 		System.out.println("Question was incorrectly answered");
 		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
