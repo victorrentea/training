@@ -46,8 +46,8 @@ public class Undoner {
 			boolean skippingSolution = false;
 			boolean uncommentingInitial = false;
 			for (String line : inLines) {
-				List<String> startSolutionTokens = Arrays.asList("//\\w*SOLUTION(\\w*", "<!--\\w*SOLUTION\\w*(");
-				List<String> endSolutionTokens = Arrays.asList("//\\w*SOLUTION\\w*)", "<!--\\w*SOLUTION\\w*)");
+				List<String> startSolutionTokens = Arrays.asList("//\\w*SOLUTION\\(\\w*", "<!--\\w*SOLUTION\\w*\\(");
+				List<String> endSolutionTokens = Arrays.asList("//\\w*SOLUTION\\w*\\)", "<!--\\w*SOLUTION\\w*\\)");
 				final String origLine = line;
 				if (startSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
 					skippingSolution = true;
@@ -57,11 +57,11 @@ public class Undoner {
 				} else if (lineContains(line, "//\\w*SOLUTION")) {
 					continue;
 				}
-				if (lineContains(line,"//\\w*INITIAL\\w*(")) {
-					line = line.replaceAll("//\\w*INITIAL\\w*(", "");
+				if (lineContains(line,"//\\w*INITIAL\\w*\\(")) {
+					line = line.replaceAll("//\\w*INITIAL\\w*\\(", "");
 					uncommentingInitial = true;
-				} else if (line.contains("//\\w*INITIAL\\w*)")) {
-					line = line.replaceAll("//\\w*INITIAL\\w*)", "").replaceFirst("//", "");
+				} else if (line.contains("//\\w*INITIAL\\w*\\)")) {
+					line = line.replaceAll("//\\w*INITIAL\\w*\\)", "").replaceFirst("//", "");
 					uncommentingInitial = false;
 				} else if (line.contains("//\\w*INITIAL")) {
 					line = line.replaceAll("//\\w*INITIAL","").replaceFirst("//", "");
