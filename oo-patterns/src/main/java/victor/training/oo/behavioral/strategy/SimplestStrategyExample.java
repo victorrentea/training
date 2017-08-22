@@ -24,7 +24,7 @@ class AscendingComparator implements Comparator<Integer> {
 	}
 }
 
-//public class DescendingComparator { // INITIAL
+//class DescendingComparator { // INITIAL
 class DescendingComparator implements Comparator<Integer> { // SOLUTION(
 	public int compare(Integer o1, Integer o2) {
 		return o2 - o1;
