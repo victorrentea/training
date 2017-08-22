@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -26,39 +27,43 @@ public class Undoner {
 	static File sourceDir;
 	static File destDir;
 	
+	private static boolean lineContains(String line, String regex) {
+		return Pattern.compile(regex).matcher(line).find();
+	}
+	
 	@SuppressWarnings("unchecked")
-	static boolean undoFile(File source, File destination, boolean dryRun) {
+	static boolean undoFile(File sourceFile, File destination, boolean dryRun) {
 		try {
 			List<String> inLines;
-			try (FileReader reader = new FileReader(source)) {
+			try (FileReader reader = new FileReader(sourceFile)) {
 				inLines = IOUtils.readLines(reader);
 			}
 			if (inLines.get(0).contains("SOLUTION")) {
-				source.delete();
+				sourceFile.delete();
 			}
 			List<String> outLines = new ArrayList<>();
 			boolean skippingSolution = false;
 			boolean uncommentingInitial = false;
 			for (String line : inLines) {
-				List<String> startSolutionTokens = Arrays.asList("// SOLUTION(", "// SOLUTION (", "<!-- SOLUTION (", "<!-- SOLUTION(");
-				List<String> endSolutionTokens = Arrays.asList("// SOLUTION)", "// SOLUTION )", "<!-- SOLUTION)", "<!-- SOLUTION )");
+				List<String> startSolutionTokens = Arrays.asList("//\\w*SOLUTION(\\w*", "<!--\\w*SOLUTION\\w*(");
+				List<String> endSolutionTokens = Arrays.asList("//\\w*SOLUTION\\w*)", "<!--\\w*SOLUTION\\w*)");
 				final String origLine = line;
-				if (startSolutionTokens.stream().anyMatch(token -> origLine.contains(token))) {
+				if (startSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
 					skippingSolution = true;
-				} else if (endSolutionTokens.stream().anyMatch(token -> origLine.contains(token))) {
+				} else if (endSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
 					skippingSolution = false;
 					continue;
-				} else if (line.contains("// SOLUTION")) {
+				} else if (lineContains(line, "//\\w*SOLUTION")) {
 					continue;
 				}
-				if (line.contains("// INITIAL(")) {
-					line = line.replace("// INITIAL(", "");
+				if (lineContains(line,"//\\w*INITIAL\\w*(")) {
+					line = line.replaceAll("//\\w*INITIAL\\w*(", "");
 					uncommentingInitial = true;
-				} else if (line.contains("// INITIAL)")) {
-					line = line.replace("// INITIAL)", "").replaceFirst("//", "");
+				} else if (line.contains("//\\w*INITIAL\\w*)")) {
+					line = line.replaceAll("//\\w*INITIAL\\w*)", "").replaceFirst("//", "");
 					uncommentingInitial = false;
-				} else if (line.contains("// INITIAL")) {
-					line = line.replaceAll("// INITIAL","").replaceFirst("//", "");
+				} else if (line.contains("//\\w*INITIAL")) {
+					line = line.replaceAll("//\\w*INITIAL","").replaceFirst("//", "");
 				}
 				if (uncommentingInitial) {
 					line = line.replaceFirst("//", "");
