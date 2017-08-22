@@ -38,7 +38,7 @@ public class Undoner {
 			try (FileReader reader = new FileReader(sourceFile)) {
 				inLines = IOUtils.readLines(reader);
 			}
-			if (inLines.get(0).contains("SOLUTION")) {
+			if (inLines.size() >= 1 && inLines.get(0).contains("SOLUTION")) {
 				sourceFile.delete();
 				return true;
 			}
@@ -46,25 +46,25 @@ public class Undoner {
 			boolean skippingSolution = false;
 			boolean uncommentingInitial = false;
 			for (String line : inLines) {
-				List<String> startSolutionTokens = Arrays.asList("//\\w*SOLUTION\\(\\w*", "<!--\\w*SOLUTION\\w*\\(");
-				List<String> endSolutionTokens = Arrays.asList("//\\w*SOLUTION\\w*\\)", "<!--\\w*SOLUTION\\w*\\)");
+				List<String> startSolutionTokens = Arrays.asList("//\\s*SOLUTION\\(\\s*", "<!--\\s*SOLUTION\\s*\\(");
+				List<String> endSolutionTokens = Arrays.asList("//\\s*SOLUTION\\s*\\)", "<!--\\s*SOLUTION\\s*\\)");
 				final String origLine = line;
 				if (startSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
 					skippingSolution = true;
 				} else if (endSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
 					skippingSolution = false;
 					continue;
-				} else if (lineContains(line, "//\\w*SOLUTION")) {
+				} else if (lineContains(line, "//\\s*SOLUTION")) {
 					continue;
 				}
-				if (lineContains(line,"//\\w*INITIAL\\w*\\(")) {
-					line = line.replaceAll("//\\w*INITIAL\\w*\\(", "");
+				if (lineContains(line,"//\\s*INITIAL\\s*\\(")) {
+					line = line.replaceAll("//\\s*INITIAL\\s*\\(", "");
 					uncommentingInitial = true;
-				} else if (line.contains("//\\w*INITIAL\\w*\\)")) {
-					line = line.replaceAll("//\\w*INITIAL\\w*\\)", "").replaceFirst("//", "");
+				} else if (line.contains("//\\s*INITIAL\\s*\\)")) {
+					line = line.replaceAll("//\\s*INITIAL\\s*\\)", "").replaceFirst("//", "");
 					uncommentingInitial = false;
-				} else if (line.contains("//\\w*INITIAL")) {
-					line = line.replaceAll("//\\w*INITIAL","").replaceFirst("//", "");
+				} else if (line.contains("//\\s*INITIAL")) {
+					line = line.replaceAll("//\\s*INITIAL","").replaceFirst("//", "");
 				}
 				if (uncommentingInitial) {
 					line = line.replaceFirst("//", "");
