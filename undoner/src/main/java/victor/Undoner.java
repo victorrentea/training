@@ -40,6 +40,7 @@ public class Undoner {
 			}
 			if (inLines.get(0).contains("SOLUTION")) {
 				sourceFile.delete();
+				return true;
 			}
 			List<String> outLines = new ArrayList<>();
 			boolean skippingSolution = false;
