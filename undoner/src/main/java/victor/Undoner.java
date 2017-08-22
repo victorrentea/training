@@ -60,10 +60,10 @@ public class Undoner {
 				if (lineContains(line,"//\\s*INITIAL\\s*\\(")) {
 					line = line.replaceAll("//\\s*INITIAL\\s*\\(", "");
 					uncommentingInitial = true;
-				} else if (line.contains("//\\s*INITIAL\\s*\\)")) {
+				} else if (lineContains(line, "//\\s*INITIAL\\s*\\)")) {
 					line = line.replaceAll("//\\s*INITIAL\\s*\\)", "").replaceFirst("//", "");
 					uncommentingInitial = false;
-				} else if (line.contains("//\\s*INITIAL")) {
+				} else if (lineContains(line, "//\\s*INITIAL")) {
 					line = line.replaceAll("//\\s*INITIAL","").replaceFirst("//", "");
 				}
 				if (uncommentingInitial) {
