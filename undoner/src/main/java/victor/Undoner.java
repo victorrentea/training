@@ -46,7 +46,7 @@ public class Undoner {
 			boolean skippingSolution = false;
 			boolean uncommentingInitial = false;
 			for (String line : inLines) {
-				List<String> startSolutionTokens = Arrays.asList("//\\s*SOLUTION\\(\\s*", "<!--\\s*SOLUTION\\s*\\(");
+				List<String> startSolutionTokens = Arrays.asList("//\\s*SOLUTION\\s*\\(", "<!--\\s*SOLUTION\\s*\\(");
 				List<String> endSolutionTokens = Arrays.asList("//\\s*SOLUTION\\s*\\)", "<!--\\s*SOLUTION\\s*\\)");
 				final String origLine = line;
 				if (startSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
