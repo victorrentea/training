@@ -3,11 +3,11 @@ package victor.training.oo.structural.proxy;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class ExpensiveMath implements IExpensiveMath {
+//public class ExpensiveMath { // INITIAL
+public class ExpensiveMath implements IExpensiveMath { // SOLUTION
 	
 	private BigDecimal TWO = new BigDecimal("2");
 	
-	@Override
 	public boolean isPrime(BigDecimal number) { // silly implem
 		if (number.compareTo(TWO) <= 0) {
 			return true;
@@ -24,7 +24,7 @@ public class ExpensiveMath implements IExpensiveMath {
 		}
 		return true;
 	}
-	@Override
+
 	public BigDecimal sqrt(BigDecimal A, final int SCALE) {
 	    BigDecimal x0 = new BigDecimal("0");
 	    BigDecimal x1 = new BigDecimal(Math.sqrt(A.doubleValue()));

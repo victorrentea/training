@@ -37,6 +37,5 @@ public class CustomerValidatorTest {
 		return new AddressBuilder()
 				.withStreetName("Viorele")
 				.withCity("Bucharest");
-	}
-	//SOLUTION)
+	} 	// SOLUTION)
 }

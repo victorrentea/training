@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class ExpensiveMathClient {
 	
-//	private final ExpensiveMath math; // INTIAL
+//	private final ExpensiveMath math; // INITIAL
 	private final IExpensiveMath math; // SOLUTION
 	
 //	public ExpensiveMathClient(ExpensiveMath math) { // INITIAL
