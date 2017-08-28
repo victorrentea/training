@@ -1,4 +1,4 @@
-package victor.training.oo.gui;
+package victor.training.oo.structural.composite;
 
 import java.awt.GridLayout;
 

@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 
 import victor.training.oo.behavioral.template.byhand.EmailCustomerProcessor;
-import victor.training.oo.gui.MyFrame;
+import victor.training.oo.structural.composite.MyFrame;
 
 public class TemplateMethodPlay {
 	public static void main(String[] args) {

@@ -5,8 +5,6 @@ import java.awt.Font;
 
 import javax.swing.JComponent;
 
-import victor.training.oo.gui.MyFrame;
-
 public class CompositePlay {
 	public static void main(String[] args) {
 		MyFrame myFrame = new MyFrame();

@@ -1,4 +1,4 @@
-package victor.training.oo;
+package victor.training.oo.stuff;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -11,6 +11,6 @@ public class GenericTypes {
 	public static void main(String[] args) throws Exception, SecurityException {
 		Field field = GenericTypes.class.getDeclaredField("list");
 		ParameterizedType type = (ParameterizedType) field.getGenericType();
-		System.out.println(type.getActualTypeArguments()[0]);;
+		System.out.println(type.getActualTypeArguments()[0]);
 	}
 }

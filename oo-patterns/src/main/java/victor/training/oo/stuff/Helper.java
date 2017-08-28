@@ -1,4 +1,4 @@
-package victor.training.oo;
+package victor.training.oo.stuff;
 
 public class Helper {
 	public static void workSomeTime() {

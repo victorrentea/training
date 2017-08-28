@@ -1,6 +1,6 @@
 package victor.training.oo.creational.singleton;
 
-import static victor.training.oo.Helper.workSomeTime;
+import static victor.training.oo.stuff.Helper.workSomeTime;
 
 import java.io.IOException;
 import java.util.Properties;

@@ -2,7 +2,7 @@ package victor.training.oo.behavioral.observer;
 
 import java.awt.event.ActionListener;
 
-import victor.training.oo.gui.MyFrame;
+import victor.training.oo.structural.composite.MyFrame;
 
 public class ObserverPlay {
 	public static void main(String[] args) {
