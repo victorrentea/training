@@ -10,14 +10,14 @@ import victor.training.oo.behavioral.visitor.model.Square;
 public class VisitorPlay {
 
 	public static void main(String[] args) {
-		List<Shape> productList = Arrays.asList(
+		List<Shape> shapes = Arrays.asList(
 				new Square(10), 
 				new Circle(5), 
 				new Square(5));
 
 		PerimeterCalculatorVisitor perimiterCalculator = new PerimeterCalculatorVisitor();
-		for (Shape product : productList) {
-			product.accept(perimiterCalculator);
+		for (Shape shape : shapes) {
+			shape.accept(perimiterCalculator);
 		}
 		System.out.println("Total perimeter: " + perimiterCalculator.getTotal());
 		
@@ -25,8 +25,8 @@ public class VisitorPlay {
 		
 		// SOLUTION(
 		AreaCalculatorVisitor areaCalculator = new AreaCalculatorVisitor();
-		for (Shape product : productList) {
-			product.accept(areaCalculator);
+		for (Shape shape : shapes) {
+			shape.accept(areaCalculator);
 		}
 		System.out.println("Total area: " + areaCalculator.getTotalArea());
 		// SOLUTION)
