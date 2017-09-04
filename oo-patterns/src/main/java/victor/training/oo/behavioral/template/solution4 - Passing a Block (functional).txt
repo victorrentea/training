@@ -1,0 +1,103 @@
+package victor.training.oo.behavioral.template;
+
+import java.util.Random;
+import java.util.function.Consumer;
+
+class EmailService {
+
+	public void sendEmail(String emailAddress, Consumer<Email> filler) { // 1 TONA
+		EmailContext context = new EmailContext(/*smtpConfig,etc*/);
+		int MAX_RETRIES = 3;
+		for (int i = 0; i < MAX_RETRIES; i++ ) {
+			Email email = new Email(); // constructor generates new unique ID
+			email.setSender("noreply@corp.com");
+			email.setReplyTo("/dev/null");
+			filler.accept(email);
+			email.setTo(emailAddress);
+			boolean success = context.send(email);
+			if (success) break;
+		}
+	}
+}
+class EmailFillers {
+	public void fillOrderReceivedEmail(Email email) {
+		email.setSubject("Order Received");
+		email.setBody("Thank you for your order");
+	}
+	public void fillOrderShippedEmail(Email email) {
+		email.setSubject("Order Shipped");
+		email.setBody("Speram sa ajunga de data asta!");
+	}
+}
+
+class LogicaAplicatiei {
+	public static void main(String[] args) {
+		EmailService emailServiceUnuLaParintiSingleton = new EmailService();
+		EmailFillers emailFiller = new EmailFillers();
+		emailServiceUnuLaParintiSingleton.sendEmail("a@b.com", emailFiller::fillOrderReceivedEmail);
+		emailServiceUnuLaParintiSingleton.sendEmail("a@b.com", emailFiller::fillOrderShippedEmail);
+	}
+}
+
+
+
+
+class EmailContext {
+	public boolean send(Email email) {
+		System.out.println("Trying to send " + email);
+		return new Random(System.nanoTime()).nextBoolean();
+	}
+}
+
+class Email {
+	private long id = new Random(System.nanoTime()).nextLong();
+	private String sender;
+	private String subject;
+	private String body;
+	private String replyTo;
+	private String to;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getSender() {
+		return sender;
+	}
+	public void setSender(String sender) {
+		this.sender = sender;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getBody() {
+		return body;
+	}
+	public void setBody(String body) {
+		this.body = body;
+	}
+	public String getReplyTo() {
+		return replyTo;
+	}
+	public void setReplyTo(String replyTo) {
+		this.replyTo = replyTo;
+	}
+	public String getTo() {
+		return to;
+	}
+	public void setTo(String to) {
+		this.to = to;
+	}
+	
+}
+
+
+
+
+
+
+
