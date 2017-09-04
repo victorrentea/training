@@ -8,6 +8,14 @@ public class CustomerValidatorTest {
 	
 	@Test
 	public void validCustomer_ok() {
+		// INITIAL(
+//		validator.validate(new CustomerBuilder()
+//			.withName("John Doe")
+//			.withAddress(new AddressBuilder()
+//					.withStreetName("Viorele")
+//					.withCity("Bucharest"))
+//			.build());
+		// INITIAL)
 		validator.validate(aValidCustomer().build()); // SOLUTION
 	}
 	
