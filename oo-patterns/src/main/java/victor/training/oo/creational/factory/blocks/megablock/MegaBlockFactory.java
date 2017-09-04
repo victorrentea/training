@@ -9,12 +9,12 @@ public class MegaBlockFactory implements BlockFactory { // SOLUTION(
 
 	@Override
 	public Board createBoard() {
-		return new MegablockBoard();
+		return new MegaBlockBoard();
 	}
 
 	@Override
 	public Cube createCube() {
-		return new MegablockCube();
+		return new MegaBlockCube();
 	}
 	// SOLUTION)
 	
