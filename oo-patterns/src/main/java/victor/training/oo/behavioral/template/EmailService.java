@@ -2,10 +2,6 @@ package victor.training.oo.behavioral.template;
 
 import java.util.Random;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
 class EmailService {
 
 	public void sendOrderReceivedEmail(String emailAddress) {
@@ -31,12 +27,45 @@ class EmailContext {
 	}
 }
 
-@ToString
 class Email {
-	@Getter private long id = new Random(System.nanoTime()).nextLong();
-	@Getter @Setter private String sender;
-	@Getter @Setter private String subject;
-	@Getter @Setter private String body;
-	@Getter @Setter private String replyTo;
-	@Getter @Setter private String to;
+	private final long id = new Random(System.nanoTime()).nextLong();
+	private String sender;
+	private String subject;
+	private String body;
+	private String replyTo;
+	private String to;
+	public final String getSender() {
+		return sender;
+	}
+	public final void setSender(String sender) {
+		this.sender = sender;
+	}
+	public final String getSubject() {
+		return subject;
+	}
+	public final void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public final String getBody() {
+		return body;
+	}
+	public final void setBody(String body) {
+		this.body = body;
+	}
+	public final String getReplyTo() {
+		return replyTo;
+	}
+	public final void setReplyTo(String replyTo) {
+		this.replyTo = replyTo;
+	}
+	public final String getTo() {
+		return to;
+	}
+	public final void setTo(String to) {
+		this.to = to;
+	}
+	public final long getId() {
+		return id;
+	}
+	
 }
