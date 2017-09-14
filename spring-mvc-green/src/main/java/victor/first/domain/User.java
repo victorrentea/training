@@ -1,4 +1,4 @@
-package first.domain;
+package victor.first.domain;
 
 public class User {
 	private final String username, firstName, lastName;

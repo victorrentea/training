@@ -1,4 +1,4 @@
-package first.domain;
+package victor.first.domain;
 
 public class UserService {
 	public User getUserById() {

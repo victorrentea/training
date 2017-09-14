@@ -1,4 +1,4 @@
-package first;
+package victor.first;
 
 import java.io.IOException;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import first.domain.User;
-import first.domain.UserService;
+import victor.first.domain.User;
+import victor.first.domain.UserService;
 
 public class CatreJsp extends HttpServlet {
 	

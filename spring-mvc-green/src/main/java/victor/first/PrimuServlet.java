@@ -1,4 +1,4 @@
-package first;
+package victor.first;
 
 import java.io.IOException;
 import java.util.Random;
