@@ -1,7 +1,6 @@
 package first;
 
 import java.io.IOException;
-import java.util.Random;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -10,7 +9,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 public class SecondServlet implements Servlet {
 
@@ -39,7 +37,7 @@ public class SecondServlet implements Servlet {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
-		
+		response.getWriter().println("am primit numele " + request.getParameter("nume"));
 		System.out.println("Path = " + httpRequest.getPathInfo());
 	}
 

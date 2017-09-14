@@ -1,0 +1,1 @@
+<div style="width:100%; text-align: center"><h1>Mi Great App</h1></div>

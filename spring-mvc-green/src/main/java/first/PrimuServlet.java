@@ -40,16 +40,18 @@ public class PrimuServlet implements Servlet {
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
 		
+		
+		
 		HttpSession session = httpRequest.getSession();
 		if (session.isNew()) {
 			session.setAttribute("zar", new Random().nextInt(6) + 1);
 		}
 		
 		
-		System.out.println("<html><body><h1>Hello servlet!</h1></body></html>");
-
 		httpResponse.setHeader("Content-Type", "text/plain");
-		httpResponse.getWriter().println("<html><body><h1>Hello Web !! " + session.getAttribute("zar")+"</h1></body></html>");
+		httpResponse.getWriter().println(
+				"<html><body><h1>Hello Web !! " + 
+						session.getAttribute("zar")+"</h1></body></html>");
 		System.out.println("p1 = " + httpRequest.getParameter("p1"));
 		System.out.println("p2 = " + httpRequest.getParameter("p2"));
 	}
