@@ -13,6 +13,16 @@
 	<url-pattern>/primu</url-pattern>
 </servlet-mapping>
 
+ <servlet>
+ 	<servlet-name>catreJsp</servlet-name>
+ 	<servlet-class>first.CatreJsp</servlet-class>
+ </servlet>
+
+<servlet-mapping>
+	<servlet-name>catreJsp</servlet-name>
+	<url-pattern>/catreJsp</url-pattern>
+</servlet-mapping>
+
 
 
  <servlet>
