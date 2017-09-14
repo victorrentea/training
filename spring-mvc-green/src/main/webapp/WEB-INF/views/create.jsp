@@ -7,18 +7,12 @@
 <body>
 <%@ include file="menu.jsp" %>
 
-Hello 
+<form action="" method="post">
+<input type="text" name="username" placeholder="username"/>
+<input type="text" name="firstNameX" placeholder="firstName"/>
+<input type="text" name="lastName" placeholder="lastName"/>
 
-<%=((User)request.getAttribute("user")).getUsername() %>
-<%
-//if (true) throw new RuntimeException("mock");
-%>
-
-<form action="second" method="post">
-<input type="text" name="nume"/>
-<input type="text" name="age"/>
-
-<input type="submit" value="Buton shmecher"> 
+<input type="submit" value="Creaza Gigi!"> 
 </form>
 
 from JSP!
