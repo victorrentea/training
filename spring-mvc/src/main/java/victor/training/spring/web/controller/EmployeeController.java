@@ -1,12 +1,16 @@
 package victor.training.spring.web.controller;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 import java.util.List;
 import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -15,18 +19,11 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import victor.training.spring.model.Employee;
 import victor.training.spring.model.User;
 import victor.training.spring.service.HRService;
-
-import javax.validation.Valid;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 @RequestMapping("/employee")
@@ -49,14 +46,14 @@ public class EmployeeController {
 		List<Employee> list = service.getAllEmployees();
 		model.put("employeeList", list);
 		model.put("newEmployee", new Employee());
-		return "employeeList";
+		return "employeeListPage";
 	}
 
 	@RequestMapping(value = "{id}", method = GET)
 	public String showEmployee(@PathVariable("id") String employeeId, Model model) {
 		Employee employee = service.getEmployee(employeeId);
 		model.addAttribute(employee);
-		return "employeeEdit";
+		return "employeeEditPage";
 	}
 	
 	@RequestMapping(value = "create", method = POST)
@@ -74,7 +71,8 @@ public class EmployeeController {
 	@RequestMapping(value = "{id}", method = POST)
 	public String updateEmployee(@PathVariable String id, @Valid Employee employee, Errors errors) {
 	    if (errors.hasErrors()) {
-	        return "employeeEdit";
+	    	log.error("Had errors: " + errors);
+	        return "employeeEditPage";
         }
 		service.updateEmployee(id, employee);
 		return "redirect:/employee/";
@@ -86,7 +84,7 @@ public class EmployeeController {
 		List<Employee> employeeList = service.findEmployeesByName(name);
 		model.put("employeeList", employeeList);
 		model.put("newEmployee", new Employee());
-		return "employeeList";
+		return "employeeListPage";
 	}
 
 	// TODO handle GET for "/employee/{id}.xml" (full URI) carrying Accept: application/xml
