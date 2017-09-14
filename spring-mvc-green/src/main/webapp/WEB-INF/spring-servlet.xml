@@ -10,6 +10,10 @@
 	
 	<context:component-scan base-package="victor"/>
 
+   <!-- the mvc resources tag does the magic -->
+ 	<mvc:resources mapping="/js/**" location="/js/" />
+
+
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- c:out, c:forEach -->
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
@@ -18,14 +22,14 @@
 		<property name="order" value="1" />
 	</bean>
 	
-<!-- 	
+	
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
 		<property name="viewNames" value="*Page" />
-		<property name="order" value="0" /> try this before default JSP resolver
+		<property name="order" value="0" /> <!-- try this before default JSP resolver -->
 	</bean>
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions" value="/WEB-INF/tiles.xml" />
 	</bean>
-	 -->
+	
 	
 </beans>

@@ -17,7 +17,7 @@ public class CatreJsp extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //		req.getParameter("p1")
-		User user = service.getUserById();
+		User user = service.getUserById(1l);
 		req.setAttribute("user", user);
 		req.getRequestDispatcher("/WEB-INF/views/hello.jsp").forward(req, resp);
 	}

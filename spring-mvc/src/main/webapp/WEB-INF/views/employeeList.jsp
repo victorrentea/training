@@ -18,12 +18,12 @@
 			<tr>
 				<td><c:out value="${employee.name}" /></td>
 				<td><c:out value="${employee.phone}" /></td>
-				<td><a href="${employee.id}">edit</a></td>
 				<td width="30">
 					<security:authorize url="/employee/${employee.id}/delete">
 						<a href="${employee.id}/delete">delete</a>
 					</security:authorize>
 				</td>
+				<td><a href="${employee.id}">edit</a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<!-- Base Definition -->
+	<definition name="base-definition" template="/WEB-INF/views/template.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+		<put-list-attribute name="scripts" />
+	</definition>
+
+	<definition name="helloPage" extends="base-definition">
+		<put-attribute name="title" value="Hello Tiles" />
+		<put-attribute name="body" value="/WEB-INF/views/hello.jsp" />
+		<put-list-attribute name="scripts">
+			<add-attribute value="script1.js" />
+			<add-attribute value="script2.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="createPage" extends="base-definition">
+		<put-attribute name="title" value="Create Stuff" />
+		<put-attribute name="body" value="/WEB-INF/views/create.jsp" />
+	</definition>
+</tiles-definitions>
