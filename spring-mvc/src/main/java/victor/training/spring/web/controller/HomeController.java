@@ -1,12 +1,13 @@
 package victor.training.spring.web.controller;
 
-import net.sf.jasperreports.engine.JREmptyDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import net.sf.jasperreports.engine.JREmptyDataSource;
 
 @Controller
 @RequestMapping("/")
@@ -16,7 +17,7 @@ public class HomeController {
 	
 	@RequestMapping
 	public String showHomePage() {
-		return "home";
+		return "homePage";
 	}
 	
 	@RequestMapping(value = "first.pdf", produces = "application/pdf")

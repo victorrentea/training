@@ -16,9 +16,7 @@ public class HRServiceMockImpl implements HRService {
 	private Map<String, Employee> employees = new HashMap<String, Employee>();
 
 	public HRServiceMockImpl() {
-		Employee johnDoe = new Employee("John Doe", "0213151232");
-		johnDoe.setId("1");
-		createEmployee(johnDoe);
+		createEmployee(new Employee("John Doe", "0213151232"));
 		createEmployee(new Employee("Mike Doe", "01281548223"));
 		createEmployee(new Employee("Johan Doe", "0122674323"));
 		createEmployee(new Employee("Uncle Sam", "0123151323"));

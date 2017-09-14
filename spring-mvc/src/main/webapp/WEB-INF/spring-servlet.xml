@@ -31,4 +31,13 @@
 		</property>
 	</bean>
 	
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+		<property name="viewNames" value="*Page" />
+		<property name="order" value="0" /> <!-- try this before default JSP resolver -->
+	</bean>
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions" value="/WEB-INF/tiles.xml" />
+	</bean>
+	
+	
 </beans>

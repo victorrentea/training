@@ -44,7 +44,7 @@
 	<a href="<c:url value="../j_spring_security_logout" />" > Logout</a>
 	 --%>
 	 <h3>Playground</h3>
-<%@ include file="menu.jsp" %>
+<%--@ include file="menu.jsp" --%>
 	 <% 
 System.out.println("Hello JSP world!");  
 for (int i = 0; i < 10; i++ ) { 
