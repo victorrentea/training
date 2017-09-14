@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+ <servlet>
+ 	<servlet-name>primu</servlet-name>
+ 	<servlet-class>first.PrimuServlet</servlet-class>
+ </servlet>
+
+<servlet-mapping>
+	<servlet-name>primu</servlet-name>
+	<url-pattern>/primu</url-pattern>
+</servlet-mapping>
+
+
+
+ <servlet>
+ 	<servlet-name>download</servlet-name>
+ 	<servlet-class>first.DownloadServlet</servlet-class>
+ </servlet>
+
+<servlet-mapping>
+	<servlet-name>download</servlet-name>
+	<url-pattern>/download</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+ 	<servlet-name>second</servlet-name>
+ 	<servlet-class>first.SecondServlet</servlet-class>
+ </servlet>
+
+<servlet-mapping>
+	<servlet-name>second</servlet-name>
+	<url-pattern>/second/*</url-pattern>
+</servlet-mapping>
+
+</web-app>
