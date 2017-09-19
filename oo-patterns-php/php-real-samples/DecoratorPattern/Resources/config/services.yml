@@ -1,0 +1,17 @@
+order.service.with.tx:
+    public: false
+    class: MS\ExamplePHP\ProxyPattern\Service\OrderServiceWithTx
+    decorates: order.service
+    decoration_priority: 1000
+    arguments:
+        - "@order.service.with.tx.inner"
+        - "@doctrine.orm.entity_manager"
+
+order.service.with.logger:
+    public: false
+    class: MS\ExamplePHP\ProxyPattern\Service\OrderServiceWithLogger
+    decorates: order.service
+    decoration_priority: 10
+    arguments:
+        - "@order.service.with.logger.inner"
+        - "@logger"
