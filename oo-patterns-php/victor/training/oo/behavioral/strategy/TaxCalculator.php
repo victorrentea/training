@@ -9,8 +9,12 @@
 namespace victor\training\oo\behavioral\strategy;
 
 
-interface TaxCalculator
+abstract class TaxCalculator
 {
-    function canProcess(string $originCountry): bool;
-    function computeTax(float $tobaccoValue, float $otherValue = 0): float;
+    const ISO = "";
+
+    function canProcess(string $originCountry): bool {
+        return static::ISO === $originCountry;
+    }
+    abstract function computeTax(float $tobaccoValue, float $otherValue = 0): float;
 }

@@ -8,15 +8,12 @@
 
 namespace victor\training\oo\behavioral\strategy;
 
-class ChinaTaxCalculator implements TaxCalculator
+class ChinaTaxCalculator extends TaxCalculator
 {
+    const ISO = "CH";
+
     function computeTax(float $tobaccoValue, float $otherValue = 0): float
     {
         return $tobaccoValue + $otherValue;
-    }
-
-    function canProcess(string $originCountry): bool
-    {
-        return $originCountry === "CH";
     }
 }

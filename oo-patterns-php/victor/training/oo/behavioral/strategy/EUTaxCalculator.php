@@ -8,8 +8,9 @@
 
 namespace victor\training\oo\behavioral\strategy;
 
-class EUTaxCalculator implements TaxCalculator
+class EUTaxCalculator extends TaxCalculator
 {
+
     function computeTax(float $tobaccoValue, float $otherValue = 0): float
     {
         return $tobaccoValue / 3;

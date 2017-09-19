@@ -8,15 +8,13 @@
 
 namespace victor\training\oo\behavioral\strategy;
 
-class UKTaxCalculator implements TaxCalculator
+class UKTaxCalculator extends TaxCalculator
 {
+    const ISO = "UK";
+
     function computeTax(float $tobaccoValue, float $otherValue = 0): float
     {
         return $tobaccoValue / 2 + $otherValue / 2;
     }
 
-    function canProcess(string $originCountry): bool
-    {
-        return $originCountry === "UK";
-    }
 }
