@@ -11,9 +11,19 @@ namespace victor\training\oo\behavioral\template;
 include "Email.php";
 include "EmailContext.php";
 
-abstract class EmailTemplate
+class EmailService
 {
+    /** @var  EmailTemplate */
+    private $emailTemplate;
+
+
+
     public const MAX_RETRIES = 3;
+
+    public function __construct(EmailTemplate $emailTemplate)
+    {
+        $this->emailTemplate = $emailTemplate;
+    }
 
     public function sendEmail(string $emailAddress)
     {
@@ -23,26 +33,32 @@ abstract class EmailTemplate
             $email->setSender("noreply@corp.com");
             $email->setReplyTo("/dev/null");
             $email->setTo($emailAddress);
-            $this->fillEmail($email);
+            $this->emailTemplate->fill($email);
             $success = $context->send($email);
             if ($success) break;
         }
     }
 
-    public abstract function fillEmail(Email $email): void;
+
 }
-class OrderReceivedEmail extends EmailTemplate {
-    public function fillEmail(Email $email): void {
+interface EmailTemplate {
+    function fill(Email $email): void;
+}
+class OrderReceivedEmail implements EmailTemplate {
+    public function fill(Email $email): void {
         $email->setSubject("Order Received");
         $email->setBody("Thank you for your order");
     }
 }
-class OrderShippedEmail extends EmailTemplate {
-    public function fillEmail(Email $email): void {
+class OrderShippedEmail implements EmailTemplate {
+    public function fill(Email $email): void {
         $email->setSubject("Order Shipped");
         $email->setBody("Ti-am trimas.");
     }
 }
 
-(new OrderReceivedEmail())->sendEmail("a@b.com");
-(new OrderShippedEmail())->sendEmail("a@b.com");
+$emailService = new EmailService(new OrderReceivedEmail());
+$emailService->sendEmail("a@b.com");
+
+$emailService = new EmailService(new OrderShippedEmail());
+$emailService->sendEmail("a@b.com");
