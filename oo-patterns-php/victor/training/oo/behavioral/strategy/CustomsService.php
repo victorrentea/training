@@ -9,9 +9,21 @@
 namespace victor\training\oo\behavioral\strategy;
 
 include "TaxCalculator.php";
+include "UKTaxCalculator.php";
+include "ChinaTaxCalculator.php";
+include "EUTaxCalculator.php";
 
 class CustomsService
 {
+    /** @var TaxCalculato[r] */
+    private static $ALL_TAX_CALCULATORS;
+
+    function __construct()
+    {
+        self::$ALL_TAX_CALCULATORS = [new EUTaxCalculator(), new ChinaTaxCalculator(), new UKTaxCalculator()];
+    }
+
+
 
     public function computeAddedCustomsTax(string $originCountry, float $tobaccoValue, float $otherValue): float { // UGLY API we CANNOT change
 		return $this->determineTaxCalculator($originCountry)
@@ -20,36 +32,14 @@ class CustomsService
 
     private function determineTaxCalculator(string $originCountry): TaxCalculator
     {
-        switch ($originCountry) {
-            case "UK": return new UKTaxCalculator();
-            case "CH": return new ChinaTaxCalculator();
-            case "FR":
-            case "ES": // other EU country codes...
-            case "RO": return new EUTaxCalculator();
-            default: throw new \Exception("Not a valid country ISO2 code: " . $originCountry);
+        foreach (self::$ALL_TAX_CALCULATORS as $taxCalculator) {
+            if ($taxCalculator->canProcess($originCountry)) {
+                return $taxCalculator;
+            }
         }
+        throw new \Exception("Not a valid country ISO2 code: " . $originCountry);
     }
 }
-
-class UKTaxCalculator implements TaxCalculator {
-    function computeTax(float $tobaccoValue, float $otherValue = 0): float
-    {
-        return $tobaccoValue/2 + $otherValue/2;
-    }
-}
-class ChinaTaxCalculator implements TaxCalculator {
-    function computeTax(float $tobaccoValue, float $otherValue = 0): float
-    {
-        return $tobaccoValue + $otherValue;
-    }
-}
-class EUTaxCalculator implements TaxCalculator {
-    function computeTax(float $tobaccoValue, float $otherValue = 0): float
-    {
-        return $tobaccoValue/3;
-    }
-}
-
 
 
 $customsService = new CustomsService();
