@@ -1,4 +1,5 @@
 {
+  "secure-http" : "false",
   "name": "jvalduvieco/videostore",
   "description": "PHP port of videostore Uncle bob's example",
   "minimum-stability": "stable",
@@ -11,8 +12,8 @@
   ],
   "require": {},
   "autoload": {
-//    "psr-4": {
-//      "victor\\": "src/victor/"
+    "psr-4": {
+      "victor\\": "victor/"
     }
 
   },

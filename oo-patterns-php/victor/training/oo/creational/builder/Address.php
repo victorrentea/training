@@ -23,7 +23,6 @@ class Address
     /* @var String */
     private $country;
 
-
     /**
      * @return String
      */
@@ -34,10 +33,12 @@ class Address
 
     /**
      * @param String $streetName
+     * @return Address
      */
-    public function setStreetName(String $streetName)
+    public function setStreetName(String $streetName): Address
     {
         $this->streetName = $streetName;
+        return $this;
     }
 
     /**
@@ -50,10 +51,12 @@ class Address
 
     /**
      * @param int $streetNumber
+     * @return Address
      */
-    public function setStreetNumber(int $streetNumber)
+    public function setStreetNumber(int $streetNumber): Address
     {
         $this->streetNumber = $streetNumber;
+        return $this;
     }
 
     /**
@@ -66,10 +69,12 @@ class Address
 
     /**
      * @param String $city
+     * @return Address
      */
-    public function setCity(String $city)
+    public function setCity(String $city): Address
     {
         $this->city = $city;
+        return $this;
     }
 
     /**
@@ -82,11 +87,14 @@ class Address
 
     /**
      * @param String $country
+     * @return Address
      */
-    public function setCountry(String $country)
+    public function setCountry(String $country): Address
     {
         $this->country = $country;
+        return $this;
     }
+
 
 
 }
