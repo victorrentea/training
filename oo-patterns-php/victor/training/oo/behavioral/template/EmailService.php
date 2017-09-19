@@ -8,24 +8,16 @@
 
 namespace victor\training\oo\behavioral\template;
 
+use phpDocumentor\Reflection\Types\Callable_;
+
 include "Email.php";
 include "EmailContext.php";
 
 class EmailService
 {
-    /** @var  EmailTemplate */
-    private $emailTemplate;
-
-
-
     public const MAX_RETRIES = 3;
 
-    public function __construct(EmailTemplate $emailTemplate)
-    {
-        $this->emailTemplate = $emailTemplate;
-    }
-
-    public function sendEmail(string $emailAddress)
+    public function sendEmail(string $emailAddress, callable $emailTemplate )
     {
         $context = new EmailContext(/*smtpConfig,etc*/);
         for ($i = 0; $i < self::MAX_RETRIES; $i++) {
@@ -33,32 +25,28 @@ class EmailService
             $email->setSender("noreply@corp.com");
             $email->setReplyTo("/dev/null");
             $email->setTo($emailAddress);
-            $this->emailTemplate->fill($email);
+            $emailTemplate($email);
             $success = $context->send($email);
             if ($success) break;
         }
     }
-
-
 }
-interface EmailTemplate {
-    function fill(Email $email): void;
-}
-class OrderReceivedEmail implements EmailTemplate {
-    public function fill(Email $email): void {
+
+class EmailTemplates {
+    static function orderReceivedEmail(Email $email) {
         $email->setSubject("Order Received");
         $email->setBody("Thank you for your order");
     }
-}
-class OrderShippedEmail implements EmailTemplate {
-    public function fill(Email $email): void {
+    static function orderShippedEmail(Email $email) {
         $email->setSubject("Order Shipped");
         $email->setBody("Ti-am trimas.");
     }
 }
 
-$emailService = new EmailService(new OrderReceivedEmail());
-$emailService->sendEmail("a@b.com");
+$emailService = new EmailService();
+$emailService->sendEmail("a@b.com", [EmailTemplates::class, "orderReceivedEmail"]);
+$emailService->sendEmail("a@b.com", [EmailTemplates::class, "orderShippedEmail"]);
 
-$emailService = new EmailService(new OrderShippedEmail());
-$emailService->sendEmail("a@b.com");
+
+$emailService->sendEmail("a@b.com", function($email) { EmailTemplates::orderReceivedEmail($email);});
+$emailService->sendEmail("a@b.com", function($email) { EmailTemplates::orderShippedEmail($email);});
