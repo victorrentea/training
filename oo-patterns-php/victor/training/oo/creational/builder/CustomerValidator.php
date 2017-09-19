@@ -11,6 +11,8 @@ namespace victor\training\oo\creational\builder;
 
 class CustomerValidator
 {
+
+
     public function validate(Customer $customer)
     {
         if ($customer->getName() == '') {

@@ -11,7 +11,7 @@ namespace victor\training\oo\behavioral\template;
 
 class EmailContext
 {
-    public function send(Email $email): boolean
+    public function send(Email $email): bool
     {
         printf("Trying to send " . $email . "\n");
         return rand(0, 1) == 0;

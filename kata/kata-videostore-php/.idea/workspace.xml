@@ -2,19 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2386a79-4f57-4a4e-bf51-28c611799ca5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/visitor/model/Shape.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/visitor/model/Square.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/videostore_php-master.iml" afterPath="$PROJECT_DIR$/.idea/videostore_php-master.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/command/Command.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/command/PizzaCommand.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/command/Waitress.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/abstractfactory/megablock/MegaBlockBoard.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/abstractfactory/megablock/MegaBlockCube.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/adapter/domain/LdapUserWSAdapter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/decorator/ExpensiveMathCacheDecorator.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/decorator/IExpensiveMath.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/facade/ClientSaracu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/facade/CustomerRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/facade/CustomerService.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/facade/MyAppFacade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/facade/NotificationService.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/facade/OrderService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/composer.json" afterPath="$PROJECT_DIR$/../../oo-patterns-php/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/visitor/ShapeVisitor.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/visitor/ShapeVisitor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/Address.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/Address.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/BuilderPlay.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/BuilderPlay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/Customer.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/Customer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/CustomerValidatorTest.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/CustomerValidatorTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/singleton/AppConfiguration.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/singleton/AppConfiguration.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/singleton/SingletonPlay.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/singleton/SingletonPlay.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/visitor/Circle.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/visitor/model/Circle.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/php-real-samples/DecoratorPattern/Service/OrderServiceWithTx.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/php-real-samples/DecoratorPattern/Service/OrderServiceWithTx.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/command/Customer.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/command/Customer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/template/EmailContext.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/template/EmailContext.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/template/EmailService.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/template/EmailService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/visitor/model/Circle.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/visitor/model/Circle.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/abstractfactory/LovingParent.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/abstractfactory/LovingParent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/abstractfactory/megablock/MegaBlockFactory.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/abstractfactory/megablock/MegaBlockFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/CustomerValidator.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/builder/CustomerValidator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/factorymethod/FileGenerator.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/factorymethod/FileGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/factorymethod/OutputFile.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/creational/factorymethod/OutputFile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/adapter/domain/UserService.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/adapter/domain/UserService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/decorator/ExpensiveMath.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/decorator/ExpensiveMath.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/decorator/ExpensiveMathClient.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/structural/decorator/ExpensiveMathClient.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -128,9 +143,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="560" />
+    <option name="x" value="680" />
     <option name="width" value="800" />
-    <option name="height" value="738" />
+    <option name="height" value="870" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -376,6 +391,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

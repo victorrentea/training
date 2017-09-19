@@ -13,7 +13,8 @@ class FileGenerator
 {
     public static function createAnafFile()
     {
-        $outputFile = new OutputFile("anaf");
+
+        $outputFile = OutputFile::createCsvWithSemicolonSeparator("anaf");
         $file = fopen($outputFile->getFileName(), "w");
         printf("writing to file " . $outputFile->getFileName(). "\n");
         // write to file...

@@ -22,6 +22,10 @@ class OutputFile
         $this->separator = $separator;
     }
 
+    public static function createCsvWithSemicolonSeparator(string $baseName): OutputFile {
+        return new OutputFile($baseName);
+    }
+
     public function getFileName(): string {
         return $this->baseName . "." . $this->extension;
     }

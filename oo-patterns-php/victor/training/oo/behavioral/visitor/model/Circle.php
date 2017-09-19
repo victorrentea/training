@@ -11,5 +11,5 @@ namespace victor\training\oo\behavioral\visitor\model;
 
 class Circle implements Shape
 {
-    private
+//    private
 }

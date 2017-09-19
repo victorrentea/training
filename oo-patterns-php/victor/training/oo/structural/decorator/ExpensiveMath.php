@@ -8,7 +8,9 @@
 
 namespace victor\training\oo\structural\decorator;
 
-class ExpensiveMath
+include "IExpensiveMath.php";
+
+class ExpensiveMath implements IExpensiveMath
 {
     function getNextPrimeAfter(int $number): int {
         $n = $number;

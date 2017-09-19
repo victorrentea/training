@@ -40,13 +40,13 @@ class OrderServiceWithTx implements OrderServiceInterface
                 $this->manager->commit();
 
                 return $result;
-            } catch (\Exception $ex) {
+            } catch (\Exception $up) {
                 $this->manager->rollback();
 
-                throw $ex;
+                throw $up;
             }
-        } catch (\Exception $ex) {
-            throw $ex;
+        } catch (\Exception $up) {
+            throw $up;
         }
     }
 }

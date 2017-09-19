@@ -9,17 +9,20 @@
 namespace victor\training\oo\creational\abstractfactory;
 
 use victor\training\oo\creational\abstractfactory\lego\LegoFactory;
+use victor\training\oo\creational\abstractfactory\megablock\MegaBlockFactory;
 
 foreach (glob("*.php") as $filename) require_once $filename;
 foreach (glob("spi/*.php") as $filename) require_once $filename;
 foreach (glob("lego/*.php") as $filename) require_once $filename;
+foreach (glob("megablock/*.php") as $filename) require_once $filename;
 
 
 
 $childOne = new Child();
 
 printf("Got back from work...\n");
-$factory = new LegoFactory();
+//$factory = new LegoFactory(); // 100 RON
+$factory = new MegaBlockFactory(); // 20 RON
 printf("Brought a present: " . $factory . " \n");
 printf("Hm....\n");
 $childOne->playWith($factory);
