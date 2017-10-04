@@ -3,17 +3,9 @@ namespace video;
 
 class Rental
 {
-    /**
-     * @var Movie
-     */
     private $movie;
     private $daysRented;
 
-    /**
-     * Rental constructor.
-     * @param Movie $movie
-     * @param $daysRented
-     */
     public function __construct(Movie $movie, $daysRented)
     {
         $this->movie = $movie;
