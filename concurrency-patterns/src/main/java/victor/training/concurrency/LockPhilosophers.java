@@ -1,11 +1,11 @@
 package victor.training.concurrency;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 import static victor.training.concurrency.ConcurrencyUtil.log;
 import static victor.training.concurrency.ConcurrencyUtil.sleep2;
 import static victor.training.concurrency.ConcurrencyUtil.sleepSomeTime;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class LockPhilosophers {
 	static class Fork {
@@ -41,22 +41,28 @@ public class LockPhilosophers {
 			} // SOLUTION)
 			for (int i=0;i<50;i++) {
 				sleepSomeTime();
-				log("I'm hungry");
-				// log("Taking left fork..."); // INITIAL
-				log("Taking first fork (" + firstFork.id + ")"); // SOLUTION
+				log("I'm hungry!");
+				
+				log("Waiting for first fork (" + firstFork.id + ")");
 				firstFork.take();
+				log("Took it");
 				sleepSomeTime();
-				// log("Taking right fork..."); // INITIAL
-				log("Taking second fork (" + secondFork.id + ")"); // SOLUTION
+				log("Taking second fork (" + secondFork.id + ")");
 				secondFork.take();
-				log("Took forks. Eating...");
-				sleepSomeTime();
-				log("I had enough. I'm putting down the forks");
+				
+				eat();
+				
 				firstFork.putDown();
 				sleepSomeTime();
 				secondFork.putDown();
 				log("Put down forks. Thinking...");
 			}
+		}
+
+		private void eat() {
+			log("Took both forks. Eating...");
+			sleepSomeTime();
+			log("I had enough. I'm putting down the forks");
 		}
 	}
 	

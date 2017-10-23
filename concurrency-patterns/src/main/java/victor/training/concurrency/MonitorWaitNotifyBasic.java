@@ -1,79 +1,79 @@
 package victor.training.concurrency;
 
+import static victor.training.concurrency.ConcurrencyUtil.log;
+import static victor.training.concurrency.ConcurrencyUtil.sleep2;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.ws.Holder;
 
-import static victor.training.concurrency.ConcurrencyUtil.log;
-import static victor.training.concurrency.ConcurrencyUtil.sleep2;
-
 public class MonitorWaitNotifyBasic {
-	static Holder<String> avizier = new Holder<>();
+	static Holder<String> masaTaskuri = new Holder<>();
 
-	public static class Secretary {
-		public void publishResults(String results) {
-			synchronized (avizier) { // SOLUTION
-				avizier.value = results;
+	public static class Sef {
+		public void announceComision(String results) {
+			synchronized (masaTaskuri) { // SOLUTION
+				masaTaskuri.value = results;
 			
-				// TODO avizier.notifyAll();
-				avizier.notifyAll(); // SOLUTION
+				// TODO masaTaskuri.notifyAll();
+				masaTaskuri.notifyAll(); // SOLUTION
 			} // SOLUTION
-			log("Published results");
+			log("Announced task");
 		}
 	}
 	
-	public static class Student extends Thread {
-		public void waitForExamResults() {
-			log("Wait for results");
+	public static class AngajatModel extends Thread {
+		public void waitForTask() {
+			log("Waiting for task..");
 			
 			// sleep2(1); // Force thread shift  // INITIAL
-			// TODO avizier.wait();
+			// TODO masaTaskuri.wait();
 			
 			// SOLUTION(
 			try { 
-//				if (avizier.value == null) {  			
+//				if (masaTaskuri.value == null) {  			
 					sleep2(1); 
-					// avizier.value==null, apoi secretar:avizier.notifAll(), apoi studentul asta face avizier.wait() ....., nimeni nu va mai face notify
 					
-					synchronized (avizier) {
-						while (avizier.value == null) { // 'while' to avoid random wake ups
+					synchronized (masaTaskuri) {
+						while (masaTaskuri.value == null) { // 'while' to avoid random wake ups
 							sleep2(1);
-							avizier.wait();
+							masaTaskuri.wait();
 						} 
 					}
 //				} 
 			} catch (InterruptedException e) {
 			} 
 			// SOLUTION)
-			log("Got results: " + avizier.value);
+			log("Got task to do: " + masaTaskuri.value);
 		}
 		
 		public void run() {
-			
-			waitForExamResults();
+			waitForTask();
 		}
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
 		long t0 = System.currentTimeMillis();
 		
-		List<Student> students = new ArrayList<>();
-		for (int i = 0 ;i < 100; i++) {
-			Student s = new Student();
+		List<AngajatModel> angajati = new ArrayList<>();
+		for (int i = 0 ; i< 100; i++) {
+			AngajatModel s = new AngajatModel();
 			s.start();
-			students.add(s);
+			angajati.add(s);
 		}
 		
-		Secretary secretary = new Secretary();
-		secretary.publishResults("Exam results");
+		Sef sef = new Sef();
+		sef.announceComision("Cafea");
+		sef.announceComision("Tzigari");
+		sef.announceComision("Palinca");
 		
-		for (Student s : students) {
+		for (AngajatModel s : angajati) {
 			s.join();
 		}
 		
 		
-		// TODO measure difference for 10000 students after applying double checked locking pattern
-		log("Exection took: " +(System.currentTimeMillis() - t0));
+		// TODO measure difference for 10000 tasks after applying double checked locking pattern
+		log("Execution took: " +(System.currentTimeMillis() - t0));
 	}
 }

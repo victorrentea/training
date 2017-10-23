@@ -1,6 +1,6 @@
 package victor.training.concurrency;
 
-public class MonitorBasic {
+public class APlusPlus {
 	private static int populatie;
 	private static Object monitor = new Object(); 
 

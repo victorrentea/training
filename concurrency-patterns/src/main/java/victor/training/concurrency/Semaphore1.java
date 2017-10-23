@@ -1,12 +1,12 @@
 package victor.training.concurrency;
 
+import static victor.training.concurrency.ConcurrencyUtil.log;
+import static victor.training.concurrency.ConcurrencyUtil.sleep2;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.Semaphore;
-
-import static victor.training.concurrency.ConcurrencyUtil.log;
-import static victor.training.concurrency.ConcurrencyUtil.sleep2;
 
 public class Semaphore1 {
 	static class BoundedHashSet<T> {
@@ -46,14 +46,6 @@ public class Semaphore1 {
 		}
 	}
 	
-	static class Inserter extends Thread {
-		public void run() {
-			for (int i=0;i<5;i++) {
-				
-			}
-		}
-	}
-	
 	public static void main(String[] args) {
 		final BoundedHashSet<String> set = new BoundedHashSet<>(3);
 		
@@ -68,7 +60,7 @@ public class Semaphore1 {
 			private void addElement(String element) {
 				try {
 					sleep2(20);
-					log("add element " + element);
+					log("adding element " + element);
 					set.add(element);
 					log("added");
 				} catch (InterruptedException e) {
@@ -88,7 +80,7 @@ public class Semaphore1 {
 			}
 			private void remove(String element) {
 				sleep2(20);
-				log("remove(" + element + ")");
+				log("removing(" + element + ")");
 				set.remove(element);
 				log("removed");
 			}
