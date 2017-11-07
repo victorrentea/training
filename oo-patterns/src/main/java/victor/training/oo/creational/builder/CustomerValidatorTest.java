@@ -13,7 +13,8 @@ public class CustomerValidatorTest {
 //			.withName("John Doe")
 //			.withAddress(new AddressBuilder()
 //					.withStreetName("Viorele")
-//					.withCity("Bucharest"))
+//					.withCity("Bucharest")
+//					.build())
 //			.build());
 		// INITIAL)
 		validator.validate(aValidCustomer().build()); // SOLUTION

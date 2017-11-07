@@ -3,7 +3,7 @@ package victor.training.oo.creational.factory.blocks.megablock;
 import victor.training.oo.creational.factory.blocks.spi.Board;
 import victor.training.oo.creational.factory.blocks.spi.Cube;
 
-//public class MegablockCube { // INITIAL
+//public class MegaBlockCube { // INITIAL
 public class MegaBlockCube implements Cube { // SOLUTION(
 
 	@Override
