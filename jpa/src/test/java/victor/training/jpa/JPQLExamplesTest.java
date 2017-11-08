@@ -13,6 +13,7 @@ import javax.persistence.PersistenceContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,7 @@ import victor.training.jpa.entity.teacher.Teacher;
 @ContextConfiguration(locations = { "classpath:/test-config.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
+@ActiveProfiles("hsql")
 public class JPQLExamplesTest {
 	@PersistenceContext
 	protected EntityManager em;

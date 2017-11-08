@@ -9,11 +9,13 @@ import javax.persistence.TypedQuery;
 import org.hibernate.LazyInitializationException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 
 import victor.training.jpa.entity.employee.Employee;
 import victor.training.jpa.service.EmployeeService;
 import victor.training.jpa.test.util.ManualTxTestBase;
 
+@ActiveProfiles("hsql")
 public class LazyEagerTest extends ManualTxTestBase {
 	
 	@Autowired

@@ -14,9 +14,11 @@ import javax.persistence.OptimisticLockException;
 import javax.persistence.PersistenceContext;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +33,7 @@ import victor.training.jpa.test.util.TransactionUtil;
 
 @ContextConfiguration(locations = { "classpath:/test-config.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
+@ActiveProfiles("hsql")
 /** !! Look closely !! */
 public class MasterPlay {
 	@PersistenceContext
@@ -148,7 +151,7 @@ public class MasterPlay {
 	}
 
 	@Test
-//	@Ignore("Takes too long - un-Ingore to test")
+	@Ignore("Takes too long - un-Ingore to test")
 	@Transactional
 	public void lazyLoadPerformance() throws IOException {
 		for (int i=0;i<1000; i++) {
