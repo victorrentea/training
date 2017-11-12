@@ -1,11 +1,15 @@
 package victor.training.jpa.entity.employee;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -37,7 +41,7 @@ import javax.persistence.Version;
 	name="Employee_getWithProjects", 
 	query="SELECT e FROM Employee e LEFT JOIN FETCH e.projects WHERE e.id = :id"
 )})
-public class Employee {
+public class Employee  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -62,6 +66,11 @@ public class Employee {
 	//@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL) // INITIAL
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval=true) // SOLUTION
 	private List<EmployeePhone> phones = new ArrayList<>();
+
+	@ElementCollection
+	@CollectionTable
+	private Set<Address> addresses = new HashSet<>();
+
 	
 	@Version // SOLUTION
 	private long version;
@@ -133,5 +142,21 @@ public class Employee {
 		this.phones = phones;
 	}
 
-	
+
+
+
+	public Set<Address> getAddresses() {
+		return addresses;
+	}
+
+
+
+	public void setAddresses(Set<Address> addresses) {
+		this.addresses = addresses;
+	}
+
+	public void setVersion(long version) {
+		this.version = version;
+	}
+ 
 }

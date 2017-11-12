@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.OptimisticLockException;
@@ -24,6 +25,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import victor.training.jpa.entity.employee.Address;
 import victor.training.jpa.entity.employee.Company;
 import victor.training.jpa.entity.employee.Employee;
 import victor.training.jpa.entity.employee.EmployeeDetails;
@@ -73,10 +75,10 @@ public class MasterPlay {
 	}
 	
 	@Test
+	@Transactional
 	public void initialDataWasCorrectlyPersisted() {
 		Employee employee = entityManager.find(Employee.class, employeeId);
 		assertNotNull(employee.getDetails());
-
 		assertEquals(1, employee.getPhones().size());
 	}
 	
@@ -213,7 +215,7 @@ public class MasterPlay {
 	}
 	
 	@Test
-	public void mergeWithChildren_reinsertNewChildren() throws Exception {
+	public void mergeChildrenEntities_reinsert() throws Exception {
 		Integer oldChildId = txUtil.executeInSeparateTransaction(() -> {
 			Employee employee = entityManager.find(Employee.class, employeeId);
 			return employee.getPhones().get(0).getId();
@@ -223,18 +225,41 @@ public class MasterPlay {
 		Employee newEmployee = new Employee("John");
 		newEmployee.setId(employeeId);
 		
-		EmployeePhone workPhone = new EmployeePhone("000-999-000", Type.OFFICE); 
-		newEmployee.getPhones().add(workPhone);
-		workPhone.setEmployee(newEmployee); // SOLUTION
+		EmployeePhone newPhone = new EmployeePhone("000-999-000", Type.OFFICE); 
+		newEmployee.getPhones().add(newPhone);
+		newPhone.setEmployee(newEmployee); // SOLUTION
+		// newPhone.setId(oldChildId); // what if...
 	
-		txUtil.executeInSeparateTransaction(() -> {
+		Integer newChildId = txUtil.executeInSeparateTransaction(() -> {
 			Employee managedEmployee = entityManager.merge(newEmployee);
 			assertEquals(1, managedEmployee.getPhones().size());
-			System.out.println("Phone id before " + managedEmployee.getPhones().get(0).getId());
+			return managedEmployee.getPhones().get(0).getId();
 		});
+		System.out.println("Phone id after " + newChildId);
 		assertNull("Old ORPHAN child was removed", entityManager.find(EmployeePhone.class, oldChildId));
 	}
+
 	
+	@Test
+	public void mergeChildrenEmbeddables() throws Exception {
+		txUtil.executeInSeparateTransaction(() -> {
+			Employee employee = entityManager.find(Employee.class, employeeId);
+			employee.getAddresses().add(new Address("Viorele 4", "000", "Bucharest", "RO"));
+		});
+		
+		Employee newEmployee = new Employee("John");
+		newEmployee.setId(employeeId);
+		newEmployee.setVersion(1L);
+		newEmployee.getAddresses().add(new Address("Viorele 5", "000", "Bucharest", "RO"));
+	
+		txUtil.executeInSeparateTransaction(() -> entityManager.merge(newEmployee));
+
+		ArrayList<Address> addresses = txUtil.executeInSeparateTransaction(() -> new ArrayList<>(entityManager.find(Employee.class, employeeId).getAddresses()));
+		
+		assertEquals(1, addresses.size());
+		assertEquals("Viorele 5", addresses.get(0).getStreet());
+	}
+
 
 	// TODO iff energy(trainee) > 0.000, then change to EmployeeDataRepository in the @Autowired at the top
 
