@@ -23,6 +23,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import victor.training.jpa.entity.employee.Company;
 import victor.training.jpa.entity.employee.Employee;
 import victor.training.jpa.entity.employee.EmployeeDetails;
 import victor.training.jpa.entity.employee.Project;
@@ -46,6 +47,7 @@ public class MasterPlay {
 	protected TransactionUtil txUtil;
 	
 	private Integer employeeId;
+	private Integer companyId;
 
 	@Before
 	public void persistInitialData() throws ParseException {
@@ -56,17 +58,28 @@ public class MasterPlay {
 		employee.setDetails(details);
 		details.setEmployee(employee); // SOLUTION
 		
+		Company company = new Company("Kepler");
+		company.getAddress().setCity("Bucharest"); // Look ma', Embeddables
+		company.getEmployees().add(employee);
+		employee.setCompany(company); // SOLUTION
+		
+		
 		txUtil.executeInSeparateTransaction(() -> {
 			entityManager.persist(employee);
+			entityManager.persist(company);
 		});
 		
 		employeeId = employee.getId(); // ID is set by JPA on entity at .persist() 
+		companyId = company.getId();
 	}
 	
 	@Test
 	public void initialDataWasCorrectlyPersisted() {
 		Employee employee = entityManager.find(Employee.class, employeeId);
 		assertNotNull(employee.getDetails());
+
+		assertEquals(1, entityManager.find(Company.class, companyId).getEmployees().size());
+		assertNotNull(employee.getCompany());
 	}
 	
 	@Test
@@ -191,6 +204,13 @@ public class MasterPlay {
 
 		assertEquals(employee, employeeRepo.search(null, "London").get(0));
 	}
+	
+//	public void mergeWithChildren_reinsertNewChildren() {
+//		Site oldSite
+//		txUtil.executeInSeparateTransaction(() -> {
+//			entityManager.persist(oldSite);
+//		});
+//	}
 	
 
 	// TODO iff energy(trainee) > 0.000, then change to EmployeeDataRepository in the @Autowired at the top

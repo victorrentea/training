@@ -3,7 +3,9 @@ package victor.training.jpa.entity.employee;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,8 +18,11 @@ public class Company {
 	private Integer id;
 
 	private String name;
+	
+	@Embedded
+	private Address address = new Address();
 
-	@OneToMany(mappedBy = "company")
+	@OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
 	private List<Employee> employees = new ArrayList<>();
 
 	public Company() {
@@ -53,4 +58,13 @@ public class Company {
 		this.employees = employees;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	
 }

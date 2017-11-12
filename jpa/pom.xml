@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.8.Final</version>
+			<version>5.2.11.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -28,7 +28,7 @@
 					<groupId>org.slf4j</groupId>
 				</exclusion>
 			</exclusions>
-			<version>1.9.0.RELEASE</version>
+			<version>1.11.8.RELEASE</version>
 		</dependency>
 
 		<dependency>

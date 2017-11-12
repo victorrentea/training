@@ -2,6 +2,7 @@ package victor.training.jpa.entity.employee;
 
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,9 @@ public class Site {
 	private Integer id;
 
 	private String name;
+	
+	@Embedded
+	private Address address = new Address();
 
 	@ManyToOne
 	@JoinColumn(name = "COMPANY_ID")
@@ -65,5 +69,14 @@ public class Site {
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 
 }
