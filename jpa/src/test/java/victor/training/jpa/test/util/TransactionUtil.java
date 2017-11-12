@@ -1,5 +1,7 @@
 package victor.training.jpa.test.util;
 
+import java.util.concurrent.Callable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.JdbcTransactionObjectSupport;
 import org.springframework.stereotype.Component;
@@ -73,6 +75,11 @@ public class TransactionUtil {
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void executeInSeparateTransaction(Runnable runnable) {
 		runnable.run();
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	public <T> T executeInSeparateTransaction(Callable<T> runnable) throws Exception {
+		return runnable.call();
 	}
 
 	@Transactional(propagation = Propagation.NOT_SUPPORTED)

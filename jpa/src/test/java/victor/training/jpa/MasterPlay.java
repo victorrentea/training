@@ -2,6 +2,7 @@ package victor.training.jpa;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
@@ -26,6 +27,8 @@ import org.springframework.transaction.annotation.Transactional;
 import victor.training.jpa.entity.employee.Company;
 import victor.training.jpa.entity.employee.Employee;
 import victor.training.jpa.entity.employee.EmployeeDetails;
+import victor.training.jpa.entity.employee.EmployeePhone;
+import victor.training.jpa.entity.employee.EmployeePhone.Type;
 import victor.training.jpa.entity.employee.Project;
 import victor.training.jpa.entity.employee.Site;
 import victor.training.jpa.repository.EmployeeRepository;
@@ -47,7 +50,6 @@ public class MasterPlay {
 	protected TransactionUtil txUtil;
 	
 	private Integer employeeId;
-	private Integer companyId;
 
 	@Before
 	public void persistInitialData() throws ParseException {
@@ -58,19 +60,16 @@ public class MasterPlay {
 		employee.setDetails(details);
 		details.setEmployee(employee); // SOLUTION
 		
-		Company company = new Company("Kepler");
-		company.getAddress().setCity("Bucharest"); // Look ma', Embeddables
-		company.getEmployees().add(employee);
-		employee.setCompany(company); // SOLUTION
+		EmployeePhone workPhone = new EmployeePhone("000-999-000", Type.OFFICE); 
+		employee.getPhones().add(workPhone);
+		workPhone.setEmployee(employee); // SOLUTION
 		
 		
 		txUtil.executeInSeparateTransaction(() -> {
 			entityManager.persist(employee);
-			entityManager.persist(company);
 		});
 		
 		employeeId = employee.getId(); // ID is set by JPA on entity at .persist() 
-		companyId = company.getId();
 	}
 	
 	@Test
@@ -78,8 +77,7 @@ public class MasterPlay {
 		Employee employee = entityManager.find(Employee.class, employeeId);
 		assertNotNull(employee.getDetails());
 
-		assertEquals(1, entityManager.find(Company.class, companyId).getEmployees().size());
-		assertNotNull(employee.getCompany());
+		assertEquals(1, employee.getPhones().size());
 	}
 	
 	@Test
@@ -201,16 +199,41 @@ public class MasterPlay {
 		entityManager.persist(site);
 		entityManager.persist(employee);
 		
-
+		// Look: how to compose a search query
 		assertEquals(employee, employeeRepo.search(null, "London").get(0));
 	}
 	
-//	public void mergeWithChildren_reinsertNewChildren() {
-//		Site oldSite
-//		txUtil.executeInSeparateTransaction(() -> {
-//			entityManager.persist(oldSite);
-//		});
-//	}
+	@Test
+	@Transactional
+	public void embeddables() {
+		Company company = new Company("Kepler");
+		company.getAddress().setCity("Bucharest"); // Look ma', Embeddables
+		entityManager.persist(company);
+		
+	}
+	
+	@Test
+	public void mergeWithChildren_reinsertNewChildren() throws Exception {
+		Integer oldChildId = txUtil.executeInSeparateTransaction(() -> {
+			Employee employee = entityManager.find(Employee.class, employeeId);
+			return employee.getPhones().get(0).getId();
+		});
+		System.out.println("Phone id before " + oldChildId);
+		
+		Employee newEmployee = new Employee("John");
+		newEmployee.setId(employeeId);
+		
+		EmployeePhone workPhone = new EmployeePhone("000-999-000", Type.OFFICE); 
+		newEmployee.getPhones().add(workPhone);
+		workPhone.setEmployee(newEmployee); // SOLUTION
+	
+		txUtil.executeInSeparateTransaction(() -> {
+			Employee managedEmployee = entityManager.merge(newEmployee);
+			assertEquals(1, managedEmployee.getPhones().size());
+			System.out.println("Phone id before " + managedEmployee.getPhones().get(0).getId());
+		});
+		assertNull("Old ORPHAN child was removed", entityManager.find(EmployeePhone.class, oldChildId));
+	}
 	
 
 	// TODO iff energy(trainee) > 0.000, then change to EmployeeDataRepository in the @Autowired at the top

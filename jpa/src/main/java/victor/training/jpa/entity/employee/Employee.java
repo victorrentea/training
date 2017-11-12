@@ -18,6 +18,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
@@ -57,6 +58,10 @@ public class Employee {
 
 	@ManyToMany(mappedBy = "employees")
 	private List<Project> projects = new ArrayList<>();
+	
+	//@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL) // INITIAL
+	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval=true) // SOLUTION
+	private List<EmployeePhone> phones = new ArrayList<>();
 	
 	@Version // SOLUTION
 	private long version;
@@ -119,5 +124,14 @@ public class Employee {
 	public long getVersion() {
 		return version;
 	}
+
+	public List<EmployeePhone> getPhones() {
+		return phones;
+	}
+
+	public void setPhones(List<EmployeePhone> phones) {
+		this.phones = phones;
+	}
+
 	
 }
