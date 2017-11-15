@@ -116,7 +116,7 @@ public class Undoner {
 //				if (cleanFolder.isSelected()) {
 //					cleanDestFolder();
 //				}
-				File inputSrcFolder = new File("../" + projectsCombo.getSelectedItem() + "/src/main");
+				File inputSrcFolder = new File("../" + projectsCombo.getSelectedItem());// + "/src/main");
 				boolean undone;
 				if (isVictorMachine()) {
 					undone = undoFolders(inputSrcFolder, new File("../../training-undone/"+projectsCombo.getSelectedItem()+"/src/main"), false);
@@ -156,7 +156,7 @@ public class Undoner {
 			throw new IllegalArgumentException("Must be a folder: " + baseDestFolder);
 		}
 		boolean performedChanges = false;
-		for (File file : (Collection<File>) FileUtils.listFiles(baseSourceFolder, new String[] {"java"}, true)) {
+		for (File file : (Collection<File>) FileUtils.listFiles(baseSourceFolder, new String[] {"java", "html", "jsp"}, true)) {
 			File destFile = new File(baseDestFolder, file.getAbsolutePath().substring(baseSourceFolder.getAbsolutePath().length()));
 			if (undoFile(file, destFile, dryTest)) {
 				performedChanges = true;
@@ -170,6 +170,6 @@ public class Undoner {
 	}
 	
 	public static boolean isVictorMachine() {
-		return new File("d:/workspace/training").isDirectory();
+		return new File("c:/workspace/training").isDirectory();
 	}
 }
