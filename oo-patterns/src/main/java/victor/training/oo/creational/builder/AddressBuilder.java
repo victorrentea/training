@@ -13,11 +13,11 @@ public class AddressBuilder {
 		address.setStreetNumber(streetNumber);
 		return this;
 	}
+	// SOLUTION)
 	public AddressBuilder withCity(String city) {
 		address.setCity(city);
 		return this;
 	}
-	// SOLUTION)
 
 	public Address build() {
 		return address;

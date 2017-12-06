@@ -20,17 +20,18 @@ public class CustomerValidatorTest {
 		validator.validate(aValidCustomer().build()); // SOLUTION
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	
+	@Test(expected = IllegalArgumentException.class) // SOLUTION
 	public void customerWithoutName_fails() {
 		validator.validate(aValidCustomer().withName(null).build()); // SOLUTION
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) // SOLUTION
 	public void customerWithoutAddress_fails() {
 		validator.validate(aValidCustomer().withAddress((Address)null).build()); // SOLUTION
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) // SOLUTION
 	public void customerWithoutAddressCity_fails() {
 		validator.validate(aValidCustomer().withAddress(aValidAddress().withCity("")).build()); // SOLUTION
 	}
