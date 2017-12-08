@@ -11,7 +11,7 @@
     <meta name="author" content="Victor Rentea">
 	<link rel="icon" href="img/academy-cap-icon.png">
 	<link rel="publisher" href="https://plus.google.com/b/104211899563696126838/104211899563696126838/about" />
-    <title>Trainer and Coach - Victor Rentea: Clean Code, TDD, Spring, Design Patterns</title>
+    <title>Trainer and Coach - Victor Rentea: Clean Code, Spring, Design Patterns & much more</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Trainer &amp; Coach</a>
+                <a class="navbar-brand" href="#page-top" style="padding-top:8px">Technical Training<br /><div style="font-size:0.7em; text-align: center;">With Personality</div></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,7 +68,7 @@
                         <a href="#talks">Talks</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#about">Me</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
@@ -80,8 +80,47 @@
 			
             <!-- /.navbar-collapse -->
         </div>
+		<div style="position: absolute; left: 50%;">
+			<div style="position: relative; left: -50%; background-color:yellow;" id="motto">
+			XXX
+			</div>
+		</div>
         <!-- /.container-fluid -->
     </nav>
+	<style>
+	
+	#motto {
+		opacity: 0;
+		padding-left: 8px;
+		padding-right: 8px;
+    
+    -webkit-transition: opacity 2s ease-in;
+       -moz-transition: opacity 2s ease-in;
+        -ms-transition: opacity 2s ease-in;
+         -o-transition: opacity 2s ease-in;
+            transition: opacity 2s ease-in;
+	}
+
+	#motto.load {
+		opacity: 1;
+	}
+	</style>
+	<script>
+	var mottos = [
+		"You don’t teach passion for code. You inspire it.",
+		"Writing Good Code is not only about skills. It’s about attitude.",
+		"Let's practice on real-life exercises. Then, let's experiment!",
+		"Deep understanding, not learning an API.",
+		"Custom agendas. Unique sessions. Tailored for you!",
+		"Fun, Intense, easy to remember sessions!",
+		"How about an 8-hour brainstorm?",
+		"What’s the fastest way to up-grade your developers?",
+		"Software is all about humans.",
+		"Crafting a masterpiece requires your full dedication."
+
+		];
+	
+	</script>	
 
     <!-- Header -->
     <header>
@@ -98,7 +137,7 @@
                         <span class="name">Victor Rentea</span>
                         <!--<hr class="star-light">-->
                         <span class="skills">
-							<a href="#contact" style="color:white;">Independent</a> Trainer - Coach - Consultant<br />
+							<a href="#contact" style="color:white;">Independent</a> Trainer &amp; Coach<br />
 							Lead Architect at IBM Romania
 						</span> 
 					</div>
@@ -119,7 +158,7 @@
 					padding-top: 15px;
 					padding-bottom: 20px;
 					width:230px;
-					margin-left: 30px;
+					/*margin-left: 30px;*/
 				}
 			}
 			.counterDivs {
@@ -195,6 +234,20 @@
 					<a href="CV-Victor-Rentea.EN.pdf" target="_blank">
 						<div class="skills counterDiv"><i class="fa fa-download"></i>&nbsp;CV&nbsp;&nbsp;&nbsp;</div>
 					</a>	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1 col-lg-offset-4 col-md-2 col-xs-offset-2 col-xs-2">					
+					<img src="lang-ro.png" class="img-responsive" alt="">
+				</div>
+				<div class="col-lg-1 col-md-2 col-xs-2">					
+					<img src="lang-en.png" class="img-responsive" alt="">
+				</div>
+				<div class="col-lg-1 col-md-2 col-xs-2">					
+					<img src="lang-es.png" class="img-responsive" alt="">
+				</div>
+				<div class="col-lg-1 col-md-2 col-xs-2">					
+					<img src="lang-fr.png" class="img-responsive" alt="">
 				</div>
 			</div>
 						
@@ -531,21 +584,35 @@
 					<img title="Tangoe/Assentinel" src="client-tangoe.jpg" class="img-responsive img-centered" />
                 </div>
 				<div class="col-sm-3 col-xs-6 client-item">
-					<img title="eSolutions" src="client-esolutions.png" class="img-responsive img-centered" />
+					<img title="Temonos" src="client-temenos.jpg" class="img-responsive img-centered" />
                 </div>
 				<div class="col-sm-3 col-xs-6 client-item">
+					<img title="eSolutions" src="client-esolutions.png" class="img-responsive img-centered" />
+                </div>				
+				<div class="col-sm-3 col-xs-6 client-item">
+					<img title="Facultatea de Automatica si Calculatoare - cursul de OOP" src="client-politehnica.jpg" class="img-responsive img-centered" />
+                </div>			
+            </div>
+			<div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Partners</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+			<div class="row">
+                <div class="col-sm-3 col-xs-6 client-item">
 					<img title="Pro Management Training Center" src="client-pro-management.jpg" class="img-responsive img-centered" />
                 </div>
 				<div class="col-sm-3 col-xs-6 client-item">
 					<img title="Brain Concert Training Center" src="client-brain-concert.jpg" class="img-responsive img-centered" />
                 </div> 
 				<div class="col-sm-3 col-xs-6 client-item">
-					<img title="Facultatea de Automatica si Calculatoare - cursul de OOP" src="client-politehnica.jpg" class="img-responsive img-centered" />
-                </div>			
-				
-
-            </div>
-	
+					<img title="eSolutions Academy" src="client-esolutions-academy.jpg" class="img-responsive img-centered" />
+                </div>				
+				<div class="col-sm-3 col-xs-6 client-item">
+					<img title="New Horizons - Computer Learning Center" src="client-new-horizons.jpg" class="img-responsive img-centered" />
+                </div>				
+			</div>
 
 		<div class="row" >
 			<div class="col-lg-12 text-center" id="photos">
@@ -935,6 +1002,12 @@
 					<p class="recommendation-author">Florin Diaconu, Sr. Software Engineer, Technical Team Leader, Project Manager</p>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<p>Were you in my class? Enjoyed the training?</p>
+					<a href="mailto:victorrentea@gmail.com?subject=Recommendation for website&body=Please tell me: (a) Your Name (b) Title (c) Date you attended (d) Some Nice Words"><button>Add a recommendation</button></a>
+				</div>
+			</div>
 				
 			
 		</div>
@@ -1088,15 +1161,20 @@
 					<ul>					
 					
 					<li><p><b>The Art of Clean Code</b> at Devoxx Poland, Krakow, 27 june 2017 (<a href="https://youtu.be/AeWbJ5LIFNg" target="_blank">video</a>)</p>
+					<div class="video-container">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/AeWbJ5LIFNg" frameborder="0" allowfullscreen></iframe>
+					</div>
 					</li>
 					
 					<li><p><b>A Tale about the Evil Partial Mock and the Separation By Layers of Abstraction [quickie]</b> at Devoxx Poland, Krakow, 27 june 2017 (<a href="https://youtu.be/pYG0jhCfT2A" target="_blank">video</a>)</p>
+					<div class="video-container">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/pYG0jhCfT2A" frameborder="0" allowfullscreen></iframe>
+					</div>
 					</li>
 					
 					<li><p><b>Brainstorming a Clean, Pragmatic Architecture</b> at Devoxx Poland, Krakow, 27 june 2017 (<a href="https://youtu.be/4-4ahz7zDiQ" target="_blank">video</a>) </p>
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/4-4ahz7zDiQ" frameborder="0" allowfullscreen></iframe></li>
+					<div class="video-container">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/4-4ahz7zDiQ" frameborder="0" allowfullscreen></iframe></div></li>
 
 					<li><p><b>Clean Lambdas</b> at JBCNConf, Barcelona, 25 june 2017</p></li>
 					
@@ -1123,7 +1201,14 @@
 					
 					<li><p><b>The Art of Clean Code</b> at VoxxedDays Vienna, 16 march 2017(<a href="https://youtu.be/c0L7EdsxQ_c" target="_blank">video</a>)</p></li>
 					
-					<li><p><b>Clean Lambdas & Streams in Java 8 - A Hands-on Experience</b> at VoxxedDays Bucharest, 10 march 2017 (<a href="https://youtu.be/uH9A37k2QkU" target="_blank">screencast+voice</a> and <a href="http://www.slideshare.net/VictorRentea/clean-lambdas-streams-in-java8" target="_blank">slides</a>)</p></li>
+					<li><p><b>Clean Lambdas & Streams in Java 8 - A Hands-on Experience</b> at VoxxedDays Bucharest, 10 march 2017 (<a href="https://youtu.be/uH9A37k2QkU" target="_blank">screencast+voice</a> and <a href="http://www.slideshare.net/VictorRentea/clean-lambdas-streams-in-java8" target="_blank">slides</a>)</p>
+					<div class="video-container">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/uH9A37k2QkU" frameborder="0" allowfullscreen></iframe>
+					</div>
+					</li>
+					
+					</li>
+
 					
 					<li><p><b>Brainstorming your way from a Monolith to a Clean Architecture</b> at 
 						<a href="https://www.meetup.com/Bucharest-Java-User-Group/events/237659809/" target="_blank">Bucharest JUG Meetup</a>, 22 february 2017
@@ -1163,7 +1248,6 @@
 					<p>Senior&nbsp;Java&nbsp;Engineer, Technical&nbsp;Team&nbsp;Lead and Java&nbsp;Coach at IBM, and </p>
 					<p>Independent&nbsp;Trainer and Technical&nbsp;Coach.</p>
 					<p>PhD(CS) and Oracle&nbsp;JavaEE<sup>6</sup>&nbsp;Architect.</p>
-					<p>Over <span class="high">1500&nbsp;hours</span> of training held to more than <span class="high">1000&nbsp;persons</span>, in&nbsp;Romanian&nbsp;and&nbsp;English, including in academic setup (ACS@UPB).</p>
 				</div>
 				
 				<div class="col-lg-5 col-lg-offset-1">
@@ -1402,6 +1486,7 @@
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
+	
 
     <!-- Portfolio Modals -->
     <div class="portfolio-modal modal fade" id="clean-code" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1414,63 +1499,81 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+		
                         <div class="modal-body">
                             <h2>Clean Code</h2>
                             <hr class="star-light">
-                            <!--<img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">-->
                             
-							<span class="duration">2 parts x 2 hours</span>
+							<h3>Duration: 1 day</h3>
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>What is Clean Code</li>
 								<li>Names
 									<ul>
-									<li>Express intent</li>
+									<li>Expressing intent</li>
 									<li>Parts of speech</li>
+									<li>Length</li>
+									<li>Comprehension Refactoring</li>
 									</ul>
 								</li>
-
 								<li>Functions
 									<ul>
 										<li>Function Size</li>
-										<li>Extracting Method Objects</li>
+										<li>Factoring Methods</li>
+										<li>Exceptions: Best Practices</li>
 										<li>Function Signature</li>
-										<li>Side Effects & Temporal Coupling</li>
-										<li>Command/Query separation</li>
+										<li>Extracting Method Objects</li>
+										<li class="optional">Side Effects & Temporal Coupling</li>
+										<li class="optional">Command/Query separation</li>
 									</ul>
 								</li>
-								<li>Refactoring Exercise: Video Store (1h)</li>
 								<li>Classes
 									<ul>
-										<li>Basic Shape</li>
 										<li>True Encapsulation</li>
 										<li>Data Structures vs. True Objects</li>
+										<li>Logic Containers</li>
 										<li>Switch+Data Structures vs. Polymorphic Objects</li>
-										<li>'Tell, Don't Ask' Principle</li>
+										<li class="optional">'Tell, Don't Ask' Principle</li>
 										<li>Feature Envy</li>
-										<li style="color:#ccc" title="in case we have time enough time">The Plugin Model: Dependency Inversion</li>
+										<li class="optional">The Plugin Model: Dependency Inversion Principle</li>
 									</ul>
 								</li>
 								<li>Code Formatting</li>
-								<li>Comments are failures</li>
+								<li>Comments are failures
+								<ul><li>Expressive Code</li></ul></li>
 							</ul>
 							<hr class="star-light">
-							<br />
-							<p>The primary value of <span class="high">software is to be flexible</span>. The secondary value of software is to do what business wants it to do.</p>
-							<p>Sounds insane? Just think a bit: what's the difference between IT and regular engineering? What propulsated IT that much? <span class="high">The ability to evolve, to adapt to new business needs</span>. And we all know how difficult it is to adapt and strech old, dirty, rigid code.</p>
-							<p>Financially, the fact that 80% of the costs of a software project are in maintenance may not concern you, the developer, directly. But the fact that <span class="high">you read 10x times more time than you write</span> code should make it clear to you: do your very best to write clean, beautiful code that is easy to maintain. This module explains how do such art.</p>
-							<p>Besides the bare act of writing code, the module also tackles the problematic of <span class="high">team work</span>, code responsibility and cooperation necessary to any professional software engineer.</p>
-							<p>The module covers the most important practical aspects from the reference book <span class="high">'Clean Code' by Robert C. Martin</span>, along with many other sources. The training <span class="high">material was reviewed and discussed with numerous seniors</span> to reach a wider consensus regarding the ideas and their nuances.</p>
-							<p>This is the module which is most likely to have <span class="high">the deepest impact on your day-to-day work</span>, changing the way you exercise your profession. That's why I allways recommend to add this module to any training.</p>
-
+							<h3>Description</h3>
+							<p>The primary value of <span class="high">software is to be flexible</span>. The secondary value of software is to do what business wants it to do. Sounds insane? Just think a bit: what's the difference between IT and regular engineering? What pushed IT so much? <span class="high">The ability to evolve, to adapt to new business needs</span>. And we all know how difficult it is to adapt and strech old, dirty, rigid code.</p>
+							<p>Financially, the fact that 80% of the costs of a software project are in maintenance may not concern you, the developer, directly. But the fact that <span class="high">you read 10x times more time than you write</span> code should make it clear to you: do your very best to write clean, beautiful code that is easy to maintain. This module explains how to such art.</p>
+							<p>We will also talk about code ethics, <span class="high">team work</span>, code responsibility and cooperation necessary to any professional software engineer.</p>
+							<p>We will discuss the most important practical aspects from the reference book <span class="high">'Clean Code' by Robert C. Martin</span>, plus with many-many other sources.</p>
+							<p>This is the training which is most likely to have a deep impact on your day-to-day work, changing the way you write code.</p>
+							<p>The second part of the day we will break the class in two and do a Coding Dojo with each half. During this exercise, we will take turns to write code on the same codebase, discussing design alternatives, tradeoffs, best practices, etc.</p>
 							
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
+							<p>this is a slower and more extensive version of the “The Art of Clean Code” talk that I gave in 2017 in 5 conferences, including Devoxx Poland and Devoxx Morocco:</p>
+							
+							
+							<img src="conf-devoxx-poland.jpg" title="Devoxx Poland" class="img-responsive img-centered" />
+							<img src="conf-codecamp.jpg" title="Code Camp Romania - The biggest IT conference of Romania" class="img-responsive img-centered" />
+							<img src="conf-itake.jpg" title="I T.A.K.E. Unconference" class="img-responsive img-centered" />
+							<img src="conf-jprime.jpg" title="JPrime - Bulgarian Community Conference" class="img-responsive img-centered" />
+							<img src="conf-jeeconf.jpg" title="JEE Conf, Kiew" class="img-responsive img-centered" />
+							<img src="conf-voxxed-vienna.jpg" title="Voxxed Days Vienna 2017" class="img-responsive img-centered" />
+							<img src="conf-voxxed-bucharest.jpg" title="Voxxed Days Bucharest 2016" class="img-responsive img-centered" />
+							<img src="conf-voxxed-belgrade.jpg" title="Voxxed Days Belgrade 2016" class="img-responsive img-centered" />
+							<img src="conf-devoxx-morocco.jpg" title="Devoxx Morocco 2016" class="img-responsive img-centered" />
+							<img src="conf-bjug.jpg" title="Bucharest Java User Group" class="img-responsive img-centered" />
+				</div>					
+
+						</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+	
     <div class="portfolio-modal modal fade" id="design-patterns" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content modal-albastru">
             <div class="close-modal" data-dismiss="modal">
@@ -1480,115 +1583,93 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                <div class="row">					
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 						<div class="modal-body">                      
 							<h2>Object-Oriented <br /> Design Patterns</h2>
 							<hr class="star-light" />
-							<span class="duration">2 parts x 2 hours</span>
-							
+							<h3>Duration: 1 day</h3>
+							<h3>Agenda</h3>
 							<ul class="agenda">
-								<li>What are design patterns? Pros/cons...</li>
-								<li>3 Principles of a Good OO Design</li>
-								<li>The SOLID principles</li>
-
+								<li>Design Principles
+									<ul>
+										<li>3 Principles of OO Design</li>
+										<li>The SOLID principles</li>
+										<li>DRY</li>
+										<li>SRP</li>
+										<li>Patterns vs Simplicity. KISS</li>										
+									</ul>									
+								</li>
 								<li>Creational Patterns:
 									<ul>
 										<li>Singleton</li>
-										<li>Builder</li>
-										<li>Factory</li>
-										<li style="color:#ccc">Factory Method</li>
-										<li style="color:#ccc">Prototype</li>
+										<li>Fluent Builder</li>
+										<li>Abstract Factory</li>
+										<li class="optional">Factory Method</li>
 									</ul>
 								</li>
-
-
 								<li>Structural Patterns:
 									<ul>
 										<li>Adapter</li>
-										<li>Proxy</li>
-										<li>Decorator</li>
-										<li>Composite</li>
+										<li>Proxy. Aspect-Oriented-Programming</li>
+										<li>Decorator</li>										
 										<li>Facade</li>
-										<li style="color:#ccc">Bridge</li>
-										<li style="color:#ccc">Flyweight</li>
+										<li class="optional">Composite</li>
 									</ul>
-								</li>
-								<li>Hands-on exercises (30 min)</li>
-							
+								</li>	
 								<li>Behavioral Patterns:
 									<ul>
 										<li>Observer</li>
-										<li>Iterator</li>
+										<li class="optional">Iterator</li>
 										<li>Strategy</li>
-										<li>Template Method</li>
 										<li>Command</li>
+										<li>Template Method</li>
 										<li>Visitor</li>
-										<li style="color:#ccc">Chain of responsibility</li>
-										<li style="color:#ccc">Mediator</li>
-										<li style="color:#ccc">Memento</li>
-										<li style="color:#ccc">State</li>
+										<li>Chain of responsibility</li>
+										<li>Passing-a-block (Functional Programming)</li>										
 									</ul>
 								</li>
-								<li>Hands-on exercises (30 min)</li>
-								<li>Test with prises + discussions</li>
-								<li>OO Antipatterns</li>								
+								<li>Antipatterns</li>								
 							</ul>
 							
 							<hr class="star-light" />
+							<h3>Description</h3>
+							<p>The training covers the majority of the Object-Oriented Design Patterns still in use today, along with their nuances and variations. The entire discussion revolves around how DP can simplify our work and clean our code, with many-many code examples. In other words, it's not a dull lecture of some dusty patterns, but a free discussion about how to apply principles of Good Design in code. Funny examples, writing coding together, metaphors, jokes and tests with prizes will make you remember the concepts for many years, I was told.</p>
+							<p>Since 2013 I am giving this training as two lectures each year at the "OOP" Course in Computers Faculty of Politehnica University of Bucharest; it's the most requested training in my curricula, held over 20 times.</p>
+							<p>Available for Java, .NET, PHP, (and any other OOP language)</p>
+							
 							<img alt="UPB" src="client-politehnica.jpg" class="img-responsive img-centered" />
-							<p>This is the star-training of my portfolio. Delivered <span class="high">more than 10 times</span> in various formats and setups, I also held it for the last two years as <span class="high">part of the "Java" faculty course</span> of the Automatics & Computers Department of Politehnica University of Bucharest.</p>
-							<p>This module will cover the most used Object-Oriented Design Patterns from the reference <a href="https://en.wikipedia.org/wiki/Design_Patterns">Gang-of-Four book</a>. Although the material covers all the GoF patterns, I would recommend instead to focus and analyze in more depth those patterns that are most used to day, and omit the grayed-out patterns in the agenda. This way we might gain enough time to talk about related concepts such as Aspect-Oriented-Programming, dynamic Java Proxies, and more.</p>
-							<p>The presentation is very dynamic, with <span class="high">a lot of real-life examples</span> to help you deeply understand the concepts and remember them <i>forever</i>.</p>
-							<p>The <span class="high">extensive application part</span> of this module however, is the one that will definetly shed light to all the quirks of the patterns. When your own hands will write the solutions to the exercises, you will have no choice but to fully understand the design patterns.</p>
-							<p>The target audience includes any Object-Oriented programmers, on Java or .NET. </p>
-
+							
 							
 							<hr class="star-light" />
 
-							<div class="accordion-group">
-								<div class="accordion-heading">
-									<a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-oodp">
-										<u>Anonymous Feedback Comments</u>
-									</a>
-								</div>
-								<div id="feedback-oodp" class="accordion-body collapse">
-									<div class="accordion-inner">
-										<ul>
-											<li>It was a very interesting and interactive course! Thank you for it!!</li>
-											<li>The practical examples provided are very easy to remember and I really think I'll remember these concepts for a long time</li>
-											<li>The exemplification of the pattern's idea on practical real world situations was very suggestive and really helped me understand the concepts deeply.</li>
-											<li>The application part was very interesting!</li>
-											<li>Not being so familiar with the subject, I found all very interesting, especially the Design Patterns which are often used in Java.</li>
-											<li>It was all very interesting</li>
-											<li>You have nothing to improve!!!</li>
-											<li>The examples were the most important, and they really helped us understand a lot better the concepts presented (and I'm referring here to several of us who didn't knew almost anything about design patterns).</li>
-											<li>All the topics were interesting, but especially the Anti-Patterns!</li>
-											<li>To me, the entire course was important.</li>
-											<li>Every notion was important to me and helped me understand better what I have to do and how.</li>
-											<li>I personally liked how you managed to keep me alert. I wasn't bored for a second and I got a lot of necessary and important informations</li>
-											<li>All the parts were important!</li>
-											<li>What to improve? Nothing!</li>
-											<li>I think it was especially interesting the live changes of the code together with their explanations</li>
-											<li>Taking into account that I haven't used design patterns until now, the examples helped me a lot</li>
-											<li>I consider very important the principles and concepts presented</li>
-											<li>The application of the described concepts was of great value!</li>
-											<li>The entire course was very exciting!</li>
-											<li>The high-level general part was very interesting</li>
-											<li>The test and the application enable a deep understanding of these patterns on the long term</li>
-											<li>Impeccable, very clear and suggestive</li>
-											<li>The application part was essential, along with the evaluation of the acquired understanding and the excellent graphical representation of the concepts and their correlation (for differential learning)</li>
-										</ul>
-									</div>
-								</div>
-							</div>
+							<h3>Feedback Comments</h3>
+							<ul>
+								<li>Impeccable, very clear and suggestive</li>
+								<li>The examples were the most important, and they really helped us understand a lot better the concepts presented (and I'm referring here to several of us who didn't knew almost anything about design patterns).</li>
+								<li>It was a very interesting and interactive course! Thank you for it!!</li>
+								<li>The practical examples provided are very easy to remember and I really think I'll remember these concepts for a long time</li>
+								<li>The exemplification of the pattern's idea on practical real world situations was very suggestive and really helped me understand the concepts deeply.</li>
+								<li>The application part was very interesting!</li>
+								<li>Not being so familiar with the subject, I found all very interesting, especially the Design Patterns which are often used in Java.</li>
+								<li>You have nothing to improve!!!</li>
+								<li>All the topics were interesting, but especially the Anti-Patterns!</li>
+								<li>Every notion was important to me and helped me understand better what I have to do and how.</li>
+								<li>I personally liked how you managed to keep me alert. I wasn't bored for a second and I got a lot of necessary and important informations</li>
+								<li>I think it was especially interesting the live changes of the code together with their explanations</li>
+								<li>Taking into account that I haven't used design patterns until now, the examples helped me a lot</li>
+								<li>I consider very important the principles and concepts presented</li>
+								<li>The application of the described concepts was of great value!</li>
+								<li>The entire course was very exciting!</li>
+								<li>The high-level general part was very interesting</li>
+								<li>The test and the application enable a deep understanding of these patterns on the long term</li>
+								<li>The application part was essential, along with the evaluation of the acquired understanding and the excellent graphical representation of the concepts and their correlation (for differential learning)</li>
+							</ul>
 							
-							
-							
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
+				        </div>
                     </div>
-                </div>
+                </div>			
+                
             </div>
         </div>
     </div>
@@ -1606,9 +1687,9 @@
                         <div class="modal-body">
                             <h2>Your Topic...</h2>
                             <hr class="star-primary">
-							<span class="duration">2 hours</span>
+							<h3>Duration: 2 hours</h3>
 
-							</p>
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Introduction: pro/cons, pitfalls</li>
 								<li>Several acronyms &amp; principles: DRY, KISS, SRP, ...</li>
@@ -1687,7 +1768,6 @@
 							</div>
 							
 							
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -1704,13 +1784,13 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">
 							<h2>EJB 3.x</h2>
 							<hr class="star-primary">
-							<span class="duration">2 hours</span>
+							<h3>Duration: 2 hours</h3>
 							
-							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Introduction: what EJB gives you</li>
 								<li>Stateless Session Beans</li>
@@ -1722,36 +1802,23 @@
 								<li>Test with prises</li>
 							</ul>
 							<hr class="star-primary">
-							
+							<h3>Description</h3>
 							<p>It's Black Friday, 6<sup>00</sup> AM. From the 1.000.000 users logged in on the emag.ro site, 1.000 submit their purchase each second. The online store application must resists such pressure while ensuring that all transactions are correctly processed. Furthermore, just realize that the online shopping system is not alone - it relies on quite a series of 3rd party services such as banks, courier services, suppliers and distributor chains, etc...</p>
 							<p>Now, imagine building such a system from scratch, without any libraries in Java SE. By the way, did you thought about distributed transactions and <a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol">2PC</a>?</p>
 							<p>I think you now begin to understand the problematic addressed by the EJB standard and the entire Java EE suite altogether. Now, obviously, besides the challenges of the infrastructural requirements, the business logic of this application is extremely difficult to manage by itself. So why not leave EJBs to handle most of these infrastructural requirements?</p>
 							<p><span class="high">How does the EJB standard simplify the development of such demanding applications</span>? What services does Java EE<sup>5+</sup> offers us to overcome these callenges? How does it promote quality code?</p>
 
+							<h3>Feedback comments</h3>
+							<ul>
+								<li>Explanations were very clear.</li>
+								<li>Very useful explanations!</li>
+								<li>The topic about transactions was very useful</li>
+								<li>Good idea with the test!</li>
+								<li>A very good presentation and exemplary explanation of examples</li>
+								<li>Very interesting topics: transactions, stateless beans, interceptors and declarative security</li>
+								<li>The exercises applied on the theory were very usefulEverything was very important</li>
+							</ul>
 							
-							<div class="accordion-group">
-								<div class="accordion-heading">
-									<a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-ejb">
-								See Anonymous feedback comments
-								</a>
-								</div>
-								<div id="feedback-ejb" class="accordion-body collapse">
-									<div class="accordion-inner">
-										<ul>
-											<li>Explanations were very clear.</li>
-											<li>Very useful explanations!</li>
-											<li>The topic about transactions was very useful</li>
-											<li>Good idea with the test!</li>
-											<li>A very good presentation and exemplary explanation of examples</li>
-											<li>Very interesting topics: transactions, stateless beans, interceptors and declarative security</li>
-											<li>The exercises applied on the theory were very usefulEverything was very important</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -1768,12 +1835,13 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">
 							<h2>What's new in <br /> Java EE6. CDI</h2>
 							<hr class="star-primary">
-							<span class="duration">2 hours</span>
+							<h3>Duration: 2 hours</h3>
 							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>EJB 3.1
 									<ul>
@@ -1819,7 +1887,6 @@
 							</div>
                             
                                                        
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -1836,11 +1903,13 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">
                             <h2>What's new in<br /> Java EE7. WebSockets</span>.</h2>
 							<hr class="star-light">
-                            <span class="duration">2 hours</span>
+                            <h3>Duration: 2 hours</h3>
+							
+							<h3>Agenda</h3>
 							
 							<ul class="agenda">
 								<li>JAX-RS 2.0
@@ -1863,7 +1932,6 @@
 							<p>This, and the most interesting other APIs and simplifications in JavaEE7 are explained in detail. This module doesn't cover the batch support, however.</p>
 							<p>It is recommended for the participants to either have basic knowledge of Java EE5/6 or for this module to be preceeded by the respective modules.</p>							
 							
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -1881,41 +1949,39 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">
                             <h2>Java 8</h2>
-							<h3 style="margin-top:10px">Lambdas &amp; Streams</h3>
+							<h2 style="margin-top:10px">Lambdas &amp; Streams</h2>
 							<hr class="star-light">
-							<span class="duration">1,5 hours</span>							
-							
+							<h3>Duration: 1/2 - 1 days</h3>											
+							<h3>Agenda</h3>
 							<ul class="agenda">
-								<li>Java SE 7
+								<li>Crash Course in Lambdas</li>
+								<li>Filtering Streams</li>
+								<li>Transforming Streams</li>
+								<li>Collecting Streams</li>
+								<li>Clean Code with Lambdas</li>
+								<li>Java 7 features
 									<ul>
 										<li>Try-with-resources</li>
 										<li>Diamond notation</li>
-										<li>Binary literals, _ in literals</li>
 										<li>String switch</li>
-										<li>Multi-catch !</li>
+										<li>Multi-catch</li>
 									</ul>
-								</li>
-								<li>Java SE 8
-									<ul>
-										<li>Lambda expressions</li>
-										<li>Streams</li>
-										<li>Default Methods</li>
-										<li>Other more advanced goodies: type-checking @</li>
-									</ul>
-								</li>
-								
+								</li>								
 							</ul>
 							
 							<hr class="star-light">
+							<h3>Description</h3>
+							<p>Starting from "What's a Lambda?", the training covers those features of Java8 that caused that tremendous increase in Java popularity after their addition to the language. We will <b>exercise the core Stream API, discussing in each case the alternative ways</b> of implementing a certain task. While we do that, we'll explain related features like <b>Optional<>, pure functions, higher-order functions</b>. At times, we'll also peek 'under the hood' to understand how things actually work: <b>lazy eval, short-circuiting</b>, etc.</p>
+							<p>In the end, we'll quickly review the Java7 additions</P>
+							<p>The entire training is in fact a big hands-on workshop, during which we will solve together various little tasks with Java8, as we progress through the learning points.</p>
+							<p></p>
+							<p>This is in fact a slower and more in-detail version of the 'Clean Lambdas' workshop that I held at VoxxedDays Bucharest 2017.</p>
 							
-							<p>This hands-on <b>workshop</b> exercises the new main new features introduced in Java7 and Java8, with a special emphasis on the practical use of Lambda and Streams in day-to-day programming of real-life applications.</p>
-							<p>This module doesn't have much theory - it's all about practicing and geting a feeling on how will Java development change in a timeframe of several years.</p>
-							<p>The trainees will write code themselves to practice these new features.</p>
-
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+							<img src="conf-voxxed-bucharest.jpg" />
+							
                         </div>
                     </div>
                 </div>
@@ -1934,13 +2000,13 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                            
 							
-							<h3 class="weight2" style="margin: 0px">Java</h3>
+							<h2 class="weight2" style="margin: 0px">Java</h2>
 							<h2 class="weight2">Performance</h2>
-							<h3 class="weight2" style="margin: 0px">Tuning &amp; Coding</h3>
-							<p> 2 days </p>
+							<h2 class="weight2" style="margin: 0px">Tuning &amp; Coding</h2>
+							<h3>Duration: 2 days </h3>
 							
 							
 							
@@ -2082,7 +2148,6 @@
 							
 							
 							
-							 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2101,57 +2166,116 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                            
 							<h2 id="training/jpa" code="JPA" class="weight4">JPA</h2>
 							<hr class="star-primary"/>
-							<span class="duration">2+ hours</span>
+							<h3>Duration: 2 days</h3>
 							
-							<ul class="agenda">
-								<li>Introduction</li>
-								<li>Mapping Java Objects to Database Tables
+							<h3>Agenda:</h3>							
+							<ol class="agenda">
+								<li>Basic Object-Relational Mapping
 									<ul>
-										<li>Mapping basic fields</li>
-										<li>Mapping relationships (1:1, 1:n, n:n)</li>
-										<li>Mapping inheritance</li>
+									<li>Introduction</li>
+									<li>O-R Impedance</li>
+									<li>Mapping basic fields</li>
+									<li>PK Generation</li>
+									<li>Mapping relationships (1:1, 1:n, n:n); Owner side</li>
+									<li>Mapping inheritance</li>
 									</ul>
 								</li>
-								<li>EntityManager: Principles and Concepts</li>
-								<li>Entity lifecycle</li>
-								<li>Java Persistence Query Language (JPQL)</li>
-							</ul>
-
+								<li>Advanced Object-Relational Mapping
+									<ul>
+									<li>Embeddable</li>
+									<li>Element Collection</li>
+									<li>List or Set of Children?</li>
+									<li>HOWTO implement Entity hashCode and equals</li>
+									<li>Ordered Children</li>
+									<li>Coded Enums</li>
+									<li>Optional getters</li>
+									<li>LOB</li>
+									<li>Composite PK</li>
+									<li>Non-PK Join Conditions</li>
+									<li>More DB metadata: unique, index</li>
+									</ul>
+								</li>
+								<li>Bootstrapping JPA
+									<ul>
+									<li>Standalone / with Spring</li>
+									<li>hbm2ddl</li>
+									<li>Incremental DB migrations scripts</li>
+									<li>Transactions: programatic / declarative</li>
+									<li>DB Integration Tests: strategies, setup</li>
+									</ul>
+								</li>
+								<li>JPQL
+									<ul>
+									<li>Basic Travelsals</li>
+									<li>JOIN</li>
+									<li>Polimorphic Queries</li>
+									<li>Query-specific Projections</li>
+									<li>JOIN FETCH</li>
+									<li>Syntax limitations and workarounds</li>
+									<li>Debugging</li>
+									</ul>
+								</li>
+																
+								<li>JPA Runtime
+									<ul>
+									<li>EntityManager: Principles and Concepts</li>
+									<li>Entity Lifecycle</li>
+									<li>LAZY vs EAGER relations</li>
+									<li>Cascading</li>
+									<li>Orphan Removal</li>
+									<li>Entity Listeners: audit columns</li>
+									<li>Locking: Optimistic, Pessimistic</li>
+									<li>.merge(): a peek under the hood</li>
+									</ul>
+								</li>
+								
+								<li>JPA Performance									
+									<ul>
+									<li>1st Level Cache</li>
+									<li>Batch Updates</li>
+									<li>fetch_size</li>
+									<li>Bulk UPDATE, DELETE</li>
+									<li>Native Queries</li>
+									<li>CALL Stored Procedures</li>
+									<li>2nd Level Cache</li>
+									</ul>							
+								</li>
+								
+								<li>Spring Data JPA
+									<ul>
+									<li>Naming conventions</li>
+									<li>Extending common API</li>
+									<li>@Query</li>
+									<li>@Modifying</li>
+									<li>Optional and Stream support</li>
+									<li>Audit columns</li>
+									</ul>
+								</li>
+							</ol>	
+							
+							
 							
 							<hr class="star-primary"/>
-							<p>Imagine <span class="high">a project with no more SQL</span>. No more FK, sequences, weird column names, PreparedStatements and Result Sets. No more database schema diagram on your desktop, next to your Java domain model. No more lightLoad/fullLoad, no more storing IDs of other entities in fields. <span class="high">It's all just Java now</span>. The database remains just a .</p>
-							<p>We will also discuss the scenarios in which JPA is appropriate or not, and what to do in case you really need some database-specific feature (e.g. CONNECT BY, or /*-hints).</p>
-							<p>This module introduces your to this marvellous standard, teaching you <span class="high">how to design your Java <b>Object</b>-to-<b>Relational</b> Database <b>Mapping</b></span> (ORM), explaining the common best practices and pitfalls.</p>
-							<p>The second half of the module explains in details how the <code>EntityManager</code> actually works, <span class="high">including tricky stuff like lazy loading, cascading and detach/reattach entities</span>.</p>
-							<p>The trainees should have some experience with SQL and Java. Ideally, they would also know the basic concepts of declarative transaction management in EJB or Spring (but this is not mandatory).</p>
+							<h3>Description</h3>
+							<p>After almost a decade of developing and consulting enterprise applications with JPA, I can argue that this is the most powerful Java standard in use today. Apart for some corner-case apps, JPA is used virtually in all greenfield Java project interacting with a Relational DB. And for good reason!</p>
+							<p>However, despite its enormous popularity, JPA and its Reference Implementation, Hibernate, have a lot of caveats that you need to be aware of in order to avoid common pitfalls and understand the best practices to follow. But don't worry, we'll cover it all together.</p>
+							<p>The training is actually a 2-day hands-on workshop that will walk the attendees through all the topics of the agenda. The more complex topics will be explained using suggestive slides, followed by hands-on experimentation.</p>
+							<p>Requirements: basic knowledge of SQL. Prior contact with JPA is not mandatory, but advisable.</p>
+							<p>The duration and length of the training can be adapted to fit your needs.</p>
 
-							<p><i>1:20 talk, 10' test with prizes, 30' demo pitfalls</i>
-							</p>
+
+							<h3>Feedback Comments</h3>
+							<ul>
+								<li>Everything was very important</li>
+								<li>The hands-on application was very useful</li>
+								<li>The in-class ORM exercise was an excellent idea. I really managed to master the concepts there.</li>
+								<li>Very clear explanations</li>
+							</ul>
 							
-							<div class="accordion-group">
-								<div class="accordion-heading">
-									<a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-jpa">
-								See Anonymous feedback comments
-								</a>
-								</div>
-								<div id="feedback-jpa" class="accordion-body collapse">
-									<div class="accordion-inner">
-										<ul>
-											<li>Everything was very important</li>
-											<li>The hands-on application was very useful</li>
-											<li>The in-class ORM exercise was an excellent idea. I really managed to master the concepts there.</li>
-											<li>Very clear explanations</li>
-											<li>The contents could easily span 3 hours, please extend it a bit, to have time to discuss everything in depth.</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2169,14 +2293,15 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                           
 							
 							<h2 id="training/rest-web-services" code="REST WS" class="weight3">REST <br /> Web Services</h2>
 							<hr class="star-primary"/>
-							<span class="duration">2 hours</span>
+							<h3>Duration: 2 hours</h3>
 							
 							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Basic REST Concepts:
 									<ul>
@@ -2197,7 +2322,6 @@
 							<p><i>1h talk, 1h hands-on: simple REST endpoint using JAX-RS</i>
 							</p>
 							
-							 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2217,12 +2341,13 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                           
 							<h2 id="training/web-services" code="Web Services" class="weight3">Web Services <br />(.wsdl)</h2>
 							<hr class="star-primary"/>
-							<span class="duration">2 hours</span>
+							<h3>Duration: 2 hours</h3>
 							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Introduction: why, pros/cons, bit of history</li>
 								<li>SOAP
@@ -2247,7 +2372,6 @@
 							
 							<p><i>1h talk, 1h hands-on: contract-first and Java-first approaches using JAX-WS 2</i>
 							</p>
-							 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2266,96 +2390,94 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                           
 							<h2 id="training/spring" code="Spring" class="weight5">Spring</h2>
 							<hr class="star-primary"/>
-							<span class="duration">5 parts x 2 hours (max)</span>
+							<h3>Duration*: 2-3-5 days</h3>
+							* Duration varies depending on related topics included
 							
-							<h3>Part 1: Spring Core Basics</h3>
-							<p><i>1:10 talk, 50' hands-on</i>
-							</p>
+							<h3>Spring Core</h3>
 							<ul class="agenda">
 								<li>What is Spring? Why Spring?</li>
 								<li>Defining and Wiring Beans: XML and @nnotation</li>
 								<li>Bean Lifecycles: scopes</li>
 								<li>Setting up Spring</li>
-							</ul>
-
-							<hr class="star-primary"/>
-							<h3>Part 2: Spring Core Advanced</h3>
-							<p><i>1:10 talk, 20' demo AOP, 30' exercise</i>
-							</p>
-							<ul class="agenda">
 								<li>Spring AOP</li>
-								<li>Externalizing Configuration; SpEL</li>
-								<li>Advanced Topics: @Inject, Extensions, ...</li>
+								<li>Externalizing Configuration; SpEL; i18n</li>
+								<li>Advanced Topics: @Inject, Extension points</li>
+								<li>Java config</li>
 								<li>Testing Support</li>
 							</ul>
-
-							<hr class="star-primary"/>
-							<h3>Part 3: Spring DAO</h3>
-							<p><i>1:10 talk, 50' hands-on</i>
-							</p>
+							
+							<h3>Spring DAO</h3>
 							<ul class="agenda">
 								<li>Spring DB access Philosophy</li>
 								<li>Working with JDBC: JDBCTemplate</li>
-								<li>Working with JPA</li>
-								<li>Declarative Transactions</li>
-								<li>Concepts &amp; Principles</li>
-								<li>Transaction Propagation</li>
-								<li>Transaction Isolation</li>
+								<li>Configuring JPA</li>
+								<li>Transaction Management
+									<ul>
+									<li>ACID</li>
+									<li>Business vs DB Transactions. Threads</li>
+									<li>Automatic rollback on Exception</li>
+									<li>Transaction Propagation</li>
+									<li>Declarative Transaction Management</li>
+									<li>Transaction Isolation</li>
+									</ul>
+								</li>
 							</ul>
 
-							<hr class="star-primary"/>
-							<h3>Part 4: Spring MVC</h3>
-							<p><i>1h talk, 1h hands-on: Single-Page Application Workshop</i>
-							</p>
+							<h3>Spring MVC</h3>
 							<ul class="agenda">
-								<li>Introduction</li>
-								<li>Annotation-driven Controllers</li>
-								<li>Securing Spring Applications</li>
-								<li>Publishing and Consuming JAX-WS web services</li>
-								<li>Publishing and Consuming RESTful web services</li>
+								<li>Basic Concepts</li>
+								<li>Annotation-driven Controllers
+									<ul><li>@RequestMapping, ...</li></ul>
+								</li>
+								<li>Working with JSPs and Forms
+									<ul>
+									<li>Basics: JSP, Request, Session, Servlets, Filters, web.xml</li>
+									<li>View Resolvers
+									<li>JSP- and Backend Security</li>
+									<li>Spring Forms</li>
+									</ul>
+								</li>
+								<li>Exposing REST endpoints
+									<ul>
+									<li>@RequestBody, @ResponseBody</li>
+									<li>@RestControllerAdvice</li>
+									<li>REST Security overview</li>
+									</ul>
+								</li>
+								<li class="optional">Exposing and Consuming JAX-WS web services</li>
+								<li class="optional">Consuming RESTful web services</li>
 							</ul>
 							
-							<hr class="star-primary"/>
-							<h3>Part 5: Spring Boot</h3>
-							<p><i>2h talk + hands-on: Spring REST endpoint + JPA using Spring Boot </i>
-							</p>
-							<ul class="agenda">								
+							<h3>Spring Boot</h3>
+							<ul class="agenda">							
 								<li>start.spring.io</li>
 								<li>Auto-Configuration</li>
 								<li>Environment Abstraction</li>
 								<li>Profiles</li>
-								<li>Embedded Servlet Container</li>								
+								<li>Embedded Servlet Container</li>
 								<li>Deploying to an App Server</li>
+								<li>Developing a REST app with JPA</li>
 							</ul>
 
-							<hr class="star-primary"/>
-							<h3>Part 6: Spring Batch</h3>
-							<p><i>1h talk, 1h hands-on</i>
-							</p>
-							<p>This part will be finalized upon your request. I have the necessary experience: I have built and delivered an application on top of Spring Batch.</p>
+							<h3>Spring Batch</h3>
+							<p>This part will be finalized upon your request. I have the necessary experience: I have built and delivered several applications using Spring Batch.</p>
 							<img alt="Under Construction" src="under-construction.jpg" width="200px" />
-							
-							<hr class="star-primary"/>
-							
-							<p>Meet <span class="high">the framework which competes with a standard</span>. The debate will probably never end: Java EE vs Spring.</p>
-							<p>Spring blossomed in the times of EJB 2.x, enabling a cleaner, extensible and more flexible approach vs an immature and badly designed EJB specification. Even if the Java EE standard greatly evolved, Spring remained a competing alternative to Servlets, EJBs and CDI beans.</p>
-							<p>You may wonder: why?, how is this possible? What about vendor/version-lock-in? And you would be right. However, lots of architects choose to lock their applications to Spring instead of coding to the JavaEE standard alone.</p>
-							<p>The major advantage of Spring is that <span class="high">you can do (pretty) almost you ever want to do</span> - you probably only need to configure some beans or at most extend some Spring helper classes. Whereas in JavaEE, as soon as you need something not available in the standard, you are lost - you would then probably need to lock yourself to the Application Server implementation (Managed beans, login modules, logging extensions, WAS SSL providers, etc).</p>
-							<p>Apart from this flexibility that allows you to cover all those particular odd technical demands of your application, Spring also comes with several <span class="high">very-very nice helper classes</span> that help you reduce the boilerplate code in your application. JdbcTemplate and RestTemplate are the most renowed, effectively reducing the size of your DAO/ws client layer to a remarkable extent.</p>
-							<p>Spring integrates perfectly with all the services of the JavaEE platform, and all the other major frameworks out there. Some say that <span class="high">if a java technology does not integrate with Spring, it's not mature enough</span>, and perhaps you should reconsider the alternatives :)</p>
-							<p>The last part covers Spring Batch, a time-proven framework for building batch applications that manipulate large sets of data in a streaming-like fashion, with features like restartability, resume, jdbc batches, flat file parsing, etc. Although its complexity is remarkable, this part will target the more basic usages necessary for vanilla batch applications.</p>
-							<p>The modules have a very pronounced applicative nature, with <span class="high">lots of exercises to fully understand the concepts</span>.</p>
-							<p>For a <span class="high">full example of a real Spring enterprise application, an additional hour would be required</span> (not included in neither of the modules)</p>
 
+							<hr class="star-primary"/>							
+							<h3>Description</h3>
+							<p>Meet the greatest and best opensource Java Framework of today.</p>
+							<p>Whatever you want to do, Spring <span class="high">helps you to do it in a simple &amp; clean way</span> - you probably only need to use or extend some Spring helper classes. No more boilerplate code, no more reinventing the wheel: let some of the best code on the planet to do it for you!</p>							
+							<p>Spring integrates with all the services of the JavaEE platform, and all the other major frameworks out there. Some say that <span class="high">if a java technology does not integrate with Spring, it's not mature enough</span>, and perhaps you shouldn't use it:)</p>
+							<p>All the modules are roughly 50:50 between theory and hands-on practice.</p>
+							<p>For a walkthrough of an <span class="high">example of a real Spring enterprise application, an additional hour would be required</span>.</p>
+							
+							<p>Spring is in the top 3 most requested trainings: I've thaught it many-many times.</p>
 							
 							
-							<p><i>1h talk, 1h hands-on: contract-first and Java-first approaches using JAX-WS 2</i>
-							</p>
-							 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2373,19 +2495,20 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                           
 							
 							<h2 id="training/test-driven-development" code="TDD" class="star weight4">Test-Driven Development</h2>
 							<hr class="star-primary"/>
 							
-							<span class="duration">2 hours</span>
+							<h3>Duration: 2 hours</h3>
 							<p><span class="high">Meet the next level of software development.</span></p>
 							
 
 
 							<p><i>1h talk, 1h hands-on (Bowling game kata)</i>
 							</p>
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Definition
 									<ul>
@@ -2415,7 +2538,6 @@
 							<p>Besides the TDD phylosophy and implementation, this module also provides a remarkable series of <span class="high">guidelines for writing good unit tests</span>.</p>
 							<p>Basic knowledge of unit testing and Java test mocking frameworks (EasyMock, jMock, Mockito,...) is recommended. The <a href="#training/junit">JUnit Testing module</a> can bridge that gap for you.</p>
 							
-							 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2434,13 +2556,13 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                           
 							<h2 id="training/uml" code="UML" class="weight3">UML + Modeling</h2>
 							<hr class="star-primary"/>
-							<span class="duration">2 parts x 1,5 hours</span>
+							<h3>Duration: 2 parts x 1,5 hours</h3>
 							
-							<h3>Part 1</h3>
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Introduction</li>
 								<li>Structural UML Diagrams
@@ -2453,9 +2575,6 @@
 										<li>Modeling Exercise: 2 class diagrams (30 min) <br />(brainstorm in groups)</li>
 									</ul>
 								</li>
-							</ul>
-							<h3>Part 2</h3>
-							<ul class="agenda">
 								<li>Behavioral UML Diagrams
 									<ul>
 										<li>Sequence Diagrams (in detail)</li>
@@ -2473,7 +2592,6 @@
 							<p>For each exercise, the classroom will be split in teams of 2-3 members, and each team will <span class="high">ellaborate a diagram for each exercise</span>. After the time elapses, each team in turn will explain their solution to the entire classroom to provide a starting point for <span class="high">in-class brainstorming</span>. Alternative modeling options and various design assumptions will be analyzed.</p>
 							
 							
-							 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2492,14 +2610,15 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body"> 
 							<h3>Intro to</h3>
 							<h2 id="training/web-security" code="Web Security" class="weight2">Web Security</h2>						
 							<hr class="star-primary"/>
 							
-							<span class="duration">1 hour</span>
+							<h3>Duration: 1 hour</h3>
 							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Injection</li>
 								<li>Broken Authentication and Session Management</li>
@@ -2517,8 +2636,6 @@
 							<p>The course covers the <span class="high">Top 10 Web Security Attacks in 2013</span>, as reported by OWASP. Each attack is explained, exemplified and then one or more solutions are proposed to them, in a <span class="high">workshop-like atmosphere</span>.</p>
 							<p>Anyone can participate, although some minimum knowledge of the web technologies is recommended (JavaScript, HTTP, HTML).</p>
 
-							<p><i>1h talk &amp; discussions</i></p>
-							 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2538,14 +2655,15 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body"> 
 							<h2 id="training/mybatis" code="myBatis" class="weight2">myBatis Workshop</h2>
 							<hr class="star-primary"/>
 							
-							<span class="duration">1 hour</span>
+							<h3>Duration: 2 hours</h3>
 							
 							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Mapping result set columns to bean fields</li>
 								<li>Mapping input data to query parameters</li>
@@ -2566,7 +2684,6 @@
 
 							<p><i>1h examples and hands-on</i></p>
 							
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2585,12 +2702,13 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body"> 
 							<h2 id="training/xsd-jaxb" code="XSD &amp; JAXB" class="weight3">XSD &amp; JAXB</h2>
 							<hr class="star-primary"/>
-							<span class="duration">2 hours</span>
+							<h3>Duration: 2 hours</h3>
 							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>XSD
 									<ul>
@@ -2638,7 +2756,6 @@
 								</div>
 							</div>
 							
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2657,13 +2774,14 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body"> 							
 							<h2 id="training/scrum" code="Scrum" class="weight2">SCRUM for DEVs</h2>
 							<hr class="star-primary"/>
 							
-							<span class="duration">2-4 hours</span>
+							<h3>Duration: 2-4 hours</h3>
 							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Agility Concept
 									<ul>
@@ -2691,7 +2809,6 @@
 							
 							<img src="cert-logo-psm.png" alt="Certified Scrum Master I" title="Certified Scrum Master I" />
 							
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -2710,13 +2827,14 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body"> 							
 							<h2 id="training/scrum" code="Scrum" class="weight2">Pragmatic<br />Clean Architecture</h2>
 							<hr class="star-primary"/>
 							
-							<span class="duration">2 hours</span>
+							<h3>Duration: 2 hours</h3>
 							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Transaction Script vs DDD</li>
 								<li>Modeling Data
@@ -2760,8 +2878,11 @@
 							<p>How to teach enterprise design patterns?</p>
 							<p>How I do it: I start from a trivial “Java-main” application, and gradually add various concerns (such as persistence, user-interface, external services, etc.), asking the participants to brainstorm a solution together. During the training, we will be progressively sketching on a board our current design, so that at the end of the 2 hours, we end up with a Clean Architecture based on the Dependency Inversion Principle, following a pragmatic approach suggested the Adam Bien in Real-World Java EE Patterns (part of the curricula for the Java EE Architect OCM exam).</p>
 							<p>We won’t see any code, all the discussion is at conceptual level. Therefore, this module is maybe a bit more advanced than the rest. However, it can be discussed in whatever language – the principles remain the same.</p>
-							
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+							<p>I've talked about this topic at:</p>
+							<img src="conf-jpoint.jpg" title="JPoint 2017, Moscow" class="img-centered img-responsive"/>
+							<img src="conf-devoxx-poland.jpg" title="Devoxx Poland 2017, Krakow" class="img-centered img-responsive"/>
+							<img src="conf-itake.jpg" title="I TAKE Unconference 2017, Bucharest" class="img-centered img-responsive"/>
+							<img src="conf-bjug.jpg" title="Bucharest Java User Group" class="img-centered img-responsive"/>
                         </div>
                     </div>
                 </div>
@@ -2782,12 +2903,12 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body"> 							
 							<h2 id="training/scrum" code="Scrum" class="weight2">Coding Dojo<h2><h3>TDD, Refactoring</h3>
 							<hr class="star-primary"/>
 							
-							<span class="duration">1,5 hours</span>
+							<h3>Duration: 1,5 hours / 6-8 devs</h3>
 														
 							<p>How can one grow his coding skills?</p>
 							<p>Developers working on medium-large applications often don't have <b>the courage/time to refactor</b>, nor the habbit to <b>introspect the design of their code</b>. Too often, it's so much existing code, at it appears to have such a huge inertia that any major improvement feels like a dream. But, as we all know, the moment you stop refactoring and evolving the existing design, at that moment you start writing legacy code. And you don't want to go there.</p>
@@ -2803,6 +2924,8 @@
 							
 							<hr class="star-primary"/>
 							<p>There are a lot of Katas out there, of various difficulties, each targeting a different kind of codebase and refactoring techniques:</p>
+							
+							<h3>Agenda</h3>
 							<ul class="agenda">
 								<li>Greenfield Test-Driven Design Kata</li>
 								<li>Safe Refactoring Kata (existing unit tests)</li>
@@ -2811,101 +2934,12 @@
 							</ul>
 							
 							
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-	
-	
-	
-	<div class="portfolio-modal modal fade" id="codecamp-clean-code-teaser" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content modal-caramiziu">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body"> 							
-							<h2 id="training/scrum" code="Scrum" class="weight2">Clean Code<h2><h3>at Codecamp, Iasi 13 mai 2017</h3>
-							<span class="duration">45 min (10:00-10:45)</span>
-							<hr class="star-primary"/>
-							
-														
-							<p>Whatever paradigm, language, technology stack or DevOps strategy is used, we will always write CODE. And humans will need to understand, maintain and evolve that code for many years, hopefully. It will be read 10x more time than it took to write it!</p>
-							<p><b>Then, tell me, how should your code look?</b></p>
-							<p>Stop rushing, and start writing <b>professional code</b>! You’ll see that crafting code is an Art: you need passion, attention to details, self-criticism and a lot of creativity to make the design express your thoughts. It takes a lot of practice to master this Art, but the path starts with some <b>core guidelines and 'code smells' that you MUST know</b>. As “classic” as these might be, they will become the starting point of a lot of discussions about essential <b>principles of good software design</b>, such as DRY, SRP, DIP, and KISS.</p>
-							<p>Come and enjoy an <b>entertaining, tangible presentation</b> of key concepts of Clean Code, with a lot of code examples, which will allow you to easily coach others, back at work. Can’t wait to share my passion with you: writing beautiful code that is a pleasure to work with.</p>
-							<p>PS: If Time allows us, we’ll also talk a bit about writing clean code using Java8 lambdas/Streams.</p>
-
-							<p>&nbsp;</p>
-							
-							<hr class="star-primary"/>
-							<p>Main points of the talk:</p>
-							<ul class="agenda">
-								<li>Introduction (5 mins)
-									<ul>
-									<li>Clean code definitions</li>
-									<li>The need for Clean Code: productivity; frustration; fear</li>
-									</ul>
-								</li>
-								<li>Names (15 mins)
-									<ul>
-									<li>Putting names = great power. Use it!</li>
-									<li>naming functions, classes, booleans</li>
-									<li>Pragmatic naming: avoid useless interfaces, redundant names, dull names.</li>
-									<li>Learning the domain. Continuous name refining</li>
-									<li>Name length</li>
-									</ul>
-								</li>
-								<li>Functions (20 mins) = The Single Responsibility Principle
-									<ul>
-									<li>SMALL</li>
-									<li>Crack it in small methods with long descriptive name. Developer Feelings about that</li>
-									<li>Premature Optimization is the root of all evil</li>
-									<li>Signature: &lt;3 params</li>
-									<li>Boolean parameters. SRP</li>
-									<li>NULL WARS</li>
-									<li>Runtime Exceptions all the way. Best practices</li>
-									<li>Unexpected (=bad) side effects</li>
-									</ul>
-								</li>
-								<li>Classes (10 mins) = The OOP Utopia
-									<ul>
-									<li>struct (C language)</li>
-									<li>Java Bean – Fake encapsulation</li>
-									<li>Goal of OOP: protect your clients</li>
-									<li>There’s little OOP in Enterprise Applications</li>
-									<li>Classes as containers of logic</li>
-									</ul>
-								</li>
-								<li>Comments. Formatting (10 mins)
-									<ul>
-									<li>Communicate, don’t Code</li>
-									<li>Comments are Failures</li>
-									<li>Comments LIE !</li>
-									<li>How to increase the code Expressiveness</li>
-									<li>Bad comments : examples</li>
-									<li>Good comments: examples. Valid excuses</li>
-								</li>
-								<li>Conclusions (&lt;5 mins)</li>
-							</ul>
-							
-							
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-	
 	
 	<div class="portfolio-modal modal fade" id="scala" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content modal-gri">
@@ -2917,17 +2951,19 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                           
 							<h2 id="training/scala" code="Scala" class="weight3">Scala</h2>
 							<hr class="star-primary"/>
-							<span class="duration">5 days x 8~ hours</span>
+							<h3>Duration: 5 days</h3>
 							
 							<p>The course is organized as a continuous workshop: the attendees will write code all the time, as we progress through the topics, to experiment and play with each concept covered. In several such exercises, larger programs will be written. However, due to the extremely compact syntax of Scala, the actual size of the code to write will never represent an impediment – the programs are short, though at times cryptic at first.</p>
 								
 							<hr class="star-primary"/>
 							
 							
+							<h3>Agenda</h3>
+							<br />
 							
 							<h3>Day 1</h3>
 							<ul class="agenda">
@@ -3060,7 +3096,6 @@
 							
 							
 							
-							 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -3112,7 +3147,10 @@
 				delay: 10,
 				time: 1000
 			});
-        });
+			
+	});
+		
+	
 	</script>
 	
 	
@@ -3164,7 +3202,8 @@
 <script type="text/javascript">
   //shortcut for $(document).ready
   $(function(){
-   
+  	$('.modal-content').append('<div style="text-align: center"><button type="button" class="close-btn btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button></div>');
+	 
 	var sectionHrefs = $(".navbar-nav a").map(function() {return $(this).attr('href');}).get();
 	sectionHrefs.push("#photos");
     $(".navbar-nav a").on('click', function () {
@@ -3176,11 +3215,12 @@
 	function isPortfolioHash(hash) {
 		return !isSectionHash(hash);
 	}
-   
+   var openModal = null;
 	if (window.location.hash) { // on first load
         var loadTimeHash = window.location.hash;		  
 		if (isPortfolioHash(loadTimeHash)) {
 			$(loadTimeHash).modal('toggle');
+			openModal = $(loadTimeHash)[0];
 		}
     }
   
@@ -3191,12 +3231,8 @@
 		portofolioClicked = true;
 		window.location.hash = hash;	
 	});
-
+	
 	window.onhashchange = function() {		
-		/*if (portofolioClicked) {
-			$(location.hash).modal('show');
-			portofolioClicked = false;
-		}		*/	
 	}
 	
 	$('#myModal').modal({
@@ -3208,14 +3244,41 @@
 		history.pushState("", document.title, window.location.pathname
                                                        + window.location.search);
 	});
-
-
- });
- 
-function encrypt() {
 	
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) { // ESC
+			if (openModal) {
+				$(openModal).find('.close-btn').click();
+				openModal = null;
+			}
+		}
+	});
+	
+$('.modal').on('show.bs.modal', function (e) {
+	openModal = e.currentTarget;;
+	//var x = $(e.currentTarget).find('.close-btn');
+	//setTimeout(function(){x.click()}, 1000);
+	//console.log(x);
+});
+//$(loadTimeHash).modal('toggle');
 
-}
+			shuffleArray(mottos);
+			var nextMottoIndex = 0;
+			
+			function changeMotto() {
+				$("#motto").text(mottos[nextMottoIndex]);
+				nextMottoIndex = (nextMottoIndex + 1) % mottos.length;
+				$("#motto").addClass("load");
+				setTimeout(function() {
+					$("#motto").removeClass("load");
+				},2000 + 8000);
+				
+				setTimeout(changeMotto, 2000+8000+4000);
+			}
+			changeMotto();
+			
+});
+ 
 
 function base64ToNumbers(s) {
 	var arr=[];
