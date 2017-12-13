@@ -13,6 +13,18 @@
 	<link rel="publisher" href="https://plus.google.com/b/104211899563696126838/104211899563696126838/about" />
     <title>Trainer and Coach - Victor Rentea: Clean Code, Spring, Design Patterns & much more</title>
 
+	<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-66235500-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+	
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -80,10 +92,15 @@
 			
             <!-- /.navbar-collapse -->
         </div>
-		<div style="position: absolute; left: 50%;">
+		<!--<div style="position: absolute; left: 50%;">
 			<div style="position: relative; left: -50%; background-color:yellow;" id="motto">
 			XXX
 			</div>
+		</div>
+		-->
+		<div style="position:absolute; text-align:center; width:100%; line-height:17px">
+		<span style="background-color:yellow;" id="motto">
+		</span>		
 		</div>
         <!-- /.container-fluid -->
     </nav>
@@ -107,11 +124,11 @@
 	</style>
 	<script>
 	var mottos = [
-		"You don’t teach passion for code. You inspire it.",
-		"Writing Good Code is not only about skills. It’s about attitude.",
-		"Let's practice on real-life exercises. Then, let's experiment!",
+		"You don’t teach passion for code.<br/> You inspire it.",
+		"Writing Good Code is not only about skills.<br/>It’s about attitude.",
+		"Let's practice on real-life exercises.<br/>Then, let's play some more!",
 		"Deep understanding, not learning an API.",
-		"Custom agendas. Unique sessions. Tailored for you!",
+		"Custom agendas. Unique sessions.<br/>Tailored for you!",
 		"Fun, Intense, easy to remember sessions!",
 		"How about an 8-hour brainstorm?",
 		"What’s the fastest way to up-grade your developers?",
@@ -380,7 +397,19 @@
                         <div class="caption">Performance<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
                         <img src="label/java-performance.jpg" class="img-responsive" alt="">
                     </a>
-                </div>			
+                </div>
+				<div class="col-sm-6 col-xs-12 portfolio-item">
+                    <a href="#algorithms" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">Algorithms<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
+                        <img src="label/algorithms.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>		
+				<div class="col-sm-6 col-xs-12 portfolio-item">
+                    <a href="#unit-testing" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">Test-Driven Development TDD JUnit Behaviour Driven Cucumber<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
+                        <img src="label/unit-testing.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>				
 				
             </div>
 			 <div class="row">
@@ -434,12 +463,7 @@
                     </a>
                 </div>
 				
-				<div class="col-sm-3 col-xs-6 portfolio-item">
-                    <a href="#tdd" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">Test-Driven Development TDD<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
-                        <img src="label/tdd.jpg" class="img-responsive" alt="">
-                    </a>
-                </div>
+				
 				<div class="col-sm-3 col-xs-6 portfolio-item">
                     <a href="#uml" class="portfolio-link" data-toggle="modal">
                         <div class="caption">UML<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
@@ -687,118 +711,6 @@
 				}
 			</script>
 		</div>
-			
-		    <!--       
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					
-					<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; visibility: hidden;">
-					
-						<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-							<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-							<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-						</div>
-						<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Clean Code @ eSolutions 2016.jpg" />                
-							</div>    
-							<div data-p="112.50">
-								<img data-u="image" src="poze/CleanCode & DesignPatterns @ EMAG 2016 Iasi.jpg" />                
-							</div>  			
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Design Patterns @ EMAG 2016.jpg" />                
-							</div>  
-							<div data-p="112.50">
-								<img data-u="image" src="poze/speaker-badges.jpg" />                
-							</div>							
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Design Patterns @ EMAG 2016-2.jpg" />                
-							</div>  			
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Java Performance Tuning @ DB 2016.jpg" />                
-							</div>  			
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Spring & CleanCode @ DB 2016.jpg" />                
-							</div>  			
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Spring & CleanCode @ DB 2016-2.jpg" />                
-							</div>  			
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Spring + CleanCode @Thales 2016 show.jpg" />                
-							</div>  			
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Spring Framework @ ING 2015.jpg" />                
-							</div>  
-							<div data-p="112.50">
-								<img data-u="image" src="poze/EJB + JPA @ Magdeburg 2014.jpg" />                
-							</div>  
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Spring + Clean Code @ DB 2016.jpg" />                
-							</div>	
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Clean Code & DesignPatterns @ EMAG 2016 Craiova.jpg" />
-							</div>	
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Java Performance @ DB 2016-2.jpg" />                
-							</div>	
-							<div data-p="112.50">
-								<img data-u="image" src="poze/UPB 2016.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/emag-dojo1.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/emag-dojo2.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/abs-2017q1.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Design Patterns @ EMAG 2017-03.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/voxxed-buc-2017.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Coding Dojo @ UPB.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/Betfair 18-19 mai 2017.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/DB apr 2017.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/cursanti db 22-25 mai 2017.jpg" />                
-							</div>
-							<div data-p="112.50">
-								<img data-u="image" src="poze/cursanti deloitte Scala 31-4 aug 2017.jpg" />                
-							</div>
-							
-							
-							
-							
-							
-							
-										
-										
-							
-						</div>
-						
-						<div data-u="navigator" class="jssorb01" style="bottom:16px;right:16px;">
-							<div data-u="prototype" style="width:12px;height:12px;"></div>
-						</div>
-						
-						<span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
-						<span data-u="arrowright" class="jssora02r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
-					</div>
-					<br />
-					<br />
-				
-
-				</div>
-			</div>
-			-->
 			<div class="row">
 				<div class="col-lg-12 text-center">
 				<br />
@@ -883,6 +795,9 @@
 					<p class="recommendation-author">Leonard Mocanu, Software Architect at eMag<br /></p>
 				</div>
 			</div>
+			
+			
+			
 			<div class="row">			
 				<div class="col-sm-6 recommendation" id="feedback-ibm">
 					<div class="read-short">
@@ -1000,6 +915,21 @@
 						<p>Victor is an extremely talented trainer (and software engineer as well) devoted to his job as a tutor: he plan the training well in advance taking into account the best practices in domain, he reviews the material before the training session to ensure it is adequate to the audience, he rehearse the presentation before and reviews it after the training session based on the students feedback ensuring that next sessions will be even better, close to perfection. Being also a passionate developer, he will bring a real and valuable experience which is often missing in many other trainings. I strongly recommend him!</p>
 					</div>					
 					<p class="recommendation-author">Florin Diaconu, Sr. Software Engineer, Technical Team Leader, Project Manager</p>
+				</div>
+			</div>
+			<div class="row">
+				
+				<div class="col-sm-6 recommendation" id="feedback-temenos">
+					<div class="read-short">
+						<p>A training session you cannot refuse.</p>
+						<div class="text-right"><button class="btn btn-success btn-sm read-more-but">Read More</button></div>
+					</div>
+					<div class="read-full">
+						<p>Fresh and healthy, full of good practices to follow. All in one pack according to audience needs. Includes switching to hard-core mode. All of it in a relaxed and enjoyable format. A training session you cannot refuse.</p>
+					<p>I highly recommend Victor!</p>
+					</div>
+									   
+					<p class="recommendation-author">Radu Focseneanu, Technical Lead at Temenos<br /></p>
 				</div>
 			</div>
 			<div class="row">
@@ -1176,7 +1106,11 @@
 					<div class="video-container">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/4-4ahz7zDiQ" frameborder="0" allowfullscreen></iframe></div></li>
 
-					<li><p><b>Clean Lambdas</b> at JBCNConf, Barcelona, 25 june 2017</p></li>
+					<li><p><b>Clean Lambdas</b> at JBCNConf, Barcelona, 25 june 2017 (<a href="https://youtu.be/qcIiufH_u7c" target="_blank">video</a>)</p>
+					<div class="video-container">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/qcIiufH_u7c" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+					</div>
+					</li>
 					
 					<li><p><b>Clean Lambdas</b> at Dev Talks Bucharest, 8 june 2017, <a href="https://youtu.be/guiDxfwfVGQ" target="_blank">screen cast</a> - soundless, sorry :((</p></li>
 					
@@ -1586,7 +1520,7 @@
                 <div class="row">					
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 						<div class="modal-body">                      
-							<h2>Object-Oriented <br /> Design Patterns</h2>
+							<h2>Design Patterns <br/>and Principles</h2>
 							<hr class="star-light" />
 							<h3>Duration: 1 day</h3>
 							<h3>Agenda</h3>
@@ -1673,7 +1607,7 @@
             </div>
         </div>
     </div>
-    <div class="portfolio-modal modal fade" id="enterprise-design-patterns" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="algorithms" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -1685,87 +1619,78 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Your Topic...</h2>
+                            <h3 style="text-align:center">Introduction to</h3>
+                            <h2>Algorithms</h2>
                             <hr class="star-primary">
-							<h3>Duration: 2 hours</h3>
+							<h3>Duration: 5 days</h3>
+							<p>Available in: Java, PHP, Scala, C++, C#</p>
 
 							<h3>Agenda</h3>
-							<ul class="agenda">
-								<li>Introduction: pro/cons, pitfalls</li>
-								<li>Several acronyms &amp; principles: DRY, KISS, SRP, ...</li>
-								<li>Layered Application Architecture</li>
-								<li>Presentation Tier Patterns
+							<ol class="agenda">
+								<li>A gentle introduction
 									<ul>
-										<li>MVC</li>
-										<li>Model2</li>
-										<li>Rich Internet Applications</li>
-										<li>Model-View-Whatever: M-V-P, M-V-VM</li>
-										<li>Comet/Server Push</li>
+									<li>Simple sorts: insertion, selection. +Implem</li>
+									<li>Binary search. +Implem. Problem: sum2=0</li>
+									<li>Stack, queue. Implem brute w/ arrays, [opt] pb: cyclic array queue</li>
+									<li>Complexity notation O(n), caculus</li>
 									</ul>
 								</li>
-								<li>Business Tier Patterns
+								<li>Linked lists:
 									<ul>
-										<li>Facade</li>
-										<li>Service</li>
-										<li>Method Object</li>
-										<li>Entity</li>
-										<li style="color:#ccc" title="On special request, if remains time">Domain-Driven-Design</li>
+									<li>Basic ops: length, add, remove, concat</li>
+									<li>Merge sorted</li>
+									<li>Double linked list</li>
 									</ul>
 								</li>
-								<li>Integration Tier Patterns
+								<li>Divide-et-impera &amp; recursion:
 									<ul>
-										<li>DAO</li>
-										<li>DTO</li>
+									<li>Hanoi</li>
+									<li>Fibonacci; alternatives to recursion</li>
+									<li>Mergesort</li>
+									<li>[opt] Quicksort</li>
 									</ul>
 								</li>
-								<li>Infrastructural Patterns & Utilities
+								<li>Binary Trees
 									<ul>
-										<li>Service Activator</li>
-										<li>Asynchronous Call</li>
-										<li>Singleton</li>
-										<li>Service Locator</li>
-										<li>Context Holder</li>
-										<li>Mapper</li>
+									<li>Modelling. Nodes(implem) or array? </li>
+									<li>Textual representations. JSON?</li>
+									<li>Problem: Expression calculator</li>
+									<li>Traversals: preorder, inorder, postorder</li>
+									<li>BST. Search, add, remove, interval find</li>
+									<li>[opt] Heap: swim, sink. Heapsort</li>
 									</ul>
 								</li>
-								<li>Antipatterns</li>
-								<li>[optional] 1h inpection of real-world Java Enterprise Application</li>
-							</ul>
+								<li>Graphs
+									<ul>
+									<li>Concepts: vertex, edge, directed, connected, bipartite, cycles vs tree, edge weight</li>
+									<li>Reprezentari: edge list or vertex neighbors</li>
+									<li>Traversals: DFS, BFS, isConnex?, isBipartite</li>
+									<li>Shortest paths: Djikstra</li>
+									</ul>
+								</li>
+								<li>Fast Searching: 
+									<ul>
+									<li>Regex, NFA</li>
+									<li>Trie +impl</li>
+									<li>Hashtable +impl. Hashcode/equals howto.</li>
+									</ul>
+								</li>
+								<li>Advanced techniques
+									<ul>
+									<li>Dynamic programming: Backpackers problem</li>
+									<li>String similarity. Levenstein. Implem</li>
+									<li>Special problems: NP, NP hard, intractability, applications: asymmetric crypto</li>
+									<li>Sorting numbers in O(N) with Radix Sort [opt]</li>
+									</ul>
+								</li>
+								<li>Additional classic problems TBD</li>
+							</ol>
 
 							<hr class="star-primary">
 							
-							<p>Developing Enterprise applications is hard. No one can argue that.</p>
-							<p>But why? Is it because of their overly-complex business logic, their NFRs, the heterogenous teams, the business-IT gap, or maybe a combination of it all? Whatever the cause, <span class="high">enterprise applications tend to be very large</span>, with a considerable proportion of similar functionality. The perfect place for a pattern.</p>
-							<p>Enterprise application strive for order. They simply can't stand a chaotic unorganized approach that will render their <span class="high">maintainance HELL</span> and eventually lead to the dreaded REWRITE.</p>
-							<p>This module covers the major design patterns used in the development of typical enterprise Java applications. The patterns are studied on layers, paying special attention to the Client and the Business Layer, the places where the actual creativity usually resides. The participants will learn the <span class="high">principles of a good JavaEE design</span> and solutions to various recurrent problems.</p>
-							<p>With one of the largest bibliography of all my modules, this course is based on <span class="high">a considerable part of the Oracle Certified JavaEE6 Architect agenda</span>. Even if the patterns are implemented using the Java EE5+ standard, most of these patterns can be used in any major middleware framework, like Spring.</p>
-							<p>This module is probably the most difficuly one in my portfolio, so it is <span class="high">dedicated to those with certain experience</span> in JavaEE/Spring, but also to those who love challenges.</p>
-							<p>Throughout the talk, we will stop on certain patterns to see how they look in code and to finalize certain incomplete implementations. However, the application part is rather scarce compared to my other modules due to the very abstract nature of the covered topics. </p>
-							<p>NOTE: In case you want us to dissect a real-world example of an Java Enterprise application, I have such an example prepared that will take 1 more hour.</p>
+							<p>The major algorithms that are covered in all the Computer Science faculties (including Politehnica). We will write code together > 80% of the time. Only several algorithms and more complex concepts will require more in-depth teoretical explanations. But in general, the training is organized as a continuous workshop. </p>
+							<p>Proofs of correctness, formulas and a collection of exercises for home you will find in the book which I'll offer you as reference material: Algorithms 4th edition, R. Sedgewick, K. Wayne - one of the best 3 books in this area.</p>
 
-							
-							<div class="accordion-group">
-								<div class="accordion-heading">
-									<a class="acordion-toggle" data-toggle="collapse" data-parent="#training" href="#feedback-eedp">
-								See Anonymous feedback comments
-								</a>
-								</div>
-								<div id="feedback-eedp" class="accordion-body collapse">
-									<div class="accordion-inner">
-										<ul>
-											<li>You managed to capture the essence of the subject and transmit the informations in an interesting and interactive manner! Congratulations!</li>
-											<li>Excellent time management</li>
-											<li>Very intuitive animations in slides</li>
-											<li>You managed to capture the actual approaches to EE Design Patterns and to explain very well the structures</li>
-											<li>You had a very clear and concise presentation style</li>
-											<li>Very intersting the infrastructural patterns</li>
-											<li>There is nothing to improve to this course</li>
-											<li>The entire course was very interesting!</li>
-											<li>Very interesting the presentation of the layers of an application - the overview</li>
-										</ul>
-									</div>
-								</div>
-							</div>
 							
 							
                         </div>
@@ -2485,7 +2410,7 @@
         </div>
     </div>
 	
-	<div class="portfolio-modal modal fade" id="tdd" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="portfolio-modal modal fade" id="unit-testing" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content modal-albastru">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -2497,37 +2422,67 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                           
-							
-							<h2 id="training/test-driven-development" code="TDD" class="star weight4">Test-Driven Development</h2>
+							<h3 style="text-align:center">Professional</h3>
+							<h2>Unit Testing</h2>
 							<hr class="star-primary"/>
 							
-							<h3>Duration: 2 hours</h3>
+							<h3>Duration: 1 day</h3>
 							<p><span class="high">Meet the next level of software development.</span></p>
 							
 
 
-							<p><i>1h talk, 1h hands-on (Bowling game kata)</i>
-							</p>
 							<h3>Agenda</h3>
-							<ul class="agenda">
-								<li>Definition
+							<ol class="agenda">
+								<li>Principles
+									<ul>
+										<li>Basics: Arrange-Act-Assert</li>
+										<li>Expressive tests</li>
+										<li>Robust Tests</li>
+										<li>DRY Tests</li>
+										<li>Fluent Builders. Object Mother Pattern.</li>
+										<li>Hamcrest Matchers vs Java8 asserts</li>
+										<li>Strategies for Testing Persistence</li>
+									</ul>
+								</li>
+								<li>Advanced JUnit
+									<ul>
+									<li>Lifecycle</li>
+									<li>Runners</li>
+									<li>ExpectedException</li>
+									<li>Parameterized Tests</li>
+									</ul>
+								</li>
+								<li>Mocking (Mockito or your favourite..)
+									<ul>
+									<li>Basic expectations</li>
+									<li>Throwing exceptions</li>
+									<li>Verifying method was called</li>
+									<li>[opt] Mocking methods with callbacks</li>
+									<li>Partial mocks, and why they are evil</li>
+									<li>
+								</li>
+								<li>Test-Driven Development (TDD)
 									<ul>
 										<li>The 3 Rules of TDD</li>
-										<li><span class="high">TDD Mantra: Red-Green-Refactor</span>
-										</li>
+										<li>TDD Mantra: Red-Green-Refactor</li>
+										<li>A TDD Exercise (Coding Kata)</li>
+										<li>Pros and Cons. When to use</li>
 									</ul>
 								</li>
-								<li>Advanced Unit Testing
+								
+								<li>Behavior-Driven Design (BDD) with Cucumber
 									<ul>
-										<li>What does a Unit Test tell you ?</li>
-										<li>Fragile Tests vs. Clean Tests</li>
-										<li>Fluent Builders at their most</li>
-										<li>Testing Persistence</li>
+									<li>Intro</li>
+									<li>Writing a .feature file: basic, data grid, parameterization</li>
+									<li>Mockito Integration</li>
+									<li>Spring Integration</li>
+									<li>[opt] Selenium Integration</li>
 									</ul>
 								</li>
-								<li>TDD Pros & Cons</li>
-								<li style="color:#ccc">Behavior-Driven Design: an introduction</li>
-							</ul>
+							</ol>
+							<p><i>1h talk, 1h hands-on (Bowling game kata)</i>
+							</p>
+							
 							
 							<hr class="star-primary"/>
 							
@@ -3266,7 +3221,7 @@ $('.modal').on('show.bs.modal', function (e) {
 			var nextMottoIndex = 0;
 			
 			function changeMotto() {
-				$("#motto").text(mottos[nextMottoIndex]);
+				$("#motto").html(mottos[nextMottoIndex]);
 				nextMottoIndex = (nextMottoIndex + 1) % mottos.length;
 				$("#motto").addClass("load");
 				setTimeout(function() {
