@@ -16,11 +16,14 @@ class Child
     public function playWith(BlockFactory $cutie)
     {
         $board = $cutie->createBoard();
+        printf("Laying down board ${board} on the table");
+
         $previousCube = $cutie->createCube();
-        printf("Pun primul cub " . $previousCube . " pe tabla " . $board . "\n");
+        printf("Sticking first cube ${previousCube} in the board ${board}\n");
+
         for ($i = 2; $i <= 10; $i++) {
             $cube = $cutie->createCube();
-            printf("\"Iau cubul " . i . ": " . $cube . " si il pun peste " . $previousCube . "\n");
+            printf("\"Asez cubul ${cube} si il pun peste ${previousCube}\n");
             $cube->stackOnto($previousCube);
             $previousCube = $cube;
         }

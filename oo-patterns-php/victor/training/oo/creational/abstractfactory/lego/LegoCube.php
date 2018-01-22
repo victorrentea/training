@@ -18,15 +18,27 @@ class LegoCube implements Cube
     function stackOnto(Cube $cube)
     {
         printf("Stacking onto cube " . $cube);
+        if (!($cube instanceof LegoCube)) {
+            $this->throwMismatchException();
+        }
     }
 
     function stickIn(Board $board)
     {
         printf("Sticking in " . $board);
+        if (!($board instanceof LegoBoard)) {
+            $this->throwMismatchException();
+        }
+
     }
 
     function __toString()
     {
         return "Lego Cube";
+    }
+
+    private function throwMismatchException(): void
+    {
+        throw new \RuntimeException("The LEGO cube is NOT compatible with any other brand");
     }
 }

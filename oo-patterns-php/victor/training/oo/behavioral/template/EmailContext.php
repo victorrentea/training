@@ -13,7 +13,7 @@ class EmailContext
 {
     public function send(Email $email): bool
     {
-        printf("Trying to send " . $email . "\n");
+        printf("Trying to send " . $email . "\n" . " with subject " . $email->getSubject());
         return rand(0, 1) == 0;
     }
 }

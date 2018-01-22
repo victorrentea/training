@@ -23,7 +23,9 @@ $childOne = new Child();
 printf("Got back from work...\n");
 //$factory = new LegoFactory(); // 100 RON
 $factory = new MegaBlockFactory(); // 20 RON
-printf("Brought a present: " . $factory . " \n");
+printf("Brought you a present: ${factory}\n");
 printf("Hm....\n");
+
 $childOne->playWith($factory);
+
 printf("Good Night!\n");

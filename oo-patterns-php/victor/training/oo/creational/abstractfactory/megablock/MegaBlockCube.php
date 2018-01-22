@@ -17,11 +17,7 @@ class MegaBlockCube implements Cube
 
     function stackOnto(Cube $cube)
     {
-        if (!($cube instanceof MegaBlockCube)) {
-            throw new \Exception("Copyright pe Bunghi!");
-        }
         echo "Stacking onto cube " . $cube;
-
     }
 
     function stickIn(Board $board)
