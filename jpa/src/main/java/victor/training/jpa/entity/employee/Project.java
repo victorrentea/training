@@ -22,6 +22,7 @@ public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String name;
 
 	@Enumerated
@@ -34,6 +35,13 @@ public class Project {
 	@ManyToMany
 	@JoinTable(name = "EMP_PRJ", joinColumns = @JoinColumn(name = "PROJECT_ID"), inverseJoinColumns = @JoinColumn(name = "EMPLOYEE_ID"))
 	private List<Employee> employees = new ArrayList<>();
+	
+//	private String domainArea; // INITIAL
+	//SOLUTION (
+	@ManyToOne
+	@JoinColumn(name = "DOMAIN_AREA_ID")
+	private DomainArea domainArea; 
+	// SOLUTION )
 	
 	public Project() {
 	}
@@ -85,4 +93,21 @@ public class Project {
 		this.employees = employees;
 	}
 
+	// INITIAL (
+//	public String getDomainArea() {
+//		return domainArea;
+//	}
+//	public void setDomainArea(String domainArea) {
+//		this.domainArea = domainArea;
+//	}
+	// INITIAL )
+
+	// SOLUTION(
+	public DomainArea getDomainArea() {
+		return domainArea;
+	}
+	public void setDomainArea(DomainArea domainArea) {
+		this.domainArea = domainArea;
+	}
+	// SOLUTION)
 }

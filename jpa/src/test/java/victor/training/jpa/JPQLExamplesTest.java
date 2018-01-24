@@ -1,9 +1,9 @@
 package victor.training.jpa;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,7 +12,6 @@ import javax.persistence.PersistenceContext;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -34,22 +33,31 @@ public class JPQLExamplesTest {
 	protected EntityManager em;
 
 	@Test
-	@Rollback
-	public void testExample1() {
-		prepareDataForQ1();
-
-		String jpql = "SELECT s FROM Student s WHERE s.history.enrollmentDate >= '2013-01-01'";
-		List<Student> results = em.createQuery(jpql, Student.class).getResultList();
+	public void studentEnrolledThisYear() {
+		em.persist(new Student("John")
+				.setHistory(new StudentHistory(LocalDate.now().minusYears(1))));
+		em.persist(new Student("Kristoph")
+				.setHistory(new StudentHistory(LocalDate.now())));
+		String jpql = "SELECT s FROM Student s WHERE s.history.enrollmentDate >= :startOfThisYear";
+		List<Student> results = em.createQuery(jpql, Student.class)
+				.setParameter("startOfThisYear", LocalDate.now().withDayOfYear(1))
+				.getResultList();
 		assertEquals(1, results.size());
-		assertEquals("John", results.get(0).getName());
+		assertEquals("Kristoph", results.get(0).getName());
 	}
 
 	@Test
-	@Rollback
-	public void testExample2() {
-		prepareDataForQ2();
+	public void coursesThaughtByTavi_prefetchingStudent() {
+		Student john = new Student("John");
+		em.persist(new Course("Sisteme de Operare")
+				.addStudent(john)
+				.addStudent(new Student("Maria"))
+				.setTeacher(new Teacher("Tavi")));
+		em.persist(new Course("Limbaje Formale")
+				.addStudent(john)
+				.addStudent(new Student("Daniel")));
 
-		String jpql = "SELECT c FROM Course c JOIN FETCH c.students WHERE c.teacher.name = 'Mike'";
+		String jpql = "SELECT c FROM Course c JOIN FETCH c.students WHERE c.teacher.name = 'Tavi'";
 		List<Course> results = em.createQuery(jpql, Course.class).getResultList();
 
 		assertEquals(2, results.size());
@@ -57,19 +65,29 @@ public class JPQLExamplesTest {
 	}
 
 	@Test
-	@Rollback
-	public void testQuizQuestion3() {
-		prepareDataForQ3();
+	public void howManyCoursesMikeTeachesInAnAula() {
+		Teacher tavi = new Teacher("Tavi");
+		em.persist(new Course("Sisteme de Operare")
+				.setTeacher(tavi)
+				.setRoom(new Room(RoomType.AULA)));
+		em.persist(new Course("Programarea Sistemelor de Operare")
+				.setTeacher(tavi)
+				.setRoom(new Room(RoomType.CLASSROOM)));
 
-		String jpql = "SELECT COUNT(c) FROM Course c WHERE c.room.type = 'AULA' and c.teacher.name = 'Mike'";
+		String jpql = "SELECT COUNT(c) FROM Course c WHERE c.room.type = 'AULA' and c.teacher.name = 'Tavi'";
 		Long count = em.createQuery(jpql, Long.class).getSingleResult();
 		assertEquals(new Long(1), count);
 	}
 
 	@Test
-	@Rollback
-	public void testQuizQuestion4() {
-		prepareDataForQ4();
+	public void coursesAttendedByJohnInAnAula() {
+		Student john = new Student("John");
+		em.persist(new Course("Programarea Calculatoarelor")
+			.setRoom(new Room(RoomType.AULA))
+			.addStudent(john));
+		em.persist(new Course("Ingineria Sistemelor")
+			.setRoom(new Room(RoomType.CLASSROOM))
+			.addStudent(john));
 
 		String jpql = "SELECT c FROM Course c INNER JOIN c.students s WHERE s.name = 'John' AND c.room.type = 'AULA'";
 		List<Course> results = em.createQuery(jpql, Course.class).getResultList();
@@ -78,91 +96,46 @@ public class JPQLExamplesTest {
 
 	}
 
-	// / DATA set-up
-
-	private void prepareDataForQ1() {
-		try {
-			Student john = new Student("John");
-			john.setHistory(new StudentHistory());
-			john.getHistory().setEnrollmentDate(new SimpleDateFormat("yyyy-MM-dd").parse("2013-04-19"));
-
-			Student Kristoph = new Student("Kristoph");
-			Kristoph.setHistory(new StudentHistory());
-			Kristoph.getHistory().setEnrollmentDate(new SimpleDateFormat("yyyy-MM-dd").parse("2012-10-10"));
-
-			em.persist(john);
-			em.persist(Kristoph);
-			em.flush();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+	
+	@Test
+	public void enrollmentDate_course_pairs() {
+		Student desteptul = new Student("Desteptul");
+		Student tantalaul = new Student("Tantalaul");
+		em.persist(new Course("Java").addStudent(desteptul).addStudent(tantalaul));
+		em.persist(new Course("Filozofie").addStudent(tantalaul));
+		
+//		String jpql = ""; // INITIAL
+		String jpql = "SELECT c.name, s.name FROM Course c JOIN c.students s"; // SOLUTION
+		List<Object[]> results = em.createQuery(jpql, Object[].class).getResultList();
+		
+		assertEquals(3, results.size());
+		assertTrue(results.stream().anyMatch(arr -> Arrays.equals(arr, new String[]{"Java", "Desteptul"})));
+		
+		// TODO: after fixing it, use SELECT new ....
 	}
-
-	private void prepareDataForQ2() {
-		Student john = new Student("John"), maria = new Student("Maria"), daniel = new Student("Daniel");
-
-		Course course1 = new Course("Ingineria Programarii");
-		Course course2 = new Course("Limbaje Formale");
-
-		john.getCourses().add(course1);
-		course1.getStudents().add(john);
-
-		john.getCourses().add(course2);
-		course2.getStudents().add(john);
-
-		maria.getCourses().add(course1);
-		course1.getStudents().add(maria);
-
-		daniel.getCourses().add(course2);
-		course2.getStudents().add(daniel);
-
-		Teacher profMike = new Teacher("Mike");
-		course1.setTeacher(profMike);
-
-		em.persist(profMike);
-		em.persist(course1);
-		em.persist(course2);
-		em.persist(john);
-		em.persist(maria);
-		em.persist(daniel);
-		em.flush();
-
+	
+	@Test
+	public void teachersOfLastEnrolledStudent() {
+		Student old = new Student("Old")
+				.setHistory(new StudentHistory(LocalDate.now().minusYears(1)));
+		Student theOne = new Student("The One")
+				.setHistory(new StudentHistory(LocalDate.now()));
+		Teacher victor = new Teacher("Victor");
+		Teacher mariana = new Teacher("Mariana");
+		em.persist(new Course("Java").setTeacher(victor).addStudent(theOne));
+		em.persist(new Course("PHP").setTeacher(mariana).addStudent(old));
+		
+		List<Teacher> results = em.createQuery(
+				"SELECT c.teacher FROM Student s JOIN s.courses c "
+				+ " WHERE s.history.enrollmentDate = (SELECT max(ss.history.enrollmentDate) FROM Student ss) "
+				
+				, Teacher.class)
+			.getResultList();
+		
+		assertEquals(victor, results.get(0));
+		
 	}
-
-	private void prepareDataForQ3() {
-		Teacher mike = new Teacher("Mike");
-		Course course1 = new Course("Programarea Calculatoarelor");
-		Course course2 = new Course("Ingineria Sistemelor");
-		course1.setTeacher(mike);
-		course2.setTeacher(mike);
-		Room room1 = new Room(RoomType.AULA);
-		Room room2 = new Room(RoomType.CLASSROOM);
-		course1.setRoom(room1);
-		course2.setRoom(room2);
-
-		em.persist(room1);
-		em.persist(room2);
-		em.persist(course1);
-		em.persist(course2);
-		em.persist(mike);
-		em.flush();
-	}
-
-	private void prepareDataForQ4() {
-		Student john = new Student("John");
-		Course course1 = new Course("Programarea Calculatoarelor");
-		Course course2 = new Course("Ingineria Sistemelor");
-		Room room1 = new Room(RoomType.AULA);
-		Room room2 = new Room(RoomType.CLASSROOM);
-		course1.setRoom(room1);
-		course2.setRoom(room2);
-		john.setCourses(Arrays.asList(course1, course2));
-		em.persist(room1);
-		em.persist(room2);
-		em.persist(course1);
-		em.persist(course2);
-		em.persist(john);
-		em.flush();
-	}
+	
+	
 
 }

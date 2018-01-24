@@ -1,6 +1,6 @@
 package victor.training.jpa.entity.teacher;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "STUDENT_HISTORY")
@@ -19,8 +17,11 @@ public class StudentHistory {
 	private Integer id;
 
 	@Column(name = "START_DATE")
-	@Temporal(TemporalType.DATE)
-	private Date enrollmentDate;
+	private LocalDate enrollmentDate = LocalDate.now();
+
+	public StudentHistory(LocalDate enrollmentDate) {
+		this.enrollmentDate = enrollmentDate;
+	}
 
 	public Integer getId() {
 		return id;
@@ -30,11 +31,11 @@ public class StudentHistory {
 		this.id = id;
 	}
 
-	public Date getEnrollmentDate() {
+	public LocalDate getEnrollmentDate() {
 		return enrollmentDate;
 	}
 
-	public void setEnrollmentDate(Date enrollmentDate) {
+	public void setEnrollmentDate(LocalDate enrollmentDate) {
 		this.enrollmentDate = enrollmentDate;
 	}
 

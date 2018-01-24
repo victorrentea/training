@@ -1,6 +1,7 @@
 package victor.training.jpa.entity.employee;
 
 import java.util.Date;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,6 +24,10 @@ public class EmployeeDetails {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "EMPLOYEMENT_DATE")
 	private Date startDate;
+	
+//	@Lob
+//	private LobHelper
+	// TODO continue;
 
 	@OneToOne
 	@JoinColumn(name = "EMPLOYEE_ID")
@@ -39,6 +44,12 @@ public class EmployeeDetails {
 	public Date getStartDate() {
 		return startDate;
 	}
+	// TODO an Optional<Date> getter
+	// SOLUTION (
+	public Optional<Date> getStartDateOpt() {
+		return Optional.ofNullable(startDate);
+	}
+	// SOLUTION )
 
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;

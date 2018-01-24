@@ -1,5 +1,8 @@
 package victor.training.jpa.entity.teacher;
 
+import static java.util.Collections.unmodifiableList;
+import static javax.persistence.CascadeType.ALL;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,16 +22,16 @@ public class Course {
 
 	private String name;
 
-	@ManyToOne
+	@ManyToOne(cascade = ALL)
 	@JoinColumn(name = "TEACHER_ID")
 	private Teacher teacher;
 
-	@ManyToOne
+	@ManyToOne(cascade = ALL)
 	@JoinColumn(name = "ROOM_ID")
 	private Room room;
 
-	@ManyToMany(mappedBy = "courses")
-	private List<Student> students = new ArrayList<>();
+	@ManyToMany(mappedBy = "courses", cascade = ALL) 
+	List<Student> students = new ArrayList<>();
 
 	public Course() {
 	}
@@ -57,24 +60,40 @@ public class Course {
 		return teacher;
 	}
 
-	public void setTeacher(Teacher teacher) {
+	public Course setTeacher(Teacher teacher) {
 		this.teacher = teacher;
+		teacher.getCourses().add(this);
+		return this;
 	}
 
 	public Room getRoom() {
 		return room;
 	}
 
-	public void setRoom(Room room) {
+	public Course setRoom(Room room) {
 		this.room = room;
+		return this;
 	}
 
 	public List<Student> getStudents() {
-		return students;
+		return unmodifiableList(students);
 	}
 
-	public void setStudents(List<Student> students) {
-		this.students = students;
+	public void setStudents(List<Student> newStudents) {
+		List<Student> oldStudents = new ArrayList<>(this.students);
+		oldStudents.forEach(this::removeStudent); 
+		newStudents.forEach(this::addStudent);
+	}
+	
+	public Course addStudent(Student student) {
+		this.students.add(student);
+		student.courses.add(this);
+		return this;
+	}
+	
+	public void removeStudent(Student student) {
+		this.students.remove(student);
+		student.courses.remove(this);
 	}
 
 }

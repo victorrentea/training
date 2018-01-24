@@ -45,6 +45,7 @@ public class Employee  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String name;
 
 	@ManyToOne
@@ -71,6 +72,12 @@ public class Employee  {
 	@CollectionTable
 	private Set<Address> addresses = new HashSet<>();
 
+//	private String role; // INITIAL
+	// SOLUTION (
+	@ManyToOne 
+	@JoinColumn
+	private EmployeeRole role;
+	// SOLUTION )
 	
 	@Version // SOLUTION
 	private long version;
@@ -81,6 +88,7 @@ public class Employee  {
 	public Employee(String name) {
 		this.name = name;
 	}
+	
 
 	public Integer getId() {
 		return id;

@@ -1,5 +1,6 @@
 package victor.training.jpa.entity.teacher;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,10 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-/**
- * @author VictorRentea
- * 
- */
 @Entity
 public class Teacher {
 	@Id
@@ -21,9 +18,7 @@ public class Teacher {
 	private String name;
 
 	@OneToMany(mappedBy = "teacher")
-	private List<Course> courses;
-
-	
+	private List<Course> courses = new ArrayList<>();
 	
 	public Teacher() {
 	}
