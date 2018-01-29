@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<link href="toastr.min.css" rel="stylesheet"/>
+<script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="toastr.min.js"></script>
+</head>
+<body>
+	
+	<h2>Orar for <span id="yearCode"></span></h2>
+	
+	<div id="orar">
+	
+	</div>
+<script type="text/javascript">
+
+function getContextPath() {
+   return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+}
+var restEndpoint = getContextPath() + "/api";
+
+function rebuildOrar() {
+	$.ajax(restEndpoint +"/orar/"+1, {
+		method: "GET",
+		success: function(data) {
+
+			$("#yearCode").text(data.yearCode);
+			console.log(data)
+			s="";
+			for(var day in data.lines) {
+				var dayLines=data.lines[day];
+				s+="<h3>"+day+"</h3>";
+			
+				s += "<table border=1><tr><th>x</th>";
+				for (var i=0;i<data.groups.length;i++) {
+					s+="<th width=300>"+data.groups[i]+"</th>";
+				}
+				s+="</tr>";
+				for (var h in dayLines) {
+					s+="<tr><th>"+h+"</th>";
+					var cells = dayLines[h];
+					for (var ci = 0; ci < cells.length; ci++) {
+						var c = cells[ci];						
+						for (var ki=0;ki<c.colskip;ki++) 		s+="<td style='border:none' />";
+						s+="<td colspan=" + c.colspan +" rowspan="+c.rowspan+">"+c.label+"</td>"; 
+					}
+					s+="</tr>";
+				}
+				
+				
+				s+="</table>"
+			
+			} 
+			$("#orar").html(s);
+						toastr.info("Courses reloaded")
+		}
+	});
+}
+rebuildOrar();
+</script>
+</body>
+</html>
