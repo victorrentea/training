@@ -58,6 +58,7 @@ public class TheFacade {
 		subject.setHolderTeacher(em.find(Teacher.class, subjectDto.holderTeacherId));
 		log.debug("ID before persist: " + subject.getId());
 		em.persist(subject);
+		
 		return subject.getId();
 	}
 	
@@ -180,6 +181,7 @@ public class TheFacade {
 			StudentsGroup group = new StudentsGroup();
 			group.setId(groupDto.id);
 			group.setCode(groupDto.code);
+			group.setEmails(groupDto.emails);
 			group.setYear(year);
 			year.getGroups().add(group);
 		}
@@ -208,6 +210,7 @@ public class TheFacade {
 			if (groupDto.id == null) {
 				StudentsGroup newGroup = new StudentsGroup();
 				newGroup.setCode(groupDto.code);
+				newGroup.setEmails(groupDto.emails);
 				em.persist(newGroup);
 				year.getGroups().add(newGroup);
 				newGroup.setYear(year);

@@ -1,5 +1,7 @@
 package ro.victor.training.jpa2;
 
+import static java.util.Arrays.asList;
+
 import java.time.DayOfWeek;
 
 import javax.persistence.EntityManager;
@@ -87,6 +89,7 @@ public class DummyDataCreator {
 		StudentsYear year = new StudentsYear("3CA");
 		
 		StudentsGroup group1 = new StudentsGroup("321");
+		group1.setEmails(asList("a@b.com", "c@d.com"));
 		StudentsGroup group2 = new StudentsGroup("322");
 		group1.setYear(year);
 		year.getGroups().add(group1);

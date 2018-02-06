@@ -1,8 +1,11 @@
 package ro.victor.training.jpa2.domain.entity;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,6 +25,9 @@ public class StudentsGroup {
 
 	@OneToMany(mappedBy = "group")
 	private Set<LabActivity> labs = new HashSet<>();
+	
+	@ElementCollection
+	private List<String> emails = new ArrayList<>();
 
 	public StudentsGroup() {
 	}
@@ -62,4 +68,13 @@ public class StudentsGroup {
 		this.labs = labs;
 	}
 
+	public List<String> getEmails() {
+		return emails;
+	}
+
+	public void setEmails(List<String> emails) {
+		this.emails = emails;
+	}
+
+	
 }
