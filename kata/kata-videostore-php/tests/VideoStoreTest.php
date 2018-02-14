@@ -1,7 +1,9 @@
 <?php
 namespace video;
 
-class VideoStoreTest extends \PHPUnit_Framework_TestCase {
+class VideoStoreTest extends \PHPUnit\Framework\TestCase {
+
+
 
   public function testRentalStatementFormat() {
       $customer = new Customer("John");
@@ -17,6 +19,6 @@ class VideoStoreTest extends \PHPUnit_Framework_TestCase {
         "\tInception\t6.5\n" .
         "You owed 32\n" .
         "You earned 4 frequent renter points\n",
-          $customer->statement());
+          (new StatementIssuer())->composeRentalStatement($customer));
   }
 }

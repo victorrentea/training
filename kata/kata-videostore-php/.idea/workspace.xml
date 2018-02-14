@@ -2,9 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2386a79-4f57-4a4e-bf51-28c611799ca5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/strategy/CustomsService.php" afterPath="$PROJECT_DIR$/../../oo-patterns-php/victor/training/oo/behavioral/strategy/CustomsService.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PriceCalculators.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/StatementIssuer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/FizzBuzz.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/FizzBuzzTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Game.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/GameRunner.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/NewGame.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/phpunit-5.7.5.phar" afterPath="$PROJECT_DIR$/phpunit-5.7.27.phar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa/pom.xml" afterPath="$PROJECT_DIR$/../../jpa/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa/src/test/java/victor/training/jpa/JPQLExamplesTest.java" afterPath="$PROJECT_DIR$/../../jpa/src/test/java/victor/training/jpa/JPQLExamplesTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/AnotherService.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/AnotherService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/TheFacade.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/TheFacade.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/../../jpa2/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/videostore_php-master.iml" afterPath="$PROJECT_DIR$/.idea/videostore_php-master.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customer.php" afterPath="$PROJECT_DIR$/src/Customer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Movie.php" afterPath="$PROJECT_DIR$/src/Movie.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Rental.php" afterPath="$PROJECT_DIR$/src/Rental.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/VideoStoreTest.php" afterPath="$PROJECT_DIR$/tests/VideoStoreTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,53 +39,104 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VideoStoreTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/VideoStoreTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Movie.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Movie.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rental.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Rental.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Customer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Customer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="48" lean-forward="false" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.28046876">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Game.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tests/Game.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="308">
+                  <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GameRunner.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tests/GameRunner.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="119">
+                  <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="NewGame.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tests/NewGame.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="198">
+                  <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+                  <folding>
+                    <marker date="1518018084349" expanded="true" signature="947:7337" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="1214:1735" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="1423:1728" ph="..." />
+                    <marker date="1518018084349" expanded="true" signature="1776:1830" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="1857:1916" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="1948:2145" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="2176:2226" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="2252:2685" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="2455:2685" ph="..." />
+                    <marker date="1518018084349" expanded="true" signature="2489:2685" ph="..." />
+                    <marker date="1518018084349" expanded="true" signature="5316:5369" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="5406:6819" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="5469:6281" ph="..." />
+                    <marker date="1518018084349" expanded="true" signature="5520:6086" ph="..." />
+                    <marker date="1518018084349" expanded="true" signature="5666:5855" ph="..." />
+                    <marker date="1518018084349" expanded="true" signature="6094:6269" ph="..." />
+                    <marker date="1518018084349" expanded="true" signature="6289:6812" ph="..." />
+                    <marker date="1518018084349" expanded="true" signature="6424:6601" ph="..." />
+                    <marker date="1518018084349" expanded="true" signature="6847:7220" ph="{...}" />
+                    <marker date="1518018084349" expanded="true" signature="7250:7335" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="NewGame.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tests/NewGame.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="332">
+                  <caret line="204" column="19" lean-forward="true" selection-start-line="204" selection-start-column="19" selection-end-line="204" selection-end-column="19" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>VideoStore</find>
+      <find>amount</find>
+      <find>echoln</find>
+      <find>echoln2</find>
+      <find>3</find>
+      <find>playerNames</find>
+      <find>var</find>
+      <find>var $</find>
+      <find>playerName</find>
+      <find>places[$this-&gt;currentPlayer]</find>
+      <find>$places</find>
+      <find>$purses</find>
+      <find>places</find>
+      <find>purses</find>
+      <find>isGettingOutOfPenaltyBox</find>
+      <find>inPenaltyBox</find>
     </findStrings>
+    <replaceStrings>
+      <replace>echoln2</replace>
+      <replace>$this-&gt;echoln2</replace>
+      <replace>private</replace>
+      <replace>private $</replace>
+      <replace>players[$this-&gt;currentPlayer]-&gt;getPlace()</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -84,16 +153,24 @@
         <option value="$PROJECT_DIR$/src/video/Movie.php" />
         <option value="$PROJECT_DIR$/src/video/Rental.php" />
         <option value="$PROJECT_DIR$/tests/Customer.php" />
-        <option value="$PROJECT_DIR$/phpunit.xml" />
-        <option value="$PROJECT_DIR$/tests/FizzBuzzTest.php" />
-        <option value="$PROJECT_DIR$/src/Customer.php" />
-        <option value="$PROJECT_DIR$/tests/VideoStoreTest.php" />
         <option value="$PROJECT_DIR$/src/victor/training/oo/behavioral/singleton/AppConfiguration.php" />
         <option value="$PROJECT_DIR$/src/victor/training/oo/behavioral/abstractfactory/Child.php" />
         <option value="$PROJECT_DIR$/src/victor/training/oo/behavioral/abstractfactory/lego/LegoCube.php" />
         <option value="$PROJECT_DIR$/src/victor/training/oo/behavioral/abstractfactory/LovingParent.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/phpunit.xml" />
+        <option value="$PROJECT_DIR$/src/Customer.php" />
+        <option value="$PROJECT_DIR$/src/PriceCalculators.php" />
+        <option value="$PROJECT_DIR$/src/StatementIssuer.php" />
+        <option value="$PROJECT_DIR$/src/Movie.php" />
         <option value="$PROJECT_DIR$/src/Rental.php" />
+        <option value="$PROJECT_DIR$/src/FizzBuzz.php" />
+        <option value="$PROJECT_DIR$/tests/VideoStoreTest.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/tests/FizzBuzzTest.php" />
+        <option value="$PROJECT_DIR$/tests/FizzBuzz.php" />
+        <option value="$PROJECT_DIR$/tests/Game.php" />
+        <option value="$PROJECT_DIR$/tests/GameRunner.php" />
+        <option value="$PROJECT_DIR$/tests/NewGame.php" />
       </list>
     </option>
   </component>
@@ -113,7 +190,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7.1">
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
@@ -147,9 +224,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="680" />
+    <option name="x" value="491" />
+    <option name="y" value="13" />
     <option name="width" value="800" />
-    <option name="height" value="870" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -170,20 +248,14 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="kata-videostore-php" type="b2602c69:ProjectViewProjectNode" />
               <item name="kata-videostore-php" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kata-videostore-php" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kata-videostore-php" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kata-videostore-php" type="b2602c69:ProjectViewProjectNode" />
@@ -195,42 +267,40 @@
               <item name="kata-videostore-php" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="kata-videostore-php" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kata-videostore-php" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../jpa2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/phpunit-5.7.27.phar" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="keymap&#9;ACTION&#9;ChangeKeymap" />
+    <property name="SearchEverywhereHistoryKey" value="scienceQuestions&#9;null&#9;null&#10;keymap&#9;ACTION&#9;ChangeKeymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\workspace\kata-videostore-php\src" />
-      <recent name="D:\workspace\kata-videostore-php\tests" />
-      <recent name="D:\workspace\kata-videostore-php\src\video" />
-      <recent name="D:\workspace\kata-videostore-php\tests\video" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace\training\kata\kata-videostore-php\tests" />
+      <recent name="C:\workspace\training\kata\kata-videostore-php" />
       <recent name="D:\workspace\training\kata\kata-videostore-php\src" />
       <recent name="D:\workspace\kata-videostore-php\tests" />
       <recent name="D:\workspace\kata-fizzbuzz-php" />
-      <recent name="D:\workspace\kata-videostore-php" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\workspace\training\kata\kata-videostore-php\tests" />
+      <recent name="C:\workspace\training\kata\kata-videostore-php\tests\src" />
+      <recent name="C:\workspace\training\kata\kata-videostore-php\src" />
+      <recent name="D:\workspace\kata-videostore-php\src" />
+      <recent name="D:\workspace\kata-videostore-php\tests" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -245,18 +315,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.VideoStoreTest.testRentalStatementFormat (1)">
-    <configuration name="LovingParent.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/victor/training/oo/behavioral/abstractfactory/LovingParent.php" />
-    <configuration name="SingletonPlay.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/victor/training/oo/behavioral/singleton/SingletonPlay.php" />
-    <configuration name="VideoStoreTest.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/kata-videostore-php/tests/VideoStoreTest.php" />
+  <component name="RunManager" selected="PHP Script.GameRunner.php">
+    <configuration name="FizzBuzzTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="video\FizzBuzzTest" file="$PROJECT_DIR$/tests/FizzBuzzTest.php" scope="Class" />
+    </configuration>
+    <configuration name="FizzBuzzTest.test1" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="video\FizzBuzzTest" file="$PROJECT_DIR$/tests/FizzBuzzTest.php" method="test1" scope="Method" />
+    </configuration>
+    <configuration name="GameRunner.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/tests/GameRunner.php" />
+    <configuration name="VideoStoreTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="video\VideoStoreTest" file="$PROJECT_DIR$/tests/VideoStoreTest.php" scope="Class" />
+    </configuration>
     <configuration default="false" name="VideoStoreTest.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/tests/VideoStoreTest.php">
       <method />
     </configuration>
     <configuration name="VideoStoreTest.testRentalStatementFormat (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="video\VideoStoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/VideoStoreTest.php" method="testRentalStatementFormat" scope="Method" use_alternative_configuration_file="true" />
-    </configuration>
-    <configuration name="VideoStoreTest.testRentalStatementFormat" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="VideoStoreTest" file="$PROJECT_DIR$/tests/VideoStoreTest.php" method="testRentalStatementFormat" scope="Method" />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
@@ -314,18 +388,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.VideoStoreTest.php" />
-      <item index="1" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest.testRentalStatementFormat" />
-      <item index="2" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest.testRentalStatementFormat (1)" />
-      <item index="3" class="java.lang.String" itemvalue="PHP Script.LovingParent.php" />
-      <item index="4" class="java.lang.String" itemvalue="PHP Script.SingletonPlay.php" />
+      <item index="0" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest.testRentalStatementFormat (1)" />
+      <item index="1" class="java.lang.String" itemvalue="PHPUnit.FizzBuzzTest.test1" />
+      <item index="2" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest" />
+      <item index="3" class="java.lang.String" itemvalue="PHPUnit.FizzBuzzTest" />
+      <item index="4" class="java.lang.String" itemvalue="PHP Script.GameRunner.php" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest.testRentalStatementFormat (1)" />
-        <item index="1" class="java.lang.String" itemvalue="PHP Script.LovingParent.php" />
-        <item index="2" class="java.lang.String" itemvalue="PHP Script.SingletonPlay.php" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.VideoStoreTest.php" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.GameRunner.php" />
+        <item index="1" class="java.lang.String" itemvalue="PHPUnit.FizzBuzzTest" />
+        <item index="2" class="java.lang.String" itemvalue="PHPUnit.FizzBuzzTest.test1" />
+        <item index="3" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest" />
+        <item index="4" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest.testRentalStatementFormat (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -356,76 +431,106 @@
       <workItem from="1505685990827" duration="1222000" />
       <workItem from="1505760642345" duration="5971000" />
       <workItem from="1516783969681" duration="114000" />
+      <workItem from="1518002809631" duration="14666000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="VideoStoreTest_UNIT - 2017.01.18 at 09h 24m 31s.xml">
-      <configuration name="VideoStoreTest UNIT" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 37m 37s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="VideoStoreTest_UNIT - 2017.01.18 at 09h 25m 53s.xml">
-      <configuration name="VideoStoreTest UNIT" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 37m 38s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="VideoStoreTest_UNIT - 2017.01.18 at 09h 25m 56s.xml">
-      <configuration name="VideoStoreTest UNIT" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 37m 39s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="VideoStoreTest_UNIT - 2017.01.18 at 14h 25m 12s.xml">
-      <configuration name="VideoStoreTest UNIT" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 37m 45s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="VideoStoreTest_testRentalStatementFormat_(1) - 2017.09.18 at 01h 06m 34s.xml">
-      <configuration name="VideoStoreTest.testRentalStatementFormat (1)" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 37m 55s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="VideoStoreTest_testRentalStatementFormat_(1) - 2017.09.18 at 01h 07m 23s.xml">
-      <configuration name="VideoStoreTest.testRentalStatementFormat (1)" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 39m 23s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="VideoStoreTest_testRentalStatementFormat_(1) - 2017.09.18 at 01h 07m 55s.xml">
-      <configuration name="VideoStoreTest.testRentalStatementFormat (1)" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 43m 45s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="VideoStoreTest_testRentalStatementFormat_(1) - 2017.09.18 at 01h 12m 48s.xml">
-      <configuration name="VideoStoreTest.testRentalStatementFormat (1)" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 44m 17s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="VideoStoreTest_testRentalStatementFormat_(1) - 2017.09.18 at 21h 52m 50s.xml">
-      <configuration name="VideoStoreTest.testRentalStatementFormat (1)" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 46m 44s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="VideoStoreTest_testRentalStatementFormat_(1) - 2017.09.20 at 13h 40m 00s.xml">
-      <configuration name="VideoStoreTest.testRentalStatementFormat (1)" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="FizzBuzzTest - 2018.02.07 at 16h 50m 17s.xml">
+      <configuration name="FizzBuzzTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12100000" />
+    <option name="totallyTimeSpent" value="26766000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34818482" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21287128" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2332636" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21287128" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12941177" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2015625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39920425" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39920425" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21287128" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2015625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -438,61 +543,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Movie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Rental.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/VideoStoreTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/VideoStoreTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Movie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -635,15 +685,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../tdd-kata-master/composer.lock" />
-    <entry file="file://$PROJECT_DIR$/tests/FizzBuzzTest.php" />
-    <entry file="file://$PROJECT_DIR$/phpunit.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -660,41 +701,135 @@
     <entry file="file://$PROJECT_DIR$/src/victor/training/oo/behavioral/abstractfactory/lego/LegoBoard.php" />
     <entry file="file://$PROJECT_DIR$/src/victor/training/oo/behavioral/abstractfactory/lego/LegoFactory.php" />
     <entry file="file://$PROJECT_DIR$/src/victor/training/oo/behavioral/abstractfactory/LovingParent.php" />
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/src/Customer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/VideoStoreTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        <state relative-caret-position="-13">
+          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Customer.php">
+    <entry file="file://$PROJECT_DIR$/src/StatementIssuer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="48" lean-forward="false" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+        <state relative-caret-position="374">
+          <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Movie.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        <state relative-caret-position="374">
+          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Rental.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="119">
+          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PriceCalculators.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/FizzBuzzTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/FizzBuzz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/VideoStoreTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/standard/standard_2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="964" column="3" lean-forward="true" selection-start-line="964" selection-start-column="1" selection-end-line="964" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Game.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/NewGame.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <marker date="1518018084349" expanded="true" signature="947:7337" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="1214:1735" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="1423:1728" ph="..." />
+            <marker date="1518018084349" expanded="true" signature="1776:1830" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="1857:1916" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="1948:2145" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="2176:2226" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="2252:2685" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="2455:2685" ph="..." />
+            <marker date="1518018084349" expanded="true" signature="2489:2685" ph="..." />
+            <marker date="1518018084349" expanded="true" signature="5316:5369" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="5406:6819" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="5469:6281" ph="..." />
+            <marker date="1518018084349" expanded="true" signature="5520:6086" ph="..." />
+            <marker date="1518018084349" expanded="true" signature="5666:5855" ph="..." />
+            <marker date="1518018084349" expanded="true" signature="6094:6269" ph="..." />
+            <marker date="1518018084349" expanded="true" signature="6289:6812" ph="..." />
+            <marker date="1518018084349" expanded="true" signature="6424:6601" ph="..." />
+            <marker date="1518018084349" expanded="true" signature="6847:7220" ph="{...}" />
+            <marker date="1518018084349" expanded="true" signature="7250:7335" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/GameRunner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>

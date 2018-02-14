@@ -9,49 +9,26 @@ class Movie
 
     private $title;
 
-    private $priceCode;
+    private $type;
 
-	/**
-     * Movie constructor.
-     * @param string $title
-     * @param string $priceCode
-     */
-    public function __construct($title, $priceCode)
+    public function __construct(string $title,string $priceCode)
     {
         $this->title = $title;
-        $this->priceCode = $priceCode;
+        $this->type = $priceCode;
     }
-    
-    /**
-     * @return mixed
-     */
-    public function getTitle()
+
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param mixed $title
-     */
-    public function setTitle($title)
+    public function getType(): string
     {
-        $this->title = $title;
+        return $this->type;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPriceCode()
+    public function hasPriceCode(string $priceCode)
     {
-        return $this->priceCode;
+        return $this->type === $priceCode;
     }
-
-    /**
-     * @param mixed $priceCode
-     */
-    public function setPriceCode($priceCode)
-    {
-        $this->priceCode = $priceCode;
-    }
-
 }

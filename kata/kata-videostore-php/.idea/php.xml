@@ -33,10 +33,10 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
   <component name="PhpUnit">
     <phpunit_settings>
-      <PhpUnitSettings load_method="PHPUNIT_PHAR" custom_loader_path="D:/workspace/training/kata/kata-videostore-php/vendor/autoload.php" phpunit_phar_path="D:/workspace/training/kata/kata-videostore-php/phpunit-5.7.5.phar" />
+      <PhpUnitSettings load_method="PHPUNIT_PHAR" custom_loader_path="D:/workspace/training/kata/kata-videostore-php/vendor/autoload.php" phpunit_phar_path="$PROJECT_DIR$/phpunit-5.7.27.phar" />
     </phpunit_settings>
   </component>
 </project>
