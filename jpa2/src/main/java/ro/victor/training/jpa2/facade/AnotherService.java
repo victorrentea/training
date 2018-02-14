@@ -27,7 +27,8 @@ public class AnotherService {
 	}
 
 	public void throwException() {
-		throw new RuntimeException("on purpose");		
+		
+		throw new RuntimeException("on purpose");	
 	}
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW)

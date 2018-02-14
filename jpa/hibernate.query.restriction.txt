@@ -1,0 +1,39 @@
+public List<DTOProfileShort> getEmployeesBySkillFilter(String skill, ArrayList<Integer> skillLevel, List<String> managers) {
+		logger.entry();
+		Criteria criteria = getSession().createCriteria(SkillDetail.class)
+				.createAlias("employee", "employee")
+				.createAlias("skillName", "skillName");
+
+		Criterion cSkill = Restrictions.ilike(
+				"skillName.skillName", "%" + skill + "%");
+		criteria.add(cSkill);
+		Criterion cSkillLevel = null;
+		if (!skillLevel.contains(new Integer(0)))
+			cSkillLevel = Restrictions.in("skillLevel", skillLevel);
+
+		if (null != cSkillLevel)
+			criteria.add(cSkillLevel);
+
+		if( managers!=null){
+			Criterion cManagers = null;
+			cManagers = Restrictions.in("employee.managerSerialNumber", managers);
+			criteria.add(cManagers);
+		}
+
+		criteria.add(Restrictions.eq("employee.archivedStatus",0));
+
+		ProjectionList projList = Projections.projectionList();
+		projList.add(Projections.property("employee.employeeId"),"employeeId");
+		projList.add(Projections.property("employee.firstName"),"firstName");
+		projList.add(Projections.property("employee.lastName"),"lastName");
+		projList.add(Projections.property("skillLevel"),"skillLevel");
+		projList.add(Projections.property("skillName.skillName"),"skillName");		
+		projList.add(Projections.property("yearUsedMostRecent"),"lastYearUsed");
+		criteria.setProjection(Projections.distinct(projList));
+		criteria.setResultTransformer(Transformers.aliasToBean(DTOProfileShort.class));
+		criteria.addOrder(Order.asc("employee.firstName")).addOrder(Order.asc("employee.lastName"));
+		logger.exit();
+
+
+		return (List<DTOProfileShort>) criteria.list(); 
+	} 

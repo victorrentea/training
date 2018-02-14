@@ -17,6 +17,8 @@ public class Subject {
 	
 	private String name;
 	
+	private boolean active;
+	
 	@ManyToOne
 	private Teacher holderTeacher;
 	
@@ -26,6 +28,17 @@ public class Subject {
 	public Subject() {
 	}
 	
+	
+	public boolean isActive() {
+		return active;
+	}
+
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+
 	public Subject(String name) {
 		this.name = name;
 	}

@@ -5,11 +5,9 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
 
 import victor.training.jpa.entity.employee.Employee;
 
-@Repository
 public interface EmployeeDataRepository extends JpaRepository<Employee, Integer>, EmployeeDataRepositoryCustom {
 
 	@Query("SELECT e FROM Employee e LEFT JOIN FETCH e.projects")

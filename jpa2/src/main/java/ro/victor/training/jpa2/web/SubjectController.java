@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ro.victor.training.jpa2.facade.TheFacade;
@@ -45,6 +46,11 @@ public class SubjectController {
 	@GetMapping("{subjectId}")
 	public SubjectWithActivitiesDto getById(@PathVariable Long subjectId) {
 		return facade.getSubjectWithActivities(subjectId);
+	}
+	
+	@GetMapping("search")
+	public SubjectDto getByName(@RequestParam("name") String name) {
+		return new SubjectDto(subjectRepo.getByName(name));
 	}
 	
 	@PostMapping

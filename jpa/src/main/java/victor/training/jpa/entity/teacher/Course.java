@@ -52,8 +52,9 @@ public class Course {
 		return name;
 	}
 
-	public void setName(String name) {
+	public Course setName(String name) {
 		this.name = name;
+		return this;
 	}
 
 	public Teacher getTeacher() {

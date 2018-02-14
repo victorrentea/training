@@ -5,13 +5,13 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import ro.victor.training.jpa2.common.data.EntityRepository;
 import ro.victor.training.jpa2.domain.entity.Subject;
 import ro.victor.training.jpa2.domain.entity.Teacher;
 
-@Repository
 public interface TeacherRepo extends EntityRepository<Teacher, Long>, TeacherRepoCustom {
 
 	@Query("SELECT DISTINCT a.day FROM Teacher t JOIN t.activities a WHERE t.id=?1")
@@ -28,5 +28,5 @@ public interface TeacherRepo extends EntityRepository<Teacher, Long>, TeacherRep
 	public Set<Subject> getSubjectsInRoom(String roomId);
 
 	public Optional<Teacher> findByName(String name);
-	
+
 }

@@ -153,7 +153,7 @@ public class JPQLExamplesTest {
 		List<Course> results = em.createQuery(jpql, Course.class)
 				.setParameter("studentId", s.getId())
 				.getResultList();
-		
+
 		assertEquals(1, results.size());
 		assertEquals("Filozofie", results.get(0).getName());
 		
@@ -196,6 +196,5 @@ public class JPQLExamplesTest {
 		assertEquals(singletonList(unknownTeacher), otherTeachers);
 		
 	}
-	
 
 }

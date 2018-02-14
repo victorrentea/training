@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 import javax.persistence.PersistenceContext;
 
 import org.slf4j.Logger;
@@ -58,7 +59,6 @@ public class TheFacade {
 		subject.setHolderTeacher(em.find(Teacher.class, subjectDto.holderTeacherId));
 		log.debug("ID before persist: " + subject.getId());
 		em.persist(subject);
-		
 		return subject.getId();
 	}
 	
@@ -77,9 +77,11 @@ public class TheFacade {
 	// 1. auto flush at Tx end 
 	// 2. EntityManager = 1st level cache (see logged SQLs). return the Subject from checkPermissions and compare them with ==
 	// 3. If not Transaction -> no persist
+	// 4. lock (PERSSIMISTIC_WRITE for SELECT_FOR_UPDATE
 	public void updateSubject(SubjectDto subjectDto) {
 		anotherService.checkPermissionsOnSubject(subjectDto.id);
 		Subject subject = em.find(Subject.class, subjectDto.id);
+		em.lock(subject, LockModeType.PESSIMISTIC_WRITE); // SELECT FOR UPDATE
 		subject.setName(subjectDto.name);
 		subject.setHolderTeacher(em.find(Teacher.class, subjectDto.holderTeacherId));
 	}
@@ -185,10 +187,12 @@ public class TheFacade {
 			group.setYear(year);
 			year.getGroups().add(group);
 		}
+		StudentsYear yearFoundBefore = em.find(StudentsYear.class, yearId);
 		StudentsYear attachedYear = em.merge(year);
 		log.debug("First instance was attached? {}; Or another one was loaded from db, updated and returned? {}"
 				,em.contains(year)
 				,em.contains(attachedYear));
+		log.debug("The entity already attached before merge is == the entity returned by merge? {}", attachedYear == yearFoundBefore );
 	}
 	
 	public void updateYearWithGroups2(long yearId, YearWithGroupsDto dto) {
