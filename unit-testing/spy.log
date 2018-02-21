@@ -1,0 +1,84 @@
+1519253180567|3|statement|connection 9|create table users ( id int identity primary key, username varchar(20) )|
+1519253180569|0|statement|connection 9|create table notifications ( id int identity primary key, text varchar(255) )|
+1519253180570|0|statement|connection 9|create table orders ( id int identity primary key, reference varchar(20), created_by int foreign key references users(id) )|
+1519253183208|0|statement|connection 9|insert into users values (1, 'test')|
+1519253183209|0|commit|connection 9||
+1519253183221|2|statement|connection 9|insert into orders(reference, created_by) values ('ref', 1)|
+1519253183221|0|commit|connection 9||
+1519253183299|15|statement|connection 9|SELECT count(1) FROM orders WHERE reference='ref'|
+1519253183316|2|statement|connection 9|DELETE FROM ORDERS|
+1519253183323|6|statement|connection 9|DELETE FROM NOTIFICATIONS|
+1519253183323|0|statement|connection 9|DELETE FROM USERS|
+1519253183323|0|commit|connection 9||
+1519253183329|0|statement|connection 9|insert into users(username) values ('aaa')|
+1519253183330|0|commit|connection 9||
+1519253183333|0|statement|connection 9|SELECT count(1) FROM users|
+1519253183340|0|statement|connection 9|insert into users values (1, 'test')|
+1519253183340|0|commit|connection 9||
+1519253183363|0|statement|connection 9|SELECT count(1) FROM users WHERE username='test'|
+1519253183369|0|statement|connection 9|DELETE FROM ORDERS|
+1519253183372|0|statement|connection 9|DELETE FROM USERS|
+1519253183373|0|commit|connection 9||
+1519253183384|0|statement|connection 9|insert into users values (1, 'test')|
+1519253183385|0|commit|connection 9||
+1519253183460|0|statement|connection 8|INSERT INTO NOTIFICATIONS(text) VALUES (?)|INSERT INTO NOTIFICATIONS(text) VALUES ('a')
+1519253183470|0|statement|connection 7|SELECT TEXT FROM NOTIFICATIONS|
+1519253183477|0|statement|connection 7|DELETE FROM ORDERS|
+1519253183477|0|statement|connection 7|DELETE FROM USERS|
+1519253183478|0|commit|connection 7||
+1519253286218|1|statement|connection 9|create table users ( id int identity primary key, username varchar(20) )|
+1519253286219|0|statement|connection 9|create table notifications ( id int identity primary key, text varchar(255) )|
+1519253286220|0|statement|connection 9|create table orders ( id int identity primary key, reference varchar(20), created_by int foreign key references users(id) )|
+1519253287533|0|statement|connection 9|insert into users values (1, 'test')|
+1519253287535|0|commit|connection 9||
+1519253287541|3|statement|connection 9|insert into orders(reference, created_by) values ('ref', 1)|
+1519253287542|0|commit|connection 9||
+1519253287648|40|statement|connection 9|SELECT count(1) FROM orders WHERE reference='ref'|
+1519253287672|1|statement|connection 9|DELETE FROM ORDERS|
+1519253287675|3|statement|connection 9|DELETE FROM NOTIFICATIONS|
+1519253287676|0|statement|connection 9|DELETE FROM USERS|
+1519253287676|0|commit|connection 9||
+1519253287684|0|statement|connection 9|insert into users(username) values ('aaa')|
+1519253287685|0|commit|connection 9||
+1519253287689|2|statement|connection 9|SELECT count(1) FROM users|
+1519253287696|0|statement|connection 9|insert into users values (1, 'test')|
+1519253287697|0|commit|connection 9||
+1519253287701|0|statement|connection 9|SELECT count(1) FROM users WHERE username='test'|
+1519253287705|0|statement|connection 9|DELETE FROM ORDERS|
+1519253287709|0|statement|connection 9|DELETE FROM USERS|
+1519253287717|0|commit|connection 9||
+1519253287725|0|statement|connection 9|insert into users values (1, 'test')|
+1519253287726|0|commit|connection 9||
+1519253287768|0|statement|connection 8|INSERT INTO NOTIFICATIONS(text) VALUES (?)|INSERT INTO NOTIFICATIONS(text) VALUES ('a')
+1519253287778|0|statement|connection 7|SELECT TEXT FROM NOTIFICATIONS|
+1519253287785|0|statement|connection 7|DELETE FROM ORDERS|
+1519253287786|0|statement|connection 7|DELETE FROM USERS|
+1519253287787|0|commit|connection 7||
+1519253481919|2|statement|connection 9|create table users ( id int identity primary key, username varchar(20) )|
+1519253481920|0|statement|connection 9|create table notifications ( id int identity primary key, text varchar(255) )|
+1519253481921|1|statement|connection 9|create table orders ( id int identity primary key, reference varchar(20), created_by int foreign key references users(id) )|
+1519253483909|0|statement|connection 9|insert into users values (1, 'test')|
+1519253483911|0|commit|connection 9||
+1519253483919|2|statement|connection 9|insert into orders(reference, created_by) values ('ref', 1)|
+1519253483920|0|commit|connection 9||
+1519253483997|22|statement|connection 9|SELECT count(1) FROM orders WHERE reference='ref'|
+1519253484022|2|statement|connection 9|DELETE FROM ORDERS|
+1519253484025|2|statement|connection 9|DELETE FROM NOTIFICATIONS|
+1519253484027|2|statement|connection 9|DELETE FROM USERS|
+1519253484029|0|commit|connection 9||
+1519253484039|0|statement|connection 9|insert into users(username) values ('aaa')|
+1519253484040|0|commit|connection 9||
+1519253484073|3|statement|connection 9|SELECT count(1) FROM users|
+1519253484083|0|statement|connection 9|insert into users values (1, 'test')|
+1519253484083|0|commit|connection 9||
+1519253484087|0|statement|connection 9|SELECT count(1) FROM users WHERE username='test'|
+1519253484092|0|statement|connection 9|DELETE FROM ORDERS|
+1519253484094|0|statement|connection 9|DELETE FROM USERS|
+1519253484106|0|commit|connection 9||
+1519253484112|0|statement|connection 9|insert into users values (1, 'test')|
+1519253484112|0|commit|connection 9||
+1519253484184|0|statement|connection 8|INSERT INTO NOTIFICATIONS(text) VALUES (?)|INSERT INTO NOTIFICATIONS(text) VALUES ('a')
+1519253484193|0|statement|connection 7|SELECT TEXT FROM NOTIFICATIONS|
+1519253484199|0|statement|connection 7|DELETE FROM ORDERS|
+1519253484215|0|statement|connection 7|DELETE FROM USERS|
+1519253484216|0|commit|connection 7||
