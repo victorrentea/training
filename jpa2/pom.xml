@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
 
   <name>jpa2</name>
-  <description>Demo project for Spring Boot</description>
+  <description>JPA 2 Workshop by Victor Rentea</description>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
