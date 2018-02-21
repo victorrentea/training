@@ -12,7 +12,6 @@ public class CustomerValidatorTest {
 //		validator.validate(new CustomerBuilder()
 //			.withName("John Doe")
 //			.withAddress(new AddressBuilder()
-//					.withStreetName("Viorele")
 //					.withCity("Bucharest")
 //					.build())
 //			.build());

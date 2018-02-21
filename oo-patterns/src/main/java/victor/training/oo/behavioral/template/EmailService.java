@@ -67,5 +67,8 @@ class Email {
 	public final long getId() {
 		return id;
 	}
-	
+	@Override
+	public String toString() {
+		return "Email{subject="+subject+" to " + to +"}";
+	}
 }
