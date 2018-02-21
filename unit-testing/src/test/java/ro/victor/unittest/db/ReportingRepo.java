@@ -1,0 +1,23 @@
+package ro.victor.unittest.db;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceUtils;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class ReportingRepo {
+	private final static Logger log = LoggerFactory.getLogger(ReportingRepo.class);
+
+	@Autowired
+	private JdbcTemplate jdbc;
+
+	public List<String> getAllNotifications() {
+		log.debug("Querying for notifications on DB connection: " + DataSourceUtils.getConnection(jdbc.getDataSource()));
+		return jdbc.queryForList("SELECT TEXT FROM NOTIFICATIONS", String.class);
+	}
+}
