@@ -2,27 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2386a79-4f57-4a4e-bf51-28c611799ca5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PriceCalculators.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/StatementIssuer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/FizzBuzz.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/FizzBuzzTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Game.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/GameRunner.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/NewGame.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/phpunit-5.7.5.phar" afterPath="$PROJECT_DIR$/phpunit-5.7.27.phar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa/pom.xml" afterPath="$PROJECT_DIR$/../../jpa/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa/src/test/java/victor/training/jpa/JPQLExamplesTest.java" afterPath="$PROJECT_DIR$/../../jpa/src/test/java/victor/training/jpa/JPQLExamplesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/AnotherService.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/AnotherService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/TheFacade.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/TheFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/../../jpa2/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/videostore_php-master.iml" afterPath="$PROJECT_DIR$/.idea/videostore_php-master.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Customer.php" afterPath="$PROJECT_DIR$/src/Customer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Movie.php" afterPath="$PROJECT_DIR$/src/Movie.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Rental.php" afterPath="$PROJECT_DIR$/src/Rental.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/VideoStoreTest.php" afterPath="$PROJECT_DIR$/tests/VideoStoreTest.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/jpa-new-soapui-project.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/StartDatabase.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/Company.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/DummyDataCreator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/Employee.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/EmployeeDetails.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/EmployeeExportVO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/Manager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/Project.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/ProjectType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/Site.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/entity/search/EmployeeSearchCriteria.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/facade/EmployeeService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/facade/FacadeLoggingInterceptor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/facade/PlayFacade.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/facade/dto/CompanyDto.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/facade/dto/EmployeeDto.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/facade/dto/ProjectDto.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/facade/dto/SiteDto.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/repository/CompanyRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/repository/EmployeeRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/repository/EmployeeRepositoryCustom.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/repository/EmployeeRepositoryImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/repository/NativeRepository.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/java/victor/training/jpa/web/PlayController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/resources/config-app.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/resources/config-web.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/resources/logback.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa-new/src/main/webapp/WEB-INF/web.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/PersistenceConfig.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/db/NotificationRepo.java" afterPath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/db/prod/NotificationRepo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/db/ReportingRepo.java" afterPath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/db/prod/ReportingRepo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/db/Service1.java" afterPath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/mocks/prod/ZuperService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../victorrentea.ro/poze/DP + Spring MVC @ Tangoe.jpg" afterPath="$PROJECT_DIR$/../../victorrentea.ro/poze/DP + Spring MVC @ Tangoe.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/pom.xml" afterPath="$PROJECT_DIR$/../../jpa2/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/Jpa2Application.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/Jpa2Application.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/domain/entity/Subject.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/domain/entity/Subject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/domain/entity/TeachingActivity.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/domain/entity/TeachingActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/dto/LabDto.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/dto/LabDto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/dto/SubjectDto.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/facade/dto/SubjectDto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/util/MyUtil.java" afterPath="$PROJECT_DIR$/../../jpa2/src/main/java/ro/victor/training/jpa2/util/MyUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns/src/main/java/victor/training/oo/creational/builder/CustomerValidator.java" afterPath="$PROJECT_DIR$/../../oo-patterns/src/main/java/victor/training/oo/creational/builder/CustomerValidator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../oo-patterns/src/main/java/victor/training/oo/creational/builder/CustomerValidatorTest.java" afterPath="$PROJECT_DIR$/../../oo-patterns/src/main/java/victor/training/oo/creational/builder/CustomerValidatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../unit-testing/pom.xml" afterPath="$PROJECT_DIR$/../../unit-testing/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/db/NonTransactionalTest.java" afterPath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/db/NonTransactionalTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/db/TransactionalTest.java" afterPath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/db/TransactionalTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/mocks/MockitoShowcaseTest.java" afterPath="$PROJECT_DIR$/../../unit-testing/src/test/java/ro/victor/unittest/mocks/MockitoShowcaseTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../unit-testing/src/test/resources/schema.sql" afterPath="$PROJECT_DIR$/../../unit-testing/src/test/resources/schema.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../victorrentea.ro/index.html" afterPath="$PROJECT_DIR$/../../victorrentea.ro/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +68,7 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.28046876">
+    <splitter split-orientation="horizontal" split-proportion="0.3975">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Game.php" pinned="false" current-in-tab="false">
@@ -55,8 +84,8 @@
           <file leaf-file-name="GameRunner.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/GameRunner.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                <state relative-caret-position="110">
+                  <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -65,30 +94,9 @@
           <file leaf-file-name="NewGame.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/NewGame.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
+                <state relative-caret-position="264">
                   <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-                  <folding>
-                    <marker date="1518018084349" expanded="true" signature="947:7337" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="1214:1735" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="1423:1728" ph="..." />
-                    <marker date="1518018084349" expanded="true" signature="1776:1830" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="1857:1916" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="1948:2145" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="2176:2226" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="2252:2685" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="2455:2685" ph="..." />
-                    <marker date="1518018084349" expanded="true" signature="2489:2685" ph="..." />
-                    <marker date="1518018084349" expanded="true" signature="5316:5369" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="5406:6819" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="5469:6281" ph="..." />
-                    <marker date="1518018084349" expanded="true" signature="5520:6086" ph="..." />
-                    <marker date="1518018084349" expanded="true" signature="5666:5855" ph="..." />
-                    <marker date="1518018084349" expanded="true" signature="6094:6269" ph="..." />
-                    <marker date="1518018084349" expanded="true" signature="6289:6812" ph="..." />
-                    <marker date="1518018084349" expanded="true" signature="6424:6601" ph="..." />
-                    <marker date="1518018084349" expanded="true" signature="6847:7220" ph="{...}" />
-                    <marker date="1518018084349" expanded="true" signature="7250:7335" ph="{...}" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -96,12 +104,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="NewGame.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/NewGame.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="332">
-                  <caret line="204" column="19" lean-forward="true" selection-start-line="204" selection-start-column="19" selection-end-line="204" selection-end-column="19" />
+                <state relative-caret-position="90">
+                  <caret line="193" column="40" lean-forward="false" selection-start-line="193" selection-start-column="40" selection-end-line="193" selection-end-column="40" />
                   <folding />
                 </state>
               </provider>
@@ -249,7 +257,6 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -272,6 +279,7 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -326,9 +334,7 @@
     <configuration name="VideoStoreTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="video\VideoStoreTest" file="$PROJECT_DIR$/tests/VideoStoreTest.php" scope="Class" />
     </configuration>
-    <configuration default="false" name="VideoStoreTest.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/tests/VideoStoreTest.php">
-      <method />
-    </configuration>
+    <configuration name="VideoStoreTest.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/tests/VideoStoreTest.php" />
     <configuration name="VideoStoreTest.testRentalStatementFormat (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="video\VideoStoreTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/VideoStoreTest.php" method="testRentalStatementFormat" scope="Method" use_alternative_configuration_file="true" />
     </configuration>
@@ -388,19 +394,18 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest.testRentalStatementFormat (1)" />
-      <item index="1" class="java.lang.String" itemvalue="PHPUnit.FizzBuzzTest.test1" />
+      <item index="0" class="java.lang.String" itemvalue="PHP Script.VideoStoreTest.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest.testRentalStatementFormat (1)" />
       <item index="2" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest" />
       <item index="3" class="java.lang.String" itemvalue="PHPUnit.FizzBuzzTest" />
       <item index="4" class="java.lang.String" itemvalue="PHP Script.GameRunner.php" />
     </list>
     <recent_temporary>
-      <list size="5">
+      <list size="4">
         <item index="0" class="java.lang.String" itemvalue="PHP Script.GameRunner.php" />
         <item index="1" class="java.lang.String" itemvalue="PHPUnit.FizzBuzzTest" />
-        <item index="2" class="java.lang.String" itemvalue="PHPUnit.FizzBuzzTest.test1" />
-        <item index="3" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest" />
-        <item index="4" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest.testRentalStatementFormat (1)" />
+        <item index="2" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest" />
+        <item index="3" class="java.lang.String" itemvalue="PHPUnit.VideoStoreTest.testRentalStatementFormat (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -432,6 +437,7 @@
       <workItem from="1505760642345" duration="5971000" />
       <workItem from="1516783969681" duration="114000" />
       <workItem from="1518002809631" duration="14666000" />
+      <workItem from="1520314186170" duration="137000" />
     </task>
     <servers />
   </component>
@@ -468,11 +474,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26766000" />
+    <option name="totallyTimeSpent" value="26903000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -481,26 +486,26 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2332636" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2332636" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21287128" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2015625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39920425" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39920425" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -555,7 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -571,7 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -595,7 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -634,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -689,7 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -753,7 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -761,7 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -777,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -797,39 +794,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/NewGame.php">
+    <entry file="file://$PROJECT_DIR$/tests/GameRunner.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding>
-            <marker date="1518018084349" expanded="true" signature="947:7337" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="1214:1735" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="1423:1728" ph="..." />
-            <marker date="1518018084349" expanded="true" signature="1776:1830" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="1857:1916" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="1948:2145" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="2176:2226" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="2252:2685" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="2455:2685" ph="..." />
-            <marker date="1518018084349" expanded="true" signature="2489:2685" ph="..." />
-            <marker date="1518018084349" expanded="true" signature="5316:5369" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="5406:6819" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="5469:6281" ph="..." />
-            <marker date="1518018084349" expanded="true" signature="5520:6086" ph="..." />
-            <marker date="1518018084349" expanded="true" signature="5666:5855" ph="..." />
-            <marker date="1518018084349" expanded="true" signature="6094:6269" ph="..." />
-            <marker date="1518018084349" expanded="true" signature="6289:6812" ph="..." />
-            <marker date="1518018084349" expanded="true" signature="6424:6601" ph="..." />
-            <marker date="1518018084349" expanded="true" signature="6847:7220" ph="{...}" />
-            <marker date="1518018084349" expanded="true" signature="7250:7335" ph="{...}" />
-          </folding>
+        <state relative-caret-position="110">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/GameRunner.php">
+    <entry file="file://$PROJECT_DIR$/tests/NewGame.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="90">
+          <caret line="193" column="40" lean-forward="false" selection-start-line="193" selection-start-column="40" selection-end-line="193" selection-end-column="40" />
           <folding />
         </state>
       </provider>

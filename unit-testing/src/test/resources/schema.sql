@@ -1,3 +1,7 @@
+drop table orders if exists;
+drop table notifications if exists;
+drop table users if exists;
+
 create table users (
 	id int identity primary key,
 	username varchar(20)

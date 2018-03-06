@@ -11,7 +11,10 @@ namespace victor\training\oo\creational\abstractfactory\megablock;
 
 use victor\training\oo\creational\abstractfactory\spi\Board;
 
-class MegaBlockBoard implements Board
+class MegaBlockBoard
+//{} // INITIAL
+// SOLUTION (
+    implements Board
 {
 
 
@@ -20,3 +23,4 @@ class MegaBlockBoard implements Board
         return "MegaBlock Board";
     }
 }
+// SOLUTION )

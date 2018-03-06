@@ -21,8 +21,8 @@ foreach (glob("megablock/*.php") as $filename) require_once $filename;
 $childOne = new Child();
 
 printf("Got back from work...\n");
-//$factory = new LegoFactory(); // 100 RON
-$factory = new MegaBlockFactory(); // 20 RON
+//$factory = new LegoFactory(); // 100 RON // INITIAL
+$factory = new MegaBlockFactory(); // 20 RON // SOLUTION
 printf("Brought you a present: ${factory}\n");
 printf("Hm....\n");
 

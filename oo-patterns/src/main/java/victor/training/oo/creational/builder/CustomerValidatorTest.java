@@ -1,6 +1,8 @@
 package victor.training.oo.creational.builder;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class CustomerValidatorTest {
 
@@ -30,8 +32,12 @@ public class CustomerValidatorTest {
 		validator.validate(aValidCustomer().withAddress((Address)null).build()); // SOLUTION
 	}
 	
-	@Test(expected = IllegalArgumentException.class) // SOLUTION
+	@Rule
+	public ExpectedException expectedException = ExpectedException.none();
+	
+	@Test // SOLUTION
 	public void customerWithoutAddressCity_fails() {
+		expectedException.expectMessage("address city");
 		validator.validate(aValidCustomer().withAddress(aValidAddress().withCity("")).build()); // SOLUTION
 	}
 

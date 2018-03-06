@@ -13,7 +13,10 @@ use victor\training\oo\creational\abstractfactory\spi\BlockFactory;
 use victor\training\oo\creational\abstractfactory\spi\Board;
 use victor\training\oo\creational\abstractfactory\spi\Cube;
 
-class MegaBlockFactory implements BlockFactory
+class MegaBlockFactory
+//{} // INITIAL
+// SOLUTION (
+    implements BlockFactory
 {
 
     function createCube(): Cube
@@ -31,3 +34,4 @@ class MegaBlockFactory implements BlockFactory
         return "MegaBlock Factory";
     }
 }
+// SOLUTION )

@@ -1,5 +1,5 @@
 <?php
-namespace victor\training\oo\creational\builder;
+namespace training\oo\creational\builder;
 
 include "Customer.php";
 include "Address.php";

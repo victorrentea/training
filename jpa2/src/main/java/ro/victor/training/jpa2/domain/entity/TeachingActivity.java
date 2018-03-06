@@ -1,10 +1,12 @@
 package ro.victor.training.jpa2.domain.entity;
 
 import java.time.DayOfWeek;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -14,9 +16,14 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn()
+@EntityListeners(AuditingEntityListener.class) // SOLUTION
 public abstract class TeachingActivity {
 	
 	@Id
@@ -35,9 +42,17 @@ public abstract class TeachingActivity {
 	
 	private String roomId;
 	
+	@LastModifiedDate // SOLUTION
+	private LocalDateTime lastModifiedDate;
+	
+	@LastModifiedBy // SOLUTION
+	private String lastModifiedBy;
+	
 	@ManyToMany
 //	@OrderColumn(name="INDEX") + the collection must become List
 	private Set<Teacher> teachers = new HashSet<>();
+	
+	
 
 	public Long getId() {
 		return id;
@@ -96,7 +111,13 @@ public abstract class TeachingActivity {
 		this.teachers = teachers;
 	}
 	
+	public String getLastModifiedBy() {
+		return lastModifiedBy;
+	}
 	
+	public LocalDateTime getLastModifiedDate() {
+		return lastModifiedDate;
+	}
 	
 	
 	

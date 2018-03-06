@@ -12,6 +12,9 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import ro.victor.unittest.db.prod.NotificationRepo;
+import ro.victor.unittest.db.prod.ReportingRepo;
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @Transactional // SOLUTION

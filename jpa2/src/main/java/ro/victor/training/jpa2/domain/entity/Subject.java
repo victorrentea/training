@@ -1,16 +1,26 @@
 package ro.victor.training.jpa2.domain.entity;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import ro.victor.training.jpa2.util.MyTrackingEntityListener;
+import ro.victor.training.jpa2.util.MyTrackingEntityListener.Trackable;
+
 @Entity
-public class Subject {
+@EntityListeners(MyTrackingEntityListener.class) // SOLUTION
+//public class Subject { // INITIAL
+public class Subject implements Trackable { // SOLUTION
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -24,7 +34,24 @@ public class Subject {
 	
 	@OneToMany(mappedBy="subject")
 	private List<TeachingActivity> activities = new ArrayList<>();
+	
+	@LastModifiedDate // SOLUTION
+	private LocalDateTime lastModifiedDate;
+	
+	@LastModifiedBy // SOLUTION
+	private String lastModifiedBy;
 
+	
+//	@PrePersist
+//	@PreUpdate
+//	public void automaticUpdateTrackingColumns() {
+//		System.out.println("Before persist/update Subject");
+//		lastModifiedDate = LocalDateTime.now();
+//		lastModifiedBy = MyUtil.getUserOnCurrentThread();
+//	}
+	
+	
+	
 	public Subject() {
 	}
 	
@@ -75,7 +102,20 @@ public class Subject {
 		this.activities = activities;
 	}
 	
+	public String getLastModifiedBy() {
+		return lastModifiedBy;
+	}
 	
+	public LocalDateTime getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedBy(String lastModifiedBy) {
+		this.lastModifiedBy = lastModifiedBy;
+	}
 	
+	public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
 	
 }

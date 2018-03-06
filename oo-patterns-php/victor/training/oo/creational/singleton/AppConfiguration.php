@@ -11,6 +11,7 @@ namespace victor\training\oo\behavioral\singleton;
 
 class AppConfiguration
 {
+    // SOLUTION (
     /* @var AppConfiguration */
     private static $INSTANCE;
 
@@ -26,7 +27,7 @@ class AppConfiguration
         }
         return static::$INSTANCE;
     }
-
+    // SOLUTION )
     private $properties;
 
     private function readConfiguration() {

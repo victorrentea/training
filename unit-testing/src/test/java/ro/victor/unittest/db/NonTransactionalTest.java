@@ -8,15 +8,21 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import ro.victor.unittest.db.prod.NotificationRepo;
+import ro.victor.unittest.db.prod.ReportingRepo;
+
 @SpringBootTest
+@ActiveProfiles("realdb")
 @RunWith(SpringRunner.class)
 // SOLUTION (
 @WithCommonReferenceData
-@Sql(executionPhase = ExecutionPhase.AFTER_TEST_METHOD, statements = {
+@Sql(executionPhase = ExecutionPhase.AFTER_TEST_METHOD, 
+	statements = {
 		"DELETE FROM ORDERS",
 		"DELETE FROM USERS"
 })

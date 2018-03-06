@@ -1,5 +1,6 @@
 package ro.victor.training.jpa2.facade.dto;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -13,6 +14,8 @@ public class LabDto {
 	public TimeSlotDto timeSlot;
 	public String groupCode;
 	public Set<String> teacherNames = new TreeSet<>();
+	public String lastModifiedByUsername;
+	public String lastModifiedDate;
 	
 	public LabDto() {
 	}
@@ -26,6 +29,10 @@ public class LabDto {
 		}
 		for (Teacher teacher : lab.getTeachers()) {
 			teacherNames.add(teacher.getName());
+		}
+		lastModifiedByUsername = lab.getLastModifiedBy();
+		if (lab.getLastModifiedDate()!= null) {
+			lastModifiedDate = lab.getLastModifiedDate().format(DateTimeFormatter.ISO_DATE_TIME);
 		}
 	}
 }

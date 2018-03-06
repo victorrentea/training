@@ -37,6 +37,10 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -48,6 +52,11 @@
       <artifactId>hsqldb</artifactId>
       <scope>runtime</scope>
     </dependency>
+    <!-- persist LocalDateTime -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-java8</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -58,11 +67,8 @@
       <artifactId>springfox-swagger2</artifactId>
       <version>2.7.0</version>
     </dependency>
-    <!-- <dependency>
-    <groupId>io.springfox</groupId>
-    <artifactId>springfox-swagger-ui</artifactId>
-    <version>2.7.0</version>
-</dependency> -->
+    <!-- <dependency> <groupId>io.springfox</groupId> <artifactId>springfox-swagger-ui</artifactId> <version>2.7.0</version> 
+      </dependency> -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
@@ -83,8 +89,8 @@
           </dependency>
         </dependencies>
       </plugin>
-     
-     
+
+
     </plugins>
   </build>
 

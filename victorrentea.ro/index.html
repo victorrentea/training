@@ -351,7 +351,7 @@ ga('send', 'pageview');
 			</div>
 			<div class="row">
 				<div class="col-sm-6 col-xs-12 portfolio-item text-center">
-                    <a href="#design-patterns" class="portfolio-link" data-toggle="modal">
+                    <a href="#patterns" class="portfolio-link" data-toggle="modal">
                         <div class="caption">Design Patterns<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
                         <img src="label/oodp.jpg" class="img-responsive" alt="">						
                     </a>
@@ -393,7 +393,7 @@ ga('send', 'pageview');
 					</a>
 				</div>		
 				<div class="col-sm-6 col-xs-12 portfolio-item">
-                    <a href="#java-performance" class="portfolio-link" data-toggle="modal">
+                    <a href="#performance" class="portfolio-link" data-toggle="modal">
                         <div class="caption">Performance<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
                         <img src="label/java-performance.jpg" class="img-responsive" alt="">
                     </a>
@@ -692,6 +692,13 @@ ga('send', 'pageview');
 					"Clean Code Talk @ JPoint2017.jpg",
 					"Clean Code @ JEEConf2017.jpg",
 					"Clean Code @ jPrime2017.jpg",
+					"Design Patterns + Clean Code @emag 2017.jpg",
+					"Java Performance @ Deutche Bank 2017.jpg",
+					"Spring, JPA, Design Patterns, Clean Code @ Deutche Bank 2017.jpg",
+					"Design Pattern + Clean Code @ Temenos 2017.jpg",
+					"Design Patterns + Clean Code @ EMAG 2018.jpg",
+					"Design Patterns + Clean Code @ EMAG 2018 no2.jpg",
+					"Java Performance @ Axway 2017.jpg",
 					
 				];
 				
@@ -1508,7 +1515,7 @@ ga('send', 'pageview');
         </div>
     </div>
 	
-    <div class="portfolio-modal modal fade" id="design-patterns" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="patterns" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content modal-albastru">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -1915,7 +1922,7 @@ ga('send', 'pageview');
     </div>
 	
 	
-	<div class="portfolio-modal modal fade" id="java-performance" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="portfolio-modal modal fade" id="performance" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content modal-gri">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -2099,40 +2106,51 @@ ga('send', 'pageview');
 							
 							<h3>Agenda:</h3>							
 							<ol class="agenda">
-								<li>Basic Object-Relational Mapping
+								<li>Intro
 									<ul>
-									<li>Introduction</li>
-									<li>O-R Impedance</li>
-									<li>Mapping basic fields</li>
-									<li>PK Generation</li>
-									<li>Mapping relationships (1:1, 1:n, n:n); Owner side</li>
-									<li>Mapping inheritance</li>
+									<li>Phylosophy</li>
+									<li>References</li>
 									</ul>
 								</li>
-								<li>Advanced Object-Relational Mapping
+								<li>Object-Relational Mapping 1
 									<ul>
+									<li>Mapping basic fields, clobs</li>
+									<li>Mapping relationships (1:1, 1:n, n:n); Owner side</li>
+									<li>Access Mode</li>
+									
+									</ul>
+								</li>
+								<li>Object-Relational Mapping 2
+									<ul>
+									<li>Mapping inheritance</li>
 									<li>Embeddable</li>
 									<li>Element Collection</li>
 									<li>List or Set of Children?</li>
 									<li>HOWTO implement Entity hashCode and equals</li>
 									<li>Ordered Children</li>
-									<li>Coded Enums</li>
-									<li>Optional getters</li>
-									<li>LOB</li>
-									<li>Composite PK</li>
-									<li>Non-PK Join Conditions</li>
-									<li>More DB metadata: unique, index</li>
 									</ul>
 								</li>
-								<li>Bootstrapping JPA
+								
+																
+								<li>JPA Runtime
 									<ul>
-									<li>Standalone / with Spring</li>
-									<li>hbm2ddl</li>
-									<li>Incremental DB migrations scripts</li>
+									<li>EntityManager: Principles and Concepts</li>
+									<li>Entity Lifecycle</li>
+									<li>PK Generation</li>
+									<li>LAZY vs EAGER loading; best practices</li>
+									<li>Cascading</li>
+									<li>Orphan Removal</li>
+									<li>Persistence Context = 1st level cache</li>
 									<li>Transactions: programatic / declarative</li>
-									<li>DB Integration Tests: strategies, setup</li>
+									<li>@Transaction propagation; flush vs commit; rollback only</li>
+									<li>Auto-flush changes</li>
+									<li>.merge() explained</li>
+									<li>Concurrency Control: Optimistic, Pessimistic</li>
+									<li>Entity Listeners</li>
 									</ul>
 								</li>
+								
+								
 								<li>JPQL
 									<ul>
 									<li>Basic Travelsals</li>
@@ -2142,44 +2160,59 @@ ga('send', 'pageview');
 									<li>JOIN FETCH</li>
 									<li>Syntax limitations and workarounds</li>
 									<li>Debugging</li>
+									<li>Search Query strategies: jpql+=, Criteria API, metamodel,..</li>
 									</ul>
 								</li>
-																
-								<li>JPA Runtime
+								
+								<li>Bootstrapping JPA
 									<ul>
-									<li>EntityManager: Principles and Concepts</li>
-									<li>Entity Lifecycle</li>
-									<li>LAZY vs EAGER relations</li>
-									<li>Cascading</li>
-									<li>Orphan Removal</li>
-									<li>Entity Listeners: audit columns</li>
-									<li>Locking: Optimistic, Pessimistic</li>
-									<li>.merge(): a peek under the hood</li>
+									<li>Standalone / with Spring</li>
+									<li>hbm2ddl</li>
+									<li>Incremental DB migrations scripts</li>
+									<li>DB Integration Tests: strategies, setup</li>
+									</ul>
+								</li>
+								<li>Spring Data JPA
+									<ul>
+									<li>Deriving queries from method names</li>
+									<li>@Query</li>
+									<li>@Modifying and native</li>
+									<li>Extending common API</li>
+									<li>Optional and Stream support</li>
+									<li>Audit columns</li>
+									<li>Extra (on demand): fetch graphs, projections, specifications...</li>
+									</ul>
+								</li>
+								
+								<li>Object-Relational Mapping on Existing DB
+									<ul>
+									<li>Composite PK</li>
+									<li>Non-PK Join Conditions</li>
+									<li>More DB metadata: @Column and @Table, unique, index</li>
+									<li>Entity Validation - strategies and best practices</li>
+									<li>Mapping to a VIEW</li>
+									<li>Calling stored procedures</li>
+									<li>Tables with no PK</li>
 									</ul>
 								</li>
 								
 								<li>JPA Performance									
 									<ul>
+									<li>Optimization Principles</li>
+									<li>N+1 Queries problem: 3 solutions</li>
 									<li>1st Level Cache</li>
+									<li>Avoid selecting useless columns</li>
+									<li>Debate: where to process data?</li>
+									<li>Batch export / import strategies</li>
+									<li>Efficient PK generation</li>
+									<li>The big bad slow query</li>
 									<li>Batch Updates</li>
 									<li>fetch_size</li>
-									<li>Bulk UPDATE, DELETE</li>
-									<li>Native Queries</li>
-									<li>CALL Stored Procedures</li>
 									<li>2nd Level Cache</li>
 									</ul>							
 								</li>
 								
-								<li>Spring Data JPA
-									<ul>
-									<li>Naming conventions</li>
-									<li>Extending common API</li>
-									<li>@Query</li>
-									<li>@Modifying</li>
-									<li>Optional and Stream support</li>
-									<li>Audit columns</li>
-									</ul>
-								</li>
+								
 							</ol>	
 							
 							

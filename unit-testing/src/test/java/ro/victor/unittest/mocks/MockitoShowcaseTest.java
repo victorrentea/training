@@ -26,9 +26,7 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
 
 @SuppressWarnings("unchecked")
 @RunWith(MockitoJUnitRunner.class)
@@ -46,18 +44,17 @@ public class MockitoShowcaseTest {
 
 	@Test
 	public void verifySomeBehaviour() {
-		// mock creation
-		List<String> mock = mock(List.class);
-
+		
+		System.out.println(mockedList.getClass());
 		{
 			// using mock object
-			mock.add("one");
-			mock.clear();
+			mockedList.add("one");
+			mockedList.clear();
 		}
 
 		// verification
-		verify(mock).add("one");
-		verify(mock).clear();
+		verify(mockedList).add("one");
+		verify(mockedList).clear();
 	}
 
 	@Test
@@ -103,11 +100,11 @@ public class MockitoShowcaseTest {
 		// mock created as a test field by the JUnit Runner
 
 		// stubbing
-		when(mockedList.get(1)).thenThrow(new RuntimeException());
+		when(mockedList.get(anyInt())).thenThrow(new RuntimeException());
 
 		{
 			// following throws runtime exception
-			System.out.println(mockedList.get(1));
+			System.out.println(mockedList.get(2));
 		}
 		
 		//		Read more about other methods:
@@ -217,12 +214,10 @@ public class MockitoShowcaseTest {
 	
 	@Test
 	public void stubbingWithCallbacks() {
-		 when(someMock.someMethod(anyString())).thenAnswer(new Answer<String>() {
-			public String answer(InvocationOnMock invocation) {
+		 when(someMock.someMethod(anyString())).thenAnswer(invocation -> {
 		         Object[] args = invocation.getArguments();
 		         Object mock = invocation.getMock();
-		         return "called with arguments: " + Arrays.toString(args);
-		     }
+		         return "called with arguments: " + Arrays.toString(args);// + Math.random();
 		 });
 		 
 		 //Following prints "called with arguments: foo"

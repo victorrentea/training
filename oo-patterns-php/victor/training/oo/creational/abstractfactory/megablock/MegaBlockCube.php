@@ -12,7 +12,10 @@ namespace victor\training\oo\creational\abstractfactory\megablock;
 use victor\training\oo\creational\abstractfactory\spi\Board;
 use victor\training\oo\creational\abstractfactory\spi\Cube;
 
-class MegaBlockCube implements Cube
+class MegaBlockCube
+//{} // INITIAL
+// SOLUTION (
+    implements Cube
 {
 
     function stackOnto(Cube $cube)
@@ -30,3 +33,4 @@ class MegaBlockCube implements Cube
         return "MegaBlock Cube";
     }
 }
+// SOLUTION )

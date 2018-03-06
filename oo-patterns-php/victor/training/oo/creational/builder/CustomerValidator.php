@@ -6,7 +6,7 @@
  * Time: 1:46 AM
  */
 
-namespace victor\training\oo\creational\builder;
+namespace training\oo\creational\builder;
 
 
 class CustomerValidator
