@@ -1,4 +1,4 @@
-<?php
+<?php // SOLUTION
 /**
  * Created by IntelliJ IDEA.
  * User: VictorRentea

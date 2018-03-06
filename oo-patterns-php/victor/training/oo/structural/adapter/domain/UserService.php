@@ -17,6 +17,8 @@ include "LdapUserWSAdapter.php";
 
 class UserService
 {
+
+    // SOLUTION (
     private $adapter;
 
     public function __construct(LdapUserWSAdapter $adapter)
@@ -41,9 +43,10 @@ class UserService
 	public function searchUserInLdap(string $username) {
         return $this->adapter->searchByUsername($username);
 	}
+	// SOLUTION )
 }
 
-$adapter = new LdapUserWSAdapter(new LdapUserWebServiceClient());
-$userService = new UserService($adapter);
+$adapter = new LdapUserWSAdapter(new LdapUserWebServiceClient()); // SOLUTION
+$userService = new UserService($adapter); // SOLUTION
 printf(implode(",",$userService->searchUserInLdap("jdoe")) . "\n");
 $userService->importUserFromLdap("jdoe");
