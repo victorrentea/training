@@ -12,4 +12,7 @@ namespace victor\training\oo\structural\facade;
 class CustomerService
 {
 
+    public function getGoldCardFor(Customer $customer)
+    {
+    }
 }

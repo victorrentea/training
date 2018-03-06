@@ -2,17 +2,14 @@
 /**
  * Created by IntelliJ IDEA.
  * User: VictorRentea
- * Date: 9/19/2017
- * Time: 12:42 PM
+ * Date: 06-Mar-18
+ * Time: 12:49 PM
  */
 
 namespace victor\training\oo\structural\facade;
 
 
-class OrderService
+class Order
 {
 
-    public function placeOrder(Order $order)
-    {
-    }
 }

@@ -8,41 +8,24 @@
 
 namespace victor\training\oo\behavioral\strategy;
 
-include "TaxCalculator.php";
-include "UKTaxCalculator.php";
-include "ChinaTaxCalculator.php";
-include "EUTaxCalculator.php";
-
 class CustomsService
 {
-    /** @var TaxCalculato[r] */
-    private static $ALL_TAX_CALCULATORS;
 
-    function __construct()
-    {
-        self::$ALL_TAX_CALCULATORS = [new EUTaxCalculator(), new ChinaTaxCalculator(), new UKTaxCalculator()];
-    }
-
-
-
-    public function computeAddedCustomsTax(string $originCountry, float $tobaccoValue, float $otherValue): float { // UGLY API we CANNOT change
-		return $this->determineTaxCalculator($originCountry)
-            ->computeTax($tobaccoValue, $otherValue);
-    }
-
-    private function determineTaxCalculator(string $originCountry): TaxCalculator
-    {
-        foreach (self::$ALL_TAX_CALCULATORS as $taxCalculator) {
-            if ($taxCalculator->canProcess($originCountry)) {
-                return $taxCalculator;
-            }
+    public function computeAddedCustomsTax(string $originCountry, double $tobaccoValue, double $otherValue): double { // UGLY API we CANNOT change
+        switch ($originCountry) {
+            case "UK": return $tobaccoValue/2 + $otherValue/2;
+            case "CH": return $tobaccoValue + $otherValue;
+            case "FR":
+            case "ES": // other EU country codes...
+            case "RO": return $tobaccoValue/3;
+            default: throw new \Exception("Not a valid country ISO2 code: " . $originCountry);
         }
-        throw new \Exception("Not a valid country ISO2 code: " . $originCountry);
     }
+
 }
 
 
 $customsService = new CustomsService();
-printf("Tax for (RO,100,100) = " . $customsService->computeAddedCustomsTax("RO", 100, 100) . "\n");
-printf("Tax for (CH,100,100) = " . $customsService->computeAddedCustomsTax("CH", 100, 100). "\n");
-printf("Tax for (UK,100,100) = " . $customsService->computeAddedCustomsTax("UK", 100, 100). "\n");
+printf("Tax for (RO,100,100) = " . $customsService->computeAddedCustomsTax("RO", 100, 100));
+printf("Tax for (CH,100,100) = " . $customsService->computeAddedCustomsTax("CH", 100, 100));
+printf("Tax for (UK,100,100) = " . $customsService->computeAddedCustomsTax("UK", 100, 100));

@@ -47,7 +47,7 @@ class CustomerValidatorTest extends \PHPUnit\Framework\TestCase
         $address->setCity("Bucharest");
         $customer->setAddress($address);
         $validator = new CustomerValidator();
-        $validator->validate($this->validCustomer);
+        $validator->validate($customer);
         self::assertTrue(true);
     }
 

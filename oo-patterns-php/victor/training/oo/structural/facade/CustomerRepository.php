@@ -12,4 +12,7 @@ namespace victor\training\oo\structural\facade;
 class CustomerRepository
 {
 
+    public function get(int $customerId): Customer
+    {
+    }
 }

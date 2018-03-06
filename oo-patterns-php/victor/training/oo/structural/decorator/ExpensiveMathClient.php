@@ -9,7 +9,7 @@
 namespace victor\training\oo\structural\decorator;
 
 include "ExpensiveMath.php";
-include "ExpensiveMathCacheDecorator.php";
+include "ExpensiveMathCacheDecorator.php";// SOLUTION
 
 // function testItAndIfPrimeGetNextOne(int $n, ExpensiveMath $math) { // INITIAL
 function testItAndIfPrimeGetNextOne(int $n, IExpensiveMath $math) { // SOLUTION

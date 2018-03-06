@@ -15,38 +15,25 @@ include "EmailContext.php";
 
 class EmailService
 {
-    public const MAX_RETRIES = 3;
+    public static const MAX_RETRIES = 3;
 
-    public function sendEmail(string $emailAddress, callable $emailTemplate )
+    public function sendOrderReceivedEmail(string $emailAddress)
     {
         $context = new EmailContext(/*smtpConfig,etc*/);
-        for ($i = 0; $i < self::MAX_RETRIES; $i++) {
+        for ($i = 0; $i < EmailService::MAX_RETRIES; $i++) {
             $email = new Email();
             $email->setSender("noreply@corp.com");
             $email->setReplyTo("/dev/null");
             $email->setTo($emailAddress);
-            $emailTemplate($email);
+            $email->setSubject("Order Received");
+            $email->setBody("Thank you for your order");
             $success = $context->send($email);
             if ($success) break;
         }
     }
 }
 
-class EmailTemplates {
-    static function orderReceivedEmail(Email $email) {
-        $email->setSubject("Order Received");
-        $email->setBody("Thank you for your order");
-    }
-    static function orderShippedEmail(Email $email) {
-        $email->setSubject("Order Shipped");
-        $email->setBody("Ti-am trimas.");
-    }
-}
-
 $emailService = new EmailService();
-$emailService->sendEmail("a@b.com", [EmailTemplates::class, "orderReceivedEmail"]);
-$emailService->sendEmail("a@b.com", [EmailTemplates::class, "orderShippedEmail"]);
+$emailService->sendOrderReceivedEmail("a@b.com");
 
-
-$emailService->sendEmail("a@b.com", function($email) { EmailTemplates::orderReceivedEmail($email);});
-$emailService->sendEmail("a@b.com", function($email) { EmailTemplates::orderShippedEmail($email);});
+//CHANGE request: implement sendOrderShippedEmail

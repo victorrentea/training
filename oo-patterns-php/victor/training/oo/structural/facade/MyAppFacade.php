@@ -26,9 +26,9 @@ class MyAppFacade
      */
     private $orderService;
 
-    public function placeOrder(Order order) {
-        $customer = $this->customerRepository->get(customerId);
+    public function placeOrder(int $customerId, Order $order) {
+        $customer = $this->customerRepository->get($customerId);
         $this->customerService->getGoldCardFor($customer);
-        $this->orderService->placeOrder(order);
+        $this->orderService->placeOrder($order);
     }
 }
