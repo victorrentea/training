@@ -11,7 +11,7 @@ namespace victor\training\oo\behavioral\strategy;
 class CustomsService
 {
 
-    public function computeAddedCustomsTax(string $originCountry, double $tobaccoValue, double $otherValue): double { // UGLY API we CANNOT change
+    public function computeAddedCustomsTax(string $originCountry, float $tobaccoValue, float $otherValue): float { // UGLY API we CANNOT change
         switch ($originCountry) {
             case "UK": return $tobaccoValue/2 + $otherValue/2;
             case "CH": return $tobaccoValue + $otherValue;
@@ -26,6 +26,6 @@ class CustomsService
 
 
 $customsService = new CustomsService();
-printf("Tax for (RO,100,100) = " . $customsService->computeAddedCustomsTax("RO", 100, 100));
-printf("Tax for (CH,100,100) = " . $customsService->computeAddedCustomsTax("CH", 100, 100));
-printf("Tax for (UK,100,100) = " . $customsService->computeAddedCustomsTax("UK", 100, 100));
+printf("Tax for (RO,100,100) = " . $customsService->computeAddedCustomsTax("RO", 100, 100) . '\n');
+printf("Tax for (CH,100,100) = " . $customsService->computeAddedCustomsTax("CH", 100, 100) . '\n');
+printf("Tax for (UK,100,100) = " . $customsService->computeAddedCustomsTax("UK", 100, 100) . '\n');
