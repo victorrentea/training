@@ -137,7 +137,7 @@ public class Undoner {
 //		frame.add(cleanFolder, BorderLayout.NORTH);
 		JPanel panel2 = new JPanel();
 		panel2.setLayout(new BorderLayout());
-		JComboBox<String> projectsCombo = new JComboBox<>(projects.toArray(new String[0]));
+		JComboBox<String> projectsCombo = new JComboBox<>(projects.stream().sorted().collect(toList()).toArray(new String[0]));
 		panel2.add(projectsCombo, BorderLayout.CENTER);
 		final JCheckBox clearEntityAnnotations = new JCheckBox("Clear Entity annotations");
 		panel2.add(clearEntityAnnotations, BorderLayout.SOUTH);
@@ -164,7 +164,7 @@ public class Undoner {
 				} else {
 					undone = undoFolders(inputSrcFolder, inputSrcFolder, false, clearEntityAnnotations.isSelected());
 				}
-				JOptionPane.showMessageDialog(null, undone ? "Undone " : "Nothing to undo (already undone?)");
+				JOptionPane.showMessageDialog(null, undone ? "Undone. Good luck!\n\nRemember: To see the solved version, HARD reset your worspace via the script on desktop." : "Nothing to undo (already undone?)");
 			}
 		});
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
