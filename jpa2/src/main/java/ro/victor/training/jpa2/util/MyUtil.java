@@ -17,7 +17,7 @@ public class MyUtil {
 		} else {
 			return authentication.getName();
 		}
-		// SOLUTION
+		// SOLUTION )
 		// return "user1";//TODO in real apps, implemented via a thread-scoped bean/Spring security context // INITIAL
 	}
 }

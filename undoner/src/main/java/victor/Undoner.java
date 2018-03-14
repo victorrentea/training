@@ -1,5 +1,7 @@
 package victor;
 
+import static java.util.stream.Collectors.toList;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -16,9 +18,11 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -32,7 +36,7 @@ public class Undoner {
 	}
 	
 	@SuppressWarnings("unchecked")
-	static boolean undoFile(File sourceFile, File destination, boolean dryRun) {
+	static boolean undoFile(File sourceFile, File destination, boolean dryRun, boolean curatEntityAnnot) {
 		try {
 			List<String> inLines;
 			try (FileReader reader = new FileReader(sourceFile)) {
@@ -42,37 +46,10 @@ public class Undoner {
 				sourceFile.delete();
 				return true;
 			}
-			List<String> outLines = new ArrayList<>();
-			boolean skippingSolution = false;
-			boolean uncommentingInitial = false;
-			for (String line : inLines) {
-				List<String> startSolutionTokens = Arrays.asList("//\\s*SOLUTION\\s*\\(", "<!--\\s*SOLUTION\\s*\\(");
-				List<String> endSolutionTokens = Arrays.asList("//\\s*SOLUTION\\s*\\)", "<!--\\s*SOLUTION\\s*\\)");
-				final String origLine = line;
-				if (startSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
-					skippingSolution = true;
-				} else if (endSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
-					skippingSolution = false;
-					continue;
-				} else if (lineContains(line, "//\\s*SOLUTION")) {
-					continue;
-				}
-				if (lineContains(line,"//\\s*INITIAL\\s*\\(")) {
-					line = line.replaceAll("//\\s*INITIAL\\s*\\(", "");
-					uncommentingInitial = true;
-				} else if (lineContains(line, "//\\s*INITIAL\\s*\\)")) {
-					line = line.replaceAll("//\\s*INITIAL\\s*\\)", "").replaceFirst("//", "");
-					uncommentingInitial = false;
-				} else if (lineContains(line, "//\\s*INITIAL")) {
-					line = line.replaceAll("//\\s*INITIAL","").replaceFirst("//", "");
-				}
-				if (uncommentingInitial) {
-					line = line.replaceFirst("//", "");
-				}
-				if (skippingSolution) {
-					continue;
-				}
-				outLines.add(line);
+			List<String> outLines = stripSolutionLines(inLines);
+			
+			if (curatEntityAnnot) {
+				outLines = eliminaAdnotariDinEntitati(sourceFile, outLines);
 			}
 			
 			if (!dryRun) {
@@ -91,13 +68,66 @@ public class Undoner {
 			return false;
 		}
 	}
+
+	private static List<String> eliminaAdnotariDinEntitati(File sourceFile, List<String> outLines) {
+		boolean isAnEntity = sourceFile.getAbsolutePath().contains("entity");
+		if (isAnEntity) {
+			System.out.println("Will remove entity annotations from file: " + sourceFile.getName());
+			return outLines.stream()
+					.map(Undoner::removeAnnotations)
+					.collect(toList());
+		}
+		return outLines;
+	}
+	
+	private static String removeAnnotations(String line) {
+		if (line.contains("@")) {
+			return "";
+		} return line;
+	}
+
+	private static List<String> stripSolutionLines(List<String> inLines) {
+		List<String> outLines = new ArrayList<>();
+		boolean skippingSolution = false;
+		boolean uncommentingInitial = false;
+		for (String line : inLines) {
+			List<String> startSolutionTokens = Arrays.asList("//\\s*SOLUTION\\s*\\(", "<!--\\s*SOLUTION\\s*\\(");
+			List<String> endSolutionTokens = Arrays.asList("//\\s*SOLUTION\\s*\\)", "<!--\\s*SOLUTION\\s*\\)");
+			final String origLine = line;
+			if (startSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
+				skippingSolution = true;
+			} else if (endSolutionTokens.stream().anyMatch(token -> lineContains(origLine, token))) {
+				skippingSolution = false;
+				continue;
+			} else if (lineContains(line, "//\\s*SOLUTION")) {
+				continue;
+			}
+			if (lineContains(line,"//\\s*INITIAL\\s*\\(")) {
+				line = line.replaceAll("//\\s*INITIAL\\s*\\(", "");
+				uncommentingInitial = true;
+			} else if (lineContains(line, "//\\s*INITIAL\\s*\\)")) {
+				line = line.replaceAll("//\\s*INITIAL\\s*\\)", "").replaceFirst("//", "");
+				uncommentingInitial = false;
+			} else if (lineContains(line, "//\\s*INITIAL")) {
+				line = line.replaceAll("//\\s*INITIAL","").replaceFirst("//", "");
+			}
+			if (uncommentingInitial) {
+				line = line.replaceFirst("//", "");
+			}
+			if (skippingSolution) {
+				continue;
+			}
+			outLines.add(line);
+		}
+		return outLines;
+	}
 	
 	public static void main(String[] args) throws IOException {
 		List<String> projects = searchUndoableProjects();
 		
 		
 		JFrame frame = new JFrame();
-		frame.setSize(300, 120);
+		frame.setSize(300, 150);
 		frame.setLayout(new BorderLayout());
 //		
 //		JCheckBox cleanFolder = new JCheckBox("Clean destination folder", isVictorMachine());
@@ -105,8 +135,13 @@ public class Undoner {
 //			cleanFolder.setEnabled(false);
 //		}
 //		frame.add(cleanFolder, BorderLayout.NORTH);
-		final JComboBox<String> projectsCombo = new JComboBox<>(projects.toArray(new String[0]));
-		frame.add(projectsCombo);
+		JPanel panel2 = new JPanel();
+		panel2.setLayout(new BorderLayout());
+		JComboBox<String> projectsCombo = new JComboBox<>(projects.toArray(new String[0]));
+		panel2.add(projectsCombo, BorderLayout.CENTER);
+		final JCheckBox clearEntityAnnotations = new JCheckBox("Clear Entity annotations");
+		panel2.add(clearEntityAnnotations, BorderLayout.SOUTH);
+		frame.add(panel2, BorderLayout.CENTER);
 		JButton button = new JButton("UNDO ("+(isVictorMachine()?"Victor":"Trainee") +")");
 		frame.add(button, BorderLayout.SOUTH);
 		
@@ -125,9 +160,9 @@ public class Undoner {
 						throw new RuntimeException(e);
 					}
 					File rootToUndone = new File("../../training-undone/"+projectsCombo.getSelectedItem());
-					undone = undoFolders(rootToUndone, rootToUndone, false);
+					undone = undoFolders(rootToUndone, rootToUndone, false, clearEntityAnnotations.isSelected());
 				} else {
-					undone = undoFolders(inputSrcFolder, inputSrcFolder, false);
+					undone = undoFolders(inputSrcFolder, inputSrcFolder, false, clearEntityAnnotations.isSelected());
 				}
 				JOptionPane.showMessageDialog(null, undone ? "Undone " : "Nothing to undo (already undone?)");
 			}
@@ -143,7 +178,7 @@ public class Undoner {
 		File rootTraining = new File("..");
 		List<String> projectNames= new ArrayList<>();
 		for (File subFile : rootTraining.listFiles()) {
-			if (subFile.isDirectory() && undoFolders(subFile, subFile, true)) {
+			if (subFile.isDirectory() && undoFolders(subFile, subFile, true, true)) {
 				System.out.println("Found UNDO-able project folder: " + subFile.getAbsolutePath());
 				projectNames.add(subFile.getName());
 			}
@@ -152,7 +187,7 @@ public class Undoner {
 		return projectNames;
 	}
 	
-	public static boolean undoFolders(File baseSourceFolder, File baseDestFolder, boolean dryTest) {
+	public static boolean undoFolders(File baseSourceFolder, File baseDestFolder, boolean dryTest, boolean curatEntityAnnot) {
 		if (!baseSourceFolder.isDirectory()) {
 			throw new IllegalArgumentException("Must be a folder: " + baseSourceFolder);
 		}
@@ -164,7 +199,7 @@ public class Undoner {
 		boolean performedChanges = false;
 		for (File file : (Collection<File>) FileUtils.listFiles(baseSourceFolder, new String[] {"java", "html", "jsp", "php"}, true)) {
 			File destFile = new File(baseDestFolder, file.getAbsolutePath().substring(baseSourceFolder.getAbsolutePath().length()));
-			if (undoFile(file, destFile, dryTest)) {
+			if (undoFile(file, destFile, dryTest, curatEntityAnnot)) {
 				performedChanges = true;
 				if (dryTest) {
 					break;
