@@ -164,7 +164,7 @@ public class Undoner {
 				} else {
 					undone = undoFolders(inputSrcFolder, inputSrcFolder, false, clearEntityAnnotations.isSelected());
 				}
-				JOptionPane.showMessageDialog(null, undone ? "Undone. Good luck!\n\nRemember: To see the solved version, HARD reset your worspace via the script on desktop." : "Nothing to undo (already undone?)");
+				JOptionPane.showMessageDialog(null, undone ? "Undone. Good luck!\n\nRemember: To see the solved version, HARD reset your worspace." : "Nothing to undo (already undone?)");
 			}
 		});
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
