@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -139,6 +140,7 @@ public class Undoner {
 		panel2.setLayout(new BorderLayout());
 		JComboBox<String> projectsCombo = new JComboBox<>(projects.stream().sorted().collect(toList()).toArray(new String[0]));
 		panel2.add(projectsCombo, BorderLayout.CENTER);
+		panel2.add(new JLabel("Revert solution for project:"), BorderLayout.NORTH);
 		final JCheckBox clearEntityAnnotations = new JCheckBox("Clear Entity annotations");
 		panel2.add(clearEntityAnnotations, BorderLayout.SOUTH);
 		frame.add(panel2, BorderLayout.CENTER);
@@ -151,7 +153,7 @@ public class Undoner {
 //				if (cleanFolder.isSelected()) {
 //					cleanDestFolder();
 //				}
-				File inputSrcFolder = new File("../" + projectsCombo.getSelectedItem());// + "/src/main");
+				File inputSrcFolder = new File(getFolderContainingTheProjects(), projectsCombo.getSelectedItem() + "");// + "/src/main");
 				boolean undone;
 				if (isVictorMachine()) {
 					try {
@@ -175,7 +177,7 @@ public class Undoner {
 	}
 
 	private static List<String> searchUndoableProjects() {
-		File rootTraining = new File("..");
+		File rootTraining = getFolderContainingTheProjects();
 		List<String> projectNames= new ArrayList<>();
 		for (File subFile : rootTraining.listFiles()) {
 			if (subFile.isDirectory() && undoFolders(subFile, subFile, true, true)) {
@@ -185,6 +187,11 @@ public class Undoner {
 		}
 		projectNames.remove("undoner");
 		return projectNames;
+	}
+
+	private static File getFolderContainingTheProjects() {
+//		return new File("C:\\workspace");
+		return new File("..");
 	}
 	
 	public static boolean undoFolders(File baseSourceFolder, File baseDestFolder, boolean dryTest, boolean curatEntityAnnot) {
