@@ -17,5 +17,8 @@ public class StudentsGroupDto {
 		code = group.getCode();
 		emails = group.getEmails();
 	}
+	public Long getId() {
+		return id;
+	}
 
 }

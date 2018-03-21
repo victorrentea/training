@@ -32,10 +32,10 @@ import ro.victor.training.jpa2.facade.dto.OrarDto.CellDto;
 import ro.victor.training.jpa2.repo.StudentsYearRepo;
 
 @RestController
-@RequestMapping("/api/orar")
-public class OrarController {
+@RequestMapping("/api/timetable")
+public class TimeTableController {
 
-	private final static Logger log = LoggerFactory.getLogger(OrarController.class);
+	private final static Logger log = LoggerFactory.getLogger(TimeTableController.class);
 	
 	@Autowired
 	private StudentsYearRepo yearRepo;

@@ -1,6 +1,7 @@
 package ro.victor.training.jpa2.facade;
 
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -173,34 +174,14 @@ public class TheFacade {
 		return new TeacherDetailsDto(teacher);
 	}
 
-	public void updateYearWithGroups(long yearId, YearWithGroupsDto yearDto) {
-		// to work, year should cascade to group
-		StudentsYear year = new StudentsYear();
-		year.setCode(yearDto.code);
-		year.setId(yearDto.id);
-		
-		for (StudentsGroupDto groupDto : yearDto.groups) {
-			StudentsGroup group = new StudentsGroup();
-			group.setId(groupDto.id);
-			group.setCode(groupDto.code);
-			group.setEmails(groupDto.emails);
-			group.setYear(year);
-			year.getGroups().add(group);
-		}
-		StudentsYear yearFoundBefore = em.find(StudentsYear.class, yearId);
-		StudentsYear attachedYear = em.merge(year);
-		log.debug("First instance was attached? {}; Or another one was loaded from db, updated and returned? {}"
-				,em.contains(year)
-				,em.contains(attachedYear));
-		log.debug("The entity already attached before merge is == the entity returned by merge? {}", attachedYear == yearFoundBefore );
-	}
-	
-	public void updateYearWithGroups2(long yearId, YearWithGroupsDto dto) {
+	// =============== MERGE start ===============
+
+	public void updateYearWithGroups_manuallyEditingChildren(long yearId, YearWithGroupsDto dto) {
 		StudentsYear year = em.find(StudentsYear.class, yearId);
 		year.setCode(dto.code);
 		
-		// remove 
-		Set<Long> preservedIds = getPreservedIds(dto.groups);
+		// remove children no longer there
+		Set<Long> preservedIds = dto.groups.stream().map(StudentsGroupDto::getId).collect(toSet());
 		Set<StudentsGroup> toRemove = new HashSet<>();
 		for (StudentsGroup oldGroup : year.getGroups()) {
 			if (!preservedIds.contains(oldGroup.getId())) {
@@ -219,32 +200,37 @@ public class TheFacade {
 				year.getGroups().add(newGroup);
 				newGroup.setYear(year);
 			} else {
-				StudentsGroup oldGroup = findById(year.getGroups(), groupDto.id);
+				StudentsGroup oldGroup = year.getGroups().stream().filter(g -> g.getId().equals(groupDto.id)).findFirst().get();
 				oldGroup.setCode(groupDto.code);
 			}
 		}
 	}
-
-	private StudentsGroup findById(List<StudentsGroup> groups, Long id) {
-		for (StudentsGroup group : groups) {
-			if (group.getId().equals(id)){
-				return group;
-			}
+	
+	public void updateYearWithGroups_cascadingMerge(long yearId, YearWithGroupsDto yearDto) {
+		// to work, year should cascade to group
+		StudentsYear year = new StudentsYear();
+		year.setCode(yearDto.code);
+		year.setId(yearDto.id);
+		
+		for (StudentsGroupDto groupDto : yearDto.groups) {
+			StudentsGroup group = new StudentsGroup();
+			group.setId(groupDto.id);
+			group.setCode(groupDto.code);
+			group.setEmails(groupDto.emails);
+			group.setYear(year);
+			year.getGroups().add(group);
 		}
-		throw new RuntimeException();
+		StudentsYear yearFoundBefore = em.find(StudentsYear.class, yearId);
+		yearFoundBefore.setCode("x");
+		StudentsYear returnedByMerge = em.merge(year);
+		
+		log.debug("First instance was attached? {}; Or another one was loaded from db, updated and returned? {}"
+				,em.contains(year)
+				,em.contains(returnedByMerge));
+		log.debug("The entity already attached before merge is == the entity returned by merge? {}", returnedByMerge == yearFoundBefore );
+		log.debug("The newly created entity is == the entity returned by merge? {}", returnedByMerge == year );
 	}
 
-	private Set<Long> getPreservedIds(List<StudentsGroupDto> groups) {
-		Set<Long> set = new HashSet<>();
-		for (StudentsGroupDto groupDto : groups) {
-			if (groupDto.id != null) {
-				set.add(groupDto.id);
-			}
-		}
-		return set;
-	}
-	
-	
 	// =========================== gata merge =======================
 	
 	public List<ContactChannelDto> getTeacherChannels(long teacherId) {

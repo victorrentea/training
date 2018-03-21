@@ -28,6 +28,6 @@ public class YearController {
 	
 	@PutMapping("{yearId}")
 	public void updateYearWithGroups(@PathVariable long yearId, @RequestBody YearWithGroupsDto dto) {
-		facade.updateYearWithGroups(yearId, dto);
+		facade.updateYearWithGroups_cascadingMerge(yearId, dto);
 	}
 }
