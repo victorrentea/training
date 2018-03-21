@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public class StartDatabase {
 	public static void main(String[] args) throws SQLException {
-		System.out.println("Starting DB...");
+		System.out.println("Started DB...");
 		//hsqldb does not support Nested Transactions (REQUIRES_NEW).
 //		org.hsqldb.server.Server.main("--database.0 mem:test --dbname.0 test".split(" "));
 		
