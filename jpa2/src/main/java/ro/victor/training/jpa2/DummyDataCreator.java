@@ -37,7 +37,7 @@ public class DummyDataCreator {
 	@Transactional
 	public void persistDummyData() {
 		if (teacherRepo.findByName("Victor").isPresent()) {
-			log.info("Skipping: Dummy data already in DB.");
+			log.info("Skipping: Dummy data already in DB.YY");
 			return;
 		}
 		Teacher victor = new Teacher("Victor");
