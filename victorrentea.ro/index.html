@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 
 <head>
 
@@ -9,8 +9,12 @@
     <meta name="keywords" content="training,java,spring,enterprise,course,curs,jpa,ejb,bucuresti,clean code,design patterns,object-oriented,UML,arhitectura,architecture">
     <meta name="description" content="Training custom interactiv pentru angajati de Enteprise Java Application Development cu multa parte practica, exercitii si explicatii, sustinut de un Trainer profesionist, Senior Developer, Architect and Technical Team Lead @ IBM, Oracle Certified Java EE Enterprise Architect. Dintre module: Clean Code, Object-Oriented Design Patterns, Enterprise Application Design Patterns, Spring Framework (MVC, DAO, AOP, Batch), Enterprise Java Beans, Java Persistence API, UML, CDI, REST and SOAP web services, Web Application Security, advanced Unit Testing and Test Driven Development, Agile and SCRUM Methodology, Integration Patterns, XSD JAXB. Reduceri substantiale pentru grupuri mari de angajati. Cursurile pot fi sustinute in romana sau engleza, in-class la sediul dumneavoastra si/sau remote prin desktop-sharing plus teleconferinta. Partile teoretice sunt sustinute cu numeroase workshop-uri, brainstormings, concursuri cu premii si exercitii aplicative, care va vor ajuta sa invatati si sa retineti pe termen lung conceptele discutate. Cititi aici pareri ale seniorilor.">
     <meta name="author" content="Victor Rentea">
+	
+	<meta  property="og:image" content="http://victorrentea.ro/poze/Clean%20Lambdas%20workshop%20@%20VoxxedDays%20Bucharest%202017.jpg"/>
 	<meta property="og:title" content="Victor Rentea - Independent Trainer"/>
 	<meta property="og:description" content="Design Patterns, Clean Code, Spring Framework, Hibernate/JPA, Java Performance, Scala, and many more"/>
+  <meta property="og:url" content="http://www.victorrentea.ro" />
+
 
 	<link rel="icon" href="img/academy-cap-icon.png">
 	<link rel="publisher" href="https://plus.google.com/b/104211899563696126838/104211899563696126838/about" />
@@ -539,7 +543,7 @@ ga('send', 'pageview');
 					$('#invalid-password').hide();
 					if ($('#download-vm-link').text() != "") return;
 					setTimeout(function() {
-						if (link.hashCode() == 1289763411) {
+						if (link.hashCode() == -2054970788) {
 							$('#download-vm-link').prop('href',link);
 							$('#download-vm-link').text(link);
 							$('#invalid-password').hide();
@@ -948,7 +952,7 @@ ga('send', 'pageview');
 			<div class="row">
 				<div class="col-sm-12 text-center">
 					<p>Were you in my class? Enjoyed the training?</p>
-					<a href="mailto:victorrentea@gmail.com?subject=Recommendation for website&body=Please tell me: (a) Your Name (b) Title (c) Date you attended (d) Some Nice Words"><button>Add a recommendation</button></a>
+					<a href="mailto:victorrentea@gmail.com?subject=Recommendation for website&body=Please tell me: (a) Your Name (b) Your Job Title (c) Date you attended the training (d) Some Nice Words"><button>Add a recommendation</button></a>
 				</div>
 			</div>
 				
@@ -1102,6 +1106,8 @@ ga('send', 'pageview');
 					
 					
 					<ul>					
+					
+					<li><p><b>JPA Essentials Workshop - A la carte</b> at Voxxed Days Bucharest, 22 march 2018</p></li>
 					
 					<li><p><b>The Art of Clean Code</b> at Devoxx Poland, Krakow, 27 june 2017 (<a href="https://youtu.be/AeWbJ5LIFNg" target="_blank">video</a>)</p>
 					<div class="video-container">
@@ -3345,9 +3351,9 @@ function loopApplyStrings(aStr, keyStr) {
 }
 
 var dropBoxURL = {
-	prefix:"https://www.dropbox.com/sh/",
-	encrypted:"WQyDfTJVxFmQMRwUailfNOjINuHEoThp6fXiShG",
-	suffix:"-a?dl=0"
+	prefix:"https://files.mycloud.com/home.php?brand=webfiles&seuuid=",
+	encrypted:"XVq2fQU1u+c5dXxakVR1axmY6We/beqQ",
+	suffix:"&name=victor-vm"
 };
 
 function normalizePassword(s) {
@@ -3355,8 +3361,11 @@ function normalizePassword(s) {
 }
 
 function makeDropboxUrl(password) {
+	var normalPassword = normalizePassword(password);
+	var decryptedPart = loopApplyStrings(dropBoxURL.encrypted, normalPassword);
+	//console.log("After apply strings: " + decryptedPart + " using password " + normalPassword);
 	return dropBoxURL.prefix + 
-		loopApplyStrings(dropBoxURL.encrypted, normalizePassword(password)) + 
+		decryptedPart + 
 		dropBoxURL.suffix;
 }
 function openDropboxForVM(password) {
