@@ -12,7 +12,7 @@ public class DeathOfTemplateMethod {
 		EmailContext context = new EmailContext(/*smtpConfig,etc*/);
 		int MAX_RETRIES = 3;
 		for (int i = 0; i < MAX_RETRIES; i++ ) {
-			Email email = new Email(); // constructor generates new unique ID
+			Email email = new Email(); // generates new ID
 			email.setSender("noreply@corp.com");
 			email.setReplyTo("/dev/null");
 			email.setTo(emailAddress);
@@ -26,8 +26,7 @@ public class DeathOfTemplateMethod {
 
 class EmailContext {
 	public boolean send(Email email) {
-		System.out.println("Trying to send " + email);
-		return new Random(System.nanoTime()).nextBoolean();
+		return new Random().nextBoolean();
 	}
 }
 
