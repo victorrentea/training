@@ -1,8 +1,5 @@
 package victor.clean.lambdas;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class OptionalVsNPE {
 
 	public static void main(String[] args) {
@@ -13,13 +10,25 @@ public class OptionalVsNPE {
 }
 
 class Customer {
-	@Getter @Setter private Profile profile;
+	private Profile profile;
+
+	public Profile getProfile() {
+		return profile;
+	}
 }
 
 class Profile {
-	@Getter @Setter private GoldCard goldCard;
+	private GoldCard goldCard;
+
+	public GoldCard getGoldCard() {
+		return goldCard;
+	}
+	
 }
 
 class GoldCard {
-	@Getter @Setter private double discount;
+	private double discount;
+	public double getDiscount() {
+		return discount;
+	}
 }
