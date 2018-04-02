@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import victor.clean.lambdas.Movie.Type;
 
-public class TypeSpecificFunctionality {
+public class E__TypeSpecific_Functionality {
 	public static void main(String[] args) {
 		System.out.println(new Movie().setType(Type.NEW_RELEASE).computePrice(4));
 	}

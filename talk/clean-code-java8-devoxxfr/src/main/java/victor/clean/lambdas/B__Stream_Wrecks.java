@@ -3,26 +3,13 @@ package victor.clean.lambdas;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.summingInt;
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.Set;
 
-public class StreamWrecks {
-	
-	public Set<Product> stuff(List<Order> orders) {
-		return orders.stream()
-			.filter(Order::isNotDelivered)
-			.map(Order::getOrderLines)
-			.flatMap(List::stream)
-			.filter(line -> !line.isInStock())
-			.map(OrderLine::getProduct)
-			.filter(Product::isNotHidden)
-			.collect(toSet());
-	}
+public class B__Stream_Wrecks {
 	
 	public List<Product> stuff2(List<Order> orders) {
 		List<Long> excludedProductIds = getExcludedProductIds();
@@ -42,6 +29,7 @@ public class StreamWrecks {
 		return Arrays.asList(1L);
 	}
 }
+
 
 // -- dummy data model --
 class Order {

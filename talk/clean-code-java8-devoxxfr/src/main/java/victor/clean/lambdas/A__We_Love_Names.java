@@ -6,12 +6,11 @@ import java.util.List;
 
 import lombok.Data;
 
-@SuppressWarnings("unused")
-public class NameYourLambdas {
+class UserFacade {
 
 	private UserRepo userRepo;
 	
-	private List<UserDto> getAllUsers() {
+	public List<UserDto> getAllUsers() {
 		List<User> users = userRepo.findAll();
 		List<UserDto> dtos = new ArrayList<>();
 		for (User user : users) {
