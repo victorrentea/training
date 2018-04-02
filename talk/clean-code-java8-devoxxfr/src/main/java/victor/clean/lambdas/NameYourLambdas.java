@@ -16,17 +16,17 @@ public class NameYourLambdas {
 		List<UserDto> dtos = new ArrayList<>();
 		for (User user : users) {
 			UserDto dto = new UserDto();
-			dto.setFullName(user.getFirstName() + " " + user.getLastName().toUpperCase());
 			dto.setUsername(user.getUsername());
+			dto.setFullName(user.getFirstName() + " " + user.getLastName().toUpperCase());
 			dto.setActive(user.getDeactivationDate() != null);
 			dtos.add(dto);
 		}
 		return dtos;
 	}
-	
 }
 
-// -------- fake code ---------
+
+// -------- supporting (dummy) code ---------
 interface UserRepo {
 	List<User> findAll(); 
 }
