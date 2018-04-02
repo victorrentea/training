@@ -8,7 +8,7 @@ import org.jooq.lambda.Unchecked;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 interface OrderRepo extends JpaRepository<Order, Long> { // J'aime Spring Data!
-	Stream<Order> findActiveTrue();
+	Stream<Order> findActiveTrue(); // 1 Mln orders ;)
 }
 
 class OrderExporter {
@@ -21,9 +21,6 @@ class OrderExporter {
 	public void exportToFile(Writer writer) {
 		repo.findActiveTrue()
 			.map(this::toExportString)
-			.forEach(writer::write);
+			.forEach(Unchecked.consumer(writer::write));
 	}
-	
-	
-
 }
