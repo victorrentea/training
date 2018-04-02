@@ -1,27 +1,55 @@
 package victor.clean.lambdas;
 
-import lombok.Getter;
-import lombok.Setter;
 import victor.clean.lambdas.Movie.Type;
 
-public class E__TypeSpecific_Functionality {
-	public static void main(String[] args) {
-		System.out.println(new Movie().setType(Type.NEW_RELEASE).computePrice(4));
-	}
-}
 
 class Movie {
 	enum Type {
-		CHILDREN, REGULAR, NEW_RELEASE
+		REGULAR, NEW_RELEASE, CHILDREN
 	}
-	@Getter @Setter private Type type;
+	private final Type type;
 	
-	public double computePrice(int daysRented) {
+	public Movie(Type type) {
+		this.type = type;
+	}
+
+	public int computePrice(int daysRented) {
 		switch (type) {
+		case REGULAR: return daysRented + 1;
+		case NEW_RELEASE: return daysRented * 2;
 		case CHILDREN: return 5;
-		case REGULAR: return 8 + 0.3 * (daysRented - 8);
-		case NEW_RELEASE: return 10 + 0.5 * daysRented;
 		}
-		return 0; // ?! Panic!
+		return 0; // ?!.. Free!! Deducted from your salary!
 	}
 }
+
+
+
+
+public class E__TypeSpecific_Functionality {
+	public static void main(String[] args) {
+		System.out.println(new Movie(Type.REGULAR).computePrice(2));
+		System.out.println(new Movie(Type.NEW_RELEASE).computePrice(2));
+		System.out.println(new Movie(Type.CHILDREN).computePrice(2));
+	}
+}
+
+
+//abstract class Movie {
+//	abstract public int computePrice(int daysRented);
+//}
+//class RegularMovie extends Movie {
+//	public int computePrice(int daysRented) {
+//		return daysRented + 1;
+//	}
+//}
+//class NewReleaseMovie extends Movie {
+//	public int computePrice(int daysRented) {
+//		return daysRented * 2;
+//	}
+//}
+//class ChildrenMovie extends Movie {
+//	public int computePrice(int daysRented) {
+//		return 5;
+//	}
+//}

@@ -1,0 +1,13 @@
+class DiscountService {
+public String getDiscountLine(Customer customer) {
+return "Discount: " + getApplicableDiscountPercentage(customer.getProfile().getGoldCard());`
+	
+private Integer getApplicableDiscountPercentage(GoldCard card) { 
+if (card.getFidelityPoints() >= 100) {
+return 5;`
+if (card.getFidelityPoints() >= 50) {
+return 3;`
+return null;`
+	
+// try it for 10 points, 60 points, no Profile
+main

@@ -2,9 +2,6 @@ package victor.clean.lambdas;
 
 import lombok.Data;
 
-class DiscountService {
-	
-}
 
 
 
@@ -13,7 +10,11 @@ class DiscountService {
 
 
 
-//-------- supporting (dummy) code ---------
+
+
+
+
+// VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
 class Customer {
 	private Profile profile;
 	public Customer(Profile profile) {

@@ -1,0 +1,16 @@
+class ProductService {
+
+private ProductR$ productRepo;
+
+public List<Product> getFrequentOrderedProducts(List<Order> orders) {
+return orders.stream()
+.filter(o -> o.getCr$.isAfter(LocalDate.now().minusYears(1)))
+.flatMap(o -> o.getO$.stream())
+.collect(groupingBy(OrderL$::getP$, summingInt(OrderLine::getItemCount)))
+.entrySet()
+.stream()
+.filter(e -> e.getValue() >= 10)
+.map(Entry::getKey)
+.filter(p -> !p.isDeleted())
+.filter(p-> productRepo.getExcludedProductIds().contains(p.getId()))
+.collect(toList());
