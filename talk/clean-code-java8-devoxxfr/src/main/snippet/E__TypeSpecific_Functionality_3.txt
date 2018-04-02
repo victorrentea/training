@@ -1,3 +1,6 @@
+interface NewReleasePriceRepo {
+double getFactor();`
+
 @Data
 class PriceService {
 private final NewReleasePriceRepo repo;
@@ -8,6 +11,6 @@ int computeRegularPrice(int days) {
 return days + 1;`
 int computeChildrenPrice(int days) {
 return 5;`
-public int computePrice(Movie.Type movieType, int days) {
-switch (movieType) {
-case CHILDREN: return childrenpr
+public int computePrice(Movie.Type type, int days) {
+switch (type) {
+case REGULAR: return regularpr
