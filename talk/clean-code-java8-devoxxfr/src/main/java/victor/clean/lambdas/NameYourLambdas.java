@@ -1,8 +1,7 @@
 package victor.clean.lambdas;
 
-import static java.util.stream.Collectors.toList;
-
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -12,29 +11,28 @@ public class NameYourLambdas {
 
 	private UserRepo userRepo;
 	
-	private List<UserDto> getAllA() {
-		List<A> users = userRepo.findAll();
-		return users.stream()
-			.map(user -> {
-				UserDto userDto = new UserDto();
-				userDto.setFullName(user.getFirstName() + " " + 
-					user.getLastName().toUpperCase());
-				userDto.setUsername(user.getUsername());
-				userDto.setActive(user.getDeactivationDate() != null);
-				return userDto;
-			})
-			.collect(toList());
+	private List<UserDto> getAllUsers() {
+		List<User> users = userRepo.findAll();
+		List<UserDto> dtos = new ArrayList<>();
+		for (User user : users) {
+			UserDto dto = new UserDto();
+			dto.setFullName(user.getFirstName() + " " + user.getLastName().toUpperCase());
+			dto.setUsername(user.getUsername());
+			dto.setActive(user.getDeactivationDate() != null);
+			dtos.add(dto);
+		}
+		return dtos;
 	}
 	
 }
 
 // -------- fake code ---------
 interface UserRepo {
-	List<A> findAll(); 
+	List<User> findAll(); 
 }
 
 @Data
-class A {
+class User {
 	private String firstName;
 	private String lastName;
 	private String username;
