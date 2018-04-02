@@ -2,25 +2,26 @@ package victor.clean.lambdas;
 
 import static java.util.stream.Collectors.toList;
 
+import java.time.LocalDate;
 import java.util.List;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @SuppressWarnings("unused")
 public class NameYourLambdas {
 
-	//@Autowired
-	private ARepo aRepo;
+	private UserRepo userRepo;
 	
-	private List<B> getAllA() {
-		List<A> allA = aRepo.findAll();
-		return allA.stream()
-			.map(a -> {
-				B b = new B();
-				b.setFirstNameB(a.getFirstNameA());
-				b.setLastNameB(a.getLastNameA());
-				return b;
+	private List<UserDto> getAllA() {
+		List<A> users = userRepo.findAll();
+		return users.stream()
+			.map(user -> {
+				UserDto userDto = new UserDto();
+				userDto.setFullName(user.getFirstName() + " " + 
+					user.getLastName().toUpperCase());
+				userDto.setUsername(user.getUsername());
+				userDto.setActive(user.getDeactivationDate() != null);
+				return userDto;
 			})
 			.collect(toList());
 	}
@@ -28,15 +29,21 @@ public class NameYourLambdas {
 }
 
 // -------- fake code ---------
-interface ARepo {
+interface UserRepo {
 	List<A> findAll(); 
 }
 
+@Data
 class A {
-	@Getter @Setter private String firstNameA;
-	@Getter @Setter private String lastNameA;
+	private String firstName;
+	private String lastName;
+	private String username;
+	private LocalDate deactivationDate;
 }
-class B {
-	@Getter @Setter private String firstNameB;
-	@Getter @Setter private String lastNameB;
+
+@Data
+class UserDto {
+	private String fullName;
+	private String username;
+	private boolean active;
 }
