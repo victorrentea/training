@@ -1,5 +1,5 @@
 abstract class Movie {
-public abstract int computePrice(int daysRented);`
+public abstract int computePrice(int days);`
 class RegularMovie extends Movie {
 `
 class NewReleaseMovie extends Movie {
