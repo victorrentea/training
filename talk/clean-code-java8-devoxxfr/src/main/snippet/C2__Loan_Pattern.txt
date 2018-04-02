@@ -10,4 +10,4 @@ return "something\n";`
 public void exportToFile(Writer writer) {
 repo.findActiveTrue()
 	.map(this::toExportString)
-.forEach(writer::write);`
+.forEach(writer::write);

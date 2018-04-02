@@ -1,4 +1,2 @@
 package victor.clean.lambdas;
 
-
-
