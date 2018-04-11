@@ -12,5 +12,5 @@ return orders.stream()
 .filter(e -> e.getValue() >= 10)
 .map(Entry::getKey)
 .filter(p -> !p.isDeleted())
-.filter(p-> productRepo.getExcludedProductIds().contains(p.getId()))
+.filter(p-> !productRepo.getExcludedProductIds().contains(p.getId()))
 .collect(toList());

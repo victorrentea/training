@@ -1,14 +1,12 @@
 package victor.clean.lambdas;
 
+import static java.util.stream.Collectors.toList;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
-
-
-
-
 
 
 

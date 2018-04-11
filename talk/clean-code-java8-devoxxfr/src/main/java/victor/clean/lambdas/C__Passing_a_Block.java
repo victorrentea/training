@@ -1,24 +1,20 @@
 package victor.clean.lambdas;
 
 import java.util.Random;
+import java.util.function.Consumer;
 
 import lombok.Data;
 
 
-
-
-
-
-
-
-
-
-
-
-//VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
-class EmailContext {
+// VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
+class EmailContext implements AutoCloseable {
 	public boolean send(Email email) {
-		return new Random().nextBoolean();
+		boolean r = new Random().nextBoolean();
+		System.out.println("Sending "+(r?"OK":"KO")+" email " + email.getSubject());
+		return r;
+	}
+
+	public void close() {
 	}
 }
 

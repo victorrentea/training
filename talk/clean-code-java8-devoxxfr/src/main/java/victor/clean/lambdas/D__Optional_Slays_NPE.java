@@ -5,32 +5,18 @@ import lombok.Data;
 
 
 
-
-
-
-
-
-
-
-
-
 // VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
 class Customer {
-	private Profile profile;
-	public Customer(Profile profile) {
-		this.profile = profile;
+	private MemberCard memberCard;
+	public Customer(MemberCard profile) {
+		this.memberCard = profile;
 	}
-	public Profile getProfile() {
-		return profile;
+	public MemberCard getMemberCard() {
+		return memberCard;
 	}
 }
 
 @Data
-class Profile {
-	private final GoldCard goldCard;
-}
-
-@Data
-class GoldCard {
+class MemberCard {
 	private final int fidelityPoints;
 }

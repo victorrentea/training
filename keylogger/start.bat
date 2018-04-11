@@ -1,0 +1,1 @@
+mvn exec:java -D"exec.mainClass"="victor.shortcut.keylogger.AhkFastTyper"

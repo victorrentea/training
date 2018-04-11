@@ -17,7 +17,7 @@ public class SnippetTokenizer {
 	public static List<String> tokenize(File snippetFile) throws IOException {
 		String snippetText = FileUtils.readFileToString(snippetFile, "UTF-8");
 		snippetText = snippetText.replace("\r", "");
-		List<String> chunks = splitInChunks(snippetText, 3);
+		List<String> chunks = splitInChunks(snippetText, 4);
 		return chunks.stream().map(SnippetTokenizer::toAhkKeys).collect(toList());
 	}
 	
@@ -29,13 +29,13 @@ public class SnippetTokenizer {
 		int lastIndex = 0;
 		while (matcher.find()) {
 			String alphaNum = text.substring(lastIndex, matcher.end());
-			int wordSplitSize = (int) Math.round(2 + 4d * lastIndex/text.length());
+			int wordSplitSize = (int) Math.round(3 + 4d * lastIndex/text.length());
 			list.addAll(splitMaxChars(alphaNum, wordSplitSize));
 			lastIndex = matcher.end();
 		}
 		list.add(text.substring(lastIndex));
 		
-		mergeTooSmallChunks(list, 3);
+		mergeTooSmallChunks(list, 4);
 //		addMistakes(list);
 		interweaveNOOPs(list);
 

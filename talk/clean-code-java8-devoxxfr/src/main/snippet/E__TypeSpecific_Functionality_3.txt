@@ -1,3 +1,4 @@
+// that silly "2" should be updatable in DB -> algo now depends on DB.
 interface NewReleasePriceRepo {
 double getFactor();`
 
@@ -13,4 +14,6 @@ int computeChildrenPrice(int days) {
 return 5;`
 public int computePrice(Movie.Type type, int days) {
 switch (type) {
-case REGULAR: return regularpr
+case REGULAR: 
+case NEW_RELEASE:
+case CHILDREN: return computech$
