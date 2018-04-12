@@ -38,7 +38,6 @@ public class SnippetTokenizer {
 		mergeTooSmallChunks(list, 4);
 //		addMistakes(list);
 		interweaveNOOPs(list);
-
 		return list;
 	}
 	
@@ -91,7 +90,7 @@ public class SnippetTokenizer {
 
 	
 	private static void interweaveNOOPs(List<String> list) {
-		 for (int i = list.size()-1; i >= 0; i -= 2) {
+		 for (int i = list.size()-1; i > 0; i -= 2) {
 			 list.add(i, "NOOP");
 		 }
 	}

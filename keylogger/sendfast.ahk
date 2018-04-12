@@ -3,6 +3,7 @@ DetectHiddenWindows, On
 SetKeyDelay, 25, 25
 AutoTrim, Off
 
+ControlSend,,%2%, ahk_id %1%
 n := 3
 
 :*:q::

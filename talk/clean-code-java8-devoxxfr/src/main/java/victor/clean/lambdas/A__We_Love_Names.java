@@ -9,34 +9,6 @@ import java.util.List;
 import lombok.Data;
 
 
-class UserFacade {
-	
-	private UserRepo userRepo;
-	private UserMapper mapper;
-	
-	public List<UserDto> getAllUsers() {
-		List<User> users = userRepo.findAll();
-		return users.stream()
-				.map(mapper::toDto)
-				.collect(toList());
-	}
-
-}
-
-class UserMapper {
-	//Autowired
-//	private altceva?
-	
-	public UserDto toDto(User user) {
-		UserDto dto = new UserDto();
-		dto.setUsername(user.getUsername());
-		dto.setFullName(user.getFirstName() + " " + user.getLastName().toUpperCase());
-		dto.setActive(user.getDeactivationDate() != null);
-		return dto;
-	}
-}
-
-
 
 //VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
 interface UserRepo {
@@ -53,11 +25,6 @@ class User {
 
 @Data
 class UserDto {
-//	public UserDto(User user) {
-//		this.setUsername(user.getUsername());
-//		this.setFullName(user.getFirstName() + " " + user.getLastName().toUpperCase());
-//		this.setActive(user.getDeactivationDate() != null);
-//	}
 	private String fullName;
 	private String username;
 	private boolean active;

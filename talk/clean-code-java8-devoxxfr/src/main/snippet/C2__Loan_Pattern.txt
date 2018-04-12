@@ -6,8 +6,7 @@ class FileExporter {
 private OrderRepo repo;
 		
 private String toExportLine(Order order) {
-return "Order " + order.getId() + "\n";
-}
+return "Order " + order.getId() + "\n";`
 	
 public File exportFile(String fileName) {
 File file = new File("export/" + fileName);
@@ -16,7 +15,7 @@ writer.write("Header\n");
 repo.findByA$
 	.map(this::toE$)
 .forEach(writer::write);
-log.debug("Generation done");
+log.debug("Done");
 return file;
 } catch (Exception e) {
 log.debug("Coucou!", e); // TERREUR !

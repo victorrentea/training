@@ -83,9 +83,6 @@ public class AhkFastTyper {
 								
 						Process process = Runtime.getRuntime().exec(new String[]{"autohotkey.exe", getControlIdScriptPath});
 						String controlDetails = IOUtils.toString(process.getInputStream(), "UTF-8");
-						String controlId = controlDetails.split("\\s")[0];
-						String controlX = controlDetails.split("\\s")[1];
-						String controlY = controlDetails.split("\\s")[2];
 						String controlHWND = controlDetails.split("\\s")[3];
 						String windowTitle = controlDetails.substring(controlDetails.indexOf(" || "));
 						System.out.println("Control Details: " + controlDetails);
@@ -105,7 +102,6 @@ public class AhkFastTyper {
 						params.add("/r");
 						params.add(sendAhkScriptPath);
 						params.add(controlHWND);
-						params.add(controlY);
 						List<String> chunks = SnippetTokenizer.tokenize(snippetFile);
 						params.addAll(chunks);
 	//						System.out.println(params);
