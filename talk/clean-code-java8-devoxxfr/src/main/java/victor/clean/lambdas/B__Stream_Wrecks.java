@@ -14,7 +14,33 @@ import lombok.Data;
 
 
 
+class ProductService {
+	
+	private ProductRepo productRepo;
+	
+	public List<Product> getFrequentOrderedProducts(List<Order> orders) {
+		List<Long> excludedIds = productRepo.getExcludedProductIds();
+		Map<Product, Integer> productCount = getProductCount(orders);
+		Predicate<Product> productIsNotExcluded = p-> !excludedIds.contains(p.getId());
+		return productCount.entrySet().stream()
+				.filter(e -> e.getValue() >= 10)
+				.map(Entry::getKey)
+				.filter(Product::isNotDeleted)
+				.filter(productIsNotExcluded)
+				.collect(toList());
+	}
 
+	private Map<Product, Integer> getProductCount(List<Order> orders) {
+		return orders.stream()
+				.filter(this::orderWasPlacedInTheLastYear)
+				.flatMap(o -> o.getOrderLines().stream())
+				.collect(groupingBy(OrderLine::getProduct, summingInt(OrderLine::getItemCount)));
+	}
+
+	private boolean orderWasPlacedInTheLastYear(Order o) {
+		return o.getCreationDate().isAfter(LocalDate.now().minusYears(1));
+	}
+}
 
 
 
@@ -35,6 +61,9 @@ class OrderLine {
 
 @Data
 class Product {
+	public boolean isNotDeleted() {
+		return !deleted; 
+	}
 	private Long id;
 	private boolean deleted;
 }
