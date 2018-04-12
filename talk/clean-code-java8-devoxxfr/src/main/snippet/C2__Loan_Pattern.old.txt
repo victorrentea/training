@@ -1,0 +1,13 @@
+interface OrderRepo extends JpaRepository<Order, Long> { // J'aime Spring Data!
+Stream<Order> findActiveTrue(); // 1 Mln orders ;)`
+
+class OrderExporter {
+private OrderRepo repo;
+	
+private String toExportString(Order order) {
+return "something\n";`
+
+public void exportToFile(Writer writer) {
+repo.findActiveTrue()
+	.map(this::toExportString)
+.forEach(writer::write);

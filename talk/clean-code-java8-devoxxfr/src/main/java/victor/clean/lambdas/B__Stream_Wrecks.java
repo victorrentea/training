@@ -22,6 +22,7 @@ import lombok.Data;
 //VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
 @Data
 class Order {
+	private Long id;
 	private List<OrderLine> orderLines;
 	private LocalDate creationDate;
 }
