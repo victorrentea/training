@@ -1,5 +1,5 @@
 interface OrderRepo extends JpaRepository<Order, Long> { // J'aime Spring Data!
-Stream<Order> findActiveTrue(); // 1 Mln orders ;)`
+Stream<Order> findByActiveTrue(); // 1 Mln orders ;)`
 
 
 class FileExporter {
@@ -14,7 +14,7 @@ File file = new File("export/" + fileName);
 try (Writer writer = new FileWriter(file)) {
 writer.write("Header\n");
 repo.findByA$
-.map(this::toE$)
+	.map(this::toE$)
 .forEach(writer::write);
 log.debug("Generation done");
 return file;
