@@ -9,5 +9,5 @@ if (card.getF$ >= 50) {
 return 3;`
 return null;`
 	
-// let's try: 60, 10, no MemberCard
+// test: 60, 10, no MemberCard
 main
