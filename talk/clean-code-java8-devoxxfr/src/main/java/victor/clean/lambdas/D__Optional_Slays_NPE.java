@@ -8,6 +8,8 @@ import lombok.Data;
 // VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
 class Customer {
 	private MemberCard memberCard;
+	public Customer() {
+	}
 	public Customer(MemberCard profile) {
 		this.memberCard = profile;
 	}
