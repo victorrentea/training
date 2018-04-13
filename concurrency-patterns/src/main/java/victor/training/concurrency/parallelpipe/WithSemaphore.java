@@ -9,6 +9,13 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
+/*
+ * The goal is to run step1 'ahead' of step2. To have step1 process one chunk of data ahead of step2. 
+ * Both Steps are IO-bound BUT they CAN use distinct DB transactions.
+ * If they needed the same DB Tx, they MUST be in the same Thread!! because JDBC Connection is 'thread-confined'. 
+ * You cannot share a DB Tx/Connection among multiple threads.
+ */
+
 class Stuff {
 
 	
