@@ -28,7 +28,7 @@ public class Step2Worker implements Runnable {
 	}
 }
 
-class Stuff {
+class Stuff2 {
 	public static void main(String[] args) throws InterruptedException {
 		ArrayBlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(1);
 		ThreadPoolExecutor executor;
