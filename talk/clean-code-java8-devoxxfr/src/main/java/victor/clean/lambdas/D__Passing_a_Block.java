@@ -6,10 +6,6 @@ import java.util.function.Consumer;
 import lombok.Data;
 
 
-
-
-
-
 // VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
 class EmailContext implements AutoCloseable {
 	public boolean send(Email email) {

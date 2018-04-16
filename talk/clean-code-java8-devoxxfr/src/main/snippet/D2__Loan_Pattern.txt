@@ -1,23 +1,19 @@
 interface OrderRepo extends JpaRepository<Order, Long> { // J'aime Spring Data!
 Stream<Order> findByActiveTrue(); // 1 Mln orders ;)`
-
-
-class FileExporter {
+class OrderExporter {
 private OrderRepo repo;
 		
-private String toExportLine(Order order) {
-return "Order " + order.getId() + "\n";`
-	
 public File exportFile(String fileName) {
+log.debug("Start");
 File file = new File("export/" + fileName);
 try (Writer writer = new FileWriter(file)) {
-writer.write("Header\n");
+writer.write("OrderID,Date\n");
 repo.findByA$
-	.map(this::toE$)
+	.map(o -> o.getId() + ";" + o.getCr$)
 .forEach(writer::write);
 log.debug("Done");
 return file;
 } catch (Exception e) {
-log.debug("Coucou!", e); // TERREUR !
 // TODO send email notification
+log.debug("Coucou!", e); // TERREUR !
 throw e;`

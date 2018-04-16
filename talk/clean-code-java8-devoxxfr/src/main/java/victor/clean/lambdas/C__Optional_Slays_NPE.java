@@ -9,9 +9,6 @@ import java.util.Optional;
 import lombok.Data;
 
 
-
-
-
 // VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
 class Customer {
 	private MemberCard memberCard;
@@ -20,8 +17,8 @@ class Customer {
 	public Customer(MemberCard profile) {
 		this.memberCard = profile;
 	}
-	public Optional<MemberCard> getMemberCardOpt() {
-		return ofNullable(memberCard);
+	public MemberCard getMemberCard() {
+		return memberCard;
 	}
 }
 
