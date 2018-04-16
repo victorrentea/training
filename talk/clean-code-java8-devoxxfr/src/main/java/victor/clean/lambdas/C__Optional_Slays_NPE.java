@@ -8,6 +8,15 @@ import java.util.Optional;
 
 import lombok.Data;
 
+// Sir Charles Antony Richard: "I call it my billion-dollar mistake. 
+// It was the invention of the null reference in 1965..." 
+
+
+
+
+
+
+
 
 // VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
 class Customer {
