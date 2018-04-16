@@ -3,9 +3,11 @@ package victor.training.concurrency.parallelpipe;
 import static victor.training.concurrency.ConcurrencyUtil.log;
 import static victor.training.concurrency.ConcurrencyUtil.sleepSomeTime;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
@@ -30,32 +32,37 @@ class Stuff {
 
 		public void run() {
 			try {
+				sleepSomeTime(1000, 1001);
+				sem.release();
 				whatToDo.run();
 			} finally {
-				sem.release();
 			}
 		}
 		
 	}
 	
 	private static void step2(String chunk) {
+		
 		log("Start Processing " + chunk);
 		sleepSomeTime(100, 1000);
 		log("Done");
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		ExecutorService executor = Executors.newSingleThreadExecutor();
+//		ExecutorService executor = Executors.newSingleThreadExecutor();
+		ExecutorService executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, 
+				new ArrayBlockingQueue<>(2));
 
-		Semaphore sem = new Semaphore(1);
+		Semaphore sem = new Semaphore(2);
 
 		for (int i = 0; i < 50; i++) {
-			log("Start Parsing");
-			sleepSomeTime(10, 100);
 			String chunk = "chunk " + i;
-			log("Gathered 500:" + chunk);
+			log("Start Parsing: " + chunk);
+			sleepSomeTime(10, 11);
+			log("Finished Parsing:" + chunk);
 			////
 			sem.acquire(1);
+			log("Allowed to push");
 			executor.execute(new RunnableReleasingSemaphore(sem, () -> step2(chunk)));
 			
 			////
