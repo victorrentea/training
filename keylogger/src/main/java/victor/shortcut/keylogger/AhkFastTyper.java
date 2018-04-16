@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -103,6 +104,7 @@ public class AhkFastTyper {
 						params.add(sendAhkScriptPath);
 						params.add(controlHWND);
 						List<String> chunks = SnippetTokenizer.tokenize(snippetFile);
+//						System.out.println("Tokens: " + chunks);
 						params.addAll(chunks);
 	//						System.out.println(params);
 						
@@ -161,6 +163,13 @@ public class AhkFastTyper {
 
 	private static void killAhk() {
 		if (ahkProcess != null) {
+			
+//			try (InputStream is = ahkProcess.getInputStream()) {
+//				String s = IOUtils.toString(is);
+//				System.out.println("Caught indexes: "  + s);
+//			} catch (IOException e) {
+//				throw new RuntimeException(e);
+//			}
 			ahkProcess.destroyForcibly();
 			ahkProcess = null;
 			System.out.println("Killed AHK");

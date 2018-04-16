@@ -25,6 +25,7 @@ public class SnippetTokenizer {
 	private static List<String> splitInChunks(String text, int chunkSize) {
 		List<String> list = new ArrayList<>();
 		Pattern pattern = Pattern.compile("\\W");
+//		Pattern pattern = Pattern.compile("[^a-z \n`]");
 		Matcher matcher = pattern.matcher(text);
 		int lastIndex = 0;
 		while (matcher.find()) {
@@ -84,16 +85,43 @@ public class SnippetTokenizer {
 				.replace("!", "{!}")
 				.replace("`", "{Down}")
 				.replace("$", "^{Space}")
-				.replace("Â£", "{Backspace}")
+				.replace("¥", "{Backspace}")
+				.replace("#", "{Escape}")
+				.replace("~", "{End}")
 				;
 	}
 
 	
 	private static void interweaveNOOPs(List<String> list) {
-		 for (int i = list.size()-1; i > 0; i -= 2) {
-			 list.add(i, "NOOP");
-		 }
+		for (int i = list.size()-1; i > 0; i -= 2) {
+			list.add(i, "NOOP");
+		}
+		for (int i = list.size()-1; i > 0; i --) {
+			if (list.get(i).contains("$")) {
+				list.add(i+1, "NOOP");
+			}
+		}
+		for (int i = list.size()-1; i > 0; i --) {
+			if (list.get(i - 1).equals("NOOP") &&
+				list.get(i).equals("NOOP")) {
+				list.remove(i);
+			}
+		}
+//		 for (int i = list.size()-1; i > 0; i --) {
+//			 String label = "SHIFT_";
+//			 label += needsShift(list.get(i)) ? "ON" : "OFF";
+//			 list.add(i, label);
+//		 }
 	}
+
+	private static boolean needsShift(String string) {
+		boolean r = !Pattern.matches("[a-z\\s\\,;\\-=\\.\\[\\]]+", string);
+		System.out.println(string + " needs shift: " + r);
+		return r; // 
+	}
+	
+
+
 
 	private static void mergeTooSmallChunks(List<String> list, int size) {
 		 for (int i = 0; i < list.size() - 1; i++) {
@@ -119,10 +147,12 @@ public class SnippetTokenizer {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		List<String> tokens = tokenize(new File("C:/workspace/training/talk/clean-code-java8-devoxxfr/src/main/snippet/E__TypeSpecific_Functionality.txt"));
+		List<String> tokens = tokenize(new File("C:/workspace/training/talk/clean-code-java8-devoxxfr/src/main/snippet/E__TypeSpecific_Functionality_3.txt"));
 		for (String token: tokens) {
 			System.out.println("Token: " + token);
 		}
 		System.out.println(tokens.size() + " tokens");
+		
+		System.out.println(">"  + needsShift("a "));
 	}
 }

@@ -35,9 +35,17 @@ n := 3
 :*:x::
 :*:z::
 v := A_Args[n]
-if (v != "NOOP")
+if (v == "NOOP") {
+	Sleep, 3
+} else if (v == "SHIFT_OFF") {
+	;SetKeyDelay, 5, 5
+} else if (v == "SHIFT_ON") {
+	;SetKeyDelay, 25, 25
+} else {
 	ControlSend,,%v%, ahk_id %1%
+}
 n := n + 1
+
 if (n >A_Args.length())
 	ExitApp
 return
