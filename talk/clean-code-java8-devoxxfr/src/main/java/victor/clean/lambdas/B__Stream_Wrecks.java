@@ -13,10 +13,6 @@ import java.util.function.Predicate;
 import lombok.Data;
 
 
-
-
-
-
 //VVVVVVVVV ==== supporting (dummy) code ==== VVVVVVVVV
 @Data
 class Order {
@@ -38,5 +34,5 @@ class Product {
 }
 
 interface ProductRepo {
-	List<Long> getExcludedProductIds();
+	List<Long> getHiddenProductIds();
 }
