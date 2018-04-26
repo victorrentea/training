@@ -12,13 +12,18 @@ public class TicTacToe {
 		}
 	}
 	public String getBoard() {
-		String board = "  123\nA|" + String.valueOf(b[0])
-		+ "\nB|"+String.valueOf(b[1])+"\nC|" + String.valueOf(b[2]);
-		return board;
+		return "  123"
+				+ "\nA|" + String.valueOf(b[0])
+				+ "\nB|" + String.valueOf(b[1])
+				+ "\nC|" + String.valueOf(b[2]);
 	}
 
 	public void move(String place) {
-		 b[0][0]='X';
+		if (place.equals("A1")) {
+			b[0][0]='X';
+		} else {
+			b[0][1] = 'X';
+		}
 	}
 	
 
