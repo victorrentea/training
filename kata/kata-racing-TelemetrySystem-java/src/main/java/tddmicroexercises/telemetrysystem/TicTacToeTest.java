@@ -28,5 +28,17 @@ public class TicTacToeTest {
 		tic.move("A3");
 		assertEquals("  123\nA|__X\nB|___\nC|___", tic.getBoard());
 	}
+	@Test
+	public void boardAfterB2() {
+		tic.move("B2");
+		assertEquals("  123\nA|___\nB|_X_\nC|___", tic.getBoard());
+	}
+	
+	@Test
+	public void boardAfterA1A2() {
+		tic.move("A1");
+		tic.move("A2");
+		assertEquals("  123\nA|X0_\nB|___\nC|___", tic.getBoard());
+	}
 	
 }

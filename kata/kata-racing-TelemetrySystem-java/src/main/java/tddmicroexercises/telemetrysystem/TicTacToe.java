@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class TicTacToe {
 //	private String board = ;
 	char [][] b = new char [3][3];
+	int player = 0;
 
 	public TicTacToe() {
 		for (char[] row : b) {
@@ -19,8 +20,10 @@ public class TicTacToe {
 	}
 
 	public void move(String place) {
+		int row = place.charAt(0) - 'A';
 		int col = place.charAt(1) - '1';
-		b[0][col]='X';
+		b[row][col]=player ==0?'X':'0';
+		player = 1-player;
 	}
 	
 
