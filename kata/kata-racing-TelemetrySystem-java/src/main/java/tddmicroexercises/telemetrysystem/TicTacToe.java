@@ -1,10 +1,9 @@
 package tddmicroexercises.telemetrysystem;
 
-import static java.util.Collections.singleton;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Function;
 
 public class TicTacToe {
 //	private String board = ;
@@ -33,14 +32,25 @@ public class TicTacToe {
 		player = 1-player;
 	}
 	public Integer getWinner() {
-		Set<Character> s = new HashSet<>();
-		s.add(b[0][0]);
-		s.add(b[1][1]);
-		s.add(b[2][2]);
+		Set<Character> s = signs(i->i, i->i);
+		if (s.size() == 1 && s.iterator().next()!='_') {
+			return s.iterator().next()== 'X'?0:1;
+		}
+		s = signs(i->0, i->i);
 		if (s.size() == 1 && s.iterator().next()!='_') {
 			return s.iterator().next()== 'X'?0:1;
 		}
 		return null;
+	}
+	private Set<Character> signs(
+			Function<Integer, Integer> row,
+			Function<Integer, Integer> col
+			) {
+		Set<Character> s = new HashSet<>();
+		for (int i=0;i<3;i++) {
+			s.add(b[row.apply(i)][col.apply(i)]);
+		}
+		return s;
 	}
 	
 
