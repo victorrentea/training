@@ -32,25 +32,43 @@ public class TicTacToe {
 		player = 1-player;
 	}
 	public Integer getWinner() {
-		Set<Character> s = signs(i->i, i->i);
+		Set<Character> s = signs(i->new Point(i,i));
 		if (s.size() == 1 && s.iterator().next()!='_') {
 			return s.iterator().next()== 'X'?0:1;
 		}
-		s = signs(i->0, i->i);
+		s = signs(i->new Point(0, i));
 		if (s.size() == 1 && s.iterator().next()!='_') {
 			return s.iterator().next()== 'X'?0:1;
 		}
 		return null;
 	}
 	private Set<Character> signs(
-			Function<Integer, Integer> row,
-			Function<Integer, Integer> col
+			Function<Integer, Point> coord
 			) {
 		Set<Character> s = new HashSet<>();
 		for (int i=0;i<3;i++) {
-			s.add(b[row.apply(i)][col.apply(i)]);
+			s.add(b[coord.apply(i).getRow()][coord.apply(i).getCol()]);
 		}
 		return s;
+	}
+	
+	private static class Point {
+		private final int row,col;
+
+		public Point(int row, int col) {
+			this.row = row;
+			this.col = col;
+		}
+
+		public int getRow() {
+			return row;
+		}
+
+		public int getCol() {
+			return col;
+		}
+		
+		
 	}
 	
 
