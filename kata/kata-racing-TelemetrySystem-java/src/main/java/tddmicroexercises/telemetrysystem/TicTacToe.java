@@ -34,15 +34,12 @@ public class TicTacToe {
 		player = 1-player;
 	}
 	
+	private final static List<Function<Integer, Point>> FORMULAS = makeFormulas();
 	
 	
 	public Integer getWinner() {
-		List<Function<Integer, Point>> formulas = new ArrayList<>();
-		formulas.add(i->new Point(i,i));
-		formulas.add(i->new Point(i,2-i));
-		formulas.add(i->new Point(0,i));
 		
-		for (Function<Integer, Point> formula : formulas) {
+		for (Function<Integer, Point> formula : FORMULAS) {
 			Set<Character> s = signs(formula);
 			if (s.size() == 1 && s.iterator().next()!='_') {
 				return s.iterator().next()== 'X'?0:1;
@@ -50,9 +47,18 @@ public class TicTacToe {
 		}
 		return null;
 	}
-	private Set<Character> signs(
-			Function<Integer, Point> coord
-			) {
+	private static List<Function<Integer, Point>> makeFormulas() {
+		List<Function<Integer, Point>> formulas = new ArrayList<>();
+		formulas.add(i->new Point(i,i));
+		formulas.add(i->new Point(i,2-i));
+		for (int j = 0; j < 3; j++) {
+			final int jj = j;
+			formulas.add(i->new Point(jj,i));
+			formulas.add(i->new Point(i,jj));
+		}
+		return formulas;
+	}
+	private Set<Character> signs(Function<Integer, Point> coord) {
 		Set<Character> s = new HashSet<>();
 		for (int i=0;i<3;i++) {
 			s.add(b[coord.apply(i).getRow()][coord.apply(i).getCol()]);
