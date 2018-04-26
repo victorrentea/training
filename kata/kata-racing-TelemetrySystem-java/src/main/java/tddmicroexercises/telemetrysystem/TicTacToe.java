@@ -19,11 +19,8 @@ public class TicTacToe {
 	}
 
 	public void move(String place) {
-		if (place.equals("A1")) {
-			b[0][0]='X';
-		} else {
-			b[0][1] = 'X';
-		}
+		int col = place.charAt(1) - '1';
+		b[0][col]='X';
 	}
 	
 

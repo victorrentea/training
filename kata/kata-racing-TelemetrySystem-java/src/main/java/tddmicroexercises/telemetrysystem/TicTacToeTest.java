@@ -23,5 +23,10 @@ public class TicTacToeTest {
 		tic.move("A2");
 		assertEquals("  123\nA|_X_\nB|___\nC|___", tic.getBoard());
 	}
+	@Test
+	public void boardAfterA3() {
+		tic.move("A3");
+		assertEquals("  123\nA|__X\nB|___\nC|___", tic.getBoard());
+	}
 	
 }
