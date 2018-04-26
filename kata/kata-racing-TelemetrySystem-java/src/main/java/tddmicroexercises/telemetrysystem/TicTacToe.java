@@ -28,6 +28,9 @@ public class TicTacToe {
 		b[row][col]=player ==0?'X':'0';
 		player = 1-player;
 	}
+	public Integer getWinner() {
+		return 0;
+	}
 	
 
 

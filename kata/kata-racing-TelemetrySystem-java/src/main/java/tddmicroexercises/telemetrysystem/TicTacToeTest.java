@@ -47,4 +47,15 @@ public class TicTacToeTest {
 		tic.move("A1");
 	}
 	
+	@Test
+	public void player1wins() {
+		tic.move("A1");
+		tic.move("A2");
+		tic.move("B2");
+		tic.move("B3");
+		tic.move("C3");
+		assertEquals((Integer)0, tic.getWinner());
+	}
+	
+	
 }
