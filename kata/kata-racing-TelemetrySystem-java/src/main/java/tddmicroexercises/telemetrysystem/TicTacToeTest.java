@@ -41,4 +41,10 @@ public class TicTacToeTest {
 		assertEquals("  123\nA|X0_\nB|___\nC|___", tic.getBoard());
 	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void A1A1throws() {
+		tic.move("A1");
+		tic.move("A1");
+	}
+	
 }

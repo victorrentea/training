@@ -22,6 +22,9 @@ public class TicTacToe {
 	public void move(String place) {
 		int row = place.charAt(0) - 'A';
 		int col = place.charAt(1) - '1';
+		if (b[row][col] != '_') {
+			throw new IllegalArgumentException("Taken");
+		}
 		b[row][col]=player ==0?'X':'0';
 		player = 1-player;
 	}
