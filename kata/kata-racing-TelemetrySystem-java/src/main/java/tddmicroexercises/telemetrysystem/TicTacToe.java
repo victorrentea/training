@@ -39,7 +39,9 @@ public class TicTacToe {
 	public Integer getWinner() {
 		List<Function<Integer, Point>> formulas = new ArrayList<>();
 		formulas.add(i->new Point(i,i));
+		formulas.add(i->new Point(i,2-i));
 		formulas.add(i->new Point(0,i));
+		
 		for (Function<Integer, Point> formula : formulas) {
 			Set<Character> s = signs(formula);
 			if (s.size() == 1 && s.iterator().next()!='_') {
