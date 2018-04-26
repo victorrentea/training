@@ -29,7 +29,10 @@ public class TicTacToe {
 		player = 1-player;
 	}
 	public Integer getWinner() {
-		return 0;
+		if (b[0][0] == b[1][1] && b[1][1] == b[2][2] && b[0][0] != '_') {
+			return b[0][0]== 'X'?0:1;
+		}
+		return null;
 	}
 	
 

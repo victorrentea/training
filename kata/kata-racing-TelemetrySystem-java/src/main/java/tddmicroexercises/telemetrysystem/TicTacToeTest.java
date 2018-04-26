@@ -50,6 +50,7 @@ public class TicTacToeTest {
 	@Test
 	public void player1wins() {
 		tic.move("A1");
+		assertEquals(null, tic.getWinner());
 		tic.move("A2");
 		tic.move("B2");
 		tic.move("B3");
