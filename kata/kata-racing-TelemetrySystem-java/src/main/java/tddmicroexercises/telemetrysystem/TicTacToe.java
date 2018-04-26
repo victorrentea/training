@@ -1,7 +1,9 @@
 package tddmicroexercises.telemetrysystem;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -31,14 +33,18 @@ public class TicTacToe {
 		b[row][col]=player ==0?'X':'0';
 		player = 1-player;
 	}
+	
+	
+	
 	public Integer getWinner() {
-		Set<Character> s = signs(i->new Point(i,i));
-		if (s.size() == 1 && s.iterator().next()!='_') {
-			return s.iterator().next()== 'X'?0:1;
-		}
-		s = signs(i->new Point(0, i));
-		if (s.size() == 1 && s.iterator().next()!='_') {
-			return s.iterator().next()== 'X'?0:1;
+		List<Function<Integer, Point>> formulas = new ArrayList<>();
+		formulas.add(i->new Point(i,i));
+		formulas.add(i->new Point(0,i));
+		for (Function<Integer, Point> formula : formulas) {
+			Set<Character> s = signs(formula);
+			if (s.size() == 1 && s.iterator().next()!='_') {
+				return s.iterator().next()== 'X'?0:1;
+			}
 		}
 		return null;
 	}
