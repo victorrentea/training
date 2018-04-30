@@ -1,0 +1,19 @@
+Once upon a time, there was an ugly implementation of the Trivia Game (Game.java).
+
+Have a look at GameRunner to see how that class was used.
+
+One guy once noticed that as long as the same input is 
+provided to the system, it will print the same output at the console. 
+
+So that guy then had to idea to Copy-Paste the old implementation 
+(to BetterGame.java), and make a test that using a LOT of random 
+inputs would call both the old system and the NEW system with the same input.
+Many-many times. And the the test would then just verify that the output 
+remained the same despite your refactorings.
+
+This is called the "Golden Master Method". You need to use this method 
+because the code is just to overkill complicated to write tests for at first. 
+
+Your job is now to refactor BetterGame.java, continuously running GoldenMasterTest
+
+Goal: apply OOP, SRP, DRY, and other good software practices! 

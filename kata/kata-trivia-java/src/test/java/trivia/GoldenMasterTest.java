@@ -28,8 +28,8 @@ public class GoldenMasterTest {
 
 	@Test
 	public void m() {
-		String expectedOutput = CapturingSystemOutDemo.captureOutput(() -> runOld(seed));
-		String actualOutput = CapturingSystemOutDemo.captureOutput(() -> runNew(seed));
+		String expectedOutput = CapturingSystemOut.captureOutput(() -> runOld(seed));
+		String actualOutput = CapturingSystemOut.captureOutput(() -> runNew(seed));
 		assertEquals(expectedOutput, actualOutput);
 	}
 	

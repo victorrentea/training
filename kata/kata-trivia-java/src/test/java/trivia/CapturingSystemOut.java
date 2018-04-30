@@ -3,7 +3,7 @@ package trivia;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class CapturingSystemOutDemo {
+public class CapturingSystemOut {
 
 	public static void main(String[] args) {
 		String capture = captureOutput(() -> blackMethod());
