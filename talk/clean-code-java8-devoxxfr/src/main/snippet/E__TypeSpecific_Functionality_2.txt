@@ -1,8 +1,5 @@
 abstract class Movie {
 public abstract int computePrice(int days);`
-class RegularMovie extends Movie {
-`
-class NewReleaseMovie extends Movie {
-`
-class ChildrenMovie extends Movie {
-`
+class RegularMovie extends Movie {}
+class NewReleaseMovie extends Movie {}
+class ChildrenMovie extends Movie {}

@@ -4,14 +4,12 @@ class OrderExporter {
 private OrderRepo repo;
 		
 public File exportFile(String fileName) {
-log.debug("Start");
 File file = new File("export/" + fileName);
 try (Writer writer = new FileWriter(file)) {
 writer.write("OrderID;Date\n");
 repo.findByA$
 	.map(o -> o.getId() + ";" + o.getCr$)
 .forEach(writer::write);
-log.debug("Done");
 return file;
 } catch (Exception e) {
 // TODO send email notification

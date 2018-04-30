@@ -1,6 +1,5 @@
-// that silly "2" should be updatable in DB -> we depend on DB
 interface NewReleasePriceRepo {
-double getFactor();`
+double getFactor(); // will return that silly 2`
 
 class PriceService {
 private final NewReleasePriceRepo repo;

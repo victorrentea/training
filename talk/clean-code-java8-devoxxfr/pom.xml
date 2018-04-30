@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>victor.training</groupId>
-  <artifactId>clean-code-java8-devoxxfr</artifactId>
+  <artifactId>clean-code-java8-devoxxfr-wip</artifactId>
   <version>1.0</version>
 
   <build>

@@ -1,7 +1,4 @@
 class ProductService {
-
-private ProductR$ productRepo;
-
 public List<Product> getFrequentOrderedProducts(List<Order> orders) {
 return orders.stream()
 .filter(o -> o.getCr$.isAfter(LocalDate.now().minusYears(1)))
