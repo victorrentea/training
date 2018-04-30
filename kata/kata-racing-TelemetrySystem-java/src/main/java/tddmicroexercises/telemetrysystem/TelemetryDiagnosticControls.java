@@ -14,25 +14,25 @@ public class TelemetryDiagnosticControls {
 	public String getDiagnosticInfo() {
 		return diagnosticInfo;
 	}
-
 	public void setDiagnosticInfo(String diagnosticInfo) {
 		this.diagnosticInfo = diagnosticInfo;
 	}
 
 	public void checkTransmission() throws Exception {
-		telemetryClient.disconnect();
+		telemetryClient.disconnect(); // OK
 
 		int currentRetry = 1;
 		while (! telemetryClient.getOnlineStatus() && currentRetry <= 3) {
 			telemetryClient.connect(DIAGNOSTIC_CHANNEL_CONNECTION_STRING);
 			currentRetry ++;
 		}
+		
 
 		if (! telemetryClient.getOnlineStatus()) {
-			throw new Exception("Unable to connect.");
+			throw new IllegalStateException("Unable to connect.");
 		}
 
-		telemetryClient.send(TelemetryClient.DIAGNOSTIC_MESSAGE);
-		diagnosticInfo = telemetryClient.receive();
+		telemetryClient.send(TelemetryClient.DIAGNOSTIC_MESSAGE); // OK
+		diagnosticInfo = telemetryClient.receive(); // OK
 	}
 }
