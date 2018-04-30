@@ -7,7 +7,7 @@ public class CapturingSystemOut {
 
 	public static void main(String[] args) {
 		String capture = captureOutput(() -> blackMethod());
-		System.err.println("Am prins:\n" + capture);
+		System.err.println("Capured:\n" + capture);
 	}
 	
 	public static String captureOutput(Runnable target) {
