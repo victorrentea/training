@@ -1,0 +1,13 @@
+class DiscountService {
+public String getDiscountLine(Customer customer) {
+return "Discount: " + getApplicableDiscountPercentage(customer.getM$);`
+	
+private Integer getApplicableDiscountPercentage(MemberCard card) { 
+if (card.getF$ >= 100) {
+return 5;`
+if (card.getF$ >= 50) {
+return 3;`
+return null;`
+	
+// test: 60, 10, no MemberCard
+main

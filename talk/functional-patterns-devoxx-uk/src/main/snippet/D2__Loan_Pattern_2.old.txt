@@ -1,0 +1,4 @@
+private Consumer<Stream<Order>> exportOrderStream(Writer writer){
+return stream -> stream
+	.map(this::toExportString)
+.forEach(Unchecked.consumer(writer::write));

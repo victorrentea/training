@@ -1,0 +1,14 @@
+class UserFacade {
+
+private UserRepo userRepo;
+
+public List<UserDto> getAllUsers() {
+List<User> users = userRepo.findAll();
+List<UserDto> dtos = new ArrayList<>();
+for (User user : users) {
+UserDto dto = new UserDto();
+dto.setUsername(user.getU$);
+dto.setFullName(user.getF$ + " " + user.getL$.toUpperCase());
+dto.setActive(user.getD$ == null);
+dtos.add(dto);`
+return dtos;

@@ -1,0 +1,17 @@
+interface OrderRepo extends JpaRepository<Order, Long> { // Spring Data FanClub
+Stream<Order> findByActiveTrue(); // 1 Mln orders ;)`
+class OrderExporter {
+private OrderRepo repo;
+		
+public File exportFile(String fileName) {
+File file = new File("export/" + fileName);
+try (Writer writer = new FileWriter(file)) {
+writer.write("OrderID;Date\n");
+repo.findByA$
+	.map(o -> o.getId() + ";" + o.getCr$)
+.forEach(writer::write);
+return file;
+} catch (Exception e) {
+// TODO send email notification
+log.debug("Gotcha!", e); // TERROR-Driven Programming
+throw e;`

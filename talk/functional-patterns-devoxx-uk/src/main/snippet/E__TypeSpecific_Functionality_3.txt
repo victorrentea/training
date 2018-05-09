@@ -1,0 +1,15 @@
+interface NewReleasePriceRepo {
+double getFactor(); // will return that silly 2`
+
+class PriceService {
+private final NewReleasePriceRepo repo;
+
+int computeNewReleasePrice(int days) {
+return days * repo.getFactor();`
+int computeRegularPrice(int days) {
+return days + 1;`
+int computeChildrenPrice(int days) {
+return 5;`
+public int computePrice(Movie.Type type, int days) {
+switch (type) {
+case REGULAR: return comRegPr$
