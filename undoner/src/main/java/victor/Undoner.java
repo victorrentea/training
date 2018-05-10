@@ -44,7 +44,7 @@ public class Undoner {
 				inLines = IOUtils.readLines(reader);
 			}
 			if (inLines.size() >= 1 && inLines.get(0).contains("SOLUTION")) {
-				if (dryRun) {
+				if (!dryRun) {
 					sourceFile.delete();
 				} 
 				return true;
