@@ -58,7 +58,7 @@ public class NonTransactionalTest {
 	
 	@Sql("/common-reference-data.sql")// SOLUTION
 	@Sql// SOLUTION
-	@CleanupSql// SOLUTION
+//	@CleanupSql// SOLUTION
 	@Test
 	public void orderIsFoundByReference() {
 		assertEquals(1, (int)jdbc.queryForObject("SELECT count(1) FROM orders WHERE reference='ref'", Integer.class));

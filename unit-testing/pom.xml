@@ -66,6 +66,17 @@
       <scope>test</scope>
     </dependency>
     
+    <dependency>
+      <groupId>info.cukes</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>1.2.4</version>
+    </dependency>
+    <dependency>
+      <groupId>info.cukes</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>1.2.4</version>
+    </dependency>
+    
     
    <dependency>
       <groupId>org.powermock</groupId>
