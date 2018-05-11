@@ -28,7 +28,7 @@ public class AhkFastTyper {
 	static String sendAhkScriptPath = new File("sendfast.ahk").getAbsolutePath();
 	static String getControlIdScriptPath = new File("getControlId.ahk").getAbsolutePath();	
 	static Process ahkProcess;
-	static File snippetsBaseFolder = new File("C:/workspace/training/talk/clean-code-java8-devoxxfr/src/main/snippet");
+	static File snippetsBaseFolder = new File("C:/workspace/training/talk/functional-patterns-devoxx-uk/src/main/snippet");
 	
 	private static void makeUI() {
 		frame = new JFrame("Keyboard Shortcuts Pane");
