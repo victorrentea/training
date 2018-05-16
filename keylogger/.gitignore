@@ -8,3 +8,4 @@
 *.lib
 *.so
 *.dll
+/AutoHotkey_1.1.28.00_setup.exe
