@@ -12,6 +12,6 @@ repo.findByA$
 .forEach(writer::write);
 return file;
 } catch (Exception e) {
-// TODO send email notification
+// TODO send email
 log.debug("Gotcha!", e); // TERROR-Driven Development
 throw e;`
