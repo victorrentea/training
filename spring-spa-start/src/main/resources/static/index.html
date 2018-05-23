@@ -1,0 +1,204 @@
+<html>
+
+<head>
+<link href="toastr.min.css" rel="stylesheet"/>
+<script type="text/javascript" src="jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="toastr.min.js"></script>
+<style>
+html { 
+  background: url(luxury-spa.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>
+</head>
+<body >
+	
+	<h2>Single Page Application</h2>
+	<h3>jQuery + Spring MVC</h3>
+	
+	
+	<div id="coursesMain" style="border:2px solid red">
+		<table id="coursesTable" border="1">
+			<tr><th>Course Name</th><th>Start Date</th><th>Teacher</th><th>Ops</th></tr>
+		</table>
+		<input type="button" value="Reload" onclick="refreshCoursesTable()">
+		<input type="button" value="Create New Course..." onclick="openCreateCourse()">
+	</div>
+	
+	<div id="courseNewDiv" style="display:none;border:2px solid green">
+		<h4>Create a New Course</h4>
+		Name:<input type="text" id="newName" /> <br />
+		Description:<textarea id="newDescription" cols="40" rows="3"></textarea> <br />
+		
+		Start Date (dd-mm-yyyy):<input type="text" id="newStartDate" /> <br />
+		Teacher: <select id="newTeacher"></select> <br />
+		<input type="button" value="Create" onclick="createCourse()">
+		<input type="button" value="Cancel" onclick="$('#courseNewDiv').hide();$('#coursesMain').show();">
+	</div>
+	
+	<div id="courseEditDiv" style="display:none; border:2px solid blue">
+		<h4>Edit a Course</h4>
+		<input type="hidden" id="editCourseId" /> 
+		Name:<input type="text" id="editName" /> <br />
+		Description:<textarea id="editDescription" cols="40" rows="3"></textarea> <br />
+		Start Date (dd-mm-yyyy):<input type="text" id="editStartDate" /> <br />
+		Teacher: <select id="editTeacher"></select><br />
+		<input type="button" value="Save" onclick="updateCourse()">
+		<input type="button" value="Cancel" onclick="$('#courseEditDiv').hide();$('#coursesMain').show();">
+	</div>
+
+
+<!-- <select multiple="multiple" id="coursesAvailable"><option value="a">A</option><option value="b">B</option></select>
+<input type="button" name=">>" onclick="moveSelectedOptions('#coursesAvailable', '#coursesSelected')"/>
+<input type="button" name="<<" onclick="moveSelectedOptions('#coursesSelected', '#coursesAvailable')"/>
+<select multiple="multiple" id="coursesSelected"></select> -->
+
+<script type="text/javascript">
+
+function moveSelectedOptions(fromId, toId) {
+	var selectedValues = $(fromId).val()
+	for (var i=0;i<selectedValues.length;i++) {		
+		var $leftSel = $(fromId+" option[value='"+selectedValues[i]+"']");
+		$(toId).append('<option value="'+selectedValues[i]+'">'+$leftSel.text()+'</option>');
+		console.log($leftSel.html());
+		$leftSel.remove();
+	}
+}
+
+
+function getContextPath() {
+   return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+}
+var restEndpoint = getContextPath() + "/rest";
+
+function refreshCoursesTable() {
+	$.ajax(restEndpoint +"/courses", {
+		method: "GET",
+		success: function(courses) {
+			$("#coursesTable tr").each(function(i, r) {
+				if (i>0) r.remove();
+			});
+			for (var i=0; i<courses.length;i++) {
+				var c = courses[i];
+				var row = '<tr id="'+c.id+'">';
+				row+='<td>'+c.name+'</td>';
+				row+='<td>'+c.startDate + '</td>';
+				row+='<td>'+c.teacherName+'</td>';
+				row+='<td><input type="button" value="Edit" onclick="openEditCourse('+c.id+')" />'+
+						 '<input type="button" value="Delete" onclick="deleteCourse('+c.id+')" /></td>';
+				row+='</tr>';
+				$('#coursesTable tr:last').after(row);
+			}
+			toastr.info("Courses reloaded")
+		}
+	});
+}
+refreshCoursesTable();
+$("#newStartDate").val("01-01-2019");
+
+function populateTeacherCombo($teacherCombo) {
+	$teacherCombo.html("");
+	
+	$.ajax(restEndpoint + "/teachers", {
+		method: "GET",
+		success: function(teachers) {
+			$.each(teachers, function (i, t) {
+			    $teacherCombo.append('<option value="'+t.id+'">'+t.name+'</option>');
+			});
+		}
+	});
+}
+populateTeacherCombo($("#newTeacher"));
+populateTeacherCombo($("#editTeacher"));
+
+
+function deleteCourse(id) {
+	$.ajax(restEndpoint +"/courses/"+id, {
+		method: "DELETE",
+		success: function() {
+			toastr.success("Course deleted"); 
+			refreshCoursesTable();
+		}
+	});
+}
+
+//------------- COURSE: UPDATE SCREEN --------------------
+
+function openEditCourse(courseId) {
+	$.ajax(restEndpoint + "/courses/"+courseId, {
+		method: "GET",
+		success: function(data) {
+			$("#editName").val(data.name);
+			$("#editDescription").val(data.description);
+			$("#editCourseId").val(data.id);
+			$("#editStartDate").val(data.startDate);
+			$("#editTeacher").val(data.teacherId);
+			$('#coursesMain').hide();
+			$('#courseEditDiv').show();
+		}
+	});
+}
+function updateCourse() {
+	$.ajax(restEndpoint +"/courses/" +$("#editCourseId").val(), {
+		method: "PUT",
+		data: JSON.stringify({
+			name:$("#editName").val(),
+			description:$("#editDescription").val(),
+			startDate:$("#editStartDate").val(),
+			teacherId:$("#editTeacher").val()
+		}),
+		contentType: "application/json",
+		success: function(data) {
+			toastr.success("Course Updated");
+			$('#coursesMain').show();
+			$('#courseEditDiv').hide();
+			refreshCoursesTable();
+		},
+		error: function(a,b,c) {
+			if (a.responseText) {
+				toastr.error(a.responseText);
+			}
+		}
+	});
+}
+
+// ------------- COURSE: CREATE SCREEN --------------------
+
+function openCreateCourse() {
+	$("#newName").val("");
+	$("#newDescription").val("");
+	$("#newTeacher").val(null);
+	$('#coursesMain').hide();
+	$('#courseNewDiv').show();
+}
+function createCourse() {
+	$.ajax(restEndpoint +"/courses", {
+		data: JSON.stringify({
+			name:$("#newName").val(),
+			description:$("#newDescription").val(),
+			startDate:$("#newStartDate").val(),
+			teacherId:$("#newTeacher").val()
+		}),
+		method: "POST",
+		contentType: "application/json",
+		success: function(data) {
+			toastr.success("Course created");
+			$('#coursesMain').show();
+			$('#courseNewDiv').hide();
+			refreshCoursesTable();
+		},
+		error: function(a,b,c) {
+			if (a.responseText) {
+				toastr.error(a.responseText);
+			}
+		}
+	});
+}
+
+
+</script>
+</body>
+</html>
