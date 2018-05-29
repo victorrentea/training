@@ -1,0 +1,36 @@
+Priority,Title,Eclipse Win,Eclipse Mac,Idea Win,Idea Mac
+2,Generate Get/Set,"Alt-Shift-S,R",,,
+1,Run this with JUnit,"Alt-Shift-X,T",,,
+2,Rename,Alt-Shift-R,Alt-Cmd-R,Shift-F6,Shift-F6
+3,Quick Fix,Ctrl-1,Cmd-1,Alt-Enter,Alt-Enter
+,Deploy on Server,"Alt-Shift-X,R",,,
+,Run as Java main(),"Alt-Shift-X,J",,,
+,Auto-format,Ctrl-Shift-F,Cmd-Shift-F,Ctrl-Alt-L,Cmd-Alt-L
+,Refactor Menu,Alt-Shift-T,Cmd-Alt-T,Ctrl-Shift-Alt-T,Cmd-Alt-Shift-T
+,Change Met Signature,Alt-Shift-C,,Ctrl-F6,
+3,Extract Method,Alt-Shift-M,,Ctrl-Alt-M,
+,Inline,Alt-Shift-I,,Ctrl-Alt-N,
+,Move line UP/DOWN,Alt-Up|Down,Alt-Up|Down,Alt-Shift-Up|Down,Alt-Shift-Up|Down
+,Select out/in block,Alt-Shift-Up|Down,Alt-Shift-Up|Down,Ctrl-[Shift]-W,Cmd-[Shift]-W
+,Extract Local Variable,Alt-Shift-L,Cmd-Shift-L,Ctrl-Alt-V,Cmd-Alt-V
+,Quick Local Variable,"Ctrl-2,L",,,
+,Find Selection UP/DOWN,Ctrl-[Shift]-K,Cmd-[Shift]-K,Ctrl-Alt-Up|Down,
+,Class Hierarchy,F4|Ctrl-T,,Ctrl-H,
+,Call Hierarchy,Ctrl-Alt-H,,Ctrl-Alt-H,
+,Duplicate Lines,Ctrl-Alt-Down,Cmd-Alt-Down,Ctrl-D,Cmd-D
+,Delete Line,Ctrl-D,Cmd-D,Ctrl-Y,Cmd-Y
+,Rerun Unit Tests,*Ctrl-Enter,,Shift-F10,
+,Next/Prev Editor,*Ctrl-[Shift]-Tab,,Ctrl-Tab,Cmd-Tab
+,Constructor with Fields,"Alt-Shift-S,O",,,
+,Generate Menu,,,Alt-Insert,
+,Open Type,Ctrl-Shift-T,Cmd-Shift-T,Ctrl-N,Cmd-N
+,Outline,Ctrl-O,Cmd-O,Ctrl-F12,Cmd-F12
+,Block Cursor,Alt-Shift-A,,,
+,Find References,Ctrl-Shift-G,Cmd-Shift-G,Alt-[Ctrl]-F7,Alt-[Cmd]-F7
+,Maximize Editor,Ctrl-M,Ctrl-M,Ctrl-Shift-F12,Cmd-Shift-F12
+,Quick Extract Method,"Ctrl-2,M",,,
+,Search Everywhere,Ctrl-3,,"Shift,Shift",
+,Recent Files,Ctrl-E,Cmd-E,Ctrl-E,Cmd-E
+,Last Edit Location,Ctrl-Q,Ctrl-Q,Ctrl-Shift-Backspace,Ctrl-Shift-Backspace
+,Open Declaration,F3,F3,Ctrl-B,Cmd-B
+,Show in…,Ctrl-Alt-W,Cmd-Alt-W,Alt-F1,Alt-F1

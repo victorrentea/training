@@ -5,6 +5,10 @@
 	<artifactId>keylogger</artifactId>
 	<version>2.5</version>
 
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
 
 	<build>
 		<pluginManagement>
@@ -175,10 +179,25 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.16</version>
+    </dependency>
 		<dependency>
 		  <groupId>commons-io</groupId>
 		  <artifactId>commons-io</artifactId>
 		  <version>2.5</version>
 		</dependency>
+		<dependency>
+		  <groupId>commons-lang</groupId>
+		  <artifactId>commons-lang</artifactId>
+		  <version>2.6</version>
+		</dependency>
+    <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-csv</artifactId>
+    <version>1.5</version>
+</dependency>
 	</dependencies>
 </project>
