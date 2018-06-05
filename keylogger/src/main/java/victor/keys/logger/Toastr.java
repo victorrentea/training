@@ -90,7 +90,7 @@ public class Toastr extends JFrame {
 		mainPanel.add(title, BorderLayout.CENTER);
 
 		int cols = 1;
-		if (GlobalSettings.isEclipse && GlobalSettings.isIntelliJ) {
+		if (GlobalSettings.showEclipse && GlobalSettings.showIntelliJ) {
 			cols = 2;
 			JLabel eclipseIcon;
 			if (StringUtils.isNotBlank(shortcut.getEclipseWin())) {
@@ -112,10 +112,10 @@ public class Toastr extends JFrame {
 
 		JPanel topPanel = new JPanel();
 		topPanel.setLayout(new GridLayout(1, cols, 0 , 20));
-		if (GlobalSettings.isMac) {
-			if (GlobalSettings.isEclipse)
+		if (GlobalSettings.showMac) {
+			if (GlobalSettings.showEclipse)
 				topPanel.add(ShortcutLabelMaker.makeMacShortcut(shortcut.getEclipseMac()));
-			if (GlobalSettings.isIntelliJ)
+			if (GlobalSettings.showIntelliJ)
 				topPanel.add(ShortcutLabelMaker.makeMacShortcut(shortcut.getIdeaMac()));
 		}
 		if (topPanel.getComponentCount() == 0) {
@@ -126,10 +126,10 @@ public class Toastr extends JFrame {
 
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.setLayout(new GridLayout(1, cols, 0 , 20));
-		if (GlobalSettings.isWin) {
-			if (GlobalSettings.isEclipse)
+		if (GlobalSettings.showWin) {
+			if (GlobalSettings.showEclipse)
 				bottomPanel.add(ShortcutLabelMaker.makeShortcut(shortcut.getEclipseWin()));
-			if (GlobalSettings.isIntelliJ)
+			if (GlobalSettings.showIntelliJ)
 				bottomPanel.add(ShortcutLabelMaker.makeShortcut(shortcut.getIdeaWin()));
 		} else {
 			bottomPanel.add(new JLabel(" "));

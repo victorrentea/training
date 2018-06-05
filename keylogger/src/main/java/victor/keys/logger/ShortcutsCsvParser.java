@@ -6,7 +6,9 @@ import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.Reader;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -26,9 +28,15 @@ import victor.keys.logger.utils.DetermineActiveIDE.IDE;
 
 public class ShortcutsCsvParser {
 	@SneakyThrows
-	public List<KeyCombination> parse(File file) {
+	public Map<IDE, List<KeyCombination>> parse(File file) {
+		Map<IDE, List<KeyCombination>> map = new HashMap<>();
+		map.put(IDE.ECLIPSE, parseForIDE(file, IDE.ECLIPSE));
+		map.put(IDE.IDEA, parseForIDE(file, IDE.IDEA));
+		return map;
+	}
+
+	private List<KeyCombination> parseForIDE(File file, IDE ide) throws FileNotFoundException, IOException {
 		List<KeyCombination> list = new ArrayList<>();
-		IDE ide = DetermineActiveIDE.getActiveIDE();
 		Reader in = new FileReader(file);
 		for (CSVRecord record : CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in)) {
 			String title = record.get("Title");
@@ -96,7 +104,7 @@ public class ShortcutsCsvParser {
 	@SneakyThrows
 	private FirstKey parseFirstKey(String firstKeyStr) {
 		String key = firstKeyStr.substring(firstKeyStr.lastIndexOf('-') + 1);
-		key = key.replace("ENTER", "RETURN");
+		key = key.replace("ENTER", "RETURN").replace("BACKSPACE", "BACK");
 		Field constant = GlobalKeyEvent.class.getDeclaredField("VK_"+key);
 		
 		return new FirstKey(

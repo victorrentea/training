@@ -1,1 +1,1 @@
-mvn exec:java -D"exec.mainClass"="victor.shortcut.keylogger.AhkFastTyper"
+mvn exec:java -D"exec.mainClass"="victor.keys.typer.AhkFastTyper"

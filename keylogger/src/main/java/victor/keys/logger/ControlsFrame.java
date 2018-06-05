@@ -17,13 +17,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import lombok.SneakyThrows;
+import victor.keys.logger.utils.DetermineActiveIDE.IDE;
 import victor.keys.logger.utils.HorizontalPositioner;
 import victor.keys.logger.utils.OpaqueOnHoverMouseListener;
 
@@ -50,11 +54,11 @@ public class ControlsFrame extends JFrame {
 		mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 		getContentPane().add(mainPanel, BorderLayout.CENTER);
 		
-		mainPanel.add(makeToggleShowingDemo("eclipse", GlobalSettings.isEclipse, b -> GlobalSettings.isEclipse = b));
-		mainPanel.add(makeToggleShowingDemo("intellij", GlobalSettings.isIntelliJ, b -> GlobalSettings.isIntelliJ = b));
+		mainPanel.add(makeIDEToggleShowingDemo("eclipse", IDE.ECLIPSE, GlobalSettings.showEclipse, b -> GlobalSettings.showEclipse = b));
+		mainPanel.add(makeIDEToggleShowingDemo("intellij", IDE.IDEA, GlobalSettings.showIntelliJ, b -> GlobalSettings.showIntelliJ = b));
 		mainPanel.add(new JLabel("  "));
-		mainPanel.add(makeToggleShowingDemo("win", GlobalSettings.isWin, b -> GlobalSettings.isWin = b));
-		mainPanel.add(makeToggleShowingDemo("mac", GlobalSettings.isMac, b -> GlobalSettings.isMac = b));
+		mainPanel.add(makeToggleShowingDemo("win", GlobalSettings.showWin, b -> GlobalSettings.showWin = b));
+		mainPanel.add(makeToggleShowingDemo("mac", GlobalSettings.showMac, b -> GlobalSettings.showMac = b));
 		mainPanel.add(new JLabel("  "));
 		mainPanel.add(makeToggleShowingDemo("rabbit", GlobalSettings.fast, b -> GlobalSettings.fast = b));
 		
@@ -106,10 +110,22 @@ public class ControlsFrame extends JFrame {
 		}
 	}
 	
+	private JToggleButton makeIDEToggleShowingDemo(String ideLabel, IDE ide, boolean initial, Consumer<Boolean> action) {
+		JToggleButton button = makeToggleShowingDemo(ideLabel, initial, action);
+		JPopupMenu popup = new JPopupMenu();
+		JMenuItem item = new JMenuItem("Listen to shortcuts of this");
+		item.addActionListener(e-> {
+			GlobalSettings.workingIde = ide;
+			ShortcutKeylogger.reloadShortcutsForCurrentIDE();
+		});
+		popup.add(item);
+		button.addMouseListener(new PopClickListener(popup));
+		return button;
+	}
 	private JToggleButton makeToggleShowingDemo(String ideLabel, boolean initial, Consumer<Boolean> action) {
 		return makeToggle(ideLabel, initial, b -> {
-			ShortcutKeylogger.toastrColumn.showToastr(Shortcut.DEMO);
 			action.accept(b);
+			ShortcutKeylogger.toastrColumn.showToastr(Shortcut.DEMO);
 		});
 	}
 	private JToggleButton makeToggle(String ideLabel, boolean initial, Consumer<Boolean> action) {

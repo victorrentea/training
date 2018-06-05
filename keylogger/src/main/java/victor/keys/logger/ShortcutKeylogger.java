@@ -34,12 +34,7 @@ public class ShortcutKeylogger {
 	private static List<KeyCombination> partiallyPressed = new ArrayList<>();
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
-		shortcuts = new ShortcutsCsvParser()
-				.parse(new File(GlobalSettings.SHORTCUTS_CSV_FILENAME))
-				.stream()
-				.collect(groupingBy(KeyCombination::getFirstKey));
-		
-		
+
 		
 		Timer timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
@@ -62,6 +57,17 @@ public class ShortcutKeylogger {
 		
 		toastrColumn.showToastr(Shortcut.STARTUP);
 		toastrColumn.showToastr(Shortcut.DEMO);
+		
+		reloadShortcutsForCurrentIDE();
+	}
+
+	public static void reloadShortcutsForCurrentIDE() {
+		shortcuts = new ShortcutsCsvParser()
+				.parse(new File(GlobalSettings.SHORTCUTS_CSV_FILENAME))
+				.get(GlobalSettings.workingIde)
+				.stream()
+				.collect(groupingBy(KeyCombination::getFirstKey));
+		toastrColumn.showToastr(Shortcut.makeUsingIDE(GlobalSettings.workingIde));
 	}
 	
 	protected static void handleInterceptedKeyEvent(GlobalKeyEvent event) {

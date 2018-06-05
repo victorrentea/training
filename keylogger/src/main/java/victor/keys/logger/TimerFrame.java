@@ -110,7 +110,7 @@ public class TimerFrame extends JFrame {
 		} else {
 			long delta = now - lastTick;
 			if (state == State.RUNNING) {
-				delta *= 30;
+//				delta *= 30; // Uncomment this to test with faster time :)
 				timeLeft -= delta;
 				
 				refreshBar();

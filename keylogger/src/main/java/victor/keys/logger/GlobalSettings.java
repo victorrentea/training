@@ -2,12 +2,14 @@ package victor.keys.logger;
 
 import java.awt.Color;
 
+import victor.keys.logger.utils.DetermineActiveIDE.IDE;
+
 public class GlobalSettings {
 	public static final int WIDTH = 300;
 
 	public static final long BLOCK_DUPLICATES_MILLIS = 9000;
 	public static final int FAST_DISPLAY_TIME = 3000;
-	public static final int SLOW_DISPLAY_TIME = 5000;
+	public static final int SLOW_DISPLAY_TIME = 10000;
 
 	public static final int PIXELS_TO_RIGHT = 80;
 	public static final String SHORTCUTS_CSV_FILENAME = "./shortcuts.csv";
@@ -21,11 +23,13 @@ public class GlobalSettings {
 
 	public static final long DEFAULT_TIMER_MILLIS = 7 * 60 * 1000;
 
+	public static IDE workingIde = IDE.ECLIPSE;
+
 	
-	static boolean isEclipse = true;
-	static boolean isIntelliJ = true;
-	static boolean isWin = true;
-	static boolean isMac = false;
+	static boolean showEclipse = true;
+	static boolean showIntelliJ = true;
+	static boolean showWin = true;
+	static boolean showMac = false;
 	static boolean fast = false;
 	static boolean timerVisible = false;
 

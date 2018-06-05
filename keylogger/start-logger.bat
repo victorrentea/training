@@ -1,0 +1,1 @@
+mvn exec:java -D"exec.mainClass"="victor.keys.logger.ShortcutKeylogger"

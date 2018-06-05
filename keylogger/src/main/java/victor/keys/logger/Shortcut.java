@@ -1,11 +1,7 @@
 package victor.keys.logger;
 
-import static java.util.Collections.emptyList;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import lombok.Data;
+import victor.keys.logger.utils.DetermineActiveIDE.IDE;
 
 @Data
 public class Shortcut {
@@ -23,4 +19,11 @@ public class Shortcut {
 			"Shift-Esc to exit", null, 
 			null, null
 			);
+	
+	public static Shortcut makeUsingIDE(IDE ide) {
+		return  new Shortcut("Listening " + ide.name(),
+				"Right click IDE ",null, 
+				null, null
+				);
+	}
 }
