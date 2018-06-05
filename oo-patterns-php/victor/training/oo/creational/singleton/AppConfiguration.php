@@ -11,15 +11,20 @@ namespace victor\training\oo\behavioral\singleton;
 
 class AppConfiguration
 {
+	
     // SOLUTION (
     /* @var AppConfiguration */
     private static $INSTANCE;
+	// SOLUTION )
 
-    private function __construct()
-    {
+    // public function __construct() // INITIAL 
+    private function __construct() // SOLUTION 
+	{
         printf("Creating singleton instance\n");
         $this->properties = $this->readConfiguration();
     }
+	
+	// SOLUTION (
 
     public static function getInstance(): AppConfiguration {
         if (static::$INSTANCE == null) {
@@ -30,7 +35,7 @@ class AppConfiguration
     // SOLUTION )
     private $properties;
 
-    private function readConfiguration() {
+    private function readConfiguration(): array {
         printf("Fetching properties from Tahiti...\n");
         sleep(2);
         printf("Decrypting properties...\n");
@@ -39,6 +44,6 @@ class AppConfiguration
     }
 
     public function getProperty(string $propertyName): string {
-        return "s";
+        return $this->properties[$propertyName];
     }
 }

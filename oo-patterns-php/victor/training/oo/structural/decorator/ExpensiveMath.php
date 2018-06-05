@@ -8,7 +8,7 @@
 
 namespace victor\training\oo\structural\decorator;
 
-include "IExpensiveMath.php";
+include "IExpensiveMath.php"; // SOLUTION
 
 //class ExpensiveMath // INITIAL
 class ExpensiveMath implements IExpensiveMath // SOLUTION
