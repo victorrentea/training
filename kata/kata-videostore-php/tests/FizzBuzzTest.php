@@ -3,11 +3,12 @@ namespace video;
 
 
 include 'FizzBuzz.php';
+include '/Framework/Assert/Functions.php';
 
 class FizzBuzzTest extends \PHPUnit\Framework\TestCase {
 
   public function test1() {
-      $this->assertEquals('1', \FizzBuzz::getStringForInt(1));
+      self::assertEquals('1', \FizzBuzz::getStringForInt(1));
   }
 
   public function test2() {
