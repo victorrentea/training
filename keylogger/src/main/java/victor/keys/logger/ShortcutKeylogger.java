@@ -82,6 +82,7 @@ public class ShortcutKeylogger {
 					.max(comparing(KeyCombination::getWeight))
 					.map(KeyCombination::getShortcut)
 					.ifPresent(ShortcutKeylogger::show);
+				partiallyPressed.clear();
 			}
 			
 			FirstKey firstKey = new FirstKey(
@@ -107,11 +108,11 @@ public class ShortcutKeylogger {
 		}
 			
 //		System.out.println(event + " " + event.getKeyChar());
-		if(event.getVirtualKeyCode()==GlobalKeyEvent.VK_ESCAPE && event.isShiftPressed()) {
-			keyboardHook.shutdownHook();
-			System.out.println("Terminated");
-			System.exit(0);
-		}
+//		if(event.getVirtualKeyCode()==GlobalKeyEvent.VK_ESCAPE && event.isShiftPressed()) {
+//			keyboardHook.shutdownHook();
+//			System.out.println("Terminated");
+//			System.exit(0);
+//		}
 		if(event.getVirtualKeyCode()==GlobalKeyEvent.VK_TAB 
 				&& !event.isControlPressed() 
 				&& event.isMenuPressed()) {
