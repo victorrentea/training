@@ -33,7 +33,27 @@ public class Toastr extends JFrame {
 	private Descender descender;
 	private HorizontalPositioner horizontalPositioner = new HorizontalPositioner(this, GlobalSettings.PIXELS_TO_RIGHT);
 
-	public Toastr(Shortcut shortcut, int duration) {
+	public static Toastr makeShortcut(Shortcut shortcut, int duration) {
+		Toastr toastr = new Toastr(duration);
+		toastr.buildContent(shortcut);
+		return toastr;
+	}
+	
+	public static Toastr makeWebinarNotification(int duration) {
+		Toastr toastr = new Toastr(duration);
+		toastr.getContentPane().setLayout(new GridLayout(2,1));
+		JLabel url = new JLabel("Webinar Welcome Page", SwingConstants.CENTER);
+		url.setForeground(Color.lightGray);
+		url.setFont(new Font("Montserrat Bold", 0, 18));
+		toastr.getContentPane().add(url);
+		JLabel url2 = new JLabel("http://victorrentea.ro/#webinar", SwingConstants.CENTER);
+		url2.setForeground(Color.gray);
+		url2.setFont(new Font("Montserrat Bold", 0, 15));
+		toastr.getContentPane().add(url2);
+		return toastr;
+	}
+
+	private Toastr(int duration) {
 		startFadeTime = System.currentTimeMillis() + duration - FADEOUT_DURATION;
 		setUndecorated(true);
 //		getContentPane().setBackground(new Color(81, 163, 81));
@@ -48,7 +68,6 @@ public class Toastr extends JFrame {
 		setFocusable(false);
 		setType(Type.UTILITY);
 		setFocusableWindowState(false);
-		buildContent(shortcut);
 		setOpacity(GlobalSettings.TOASTR_BASE_OPACITY);
 		setVisible(true);
 	}

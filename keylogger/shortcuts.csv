@@ -34,3 +34,4 @@ Priority,Title,Eclipse Win,Eclipse Mac,Idea Win,Idea Mac
 ,Last Edit Location,Ctrl-Q,Ctrl-Q,Ctrl-Shift-Backspace,Ctrl-Shift-Backspace
 ,Open Declaration,F3,F3,Ctrl-B,Cmd-B
 ,Show in…,Ctrl-Alt-W,Cmd-Alt-W,Alt-F1,Alt-F1
+,Static Import,Ctrl-Shift-M,,,

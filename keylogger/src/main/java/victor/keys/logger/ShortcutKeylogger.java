@@ -27,6 +27,7 @@ public class ShortcutKeylogger {
 	public static ControlsFrame controls = new ControlsFrame();
 	public static TimerFrame timerFrame = new TimerFrame();
 	public static ToastrColumn toastrColumn = new ToastrColumn();
+	public static Reminder reminder = new Reminder();
 	private static BlockDuplicateCalls deduplicator = new BlockDuplicateCalls();
 	// might throw a UnsatisfiedLinkError if the native library fails to load or a RuntimeException if hooking fails 
 	private static GlobalKeyboardHook keyboardHook = new GlobalKeyboardHook();
@@ -43,6 +44,7 @@ public class ShortcutKeylogger {
 					timerFrame.tick();
 					toastrColumn.tick();
 					controls.tick();
+					reminder.tick();
 				});
 			}
 		}, 0, 10);
