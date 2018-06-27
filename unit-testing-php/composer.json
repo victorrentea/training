@@ -1,0 +1,25 @@
+{
+    "name": "victor/phpunit",
+    "type": "project",
+    "description": "PHPUnit Playground app",
+    "autoload": {
+        "psr-4": {
+            "PhpUnitWorkshop\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpUnitWorkshopTest\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.1.0",
+        "symfony/symfony": "3.4.*"		
+    },
+    "require-dev": {        
+        "symfony/phpunit-bridge": "^3.0",
+        "phpunit/phpunit": "^7",
+        "mockery/mockery": "^1.1",
+        "hamcrest/hamcrest-php": "~2.0"
+    }	
+}
