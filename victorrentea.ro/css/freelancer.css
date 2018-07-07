@@ -41,25 +41,18 @@ ul.agenda>li li {
 }
 */
 
-.agenda {
+.agenda,  {
 	text-align:left
 }
-.agenda>li {
+.agenda>li, .portfolio-modal li {
 	font-size: 1em;
-}
-.agenda>li li{
-	font-size: 0.9em;
-}
-.agenda>li {	
 	font-size:20px;
 	font-weight:bold;
 	padding-top:10px;
 }
-.agenda>li li {
-	
+.agenda>li li, .portfolio-modal li li{
+	font-size: 0.9em;
 	font-weight:normal;
-	
-	
 }
 .modal-body {
 	text-align:left
@@ -81,7 +74,7 @@ ul.agenda>li li {
 	overflow:hidden;
 }
 
-.video-container iframe, .video-container object, .video-container embed {
+.video-container iframe, .video-container object, .video-container embed, .video-container img {
 	position:absolute;
 	top:0;
 	left:0;
@@ -693,5 +686,15 @@ div.recommendation {
 }
 .read-more-but {
 	font-size: 14px;
+}
+
+			.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 

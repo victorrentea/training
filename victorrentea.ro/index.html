@@ -7,18 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="training,java,spring,enterprise,course,curs,jpa,ejb,bucuresti,clean code,design patterns,object-oriented,UML,arhitectura,architecture">
-    <meta name="description" content="Training custom interactiv pentru angajati de Enteprise Java Application Development cu multa parte practica, exercitii si explicatii, sustinut de un Trainer profesionist, Senior Developer, Architect and Technical Team Lead @ IBM, Oracle Certified Java EE Enterprise Architect. Dintre module: Clean Code, Object-Oriented Design Patterns, Enterprise Application Design Patterns, Spring Framework (MVC, DAO, AOP, Batch), Enterprise Java Beans, Java Persistence API, UML, CDI, REST and SOAP web services, Web Application Security, advanced Unit Testing and Test Driven Development, Agile and SCRUM Methodology, Integration Patterns, XSD JAXB. Reduceri substantiale pentru grupuri mari de angajati. Cursurile pot fi sustinute in romana sau engleza, in-class la sediul dumneavoastra si/sau remote prin desktop-sharing plus teleconferinta. Partile teoretice sunt sustinute cu numeroase workshop-uri, brainstormings, concursuri cu premii si exercitii aplicative, care va vor ajuta sa invatati si sa retineti pe termen lung conceptele discutate. Cititi aici pareri ale seniorilor.">
+    <meta name="description" content="Custom training in-house for companies, with lots of exercises and explanations, held by a passionate independent trainer, with 14 years of development experience, currently also Lead Architect, Team Lead and Consultant at IBM. In the curricula: Clean Code, Design Patterns and Principles, Architectures, Spring Framework, Java EE (EJB, CDI, JAX-RS), Hibernate/JPA, Scala Language, Java Performance Coding and Optimizations, Unit Testing - including Test Driven Design (TDD) and Behavior Driven Design (BDD), SOAP web services, Web Application Security, Agile and SCRUM Methodology, Integration Patterns, UM, XSD & JAXB. The courses can be held in Romanian or English, in-class on-site or remote. ">
     <meta name="author" content="Victor Rentea">
 	
-	<meta  property="og:image" content="http://victorrentea.ro/poze/Clean%20Lambdas%20workshop%20@%20VoxxedDays%20Bucharest%202017.jpg"/>
+	<meta  property="og:image" content="//victorrentea.ro/poze/Clean%20Lambdas%20workshop%20@%20VoxxedDays%20Bucharest%202017.jpg"/>
 	<meta property="og:title" content="Victor Rentea - Independent Trainer"/>
 	<meta property="og:description" content="Design Patterns, Clean Code, Spring Framework, Hibernate/JPA, Java Performance, Scala, and many more"/>
-  <meta property="og:url" content="http://www.victorrentea.ro" />
+  <meta property="og:url" content="//www.victorrentea.ro" />
 
 
 	<link rel="icon" href="img/academy-cap-icon.png">
 	<link rel="publisher" href="https://plus.google.com/b/104211899563696126838/104211899563696126838/about" />
-    <title>Trainer and Coach - Victor Rentea: Clean Code, Spring, Design Patterns & much more</title>
+    <title>Victor Rentea - Technical Trainer/Coach: Clean Code, Spring, Design Patterns & much more</title>
 
 	<!-- Google Analytics -->
 <script>
@@ -87,7 +87,7 @@ ga('send', 'pageview');
                         <a href="#talks">Talks</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#about">Me</a>
+                        <a href="#about">About</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
@@ -149,11 +149,76 @@ ga('send', 'pageview');
     <!-- Header -->
     <header>
         <div class="container">
-            <div class="row">
+            <div class="row" id="fata-imagine">
                 <div class="col-xs-8 col-xs-offset-2" >
-                    <img class="img-responsive" src="fata.jpg" alt="" style="margin-bottom: 0px">
+                    <img class="img-responsive" src="fata.jpg" alt="" style="margin-bottom: 0px" />
+					<span class="blink_me">
+					Loading Presentation Video...
+					</span>
 				</div>
+				
 			</div>
+			
+			<div class="row"  id="fata-video" style="display:none;">
+                <div class="col-xs-8 col-xs-offset-2" >
+                      <div class="video-container">
+					<div id="player" class="video"></div>
+					
+</div>
+					
+					<style>
+					* {padding:0;margin:0;box-sizing:border-box;}
+#video {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+}
+#video iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+					</style>
+
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '1040',
+          videoId: 'XgQsCIvVo1M',
+		  
+			rel: 0,
+          events: {
+            'onReady': onPlayerReady
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        $("#fata-imagine").hide();
+        $("#fata-video").show();
+      }
+
+    </script>
+
+					
+					</div>
+				</div>
+			
+			
 			
 			<div class="row" style="margin-bottom: 15px;">				
 				<div class="col-lg-12">
@@ -236,22 +301,22 @@ ga('send', 'pageview');
 				</div>
 				<div class="col-sm-4 col-xs-12 intro-text" >
 					<div class="skills counterDiv">
-					<!-- ~20 intrern + 35 until 13 nov 2017)-->
-						<span class="countup">55</span> trainings held
+					<!-- ~20 intrern + 35 until 24 jun 2018)-->
+						<span class="countup">67</span> trainings held
 					</div>            
 				</div>
 				<div class="col-sm-4 col-xs-12 intro-text" >
 					<a href="#photos">
 					<div class="skills counterDiv">
-					<!-- 200 intrern + 351 until 13 nov 2017)-->
-						<span class="countup">551</span> trainees
+					<!-- 200 intrern + 351 until 24 jun 2018)-->
+						<span class="countup">724</span> trainees
 					</div>                    
 					</a>
 				</div>
 				<div class="col-sm-4 col-xs-12 intro-text" >
 					<div class="skills counterDiv">
-					<!-- 17 intra + 8 magdeburg + 79 until 13 nov 2013-->
-						<span class="countup">104</span> training days
+					<!-- 17 intra + 8 magdeburg + 79 until (13 nov 2013) -24 jun 2018 -->
+						<span class="countup">134</span> training days
 					</div>                    
 				</div>				
 				<div class="col-sm-4 col-sm-offset-4 col-xs-12 intro-text text-center" >
@@ -351,6 +416,42 @@ ga('send', 'pageview');
     </header>
 
 	
+	
+	 <!-- Portfolio Grid Section -->
+    <!--<section id="webinar">
+        <div class="container">
+            <div class="row">
+			
+                <div class="col-lg-12 text-center" style="background-color:#faffbc">
+				
+					<br />
+                    <h2 style="color:red" class="blink_me">Joint Romanian Clean Code Webinar</h2>
+					<h3>20 June 2018</h3>
+                    <hr class="star-primary">
+					<div class="video-container">
+					
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/aT04hqUzfd8" frameborder="0" allowfullscreen></iframe>
+
+					</div>
+					<div class="text-left">
+					
+					<p>Romanian JUGs (Bucharest, Cluj, Iasi, Timisoara), Codecamp, Bucharest Agile Software Meetup</p>
+<p>Live-coding webinar in which I solved <a href="Junkomat.pdf">this problem</a>, debating all the design decisions with the in class+remote audience. I pushed all the code <a href="https://github.com/victorrentea/kata-junkomat-rojug.git" target="_blank">here</a> and I drew some conlcusions in <a href="https://docs.google.com/document/d/1YGLrrQKcOyXOF94ckZaztMdMfU_P79OO33lCExaU47E/edit?usp=sharing" target="_blank">this google doc</a>.</p>
+
+
+<p>Stay tuned for future similar webinars (next in English): <a class="twitter-follow-button"  href="https://twitter.com/victorrentea" data-size="large">Follow me</a></p>
+<p>If you want such a session or <a href="#training">another training</a> in-house for your company, <a target="_blank" href="mailto:victorrentea@gmail.com?subject=In-house custom training">let's talk</a>.</p>
+</div>
+
+
+
+					
+					</div>
+                </div>
+            </div>	
+		</div>
+	</div>
+	-->
 
     <!-- Portfolio Grid Section -->
     <section id="training">
@@ -363,7 +464,7 @@ ga('send', 'pageview');
             </div>			
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<p>Click on any item to see the full agenda</p>
+					<p class="blink_me" style="color:red">Click any item to see the agenda</p>
 				</div>
 			</div>
 			<div class="row">
@@ -523,6 +624,31 @@ ga('send', 'pageview');
 				</div>
 			</div>-->
         
+		
+		<div class="row">
+				<div class="col-lg-12 text-left" style="background-color:#faffbc">
+				<br/>
+	<div id="reclama" style="border:2px solid red; padding: 20px">
+<h4>1) Cum sa-l folosesti pe Victor in firma ta</h4>
+<h5>== Mic indrumar practic ==</h5>
+<ul>
+<li><b>Wiki</b>: dacă vrei să mai afli niște chestii faine</li>
+<li><b>Amplificator</b>: când ești de acord cu el, dar vrei să iți convingi și colegii</li>
+<li><b>Militant/Majoretă</b>: să crești entuziasmul tehnic pentru cod</li>
+<li><b>Antrenor</b>: infuzie de skilluri pt juniori / intermediate</li>
+<li><b>Geek</b>: să construiești/fortifici cultura tehnică în SRLeu</li>
+<li><b>Stand-up</b>: să te distrezi un pic</li>
+<li><b>Clanță</b>: să creierești ce traininguri v-ar fi utile, sa convingi șeful că trebuie</li>
+<li><b>Inspector</b>: să vezi dacă ai luat-o pe un drum bun cu aplicația ta (second opinion)</li>
+</ul>
+<p>Daca vrei unul din <a href="#training">cursurile de mai sus</a> in firma ta, <a target="_blank" href="mailto:victorrentea@gmail.com?subject=Cursuri in firma">hai sa vorbim</a>.</p>
+<br />
+<h4>2) Doar tu la cursul meu</h4>
+<p>Daca sunteti putini doritori sau vrei doar tu sa participi, <a target="_blank" href="mailto:victorrentea@gmail.com?subject=Curs pentru doar mine">gasim noi o solutie</a>.</p>
+</div>
+<br/>
+	</div>
+		
 		<div class="row" id="download-vm">
 			<div class="col-lg-12 text-center">
 				<br />
@@ -532,8 +658,10 @@ ga('send', 'pageview');
 				
 				<br /><br />
 				<h3>Download printable stickers</h3>
-				<p><a href="https://drive.google.com/drive/folders/1aLywnVait8nNLkdtviB7ie3rkve7_XyX?usp=sharing" target="_blank">Google Drive Folder</a></p>
-					
+				<img class="img-responsive" src="stickers.jpg" />
+				<h4>High Res Pictures: 
+					<a href="https://drive.google.com/drive/folders/1aLywnVait8nNLkdtviB7ie3rkve7_XyX?usp=sharing" target="_blank">Google Drive Folder</a>
+				</h4>					
 			</div>
 		</div>
 		<div class="row">
@@ -1184,7 +1312,37 @@ ga('send', 'pageview');
 			.talk.alt {
 			background-color: rgb(31,164,182);
 			}
+			.talk.alt a {
+				color:white;
+			}
 			</style>
+			<div class="row talk alt" id="webinar">			
+                <div class="col-lg-12 text-center">
+				<br />
+				<br />
+                    <h3 style="color:red" class="blink_me">Joint Romanian Clean Code Webinar</h3>
+					<h4>ALL Romanian JUGs (Bucharest, Cluj, Iasi, Timisoara)<br />Codecamp, Bucharest Agile Software Meetup</h4>
+					<h4>20 June 2018</h4>
+					<p>Live-coding webinar in which I solved <a href="Junkomat.pdf">this problem</a>, debating all the design decisions with the in class+remote audience.</p>
+					<p>I pushed all the code <a href="https://github.com/victorrentea/kata-junkomat-rojug.git" target="_blank">here</a> and I drew some conlcusions in <a href="https://docs.google.com/document/d/1YGLrrQKcOyXOF94ckZaztMdMfU_P79OO33lCExaU47E/edit?usp=sharing" target="_blank">this google doc</a>.</p>
+
+
+					<p>Stay tuned for future similar webinars (next in English): <a class="twitter-follow-button"  href="https://twitter.com/victorrentea" data-size="large">Follow me</a></p>
+					
+                </div>
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 text-center">
+                    <h4>ROMANIAN</h4>					
+                    <div class="video-container">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/aT04hqUzfd8" frameborder="0" allowfullscreen></iframe>
+					</div>
+                </div>
+				
+            </div>
+			
+			
+			
+			
+			
 			<div class="row talk">
                 <div class="col-lg-12 text-center">
                     <h3>Functional Programming Patterns with Java 8</h3>
@@ -1207,8 +1365,19 @@ ga('send', 'pageview');
                     <h4>SLIDES</h4>
                     <div class="video-container">
 					
-					<iframe src="http://www.slideshare.net/slideshow/embed_code/key/fegUqzajwwWaef" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
+					<iframe src="https://www.slideshare.net/slideshow/embed_code/key/fegUqzajwwWaef" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
 					</div>
+                </div>
+				
+				<div class="col-md-offset-4 col-md-4 col-sm-6 col-xs-12 text-center">
+                    <h4>ARTICLE</h4>
+					<div class="video-container text-center">
+					<a href="https://dzone.com/articles/functional-programming-patterns-with-java-8">
+					<img width="560" class="img-responsive" src="dzone-article-functional.jpg" />
+					
+					</a>
+					</div>
+                   
                 </div>
             </div>
 			<div class="row talk alt">
@@ -1225,7 +1394,7 @@ ga('send', 'pageview');
 				<div class="col-sm-4 text-center">
                     <h4>SLIDES</h4>
 					 <div class="video-container">
-                    <iframe src="http://www.slideshare.net/slideshow/embed_code/key/3zPjVCOvByUGgo" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+                    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/3zPjVCOvByUGgo" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 					 </div>
                 </div>
 			</div>
@@ -1244,7 +1413,7 @@ ga('send', 'pageview');
                 <div class="col-sm-4 text-center">
 					<h4>SLIDES</h4>
                     <div class="video-container">
-					<iframe src="http://www.slideshare.net/slideshow/embed_code/key/IHw2w65xHnh4cl" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
+					<iframe src="https://www.slideshare.net/slideshow/embed_code/key/IHw2w65xHnh4cl" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
 					</div>
                 </div>				
 			</div>
@@ -1264,7 +1433,7 @@ ga('send', 'pageview');
                 <div class="col-sm-4 text-center">
 					<h3>SLIDES</h3>					
                     <div class="video-container">
-					<iframe src="http://www.slideshare.net/slideshow/embed_code/key/iz34JbJPqB9J7G" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					<iframe src="https://www.slideshare.net/slideshow/embed_code/key/iz34JbJPqB9J7G" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 					</div>
                 </div>				
 			</div>
@@ -1283,7 +1452,22 @@ ga('send', 'pageview');
                 <div class="col-sm-4 text-center">
 					<h3>SLIDES</h3>					
                     <div class="video-container">
-					<iframe src="http://www.slideshare.net/slideshow/embed_code/key/7crFutwGrdtBQM" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
+					<iframe src="https://www.slideshare.net/slideshow/embed_code/key/7crFutwGrdtBQM" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
+					</div>
+                </div>				
+			</div>
+			
+			<div class="row talk alt">
+                <div class="col-lg-12 text-center">
+                    <h3>Webinar: Clean Code - Passing the Interview</h3>
+					<h4>ALL the Major Romanian Java User Groups</h4>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-center">
+					<h3>IN ROMANIAN</h3>					
+                    <div class="video-container">
+					
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/aT04hqUzfd8" frameborder="0" allowfullscreen></iframe>
+
 					</div>
                 </div>				
 			</div>
@@ -1299,9 +1483,15 @@ ga('send', 'pageview');
 					<h3>Talks / public events (latest first):</h3>		
 					<ul class="full-talk-list">					
 					
-					<li><p><b>Functional Programming Patterns with Java 8</b> at <a href="https://www.meetup.com/Bucharest-Java-User-Group/events/249451198/" target="_blank">Bucharest Java User Group Meetup (the largest Java meetup in Romania in history)</a>, 16 May 2018</p>
+					<li><p><b>Java Trends</b> - Speakers Panel with <a href="http://ionutbalosin.com/" target="_blank">Ionut Balosin</a> at <a href="http://www.devtalks.ro/bucharest" target="_blank">Dev Talks Bucharest</a>, 8 June 2018</p>
 					</li>
 					
+					<li><p><b>Clean Code with Java 8 (4 years later)</b> at <a href="http://www.devtalks.ro/bucharest" target="_blank">Dev Talks Bucharest</a>, 8 June 2018</p>
+					</li>
+					
+					
+					<li><p><b>Functional Programming Patterns with Java 8</b> at <a href="https://www.meetup.com/Bucharest-Java-User-Group/events/249451198/" target="_blank">Bucharest Java User Group Meetup (the largest Java meetup in Romania in history)</a>, 16 May 2018</p>
+					</li>
 					
 					
 					<li><p><b>Functional Programming Patterns with Java 8</b> at Devoxx UK London, 11 May 2018 (<a href="https://www.youtube.com/watch?v=F02LKnWJWF4">video</a>)</p>
@@ -1335,7 +1525,7 @@ ga('send', 'pageview');
 
 					<li><p><b>The Art of Clean Code + 1 Kata</b> during the Open Space at I T.A.K.E. Unconference, Bucharest, 12 may 2017</p></li>
 
-					<li><p><b>A Tale About the Evil Partial Mock and the Separation By Layers of Abstraction [Quickie]</b> during the Open Space at I T.A.K.E. Unconference, Bucharest, 11 may 2017</p></li>
+					<li><p><b>A Tale About the Evil Partial Mock and the Separation By Layers of Abstraction [Quickie]</b> during the Open Space at I T.A.K.E. Unconference, Bucharest, 11 may 2017</p></li>`
 					
 					<li><p><b>Brainstorming a Clean, Pragmatic Architecture</b> during the Open Space at I T.A.K.E. Unconference, Bucharest, 11 may 2017</p></li>
 					
@@ -1346,7 +1536,7 @@ ga('send', 'pageview');
 					
 					<li><p><b>The Art of Clean Code</b> at VoxxedDays Vienna, 16 march 2017(<a href="https://youtu.be/c0L7EdsxQ_c" target="_blank">video</a>)</p></li>
 					
-					<li><p><b>Clean Lambdas & Streams in Java 8 - A Hands-on Experience</b> at VoxxedDays Bucharest, 10 march 2017 (<a href="https://youtu.be/uH9A37k2QkU" target="_blank">screencast+voice</a> and <a href="http://www.slideshare.net/VictorRentea/clean-lambdas-streams-in-java8" target="_blank">slides</a>)</p>
+					<li><p><b>Clean Lambdas & Streams in Java 8 - A Hands-on Experience</b> at VoxxedDays Bucharest, 10 march 2017 (<a href="https://youtu.be/uH9A37k2QkU" target="_blank">screencast+voice</a> and <a href="https://www.slideshare.net/VictorRentea/clean-lambdas-streams-in-java8" target="_blank">slides</a>)</p>
 					
 					</li>
 					
@@ -2075,32 +2265,45 @@ ga('send', 'pageview');
                             <h2>Java 8</h2>
 							<h2 style="margin-top:10px">Lambdas &amp; Streams</h2>
 							<hr class="star-light">
-							<h3>Duration: 1/2 - 1 days</h3>											
+							<h3>Duration: 1 day</h3>											
 							<h3>Agenda</h3>
 							<ul class="agenda">
-								<li>Crash Course in Lambdas</li>
-								<li>Filtering Streams</li>
-								<li>Transforming Streams</li>
-								<li>Collecting Streams</li>
-								<li>Clean Code with Lambdas</li>
-								<li>Java 7 features
+								<li>Java 7 features (Quick recap - warm-up)
 									<ul>
-										<li>Try-with-resources</li>
+										<li>Try-with-resources: Supressed Exception</li>
 										<li>Diamond notation</li>
 										<li>String switch</li>
 										<li>Multi-catch</li>
 									</ul>
-								</li>								
+								</li>
+								
+								<li>Lambdas and Streams
+									<ul>
+										<li>Filtering Streams</li>
+										<li>Transforming Streams</li>
+										<li>Collecting Streams</li>
+										<li>Writing Clean Code with Java 8: Best Practices and Anti-patterns</li>
+									</ul>
+								</li>
+								<li>Async and Parallel Processing with Java 8
+									<ul>
+										<li>Short Introduction to Performance: Why to parallelize?</li>
+										<li>Parallel Streams</li>
+										<li>Controlling Parallelism</li>
+										<li>CompletableFuture</li>										
+									</ul>
+								</li>
+																
 							</ul>
 							
 							<hr class="star-light">
 							<h3>Description</h3>
+							<p>To warm up, we'll quickly review the Java7 additions at the beginning</p>
 							<p>Starting from "What's a Lambda?", the training covers those features of Java8 that caused that tremendous increase in Java popularity after their addition to the language. We will <b>exercise the core Stream API, discussing in each case the alternative ways</b> of implementing a certain task. While we do that, we'll explain related features like <b>Optional<>, pure functions, higher-order functions</b>. At times, we'll also peek 'under the hood' to understand how things actually work: <b>lazy eval, short-circuiting</b>, etc.</p>
-							<p>In the end, we'll quickly review the Java7 additions</P>
 							<p>The entire training is in fact a big hands-on workshop, during which we will solve together various little tasks with Java8, as we progress through the learning points.</p>
-							<p></p>
-							<p>This is in fact a slower and more in-detail version of the 'Clean Lambdas' workshop that I held at VoxxedDays Bucharest 2017.</p>
 							
+							<p>The Stream and Lambdas part is a slower and more in-detail version of the 'Clean Lambdas' workshop that I held at VoxxedDays Bucharest 2017.</p>
+							<p>After that, we'll work on how to do parallel and async processing in Java8, everything hands-on</p>
 							<img src="conf-voxxed-bucharest.jpg" />
 							
                         </div>
@@ -2539,98 +2742,117 @@ ga('send', 'pageview');
                 <div class="row">
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="modal-body">                           
-							<h2 id="training/spring" code="Spring" class="weight5">Spring</h2>
+							<h2 class="weight5">Spring</h2>
 							<hr class="star-primary"/>
-							<h3>Duration*: 2-3-5 days</h3>
-							* Duration varies depending on related topics included
-							
-							<h3>Spring Core</h3>
-							<ul class="agenda">
-								<li>What is Spring? Why Spring?</li>
-								<li>Defining and Wiring Beans: XML and @nnotation</li>
-								<li>Bean Lifecycles: scopes</li>
-								<li>Setting up Spring</li>
-								<li>Spring AOP</li>
-								<li>Externalizing Configuration; SpEL; i18n</li>
-								<li>Advanced Topics: @Inject, Extension points</li>
-								<li>Java config</li>
-								<li>Testing Support</li>
-							</ul>
-							
-							<h3>Spring DAO</h3>
-							<ul class="agenda">
-								<li>Spring DB access Philosophy</li>
-								<li>Working with JDBC: JDBCTemplate</li>
-								<li>Configuring JPA</li>
-								<li>Transaction Management
-									<ul>
-									<li>ACID</li>
-									<li>Business vs DB Transactions. Threads</li>
-									<li>Automatic rollback on Exception</li>
-									<li>Transaction Propagation</li>
-									<li>Declarative Transaction Management</li>
-									<li>Transaction Isolation</li>
-									</ul>
-								</li>
-							</ul>
-
-							<h3>Spring MVC / REST</h3>
-							<ul class="agenda">
-								<li>Basic Concepts</li>
-								<li>Annotation-driven Controllers
-									<ul><li>@RequestMapping, ...</li></ul>
-								</li>
-								<li>Working with JSPs and Forms
-									<ul>
-									<li>Basics: JSP, Request, Session, Servlets, Filters, web.xml</li>
-									<li>View Resolvers
-									<li>JSP- and Backend Security</li>
-									<li>Spring Forms</li>
-									</ul>
-								</li>
-								<li>Exposing REST endpoints
-									<ul>
-									<li>@RequestBody, @ResponseBody</li>
-									<li>@RestControllerAdvice</li>
-									<li>REST Security overview</li>
-									</ul>
-								</li>
-								<li class="optional">Exposing and Consuming JAX-WS web services</li>
-								<li class="optional">Consuming RESTful web services</li>
-							</ul>
-							
-							<h3>Spring Boot</h3>
-							<ul class="agenda">							
-								<li>start.spring.io</li>
-								<li>Auto-Configuration</li>
-								<li>Environment Abstraction</li>
-								<li>Profiles</li>
-								<li>Embedded Servlet Container</li>
-								<li>Deploying to an App Server</li>
-								<li>Developing a REST app with JPA</li>
-							</ul>
-							
-							<h3>Spring Cloud: Bootiful Microservices copy-cat</h3>
-							<ul class="agenda">							
-								<li>start.spring.io</li>
-								<li>Rest JPA Repositories</li>
-								<li>Config Server/Client</li>
-								<li>Eureka Service Registry + discovery</li>
-								<li>Hystrix circuit breaker + fallback</li>
-								<li>Eventual Consistency via async messages</li>
-							</ul>
+							    
+							<div class='markdown'>
+### Duration*: 2-5 days
+(Duration varies according to the topics included)
 
 
-							<h3>Spring Batch</h3>
-							<p>This part will be finalized upon your request. I have the necessary experience: I have built and delivered several applications using Spring Batch.</p>
-							<img alt="Under Construction" src="under-construction.jpg" width="200px" />
+### Introduction to Spring Framework
+* What is Spring? Why Spring?
+* A bit of history and phylosophy
+* Spring Initializr
+* Where to look for answers
+* Project Lombok
+	
+### Spring Boot Web App
+* Exposing HTTP Endpoints
+* Exercise: Implement REST endpoints
+* RestControllerAdvice
+* Converters
+* Handling POST request
+* File uploads
+
+### Dependency Injection
+* Concepts, Manual DI
+* Injection mechanisms in Spring
+* Qualifiers
+* Primary Beans
+* Spring Profiles
+* Bean Life Cycles (including Thread)
+* Three traps to avoid
+* Exercise: practice these concepts
+
+### Configuring Spring
+* Spring Boot Auto-Configuration
+* Default resolution of properties
+* @Value
+* Spring EL
+* Internationalization messages
+
+### Spring Aspects
+* Exercise: intercept a method call with a Proxy (manually)
+* Aspect-Oriented Programming Concepts
+* Creating an @Aspect
+* Working with proxies: impact, detecting, self-proxying
+* Double proxying problem
+
+### Working with JPA
+* Configuration properties
+* Spring Data JPA
+* @Transactional: concepts, controlling propagation, debugging
+* Exercise: adding JPA to our app
+
+### Spring Testing Support
+* Starting a Spring Container for tests
+* Integrating Mockito Bean
+* Testing MVC Endpoints
+
+### Working with RDB - other ways
+* MyBatis Workshop
+* JdbcTemplate Workshop
+
+### Spring with XML Configuration
+* Defining, Injecting Beans, scopes
+* Loading properties, i18n
+* Aspects
+* Exercise: convert our Spring Boot app to XML configuration
+	
+### Advanced Spring
+* Cacheable
+* Executors
+* Async
+* Scheduled
+
+### Spring Security [on-demand]
+* Security Interceptor
+* User Details Service
+* Security Context Holder
+* Custom Authentication 
+* Standard Authentication Providers: LDAP/JDBC/WebSSO~SAML
+* Filters: Pre/Post
+* Access Control: @RolesAlowed, ACL schema, integrating
+* Advanced: CSRF, Authentication tag, HTTPS, Remember Me
+* Java Configuration
+
+### Spring Cloud: Bootiful Microservices copy-cat
+* start.spring.io
+* Rest JPA Repositories
+* Using Config Server
+* Using Eureka Service Registry
+* Using Hystrix cirscuit breaker
+* Using Messages - Eventual Consistency
+
+### Spring Batch [on demand]
+* Jobs
+* Steps
+* Context
+* Listeners
+* Controlling parallelism
+* Web UI
+
+							</div>
+							
+
+
 
 							<hr class="star-primary"/>							
 							<h3>Description</h3>
 							<p>Meet the greatest and best opensource Java Framework of today.</p>
 							<p>Whatever you want to do, Spring <span class="high">helps you to do it in a simple &amp; clean way</span> - you probably only need to use or extend some Spring helper classes. No more boilerplate code, no more reinventing the wheel: let some of the best code on the planet to do it for you!</p>							
-							<p>Spring integrates with all the services of the JavaEE platform, and all the other major frameworks out there. Some say that <span class="high">if a java technology does not integrate with Spring, it's not mature enough</span>, and perhaps you shouldn't use it:)</p>
-							<p>All the modules are roughly 50:50 between theory and hands-on practice.</p>
+							<p>All the modules are mostly hands-on practice with only bits of theory to explain the more complex concepts.</p>
 							<p>For a walkthrough of an <span class="high">example of a real Spring enterprise application, an additional hour would be required</span>.</p>
 							
 							<p>Spring is in the top 3 most requested trainings: I've thaught it many-many times.</p>
@@ -2642,6 +2864,14 @@ ga('send', 'pageview');
             </div>
         </div>
     </div>
+	
+	<script src="js/showdown.min.js"></script>
+<script>
+							var converter = new showdown.Converter();
+							var text      = $('.markdown').html();
+							var html      = converter.makeHtml(text);
+							$('#spring .markdown').html(html);
+							</script>
 	
 	<div class="portfolio-modal modal fade" id="unit-testing" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content modal-albastru">
@@ -3397,6 +3627,7 @@ ga('send', 'pageview');
 	var sectionHrefs = $(".navbar-nav a").map(function() {return $(this).attr('href');}).get();
 	sectionHrefs.push("#photos");
 	sectionHrefs.push("#recommend");
+	sectionHrefs.push("#webinar");
 
     $(".navbar-nav a").on('click', function () {
 		window.location.hash=$(this).attr('href');	
