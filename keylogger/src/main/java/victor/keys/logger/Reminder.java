@@ -8,9 +8,9 @@ public class Reminder {
 		lastTime = System.currentTimeMillis();
 	}
 	public void tick() {
-		if (System.currentTimeMillis() - lastTime > REMIND_INTERVAL_SECONDS * 1000) {
-			lastTime = System.currentTimeMillis();
-			ShortcutKeylogger.toastrColumn.showToastr2();
-		}
+//		if (System.currentTimeMillis() - lastTime > REMIND_INTERVAL_SECONDS * 1000) {
+//			lastTime = System.currentTimeMillis();
+//			ShortcutKeylogger.toastrColumn.showToastr2();
+//		}
 	}
 }
