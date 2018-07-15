@@ -17,7 +17,7 @@ public class StreamVsIterator {
 		Iterable<Integer> iterable = () -> list.iterator(); // SOLUTION
 		
 		// Make Stream using StreamSupport
-		Stream<Integer> stream = StreamSupport.stream(iterable.spliterator(), false); // SOOLUTION
+		Stream<Integer> stream = StreamSupport.stream(iterable.spliterator(), false); // SOLUTION
 		
 		stream.forEach(System.out::println); // SOLUTION
 		
