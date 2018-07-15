@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @SpringBootApplication
 public class ObserverInSpring {
@@ -15,28 +16,41 @@ public class ObserverInSpring {
 	}
 }
 
+class OrderPlaced {
+	public final long orderId;
+	public OrderPlaced(long orderId) {
+		this.orderId = orderId;
+	}
+}
+class OrderInStock {
+	public final long orderId;
+	public OrderInStock(long orderId) {
+		this.orderId = orderId;
+	}
+}
+
 @Component
 class Start implements CommandLineRunner{
-
 	@Autowired
 	private ApplicationEventPublisher publisher;
-	
 	public void run(String... args) throws Exception {
-		publisher.publishEvent("Aloha, un string!"); // SOLUTION
+		publisher.publishEvent(new OrderPlaced(13)); // SOLUTION
 	}
 }
 
-@Component
-class Interested {
+@Service
+class StockManagementService {
 	@EventListener // SOLUTION
-	public void handle(String msg) {
-		System.out.println("Out: " + msg);
+	//public void handle(OrderPlaced event) {// INITIAL
+	public OrderInStock handle(OrderPlaced event) {
+		System.out.println("Checking stock for products in order id: " + event.orderId);
+		return new OrderInStock(event.orderId);// SOLUTION
 	}
 }
-@Component
-class Interested2 {
-	@EventListener // SOLUTION
-	public void handle(String msg) {
-		System.out.println("Out: " + msg);
-	}
+@Service
+class InvoiceService {
+	@EventListener // SOLUTION (
+	public void handle(OrderInStock event) {
+		System.out.println("Invoice customer for order id: " + event.orderId);
+	} // SOLUTION )
 }
