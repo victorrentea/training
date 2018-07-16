@@ -25,7 +25,7 @@ import victor.keys.logger.utils.HorizontalPositioner;
 
 @SuppressWarnings("serial")
 public class Toastr extends JFrame {
-	private static final int HEIGHT = 70;
+	private static final int HEIGHT = 100;
 	private static final int Y_GAP = 20;
 	private static final int FADEOUT_DURATION = 800;
 	private final long startFadeTime;

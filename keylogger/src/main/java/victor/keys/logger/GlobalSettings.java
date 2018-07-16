@@ -5,7 +5,7 @@ import java.awt.Color;
 import victor.keys.logger.utils.DetermineActiveIDE.IDE;
 
 public class GlobalSettings {
-	public static final int WIDTH = 300;
+	public static final int WIDTH = 400;
 
 	public static final long BLOCK_DUPLICATES_MILLIS = 9000;
 	public static final int FAST_DISPLAY_TIME = 3000;

@@ -111,7 +111,7 @@ public class ShortcutLabelMaker {
 		
 //		label.setFont(new Font("Cambria Math", 0, 16));
 		
-		label.setFont(new Font(label.getFont().getName(), Font.BOLD, 13));
+		label.setFont(new Font(label.getFont().getName(), Font.BOLD, 17));
 		label.setForeground(GlobalSettings.TOASTR_FONT_COLOR);
 		if (border) {
 			label.setBorder(new RoundedBorder(GlobalSettings.TOASTR_FONT_COLOR, 5));
