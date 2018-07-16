@@ -42,7 +42,7 @@ class Start implements CommandLineRunner{
 class StockManagementService {
 	@EventListener // SOLUTION
 	//public void handle(OrderPlaced event) {// INITIAL
-	public OrderInStock handle(OrderPlaced event) {
+	public OrderInStock handle(OrderPlaced event) { // SOLUTION
 		System.out.println("Checking stock for products in order id: " + event.orderId);
 		return new OrderInStock(event.orderId);// SOLUTION
 	}
