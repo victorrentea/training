@@ -89,7 +89,7 @@ public class ShortcutLabelMaker {
 			text = "↓";
 		}
 		if (text.toUpperCase().equals("SHIFT")) {
-			text = "⇧";
+			text = "Shift";
 		}
 		if (text.toUpperCase().equals("CMD")) {
 			text = "⇧";

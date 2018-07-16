@@ -19,7 +19,7 @@ public class GlobalSettings {
 //	public static final Color TOASTR_COLOR = new Color(81, 163, 81);
 	public static final Color TOASTR_BG_COLOR = Color.white;
 //	public static final Color TOASTR_FONT_COLOR = new Color(174, 202, 174);
-	public static final Color TOASTR_FONT_COLOR = Color.lightGray;
+	public static final Color TOASTR_FONT_COLOR = Color.black;
 
 	public static final long DEFAULT_TIMER_MILLIS = 7 * 60 * 1000;
 

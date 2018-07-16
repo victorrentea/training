@@ -131,13 +131,19 @@ function openEditCourse(courseId) {
 	$.ajax(restEndpoint + "/courses/"+courseId, {
 		method: "GET",
 		success: function(data) {
-			$("#editName").val(data.name);
-			$("#editDescription").val(data.description);
-			$("#editCourseId").val(data.id);
-			$("#editStartDate").val(data.startDate);
-			$("#editTeacher").val(data.teacherId);
-			$('#coursesMain').hide();
-			$('#courseEditDiv').show();
+			//au venit datele
+			$.ajax(restEndpoint + "/courses/"+courseId, {
+				method: "GET",
+				success: function(data) {
+					$.ajax(restEndpoint + "/courses/"+courseId, {
+						method: "GET",
+						success: function(data) {
+							//au venit datele
+						}
+					});
+					//au venit datele
+				}
+			});
 		}
 	});
 }
