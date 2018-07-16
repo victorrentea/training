@@ -207,6 +207,9 @@ public class Undoner {
 		}
 		boolean performedChanges = false;
 		for (File file : (Collection<File>) FileUtils.listFiles(baseSourceFolder, new String[] {"java", "html", "jsp", "php"}, true)) {
+			if (file.getAbsolutePath().contains("vendor")) {
+				continue;
+			}
 			File destFile = new File(baseDestFolder, file.getAbsolutePath().substring(baseSourceFolder.getAbsolutePath().length()));
 			if (undoFile(file, destFile, dryTest, curatEntityAnnot)) {
 				performedChanges = true;
