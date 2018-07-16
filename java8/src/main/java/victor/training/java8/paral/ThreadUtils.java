@@ -1,8 +1,11 @@
 package victor.training.java8.paral;
 
-import java.lang.reflect.Method;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
+import java.time.temporal.TemporalUnit;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -20,20 +23,33 @@ public class ThreadUtils {
 	}
 	
 	private static Map<Thread, ColorConsole.TextColor> threadColors = new HashMap<>();
+	private static Long startOfTimeMillis;
 	
 	static {
 		threadColors.put(Thread.currentThread(), TextColor.BLACK);
 	}
 	
-	public static void println(String message) {
+	public static synchronized void println(String message) {
 		String threadName = Thread.currentThread().getName();
-		String hourStr = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss.SSS"));
+		if (startOfTimeMillis == null) {
+			startOfTimeMillis = System.currentTimeMillis();
+		}
 		TextColor color = getTextColorForCurrentThread();
+		String timeStr = formatDuration(System.currentTimeMillis() - startOfTimeMillis);
 		ColorConsole.println(String.format("%s - %-30s - %s",
-				hourStr,
+				timeStr,
 				message,
 				threadName)
 			, color);
+	}
+	
+	public static String formatDuration(long millis) {
+	    long seconds = millis / 1000;
+	    String positive = String.format(
+	        "%2d,%03ds",	        
+	        seconds % 60,
+	        millis % 1000);
+	    return seconds < 0 ? "-" + positive : positive;
 	}
 
 	private static synchronized TextColor getTextColorForCurrentThread() {

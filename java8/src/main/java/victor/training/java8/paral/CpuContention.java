@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-// DOES NOT WORK
 public class CpuContention {
 	static boolean isPrime(BigDecimal n) {
 		BigDecimal nDiv2 = n.divide(new BigDecimal(2));
