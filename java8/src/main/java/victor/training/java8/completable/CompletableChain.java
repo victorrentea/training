@@ -1,8 +1,8 @@
 package victor.training.java8.completable;
 
 import static java.lang.System.currentTimeMillis;
-import static victor.training.java8.paral.ThreadUtils.println;
-import static victor.training.java8.paral.ThreadUtils.sleep;
+import static victor.training.java8.parallelstream.ThreadUtils.println;
+import static victor.training.java8.parallelstream.ThreadUtils.sleep;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -10,7 +10,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import victor.training.java8.paral.ThreadUtils;
+import victor.training.java8.parallelstream.ThreadUtils;
 
 public class CompletableChain {
 

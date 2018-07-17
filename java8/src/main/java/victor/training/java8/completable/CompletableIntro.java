@@ -2,7 +2,7 @@ package victor.training.java8.completable;
 
 import static java.lang.System.currentTimeMillis;
 
-import victor.training.java8.paral.ThreadUtils;
+import victor.training.java8.parallelstream.ThreadUtils;
 
 public class CompletableIntro {
 
