@@ -10,10 +10,8 @@ import java.util.stream.Stream;
 public class ParallelIOIntensive {
 
 	private static boolean stepIOBound(Integer i) {
-//		ThreadUtils.log()
 		ThreadUtils.println("Doing work");
 		ThreadUtils.sleep(1000);
-		
 		return true;
 	}
 	
@@ -23,14 +21,14 @@ public class ParallelIOIntensive {
 		Stream<Integer> stream = list.parallelStream()
 			.filter(ParallelIOIntensive::stepIOBound)
 			.map(n -> n * n);
-//		runOnManyThreads(n)
-		executeInCustomFJP(() -> 
-			stream.forEachOrdered(System.out::println)
-			);
+		executeInCustomFJP(() -> {// SOLUTION
+			stream.forEachOrdered(System.out::println);
+		}); // SOLUTION
 		long delta = System.currentTimeMillis() - t0;
 		System.out.println("Took " + delta);
 	}
 	
+	// SOLUTION(
 	public static void executeInCustomFJP(Runnable r) throws InterruptedException {
 		ForkJoinPool pool = new ForkJoinPool(10);
 		pool.submit(r);
@@ -41,5 +39,5 @@ public class ParallelIOIntensive {
 		pool.shutdown();
 		pool.awaitTermination(10, TimeUnit.SECONDS);
 		
-	}
+	} // SOLUTION)
 }
