@@ -38,14 +38,14 @@ public class SearchStreamsTest {
 	@Test
 	public void p2_getOrderById() {
 		List<Order> orders = Arrays.asList(new Order(1L), new Order(2L), new Order(3L));
-		assertEquals(1L, (long) service.p2_getOrderById(orders, 1L).getId());
+		assertEquals(2L, (long) service.p2_getOrderById(orders, 2L).getId());
 	}
 	
 	@Test
 	@Ignore
 	public void p2_getOrderById_whenIdNotFound() {
 		List<Order> orders = Arrays.asList(new Order(1L));
-		assertEquals(null, (long) service.p2_getOrderById(orders, 1000L).getId());
+		assertEquals(null, service.p2_getOrderById(orders, 1000L));
 	}
 
 	@Test
