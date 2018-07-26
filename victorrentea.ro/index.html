@@ -337,16 +337,16 @@ ga('send', 'pageview');
 			</div>
 			<div class="row">
 				<div class="col-lg-1 col-lg-offset-4 col-md-2 col-xs-offset-2 col-xs-2">					
-					<img src="lang-ro.png" class="img-responsive" alt="">
+					<img src="lang-ro.png" class="img-responsive" alt=""></img>
 				</div>
 				<div class="col-lg-1 col-md-2 col-xs-2">					
-					<img src="lang-en.png" class="img-responsive" alt="">
+					<img src="lang-en.png" class="img-responsive" alt=""></img>
 				</div>
 				<div class="col-lg-1 col-md-2 col-xs-2">					
-					<img src="lang-es.png" class="img-responsive" alt="">
+					<img src="lang-es.png" class="img-responsive" alt=""></img>
 				</div>
 				<div class="col-lg-1 col-md-2 col-xs-2">					
-					<img src="lang-fr.png" class="img-responsive" alt="">
+					<img src="lang-fr.png" class="img-responsive" alt=""></img>
 				</div>
 			</div>
 						
@@ -650,6 +650,7 @@ ga('send', 'pageview');
 	</div>
 		
 		<div class="row" id="download-vm">
+		<span id="stickers"></span>
 			<div class="col-lg-12 text-center">
 				<br />
 				<br />
@@ -989,7 +990,7 @@ ga('send', 'pageview');
 				<div class="col-sm-6 recommendation" id="feedback-abs2">
 					<div class="read-short">
 						<p>Share all the information in such an understandable way</p>
-						<p>Interactive sessions, no questions without answers and very well organized presentations made us very involved in the course topics.</p>
+						<p>Interactive sessions, no questions without answers and very well organized presentations.</p>
 						<p>Passion in every line of code or piece of design</p>
 						<div class="text-right"><button class="btn btn-success btn-sm read-more-but">Read More</button></div>	
 					</div>
@@ -1112,6 +1113,47 @@ ga('send', 'pageview');
 					</div>
 									   
 					<p class="recommendation-author">Catalin Balascuta, Senior Development Project Manager, Cerner Romania SRL<br /></p>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				
+				<div class="col-sm-6 recommendation" id="feedback-siemens">
+					<div class="read-short">
+						<p>The webinar training was excellent, with lots of valuable examples</p>
+						<p>Great associations between real life and programming patterns - a lot easier to understand and remember</p>
+						<div class="text-right"><button class="btn btn-success btn-sm read-more-but">Read More</button></div>
+					</div>
+					<div class="read-full">
+						<p>The webinar training was excellent, with lots of valuable examples. What I loved most was the associations made between concepts from real life and programming patterns - it's a lot easier to understand and remember.</p>
+						<p>The Streams/Lambda examples were very relevant and together with the JUnit tests created an interactive hands-on experience.</p>
+						<p>After the webinar we were given both the initial and the final source code to play with, which is a great advantage. The various hints and tips about using the IDE also soon proved very useful in practice.</p>
+						<p>What I think helped the most burning the concepts in our minds were: the test after the first day and the summary we wrote together at the end of the second day. I am confident that re-reading this recap we wrote together will help me a lot.</p>
+						<span title="Training-ul a fost foarte bun, cu multe exemple bune. Cel mai mult mi-a placut asocierea dintre exemplele din viata reala cu patternuri din programare, se fac asocierile mai usor (gradina imparatului japoniei J, pacanelele ). Exemplele la streams si lambda au fost foarte relevante si corelate cu testele de junit, a fost un adevarat hands on. Faptul ca avem codul sursa pe care putem sa-l rulam si sa ne jucam cu el, e un mare avantaj. Shortcut-urile din eclipse, modul in care eclipse ne ajuta sa vedem return type al unui stream, e iarasi foarte util. Testul de la sfirsitul primei zile si recapitularea globala la sfirsitul celei de a doua zi, au insemnat foarte mult. Sunt convins ca recitirea periodica a recapitularii celor 2 zile ( pe care am notat-o ) ma va ajuta foarte mult.">Hover for original [RO]</span>
+					</div>
+									   
+					<p class="recommendation-author">Andrei Medan, Senior Java Developer at Siemens<br /></p>
+				</div>
+				
+				<div class="col-sm-6 recommendation" id="feedback-siemens2">
+					<div class="read-short">
+						<p>Very well prepared trainer - you can tell he speaks from his experience</p>
+						<div class="text-right"><button class="btn btn-success btn-sm read-more-but">Read More</button></div>
+					</div>
+					<div class="read-full">
+						<p>Very well prepared trainer - you can tell he speaks from his experience. Each topic was presented with a lot of enthusiasm first via focused, carefully designed slides, and then demonstrated and discussed in live coding. </p>
+						<p>The pace was appropriate for a deep understanding of the topics.</p>
+						<p>We had a very good audio-video connection during the webinar - we were able to follow all the transmitted ideas.</p>
+						<span title="
+- Trainer-ul a fost bine pregatit si mi-a inspirat incredere ca vorbeste(si stie despre ce vorbeste) din experienta.
+- Fiecare topic prezentat in slide a fost exersat si dovedit practic cu cod LIVE (cu entuziasm chiar)
+- Ritmul cursului a fost potrivit parcurgerii si intelegerii curiculei propuse
+- Slide-urile folosite sunt “muncite” bine si la subiect.
+- Video/audio-ul webminarului au fost bune. Nu am pierdut informatii datorita infrastructurii (conectivitatii la internet).
+">Hover for original [RO]</span>
+					</div>									   
+					<p class="recommendation-author">Ionut Diaconu, Senior Java Developer at Siemens<br /></p>
 				</div>
 			</div>
 			
@@ -2275,6 +2317,8 @@ ga('send', 'pageview');
                             <h2>Java 8</h2>
 							<h2 style="margin-top:10px">Lambdas &amp; Streams</h2>
 							<hr class="star-light">
+							
+							
 							<h3>Duration: 1 day</h3>											
 							<h3>Agenda</h3>
 							<ul class="agenda">
@@ -3645,6 +3689,7 @@ ga('send', 'pageview');
 	sectionHrefs.push("#photos");
 	sectionHrefs.push("#recommend");
 	sectionHrefs.push("#webinar");
+	sectionHrefs.push("#stickers");
 
     $(".navbar-nav a").on('click', function () {
 		window.location.hash=$(this).attr('href');	
