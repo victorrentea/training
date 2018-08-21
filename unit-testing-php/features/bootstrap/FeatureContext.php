@@ -8,40 +8,41 @@ use Behat\Gherkin\Node\TableNode;
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context
+class FeatureContext extends \PHPUnit\Framework\TestCase implements Context
 {
+    /** @var TennisScore */
+    private $tennisScore;
     /**
-     * Initializes context.
-     *
-     * Every scenario gets its own context instance.
-     * You can also pass arbitrary arguments to the
-     * context constructor through behat.yml.
+     * @Given /^An empty game$/
      */
-    public function __construct()
+    public function anEmptyGame()
     {
+        $this->tennisScore = new TennisScore();
     }
 
     /**
-     * @Given A new game of size :arg1 x :arg2
+     * @Then /^The score is "(.+)"$/
      */
-    public function aNewGameOfSizeX($arg1, $arg2)
+    public function theScoreIs(string $expected)
     {
-        throw new PendingException();
+        $this->assertEquals($expected, $this->tennisScore->getScore());
+    }
+
+    /** @When /^Player(\d) scores a point$/ */
+    public function playerscoresAPoint(int $playerNo)
+    {
+        $this->tennisScore->addPoint($playerNo);
     }
 
     /**
-     * @When I print the board
+     * @When /^Player(\d) scores (\d+) points$/
      */
-    public function iPrintTheBoard()
+    public function playerscoresPoints(int $player, int $points)
     {
-        throw new PendingException();
-    }
-
-    /**
-     * @Then the output should contain exactly:
-     */
-    public function theOutputShouldContainExactly(PyStringNode $string)
-    {
-        throw new PendingException();
+        for ($i = 0; $i < $points; $i++) {
+            $this->tennisScore->addPoint($player);
+        }
     }
 }
+
+

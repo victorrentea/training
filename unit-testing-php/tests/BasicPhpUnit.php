@@ -7,79 +7,51 @@ use PHPUnit\Framework\Constraint\TraversableContains;
 use PHPUnit\Framework\TestCase;
 
 class BaseTest extends TestCase {
+    /** @var string */
+    protected $currentUserName;
+
     /** @before */
-    public function initInSuper() {
-        echo "init super\n";
+    public function initUsername() {
+        echo "Inainte din super-clasa testuli\n";
+        $this->currentUserName = "jdoe";
     }
 }
 
 class BasicPhpUnit extends BaseTest
 {
+    public function __construct(?string $name = null, array $data = [], string $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+        echo "Uaaa, A new test instance is born!\n";
+    }
+
+    private $f = 1;
 
     /** @before */
-    public function init1() {
-        echo "init1\n";
+    public function initBasic() {
+        echo "Inainte de test\n";
     }
-
     /** @before */
-    public function init2() {
-        echo "init2\n";
+    public function initBasic2() {
+        echo "Inainte2 de test\n";
     }
 
-    protected function setUp()
+    protected function setUp()/* The :void return type declaration that should be here would cause a BC issue */
     {
-        echo "Before\n";
+        //am inghitit super::setUp
+        echo "setup \n";
     }
 
-    /**
-     * @test
-     * @doesNotPerformAssertions
-     */
-    public function first()
-    {
-        echo "Hello 1\n";
+
+    public function test1() {
+        $this->f++;
+        echo "Test1 {$this->f}\n";
+        self::assertEquals(1,1);
+    }
+    public function test2() {
+        echo "Test2 {$this->f}\n";
+        self::assertEquals(1,1);
     }
 
-    /** @test */
-    public function second()
-    {
-        echo "Hello 2\n";
-        $this->assertEquals(1, 1);
-    }
-
-    /** @test
-     * @expectedException \InvalidArgumentException
-     */
-    public function exceptionClass(): void
-    {
-        $this->throwingLogic();
-    }
-
-    /** @test
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionCode 123
-     */
-    public function exceptionCode(): void
-    {
-        $this->throwingLogic();
-    }
-
-    private function throwingLogic(): void
-    {
-        throw new \InvalidArgumentException("Dummy", 123);
-    }
-
-    /** @test */
-    public function playWithFire() {
-        $t = $this->logicReturingTime();
-        self::assertEquals(round(microtime(true) * 1000), $t);
-    }
-
-    private function logicReturingTime(): int
-    {
-        $time = round(microtime(true) * 1000);
-//        for ($i = 0; $i < 700;$i++) echo sqrt(1314112323123);
-        return $time;
-    }
 
 }
