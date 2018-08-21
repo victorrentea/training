@@ -64,8 +64,8 @@ ga('send', 'pageview');
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <div class="navbar-header page-scroll">				
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">					
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#page-top" style="padding-top:8px">Technical Training<br /><div style="font-size:0.7em; text-align: center;">With Personality</div></a>
@@ -146,9 +146,58 @@ ga('send', 'pageview');
 	
 	</script>	
 
+<style>
+#popdown #progress{
+	white-space: nowrap;
+	overflow: hidden;
+	width: 30em;
+	animation: linearwipe 12s steps(60, end); 
+  }
+  
+  @keyframes linearwipe{ 
+	from { width: 0; } 
+  }  
+  #popdown {
+	animation-delay: 12s;	
+	animation-name: popdown-fadeout;
+	animation-duration: 3s;
+	animation-fill-mode: both;
+  }
+  @keyframes popdown-fadeout {
+   0% {opacity: 1;visibility: visible;}
+   100% {opacity: 0;visibility:hidden;} 
+  } 
+</style>
+<div style="position:fixed;bottom:0px;width:100%; z-index: 14;" id="popdown">
+	<div class="container">
+		<div class="row" >
+			
+				
+			<div class="col-xs-12 col-lg-6 col-lg-offset-3" style="background-color:lightgreen;
+			border-top:2px solid darkgreen;
+			border-left:2px solid darkgreen;
+			border-right:2px solid darkgreen; padding: 0;
+			" > 
+			<div  id="progress" style="background:red; height:2px; width: 100%;"></div>
+			
+				<a href="javascript:$('#popdown').hide();"><div style="float:right; font-size:1.5em; color:black;">[X]</div></a>
+				<a href="https://romania.voxxeddays.com/design-patterns-workshop/">								
+					<div style=" color:black;font-size:1.2em; text-align: center;">
+						Design Patterns &amp; Principles Master Class</div>
+					<div style=" color:black;font-size:0.8em; text-align: center;">
+						Enroll my Training at VoxxedDays Cluj on 21 nov 2018</div>			
+				</a>
+		
+			</div>
+		</div>
+	</div>
+</div>
+	
     <!-- Header -->
     <header>
         <div class="container">
+			
+				
             <div class="row" id="fata-imagine">
                 <div class="col-xs-8 col-xs-offset-2" >
                     <img class="img-responsive" src="fata.jpg" alt="" style="margin-bottom: 0px" />
@@ -158,6 +207,7 @@ ga('send', 'pageview');
 				</div>
 				
 			</div>
+			
 			
 			<div class="row"  id="fata-video" style="display:none;">
                 <div class="col-xs-8 col-xs-offset-2" >
@@ -301,22 +351,22 @@ ga('send', 'pageview');
 				</div>
 				<div class="col-sm-4 col-xs-12 intro-text" >
 					<div class="skills counterDiv">
-					<!-- ~20 intrern + 35 until 24 jun 2018)-->
-						<span class="countup">67</span> trainings held
+					<!-- until 15 aug 2018-->
+						<span class="countup">72</span> trainings held
 					</div>            
 				</div>
 				<div class="col-sm-4 col-xs-12 intro-text" >
 					<a href="#photos">
 					<div class="skills counterDiv">
-					<!-- 200 intrern + 351 until 24 jun 2018)-->
-						<span class="countup">724</span> trainees
+					<!-- until 15 aug 2018-->
+						<span class="countup">1003</span> trainees
 					</div>                    
 					</a>
 				</div>
 				<div class="col-sm-4 col-xs-12 intro-text" >
 					<div class="skills counterDiv">
-					<!-- 17 intra + 8 magdeburg + 79 until (13 nov 2013) -24 jun 2018 -->
-						<span class="countup">134</span> training days
+					<!-- 15 aug 2018 -->
+						<span class="countup">147</span> training days
 					</div>                    
 				</div>				
 				<div class="col-sm-4 col-sm-offset-4 col-xs-12 intro-text text-center" >
@@ -753,6 +803,9 @@ ga('send', 'pageview');
 				<div class="col-sm-2 col-xs-4 client-item">
 					<img title="ING Bank" src="client-ing.png" class="img-responsive img-centered" />
 			    </div>				
+				<div class="col-sm-2 col-xs-4 client-item">
+					<img title="Orange" src="client-orange.jpg" class="img-responsive img-centered" />
+                </div>
 				<div class="col-sm-2 col-xs-4 client-item">
 					<img title="Thales Group" src="client-thales.jpg" class="img-responsive img-centered" />
                 </div>
@@ -1369,11 +1422,31 @@ ga('send', 'pageview');
 				color:white;
 			}
 			</style>
+
+			<div class="row talk" id="webinar">			
+				<div class="col-lg-12 text-center">
+					<h3 style="color:red" class="blink_me">Design Patterns &amp; Principles Master Class</h3>
+					<h4>VoxxedDays Cluj, 21 November 2018</h4>
+					<p>Please read description on event website</p>
+				</div>
+				<div class="col-md-offset-4 col-md-4 col-sm-6 col-xs-12 text-center">
+					<h4>WEB SITE</h4>
+					<div class="video-container text-center">
+					<a href="https://romania.voxxeddays.com/design-patterns-workshop/">
+					<img width="560" class="img-responsive" src="voxxed-design-patterns-workshop.jpg" />
+					
+					</a>
+					</div>
+					
+				</div>
+				
+			</div>
+
 			<div class="row talk alt" id="webinar">			
                 <div class="col-lg-12 text-center">
 				<br />
 				<br />
-                    <h3 style="color:red" class="blink_me">Joint Romanian Clean Code Webinar</h3>
+                    <h3>Joint Romanian Clean Code Webinar</h3>
 					<h4>ALL Romanian JUGs (Bucharest, Cluj, Iasi, Timisoara)<br />Codecamp, Bucharest Agile Software Meetup</h4>
 					<h4>20 June 2018</h4>
 					<p>Live-coding webinar in which I solved <a href="Junkomat.pdf">this problem</a>, debating all the design decisions with the in class+remote audience.</p>
