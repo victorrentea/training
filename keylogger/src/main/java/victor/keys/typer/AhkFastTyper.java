@@ -136,7 +136,11 @@ public class AhkFastTyper {
 			}
 		});
 
-		System.out.println("Global keyboard hook successfully started, press [shift-escape] key to shutdown.");
+		System.out.println("Using folder: " + snippetsBaseFolder);
+		System.out.println("[SHIFT-ESCAPE] key to shutdown.");
+		System.out.println("[CTRL-SHIFT-1..] starts current file");
+		System.out.println("[CTRL-SHIFT-Q] halts current file");
+		
 		try {
 			while(true) Thread.sleep(128);
 		} catch(InterruptedException e) { /* nothing to do here */ }
