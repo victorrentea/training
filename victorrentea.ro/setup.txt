@@ -1,0 +1,19 @@
+** Setup **
+
+1) Setup IDE
+Have a decent version of Eclipse or IDEA installed
+
+Configure your IDE with Lombok: 
+https://projectlombok.org/setup/eclipse
+https://projectlombok.org/setup/intellij
+
+2) Clone https://github.com/victorrentea/design-patterns-spring-java8
+If you don't have another tool, try https://desktop.github.com/
+
+3) Import the project in your IDE
+Be patient for Maven to load its dependencies.
+
+4) send me an empty email to victorrentea@gmail.com
+I'll send back to you all the materials.
+
+6) Help the others around you setup.

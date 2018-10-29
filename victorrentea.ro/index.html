@@ -181,11 +181,13 @@ ga('send', 'pageview');
 			<div  id="progress" style="background:red; height:2px; width: 100%;"></div>
 			
 				<a href="javascript:$('#popdown').hide();"><div style="float:right; font-size:1.5em; color:black;">[X]</div></a>
-				<a href="https://romania.voxxeddays.com/design-patterns-workshop/">								
-					<div style=" color:black;font-size:1.2em; text-align: center;">
-						Design Patterns &amp; Principles Master Class</div>
-					<div style=" color:black;font-size:0.8em; text-align: center;">
-						Enroll my Training at VoxxedDays Cluj on 21 nov 2018</div>			
+				<a href="#patterns-workshop">								
+					<div style=" color:black;font-size:1.0em; text-align: center;">
+						Enroll my Master Class</div>
+					<div style=" color:black;font-size:1.3em; text-align: center;">
+						Design Patterns with Spring and Java8</div>
+					<div style=" color:black;font-size:1.0em; text-align: center;">
+						<b>9 nov</b> in Bucharest or <b>21 nov</b> in Cluj</div>			
 				</a>
 		
 			</div>
@@ -280,14 +282,47 @@ ga('send', 'pageview');
 							Lead Architect at IBM Romania
 						</span> 
 					</div>
+					<p></p>
+					<p>Posting daily thoughts on:</p>
+					<p>
+						<style>
+							#linkedin-follow {
+								background:#1b95e0;;
+								color:white;
+								padding: 5px;
+								padding-left: 10px;
+								border-radius: 5px;
+							}
+							#linkedin-follow:hover {
+								text-decoration:none;
+								color: #1b95e0;;
+								background: white;
+							}
+						</style>
+						
+						<a id="linkedin-follow" href="https://www.linkedin.com/in/victor-rentea-trainer" target="_blank" >
+							<span class="fa fa-linkedin"></span>
+							Follow on LinkedIN
+						</a>
+						&nbsp;&nbsp;
+						<span >-  29K followers</span>
+					</p>
+					<p>
+						<a class="twitter-follow-button"  href="https://twitter.com/victorrentea" data-size="large">Follow me</a>
+					</p>
+					<p>
+							<p>Founder of</p>
+							<a href="https://www.meetup.com/bucharest-software-craftsmanship-community" target="_blank">
+							<img src="crafters-community.jpg">
+							</a>
+					</p>
 				</div>
-				<br />
-				<a class="twitter-follow-button"  href="https://twitter.com/victorrentea" data-size="large">Follow me</a>
 			</div>
 			<style>
 			
 			.counterDivs div div {
 				border: 2px solid white;
+				border-radius: 10px;
 				padding-top: 10px;
 				padding-bottom: 10px;
 				margin-bottom: 15px;
@@ -513,11 +548,19 @@ ga('send', 'pageview');
                 </div>
             </div>			
 			<div class="row">
+				<div class="col-sm-offset-4 col-sm-4 col-xs-12 text-center">
+					<a href="training-overview-victor-rentea.pdf" >                       
+                        <img src="label/overview.jpg" class="img-responsive img-centered" alt="" style="border:1px solid black;">						
+                    </a>
+					<hr />
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-lg-12 text-center">
 					<p class="blink_me" style="color:red">Click any item to see the agenda</p>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row">			
 				<div class="col-sm-6 col-xs-12 portfolio-item text-center">
                     <a href="#patterns" class="portfolio-link" data-toggle="modal">
                         <div class="caption">Design Patterns<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
@@ -1423,17 +1466,26 @@ ga('send', 'pageview');
 			}
 			</style>
 
-			<div class="row talk" id="webinar">			
+			<div class="row talk" id="patterns-workshop">			
 				<div class="col-lg-12 text-center">
-					<h3 style="color:red" class="blink_me">Design Patterns &amp; Principles Master Class</h3>
-					<h4>VoxxedDays Cluj, 21 November 2018</h4>
+					<h3 style="color:yellow" class="blink_me">Design Patterns with Spring &amp; Java 8 - Master Class</h3>
 					<p>Please read description on event website</p>
 				</div>
-				<div class="col-md-offset-4 col-md-4 col-sm-6 col-xs-12 text-center">
-					<h4>WEB SITE</h4>
+				<div class="col-md-offset-2 col-md-4 col-sm-6 col-xs-12 text-center">
+					<h4>21 November 2018</h4>
+					<h5>VoxxedDays Cluj</h5>
 					<div class="video-container text-center">
-					<a href="https://romania.voxxeddays.com/design-patterns-workshop/">
-					<img width="560" class="img-responsive" src="voxxed-design-patterns-workshop.jpg" />
+					<a href="https://romania.voxxeddays.com/design-patterns-workshop-with-spring-and-java8/">
+						<img width="560" class="img-responsive" src="voxxed-design-patterns-workshop.jpg" />					
+					</a>
+					</div>					
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12 text-center">
+					<h4>9 November 2018</h4>
+					<h5>Codecamp Bucuresti</h5>
+					<div class="video-container text-center">
+					<a href="https://blog.codecamp.ro/2018/08/31/masterclass-design-patterns-with-spring-and-java8-9-november-bucharest/">
+					<img width="560" class="img-responsive" src="codecamp-design-patterns-workshop.jpg" />
 					
 					</a>
 					</div>
@@ -3764,6 +3816,7 @@ ga('send', 'pageview');
 	sectionHrefs.push("#recommend");
 	sectionHrefs.push("#webinar");
 	sectionHrefs.push("#stickers");
+	sectionHrefs.push("#patterns-workshop");
 
     $(".navbar-nav a").on('click', function () {
 		window.location.hash=$(this).attr('href');	

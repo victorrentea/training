@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <style>
+        iframe {
+            margin-bottom: 500px;
+        }
+        body {
+            text-align: center;
+            overflow-y: hidden;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }  
+    </style>
+    <script src="linkedin-data.js" > </script>
+    <script src="twitter-data.js" > </script>
+    <script src="jquery.js" > </script>
+</head>
+
+<body>
+<!-- 
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6462307146674638848" height="496" width="504" frameborder="0" allowfullscreen=""></iframe> -->
+
+<span style="position:fixed; bottom:10px; right:20px;">victorrentea.ro</span>
+<img src="crafters-community.jpg" style="position:fixed; bottom:40px; right:0;" width="15%" />
+<img src="voxxed-cluj.jpg" style="position:fixed; top:0px; right:0px;" width="15%" />
+<span style="position:fixed;right:20px; bottom:140px;">&lt;-- on Twitter too</span>
+
+<script>
+
+var TOTAL_POSTS = 30;
+var SECONDS_PER_POST = 4;
+
+
+function getLinkedInHtmls() {
+    console.log('LinkedIN raw posts: ' + linkedin.length);
+    linkedin.sort(function (a,b) {return - a.count + b.count;});
+    return linkedin
+        .splice(0, TOTAL_POSTS)
+        .map(function (obj) {return obj.html;})
+        .filter(function(val) {return !!val;});
+}
+
+function getTwitterHtmls() {
+    console.log('Twitter raw posts: ' + twitter.length);
+    return twitter
+        .splice(0, TOTAL_POSTS/2)
+        .map(function (obj) {return obj.html;});
+}
+
+function interweaveArrays(arr1, arr2) {
+    var rez = [];
+    var i = 0, j = 0;
+    while (i<arr1.length || j < arr2.length) {
+        if (i<arr1.length) {
+            rez.push(arr1[i++]);
+        }
+        if (j<arr2.length) {
+            rez.push(arr2[j++]);
+        }
+    }
+    return rez;
+}
+
+var allData = shuffle(getLinkedInHtmls());//interweaveArrays(getLinkedInHtmls(), getTwitterHtmls());
+
+function appendPost(index) {
+    if ($("#post-"+index).length >= 1) return; //already created
+    var e = document.createElement("div");
+    e.id="post-"+index;
+    e.innerHTML = allData[index];
+    document.body.appendChild(e);
+}
+
+$.fn.scrollView = function () {
+    return this.each(function () {
+        $('html, body').animate({
+            scrollTop: $(this).offset().top
+        }, 500);
+    });
+}
+
+var currentPost = 0;
+appendPost(0);
+
+function putNextPost() {
+    if (currentPost >= allData.length) {
+        currentPost = 0;
+    }
+    $("#post-"+currentPost).scrollView();
+    appendPost(currentPost + 1);
+    currentPost++;
+    setTimeout(putNextPost, SECONDS_PER_POST * 1000);
+}
+putNextPost();
+
+
+function copyToClipboard(text){
+    var dummy = document.createElement("input");
+    document.body.appendChild(dummy);
+    dummy.setAttribute('value', text);
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+}
+
+
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+
+</script>
+</body>
