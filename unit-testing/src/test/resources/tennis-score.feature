@@ -16,39 +16,66 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: Tennis Score
+Feature: Tennis Score 
 
-  Scenario: Initial Score
-    Given An empty game
-    Then The score is "Love-Love"
-
-  Scenario: Fifteen-Love
-    Given An empty game
-    When Player1 scores a point
-    Then The score is "Fifteen-Love"
-
-  Scenario: Fifteen-Fifteen
-    Given An empty game
-    When Player1 scores a point
-    And Player2 scores a point
-    Then The score is "Fifteen-Fifteen"
-
-  ############## VARIATION ##################
-  Scenario: Fifteen-Fourty
-    Given An empty game
-    When Player1 scores 1 points
-    And Player2 scores 3 points
-    Then The score is "Fifteen-Forty"
-
-  ############## SCENARIO OUTLINE (data table) ##################
-  Scenario Outline: A Record matches the filter
-    Given An empty game
-    When Player1 scores <player1points> points
-    And Player2 scores <player2points> points
-    Then The score is "<expectedScore>"
-
-    Examples: 
-      | player1points | player2points | expectedScore |
-      |             0 |             0 | Love-Love     |
-      |             1 |             0 | Fifteen-Love     |
-      |             2 |             0 | Thirty-Love     |
+Scenario: Initial Score 
+	Given An empty game 
+	Then The score is "Love-Love" 
+	##
+	
+Scenario: Fifteen-Love 
+	Given An empty game 
+	When Player1 scores a point 
+	Then The score is "Fifteen-Love" 
+	
+	
+	
+	
+	
+	
+	
+	##
+Scenario: Fifteen-Fifteen 
+	Given An empty game 
+	When Player1 scores a point 
+	And Player2 scores a point 
+	Then The score is "Fifteen-Fifteen" 
+	
+Scenario: Deuce 
+	Given An empty game 
+	When Player1 scores a point 
+	And Player1 scores a point 
+	And Player1 scores a point 
+	And Player2 scores a point 
+	And Player2 scores a point 
+	And Player2 scores a point 
+	Then The score is "Deuce" 
+	
+Scenario: Deuce 
+	Given An empty game 
+	When Player1 scores 3 points 
+	And Player2 scores 3 points 
+	Then The score is "Deuce" 
+	##
+	##  ############## VARIATION ##################
+Scenario: Fifteen-Fourty 
+	Given An empty game 
+	When Player1 scores 1 points 
+	And Player2 scores 3 points 
+	Then The score is "Fifteen-Forty" 
+	##
+	##  ############## SCENARIO OUTLINE (data table) ##################
+Scenario Outline: Score is correct 
+	Given An empty game 
+	When Player1 scores <player1points> points 
+	And Player2 scores <player2points> points 
+	Then The score is "<expectedScore>" 
+	
+	Examples: 
+		| player1points | player2points | expectedScore |
+		|             0 |             0 | Love-Love     |
+		|             1 |             0 | Fifteen-Love  |
+		|             2 |             0 | Thirty-Love   |
+		|             3 |             0 | Forty-Love    |
+		|             3 |             3 | Deuce         |
+		|             4 |             4 | Deuce         |
