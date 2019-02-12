@@ -168,6 +168,7 @@ ga('send', 'pageview');
    100% {opacity: 0;visibility:hidden;} 
   } 
 </style>
+
 <div style="position:fixed;bottom:0px;width:100%; z-index: 14;" id="popdown">
 	<div class="container">
 		<div class="row" >
@@ -181,13 +182,13 @@ ga('send', 'pageview');
 			<div  id="progress" style="background:red; height:2px; width: 100%;"></div>
 			
 				<a href="javascript:$('#popdown').hide();"><div style="float:right; font-size:1.5em; color:black;">[X]</div></a>
-				<a href="#patterns-workshop">								
+				<a href="https://romania.voxxeddays.com/bucharest/2019-03-20/design-patterns-workshop-with-spring-and-java8/">								
 					<div style=" color:black;font-size:1.0em; text-align: center;">
 						Enroll my Master Class</div>
 					<div style=" color:black;font-size:1.3em; text-align: center;">
 						Design Patterns with Spring and Java8</div>
 					<div style=" color:black;font-size:1.0em; text-align: center;">
-						<b>9 nov</b> in Bucharest or <b>21 nov</b> in Cluj</div>			
+						in Bucharest on <b>20 mar 2019</b></div>			
 				</a>
 		
 			</div>
@@ -306,6 +307,7 @@ ga('send', 'pageview');
 						</a>
 						&nbsp;&nbsp;
 						<span >-  29K followers</span>
+						<div class="fb-page" data-href="https://www.facebook.com/VictorRentea.ro/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/VictorRentea.ro/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/VictorRentea.ro/">Victor Rentea - Independent Trainer</a></blockquote></div>
 					</p>
 					<p>
 						<a class="twitter-follow-button"  href="https://twitter.com/victorrentea" data-size="large">Follow me</a>
@@ -1461,11 +1463,30 @@ ga('send', 'pageview');
 			.talk.alt {
 			background-color: rgb(31,164,182);
 			}
-			.talk.alt a {
+			.talk a {
 				color:white;
 			}
 			</style>
 
+			
+			<div class="row talk" style="border:3px solid black" id="meetup">			
+                <div class="col-lg-12 text-center">				
+				<br />
+				<br />
+                    <h3>Community Meetups</h3>
+					<p><a href="https://www.meetup.com/Transylvania-Java-User-Group/events/258725818/">The Art of Clean Code at Cluj, Feb 12, 2010 </a></p>
+					<p>Clean Pragmatic Architecture at Iasi, 2019</p>
+					<p>Functional Programing Patterns at Iasi, 2019</p>
+					<p>Clean Pragmatic Architecture at Cluj, 2019</p>
+					<p>Clean Pragmatic Architecture at Chisinau, 2019</p>
+					<p>Follow me to be notified of future events:<br /> <a class="twitter-follow-button"  href="https://twitter.com/victorrentea" data-size="large">Follow me</a></p>
+					
+                </div>
+                
+            </div>
+			
+			
+			
 			<div class="row talk" id="patterns-workshop">			
 				<div class="col-lg-12 text-center">
 					<h3 style="color:yellow" class="blink_me">Design Patterns with Spring &amp; Java 8 - Master Class</h3>
@@ -3816,6 +3837,7 @@ ga('send', 'pageview');
 	sectionHrefs.push("#recommend");
 	sectionHrefs.push("#webinar");
 	sectionHrefs.push("#stickers");
+	sectionHrefs.push("#meetup");
 	sectionHrefs.push("#patterns-workshop");
 
     $(".navbar-nav a").on('click', function () {
@@ -3992,6 +4014,14 @@ String.prototype.hashCode = function() {
  
 </script>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ro_RO/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 <!--

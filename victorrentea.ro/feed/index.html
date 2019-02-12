@@ -4,33 +4,43 @@
 <head>
     <style>
         iframe {
-            margin-bottom: 500px;
+            margin-bottom: 500px !important;
         }
         body {
             text-align: center;
-            overflow-y: hidden;
+            /*overflow-y: hidden;*/
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }  
+        .twitter-tweet {
+            text-align: center;
+        }
     </style>
     <script src="linkedin-data.js" > </script>
     <script src="twitter-data.js" > </script>
     <script src="jquery.js" > </script>
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    
 </head>
 
 <body>
+
+       
+        
+        
 <!-- 
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6462307146674638848" height="496" width="504" frameborder="0" allowfullscreen=""></iframe> -->
 
 <span style="position:fixed; bottom:10px; right:20px;">victorrentea.ro</span>
-<img src="crafters-community.jpg" style="position:fixed; bottom:40px; right:0;" width="15%" />
-<img src="voxxed-cluj.jpg" style="position:fixed; top:0px; right:0px;" width="15%" />
-<span style="position:fixed;right:20px; bottom:140px;">&lt;-- on Twitter too</span>
+<img src="crafters-community.jpg" style="position:fixed; bottom:40px; right:0;" width="15%" >
+<!-- <img src="voxxed-cluj.jpg" style="position:fixed; top:0px; right:0px;" width="15%" > -->
+
+<button style="position:fixed; left:0px; bottom:0px;" onclick="javascript:running=false;">STOP</button>     
 
 <script>
 
-var TOTAL_POSTS = 30;
-var SECONDS_PER_POST = 4;
+var TOTAL_POSTS = 100;
+var SECONDS_PER_POST = 20;
 
+var running = true;
 
 function getLinkedInHtmls() {
     console.log('LinkedIN raw posts: ' + linkedin.length);
@@ -42,10 +52,15 @@ function getLinkedInHtmls() {
 }
 
 function getTwitterHtmls() {
+    function createTweet(permaLink) {
+        return '<blockquote class="twitter-tweet tw-align-center" data-lang="en"><a href="https://twitter.com'+permaLink+'?ref_src=twsrc%5Etfw">April 25, 2018</a></blockquote>';
+    }
     console.log('Twitter raw posts: ' + twitter.length);
+    twitter.sort(function (a,b) {return - a.count + b.count;});
     return twitter
-        .splice(0, TOTAL_POSTS/2)
-        .map(function (obj) {return obj.html;});
+        .splice(0, TOTAL_POSTS)
+        .map(function (obj) {return createTweet(obj.permaLink);})
+        .filter(function(val) {return !!val;});    
 }
 
 function interweaveArrays(arr1, arr2) {
@@ -62,7 +77,7 @@ function interweaveArrays(arr1, arr2) {
     return rez;
 }
 
-var allData = shuffle(getLinkedInHtmls());//interweaveArrays(getLinkedInHtmls(), getTwitterHtmls());
+var allData = shuffle(interweaveArrays(getLinkedInHtmls(), getTwitterHtmls()));
 
 function appendPost(index) {
     if ($("#post-"+index).length >= 1) return; //already created
@@ -70,6 +85,7 @@ function appendPost(index) {
     e.id="post-"+index;
     e.innerHTML = allData[index];
     document.body.appendChild(e);
+    twttr.widgets.load();
 }
 
 $.fn.scrollView = function () {
@@ -86,13 +102,15 @@ appendPost(0);
 function putNextPost() {
     if (currentPost >= allData.length) {
         currentPost = 0;
-    }
+    }    
     $("#post-"+currentPost).scrollView();
-    appendPost(currentPost + 1);
     currentPost++;
-    setTimeout(putNextPost, SECONDS_PER_POST * 1000);
+    appendPost(currentPost);
+    if (running) {
+        setTimeout(putNextPost, SECONDS_PER_POST * 1000);
+    }
 }
-putNextPost();
+setTimeout(putNextPost, SECONDS_PER_POST * 1000);
 
 
 function copyToClipboard(text){

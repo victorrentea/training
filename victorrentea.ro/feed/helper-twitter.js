@@ -1,41 +1,35 @@
 
 
-
-var iframeHtmlList = [];
-
-var menuButtons;
-var index = -1;
-
-
-function openEmbed() {
-	index ++;
-	if (index == menuButtons.length) {
-		copyToClipboard(JSON.stringify(iframeHtmlList));
-		return;
-	}
-	var menuButton = menuButtons[index];
-	$(menuButton).click();
-	
-	setTimeout(copyEmbedCode, 5000);
-}
-
-function copyEmbedCode() {
-	var iframeHtml = $('textarea.embed-destination').val();
-	//var socialText = $(menuButtons[index]).closest('div.feed-shared-update-v2').children('.feed-shared-social-counts').text();
-	//var counts = getAllMatches(socialText, /(\d+)/g);
-	var count = 0;// counts.reduce(addStr, '0') / 2;	
-	iframeHtmlList.push({count:count ,html:iframeHtml});
-	$('button.modal-btn.modal-close.js-close').click();
-	openEmbed();
-}
+var permaLinks = [];
 
 function addStr(a, b) {
     return parseInt(a) + parseInt(b);
 }
 
+function extractPermalinks() {
+	permaLinks = $(".tweet[data-permalink-path]").map(function(){ 
+		var $tweet = $(this);
+		var socialRawText = $tweet.find(".ProfileTweet-actionCountForPresentation").map(function(){
+			return $(this).text();
+		  }).get().join(',');
+		var socialTexts = getAllMatches(socialRawText, /(\d+)/g)
+		//alert(socialTexts);
+		var item = {
+			permaLink: $tweet.attr("data-permalink-path"),
+			count: socialTexts.reduce(addStr, '0')
+		};
+		// console.log("Extracted ", item);
+		return item;
+	}).get();
+
+	alert("Will copy to clipboard.")
+	copyToClipboard(JSON.stringify(permaLinks));
+	alert("Copied to clipboard");
+}
 
 
-	
+
+
 
  function getAllMatches(s, re) {
      var rez = [];
@@ -50,12 +44,12 @@ function addStr(a, b) {
      return rez;
  }
 
-var POSTS_TO_RETRIEVE = 20;
+var POSTS_TO_RETRIEVE = 400;
  
 function preloadOneMorePage() {
-	menuButtons = $('.embed-link');
+	menuButtons = $('.tweet');
 	if (menuButtons.length >= POSTS_TO_RETRIEVE) {
-		openEmbed();	
+		extractPermalinks();	
 	} else {
 		window.scrollTo(0,document.body.scrollHeight);
 		setTimeout(preloadOneMorePage, 3000);
