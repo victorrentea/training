@@ -1,9 +1,9 @@
 class ProductService {
 public List<Product> getFrequentOrderedProducts(List<Order> orders) {
 return orders.stream()
-.filter(o -> o.getCr$.isAfter(LocalDate.now().minusYears(1)))
-.flatMap(o -> o.getO$.stream())
-.collect(groupingBy(OrderL$::getP$, summingInt(OrderLine::getItemCount)))
+.filter(o -> o.getCreationDate().isAfter(LocalDate.now().minusYears(1)))
+.flatMap(o -> o.getOrderLines().stream())
+.collect(groupingBy(OrderLine::getProduct, summingInt(OrderLine::getItemCount)))
 .entrySet()
 .stream()
 .filter(e -> e.getValue() >= 10)

@@ -1,11 +1,11 @@
 class DiscountService {
 public String getDiscountLine(Customer customer) {
-return "Discount: " + getApplicableDiscountPercentage(customer.getM$);`
+return "Discount%: " + getDiscountPercentage(customer.getMemberCard());`
 	
-private Integer getApplicableDiscountPercentage(MemberCard card) { 
-if (card.getF$ >= 100) {
+private Integer getDiscountPercentage(MemberCard card) { 
+if (card.getFidelityPoints() >= 100) {
 return 5;`
-if (card.getF$ >= 50) {
+if (card.getFidelityPoints() >= 50) {
 return 3;`
 return null;`
 	
