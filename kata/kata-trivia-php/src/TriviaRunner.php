@@ -14,33 +14,21 @@ function echoln($string) {
     $outputString .= $string."\n";
 }
 
-include 'ITrivia.php';
 include 'Trivia.php';
-include 'TriviaBetter.php';
 
 class TriviaTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testX()
     {
-        for ($seed = 0; $seed < 50; $seed ++) {
-            $expectedOutput = $this->runGame(new Trivia(), $seed);
-            $actualOutput = $this->runGame(new TriviaBetter(), $seed);
-            $this->assertEquals($expectedOutput, $actualOutput);
-        }
-    }
+        $aGame = new Trivia();
 
-    function runGame(ITrivia $aGame, int $seed): string
-    {
-        global $outputString;
-        $outputString = '';
         echoln("------------------------");
 
         $aGame->add("Chet");
         $aGame->add("Pat");
         $aGame->add("Sue");
 
-        srand($seed);
         do {
             $aGame->roll(rand(0, 5) + 1);
             if (rand(0, 9) == 7) {
@@ -49,6 +37,8 @@ class TriviaTest extends \PHPUnit\Framework\TestCase
                 $notAWinner = $aGame->wasCorrectlyAnswered();
             }
         } while ($notAWinner);
-        return $outputString;
     }
+
+    // global $outputString;
+    // srand($seed)
 }

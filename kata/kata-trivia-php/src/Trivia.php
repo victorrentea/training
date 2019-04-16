@@ -9,7 +9,7 @@
 namespace video;
 
 
-class Trivia implements ITrivia{
+class Trivia {
     var $players;
     var $places;
     var $purses ;
