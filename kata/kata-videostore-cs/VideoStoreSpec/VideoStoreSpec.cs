@@ -1,15 +1,16 @@
-﻿using NBehave.Spec.NUnit;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NBehave.Spec.NUnit;
 using NUnit.Framework;
 using Rhino.Mocks.Impl.Invocation.Actions;
 using VideoStore;
 
 namespace VideoStoreSpec
 {
-    [TestFixture]
+    [TestClass]
     public class VideoStoreSpec 
     {
        
-        [Test]
+        [TestMethod]
         public void CharacterizationTest()
         {
             Customer customer = new Customer("John Doe");
