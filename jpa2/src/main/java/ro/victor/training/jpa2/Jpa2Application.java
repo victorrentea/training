@@ -19,17 +19,17 @@ public class Jpa2Application {
 
 	@Autowired
 	private DummyDataCreator dummyDataCreator;
-	@Autowired
-	private VoxxedDaysPlayground playground;
+//	@Autowired
+//	private VoxxedDaysPlayground playground;
 
 	@EventListener
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		System.out.println("Application started. Running playground code...");
 //		dummyDataCreator.persistDummyData();
 		System.out.println(" ========= FIRST TRANSACTION ========== ");
-		playground.firstTransaction();
+//		playground.firstTransaction();
 		System.out.println(" ========= SECOND TRANSACTION ========== ");
-		playground.secondTransaction();
+//		playground.secondTransaction();
 		System.out.println(" ========= END ========== ");
 	}
 	
