@@ -7,12 +7,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ro.victor.training.jpa2.repo.TeacherRepo;
 
 import javax.persistence.EntityManager;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 @Service
 public class Playground {
@@ -20,16 +25,20 @@ public class Playground {
     @Autowired
     private TeacherRepo teacherRepo;
 
+    @Autowired
+    private DataSource ds;
+
     @Transactional
     public void firstTransaction() {
         log.debug("Halo!");
         teacherRepo.findAll();
-        new RuntimeException().printStackTrace();
+//        new RuntimeException().printStackTrace();
+//        secondTransaction();
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void secondTransaction() {
-        log.debug("Halo!");
+        log.debug("Halo2!");
     }
 }
 
