@@ -7,9 +7,13 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import ro.victor.training.jpa2.common.data.EntityRepositoryFactoryBean;
+
+import javax.sql.DataSource;
+import javax.transaction.TransactionManager;
 
 @SpringBootApplication
 @EnableJpaRepositories(repositoryFactoryBeanClass = EntityRepositoryFactoryBean.class)
@@ -19,17 +23,21 @@ public class Jpa2Application {
 
 	@Autowired
 	private DummyDataCreator dummyDataCreator;
-//	@Autowired
-//	private VoxxedDaysPlayground playground;
+	@Autowired
+	private Playground playground;
+
+	@Autowired
+	private PlatformTransactionManager txm;
 
 	@EventListener
 	public void onApplicationEvent(ContextRefreshedEvent event) {
+		System.out.println(txm.getClass());
 		System.out.println("Application started. Running playground code...");
-//		dummyDataCreator.persistDummyData();
+		dummyDataCreator.persistDummyData();
 		System.out.println(" ========= FIRST TRANSACTION ========== ");
-//		playground.firstTransaction();
+		playground.firstTransaction();
 		System.out.println(" ========= SECOND TRANSACTION ========== ");
-//		playground.secondTransaction();
+		playground.secondTransaction();
 		System.out.println(" ========= END ========== ");
 	}
 	
