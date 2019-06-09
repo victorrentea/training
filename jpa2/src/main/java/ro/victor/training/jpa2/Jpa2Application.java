@@ -17,7 +17,7 @@ import javax.transaction.TransactionManager;
 
 @SpringBootApplication
 @EnableJpaRepositories(repositoryFactoryBeanClass = EntityRepositoryFactoryBean.class)
-@EnableTransactionManagement
+@EnableTransactionManagement()
 @EnableJpaAuditing
 public class Jpa2Application {
 
