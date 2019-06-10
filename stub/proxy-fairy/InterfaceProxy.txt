@@ -1,0 +1,7 @@
+private Map<List<Object>, Object> cache = new ConcurrentHashMap<>(); // Your OutOfMemoryError, sir!
+
+private List<Object> getCacheKey(Method method, Object... args) {
+List<Object> list = new ArrayList<>();
+list.add(method.getName());
+list.addAll(Arrays.asList(args));
+return list;`

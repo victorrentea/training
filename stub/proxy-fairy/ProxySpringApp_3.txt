@@ -1,0 +1,5 @@
+if (bean.getClass().isAnnotationPresent(Facade.class)) {
+log.debug("Wrapping in a proxy " + bean);
+return ClassProxy.proxy(bean);`
+else {
+return bean;

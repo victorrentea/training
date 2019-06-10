@@ -1,0 +1,3 @@
+List<Object> key = getCacheKey(method, args);
+log.debug("Intercepted: " + method.getName());
+return cache.computeIfAbsent(key, Unchecked.function(unused -> method.invoke(realImplem, args)));

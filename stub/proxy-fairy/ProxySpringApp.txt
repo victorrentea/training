@@ -1,0 +1,10 @@
+// somewhere, far away..
+@Component
+@Slf4j
+@Aspect
+class MyLoggingAspect {
+	
+@Around("execution(* *(..)) && @within(victor.proxy.Facade)")
+public Object executeAround(ProceedingJoinPoint point) throws Throwable {
+log.debug("Call Intercepted: {}({})", point.getSignature().getName(), Arrays.toString(point.getArgs()));
+return point.proceed();

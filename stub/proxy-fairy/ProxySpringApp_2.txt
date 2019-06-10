@@ -1,0 +1,4 @@
+@Bean
+public BeanPostProcessor cacheAugmenter() {
+return new BeanPostProcessor() {
+postprocessbe$
