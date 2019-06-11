@@ -1,13 +1,17 @@
-package ro.victor;
+package ro.victor.unittest.tricks;
 
-public class ExceptieCuCod {
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+public class ExceptionContaingCode {
 	
 	@Rule
-	public ExpectedException expectedException = none();
+	public ExpectedException expectedException = ExpectedException.none();
 
 	@Test
 	public void test1() {
-		expectedException.expectedMessage("a");
+		expectedException.expectMessage("a");
 		aruncama();
 		
 	}

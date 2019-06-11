@@ -121,7 +121,7 @@ public class MockitoShowcaseTest {
 		when(mockedList.get(anyInt())).thenReturn("element");
 
 		// (advanced) stubbing using Hamcrest
-		when(mockedList.contains(argThat(new IsEqual<String>("111")))).thenReturn(true);
+//		when(mockedList.contains(argThat(new IsEqual<String>("111")))).thenReturn(true);
 
 		System.out.println(mockedList.get(999)); // print "element"
 		System.out.println("" + mockedList.contains("111")); // print "true"
