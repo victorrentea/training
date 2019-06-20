@@ -30,6 +30,7 @@ public class MyController {
     public String redirect() {
         return "redirect:https://myhost.com/some/arbitrary/path";
     }
+
     @GetMapping("locale")
     @ResponseBody
     public String locale(HttpServletRequest request) {
