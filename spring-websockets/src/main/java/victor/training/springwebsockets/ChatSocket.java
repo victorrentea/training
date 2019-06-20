@@ -2,6 +2,8 @@ package victor.training.springwebsockets;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.user.SimpUserRegistry;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;
@@ -19,11 +21,11 @@ public class ChatSocket extends TextWebSocketHandler {
 
     private Map<String, List<WebSocketSession>> openSessions = new HashMap<>();
 
+    @MessageMapping
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException {
         String roomId = extractRoomId(session);
         log.info("Message received ");
-
         List<WebSocketSession> myRoom = openSessions.get(roomId);
         log.info("There are {} persons in my room", myRoom.size());
         for (WebSocketSession socketSession : myRoom) {
