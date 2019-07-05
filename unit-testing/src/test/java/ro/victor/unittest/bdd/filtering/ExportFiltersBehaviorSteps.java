@@ -1,4 +1,4 @@
-package ro.victor.unittest.bdd.search;
+package ro.victor.unittest.bdd.filtering;
 
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
@@ -11,12 +11,12 @@ import java.util.Map;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import ro.victor.unittest.bdd.search.entity.Description3;
-import ro.victor.unittest.bdd.search.entity.PEPOccupationCategory;
-import ro.victor.unittest.bdd.search.entity.Record;
-import ro.victor.unittest.bdd.search.entity.RecordCategory;
-import ro.victor.unittest.bdd.search.entity.SanctionType;
-import ro.victor.unittest.bdd.search.entity.WatchlistFilter;
+import ro.victor.unittest.bdd.filtering.entity.Description3;
+import ro.victor.unittest.bdd.filtering.entity.PEPOccupationCategory;
+import ro.victor.unittest.bdd.filtering.entity.Record;
+import ro.victor.unittest.bdd.filtering.entity.RecordCategory;
+import ro.victor.unittest.bdd.filtering.entity.SanctionType;
+import ro.victor.unittest.bdd.filtering.entity.WatchlistFilter;
 
 public class ExportFiltersBehaviorSteps {
 

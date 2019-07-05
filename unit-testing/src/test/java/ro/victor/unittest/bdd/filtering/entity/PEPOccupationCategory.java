@@ -1,4 +1,4 @@
-package ro.victor.unittest.bdd.search.entity;
+package ro.victor.unittest.bdd.filtering.entity;
 
 public class PEPOccupationCategory extends Label {
 

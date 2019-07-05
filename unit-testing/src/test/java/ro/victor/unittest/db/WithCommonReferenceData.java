@@ -7,6 +7,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.springframework.test.context.jdbc.Sql;
 
 @Target({ElementType.TYPE, ElementType.METHOD})
