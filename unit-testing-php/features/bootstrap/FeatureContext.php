@@ -4,45 +4,65 @@ use Behat\Behat\Context\Context;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
+use Mockery\MockInterface;
+use PhpUnitWorkshopTest\BowlingScore;
 
 /**
  * Defines application features from the specific context.
  */
 class FeatureContext extends \PHPUnit\Framework\TestCase implements Context
 {
-    /** @var TennisScore */
-    private $tennisScore;
+    /** @var BowlingGameCuDependinte */
+    private $service;
+    /** @var ScoreProvider|MockInterface */
+    private $mockScoreProvider;
     /**
-     * @Given /^An empty game$/
+     * @When /^The score string is '(.*)'$/
      */
-    public function anEmptyGame()
+    public function theScoreStringIs(string $inputScoreString)
     {
-        $this->tennisScore = new TennisScore();
+        $this->mockScoreProvider->shouldReceive("getScore")
+            ->andReturn($inputScoreString);
     }
 
     /**
-     * @Then /^The score is "(.+)"$/
+     * @Then /^The final score is (\d+)$/
      */
-    public function theScoreIs(string $expected)
+    public function theFinalScoreIs($expectedTotalScore)
     {
-        $this->assertEquals($expected, $this->tennisScore->getScore());
-    }
-
-    /** @When /^Player(\d) scores a point$/ */
-    public function playerscoresAPoint(int $playerNo)
-    {
-        $this->tennisScore->addPoint($playerNo);
+       $this->assertEquals($expectedTotalScore, $this->service->calculateScore());
     }
 
     /**
-     * @When /^Player(\d) scores (\d+) points$/
+     * @Given /^A mock Score String Provider$/
      */
-    public function playerscoresPoints(int $player, int $points)
+    public function aMockScoreStringProvider()
     {
-        for ($i = 0; $i < $points; $i++) {
-            $this->tennisScore->addPoint($player);
-        }
+        $this->mockScoreProvider = Mockery::mock(ScoreProvider::class);
+
+        $this->service = new BowlingGameCuDependinte($this->mockScoreProvider);
     }
 }
 
+
+class BowlingGameCuDependinte {
+    private $scoreProvider;
+
+    public function __construct(ScoreProvider $scoreProvider)
+    {
+        $this->scoreProvider = $scoreProvider;
+    }
+
+    public function calculateScore(): int {
+        return BowlingScore::calculateScore($this->scoreProvider->getScore());
+    }
+
+}
+class ScoreProvider {
+
+    public function getScore():string
+    {
+        throw new Exception("E inchis la non-stop");
+    }
+}
 

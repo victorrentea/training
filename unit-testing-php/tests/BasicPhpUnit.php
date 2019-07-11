@@ -6,52 +6,60 @@ use Hamcrest\Text\StringContains;
 use PHPUnit\Framework\Constraint\TraversableContains;
 use PHPUnit\Framework\TestCase;
 
-class BaseTest extends TestCase {
-    /** @var string */
-    protected $currentUserName;
 
-    /** @before */
-    public function initUsername() {
-        echo "Inainte din super-clasa testuli\n";
-        $this->currentUserName = "jdoe";
+class BaseTest extends TestCase {
+
+    static $dateGlobale;
+    protected $dateDeTest;
+
+//    public function __construct($name = null, array $data = [], $dataName = '')
+//    {
+//        printf("Uaaaaa, Uaaa!\n");
+//    }
+
+    public function setUp()
+    {
+        echo "Mai intai a fost cuvantul\n";
+        $this->login("test");
     }
+
+    /** @test */
+    public function dummy4()
+    {
+        $this->dateDeTest="a";
+        self::$dateGlobale = "b";
+        self::assertEquals("a", $this->dateDeTest);
+    }
+
+    /** @test */
+    public function dummy2()
+    {
+
+        self::assertEquals(null, $this->dateDeTest);
+        self::assertEquals("b", self::$dateGlobale);
+    }
+
+    //cod de prod:
+    public function login($username)
+    {
+
+    }
+
+
 }
 
-class BasicPhpUnit extends BaseTest
-{
-    public function __construct(?string $name = null, array $data = [], string $dataName = '')
-    {
-        parent::__construct($name, $data, $dataName);
-        echo "Uaaa, A new test instance is born!\n";
-    }
 
-    private $f = 1;
 
+class SubTest extends BaseTest {
     /** @before */
-    public function initBasic() {
-        echo "Inainte de test\n";
-    }
-    /** @before */
-    public function initBasic2() {
-        echo "Inainte2 de test\n";
-    }
-
-    protected function setUp()/* The :void return type declaration that should be here would cause a BC issue */
+    public function initCopil()
     {
-        //am inghitit super::setUp
-        echo "setup \n";
+        echo "Apoi a fost lumina\n";
     }
 
-
-    public function test1() {
-        $this->f++;
-        echo "Test1 {$this->f}\n";
-        self::assertEquals(1,1);
+    /** @test */
+    function subtest() {
+        echo "subTest";
+        self::assertTrue(true);
     }
-    public function test2() {
-        echo "Test2 {$this->f}\n";
-        self::assertEquals(1,1);
-    }
-
-
 }

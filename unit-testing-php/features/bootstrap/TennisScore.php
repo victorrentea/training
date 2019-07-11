@@ -20,6 +20,10 @@ class TennisScore
         3 => "Forty"
     ];
 
+
+    /** @test
+     * @
+     */
     public function getScore()
     {
         if ($this->player1Score >= 4 &&
