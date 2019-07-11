@@ -21,7 +21,6 @@ Feature: Search for clients
     When Search criteria name="x"
     Then No results are returned
 
-  Fe
 
 #  Scenario Outline: A Record matches the filter
 
