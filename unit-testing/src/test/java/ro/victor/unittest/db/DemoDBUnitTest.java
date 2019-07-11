@@ -1,6 +1,6 @@
 package ro.victor.unittest.db;
 
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -62,7 +62,7 @@ public class DemoDBUnitTest {
 	public void codProductieInsereazaGarment() {
 		GarmentPD mock = Mockito.mock(GarmentPD.class);
 		codProductie(mock);
-		verify(mock).insert(anyObject());
+		verify(mock).insert(any());
 	}
 	
 	

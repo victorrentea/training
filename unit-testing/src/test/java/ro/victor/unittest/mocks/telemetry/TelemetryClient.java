@@ -101,6 +101,6 @@ public class TelemetryClient {
 	}
 
 	public void configure(ClientConfiguration config) {
-		 //TODO Configure the client
+		 //TODO Configure the bank
 	}
 }
