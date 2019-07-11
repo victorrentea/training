@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class TestTimeRuleTest {
 
     public static LocalDateTime getTimeFromProd() {
-        return TimeProvider.now();
+        return TimeProvider.currentTime();
     }
 
     public static class WithHackedTime {

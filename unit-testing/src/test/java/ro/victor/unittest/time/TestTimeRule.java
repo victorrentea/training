@@ -6,19 +6,27 @@ import java.time.LocalDateTime;
 
 public class TestTimeRule extends ExternalResource {
 
-       private final LocalDateTime testTime;
+    private LocalDateTime testTime;
 
-       public TestTimeRule(LocalDateTime testTime) {
-             this.testTime = testTime;
-             TimeProvider.setTestTimeStr(testTime);
-       }
+    public TestTimeRule() {
+        this(LocalDateTime.now());
+    }
 
-       public LocalDateTime getTestTime() {
-             return testTime;
-       }
+    public TestTimeRule(LocalDateTime testTime) {
+        this.testTime = testTime;
+        TimeProvider.setTestTime(testTime);
+    }
 
-       @Override
-       protected void after() {
-             TimeProvider.clearTestTime();
-       }
+    public void setTestTime(LocalDateTime testTime) {
+        this.testTime = testTime;
+    }
+
+    public LocalDateTime getTestTime() {
+        return testTime;
+    }
+
+    @Override
+    protected void after() {
+        TimeProvider.clearTestTime();
+    }
 }
