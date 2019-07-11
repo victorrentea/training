@@ -19,3 +19,4 @@ Maven__junit_junit_4_11.xml
 *.iml
 /kata/assignment-weather/~$ather-assignment.doc
 vendor
+bin
