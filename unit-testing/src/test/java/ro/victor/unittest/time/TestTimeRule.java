@@ -2,7 +2,9 @@ package ro.victor.unittest.time;
 
 import org.junit.rules.ExternalResource;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class TestTimeRule extends ExternalResource {
 
@@ -19,6 +21,9 @@ public class TestTimeRule extends ExternalResource {
 
     public void setTestTime(LocalDateTime testTime) {
         this.testTime = testTime;
+    }
+    public void setTestDate(LocalDate testDate) {
+        this.testTime = LocalDateTime.of(testDate, LocalTime.MIDNIGHT);
     }
 
     public LocalDateTime getTestTime() {

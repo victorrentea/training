@@ -1,4 +1,4 @@
-package ro.victor.unittest.bank.repo;
+package ro.victor.unittest.bank.vo;
 
 import lombok.Data;
 
@@ -13,8 +13,8 @@ public class ClientSearchCriteria {
     }
     private String name;
     private String iban;
-    private Integer ageMin;
-    private Integer ageMax;
+    private Integer minAge;
+    private Integer maxAge;
     private List<String> nationalityIsoList = new ArrayList<>();
     private String sortKey;
     private SortOrder sortOrder;

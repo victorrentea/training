@@ -3,6 +3,8 @@ package ro.victor.unittest.bank.repo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import ro.victor.unittest.bank.vo.ClientSearchCriteria;
+import ro.victor.unittest.bank.vo.ClientSearchResult;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -17,7 +19,7 @@ public class ClientJpaRepository {
     private EntityManager em;
 
     public List<ClientSearchResult> search(ClientSearchCriteria criteria) {
-        String jpql = "SELECT new ro.victor.unittest.bank.repo.ClientSearchResult" +
+        String jpql = "SELECT new ro.victor.unittest.bank.vo.ClientSearchResult" +
                 "(c.id, c.name) FROM Client c WHERE 1=1 ";
         Map<String, Object> params = new HashMap<>();
 
@@ -31,18 +33,18 @@ public class ClientJpaRepository {
             params.put("iban", "%" + criteria.getIban() + "%");
         }
 
-        LocalDate birthDateMin = toBirthDate(criteria.getAgeMax());
-        LocalDate birthDateMax = toBirthDate(criteria.getAgeMin());
-        if (birthDateMin != null && birthDateMax != null) {
-            jpql += " AND c.dateOfBirth BETWEEN :birthMin AND :birthMax ";
-            params.put("birthMin", birthDateMin);
-            params.put("birthMax", birthDateMax);
-        } else if (birthDateMin != null) {
-            jpql += " AND c.dateOfBirth > :birthMin ";
-            params.put("birthMin",birthDateMin);
-        } else if (birthDateMax != null) {
-            jpql += " AND c.dateOfBirth < :birthMax ";
-            params.put("birthMax", birthDateMax);
+        LocalDate minBirthDate = toBirthDate(criteria.getMaxAge());
+        LocalDate maxBirthDate = toBirthDate(criteria.getMinAge());
+        if (minBirthDate != null && maxBirthDate != null) {
+            jpql += " AND c.birthDate BETWEEN :minBirthDate AND :maxBirthDate ";
+            params.put("minBirthDate", minBirthDate);
+            params.put("maxBirthDate", maxBirthDate);
+        } else if (minBirthDate != null) {
+            jpql += " AND c.birthDate > :minBirthDate ";
+            params.put("minBirthDate", minBirthDate);
+        } else if (maxBirthDate != null) {
+            jpql += " AND c.birthDate < :maxBirthDate ";
+            params.put("maxBirthDate", maxBirthDate);
         }
 
         if (!criteria.getNationalityIsoList().isEmpty()) {
@@ -64,8 +66,10 @@ public class ClientJpaRepository {
 
     private String sortField(String sortKey) {
         switch (sortKey) {
-            case "name": return "UPPER(c.name)";
-            default: throw new IllegalArgumentException("Unknown sort key: " + sortKey);
+            case "name":
+                return "UPPER(c.name)";
+            default:
+                throw new IllegalArgumentException("Unknown sort key: " + sortKey);
         }
     }
 

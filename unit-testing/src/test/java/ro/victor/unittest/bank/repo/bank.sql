@@ -1,0 +1,2 @@
+create table account (id bigint not null, iban varchar(255), type integer, accounts_id bigint, primary key (id));
+create table client (id bigint not null, birth_date date, name varchar(255), nationality_iso varchar(255), primary key (id));

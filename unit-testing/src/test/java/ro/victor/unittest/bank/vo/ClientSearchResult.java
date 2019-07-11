@@ -1,4 +1,4 @@
-package ro.victor.unittest.bank.repo;
+package ro.victor.unittest.bank.vo;
 
 import lombok.Data;
 

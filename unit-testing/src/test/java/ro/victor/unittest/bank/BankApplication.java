@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ro.victor.unittest.bank.entity.Client;
 import ro.victor.unittest.bank.repo.ClientJpaRepository;
-import ro.victor.unittest.bank.repo.ClientSearchResult;
+import ro.victor.unittest.bank.vo.ClientSearchResult;
 import ro.victor.unittest.bank.entity.Account;
-import ro.victor.unittest.bank.repo.ClientSearchCriteria;
+import ro.victor.unittest.bank.vo.ClientSearchCriteria;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.persistence.EntityManager;

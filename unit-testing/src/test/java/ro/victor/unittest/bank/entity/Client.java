@@ -18,6 +18,7 @@ public class Client {
     private String nationalityIso;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn
     private List<Account> accounts = new ArrayList<>();
 
 
