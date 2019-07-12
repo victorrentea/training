@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import ro.victor.unittest.bank.entity.Account;
 import ro.victor.unittest.bank.entity.Client;
+import ro.victor.unittest.bank.repo.ClientJdbcRepository;
 import ro.victor.unittest.bank.repo.ClientJpaRepository;
 import ro.victor.unittest.bank.vo.ClientSearchCriteria;
 import ro.victor.unittest.bank.vo.ClientSearchResult;
@@ -29,7 +30,7 @@ public class ClientSearchBehaviorSteps {
     private EntityManager entityManager;
 
     @Autowired
-    private ClientJpaRepository repository;
+    private ClientJdbcRepository repository;
 
     private Client client;
     private ClientSearchCriteria criteria = new ClientSearchCriteria();
@@ -58,6 +59,7 @@ public class ClientSearchBehaviorSteps {
 
     @Then("^The Client is returned$")
     public void the_Client_is_returned() throws Throwable {
+        entityManager.flush(); // needed only for non raw JDBC access
         List<ClientSearchResult> results = repository.search(criteria);
         assertFalse(results.isEmpty());
         assertEquals((long)client.getId(), results.get(0).getId());
@@ -65,6 +67,7 @@ public class ClientSearchBehaviorSteps {
 
     @Then("^No results are returned$")
     public void noResultsAreReturned() {
+        entityManager.flush(); // needed only for non raw JDBC access
         List<ClientSearchResult> results = repository.search(criteria);
         assertTrue(results.isEmpty());
     }
