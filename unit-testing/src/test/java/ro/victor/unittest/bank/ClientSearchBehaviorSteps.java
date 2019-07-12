@@ -12,6 +12,7 @@ import ro.victor.unittest.bank.entity.Account;
 import ro.victor.unittest.bank.entity.Client;
 import ro.victor.unittest.bank.repo.ClientJdbcRepository;
 import ro.victor.unittest.bank.repo.ClientJpaRepository;
+import ro.victor.unittest.bank.repo.ClientMybatisRepository;
 import ro.victor.unittest.bank.vo.ClientSearchCriteria;
 import ro.victor.unittest.bank.vo.ClientSearchResult;
 import ro.victor.unittest.time.TestTimeRule;
@@ -30,7 +31,7 @@ public class ClientSearchBehaviorSteps {
     private EntityManager entityManager;
 
     @Autowired
-    private ClientJdbcRepository repository;
+    private ClientMybatisRepository repository;
 
     private Client client;
     private ClientSearchCriteria criteria = new ClientSearchCriteria();

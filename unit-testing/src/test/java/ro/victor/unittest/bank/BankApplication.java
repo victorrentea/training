@@ -2,10 +2,13 @@ package ro.victor.unittest.bank;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +27,7 @@ import java.util.List;
 
 @EnableSwagger2
 @SpringBootApplication
+@MapperScan("ro.victor.unittest.bank.repo")
 public class BankApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(BankApplication.class);
