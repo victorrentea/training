@@ -64,12 +64,4 @@ public class NonTransactionalTest {
 		assertEquals(1, (int)jdbc.queryForObject("SELECT count(1) FROM orders WHERE reference='ref'", Integer.class));
 	}
 
-//	public static void main(String[] args) {
-//		System.out.println("Order of tests: ");
-//		Stream.of(TransactionalTest.class.getDeclaredMethods())
-//			.map(Method::getName)
-//			.sorted(comparing(String::hashCode))
-//			.forEach(System.out::println);
-//	}
-	
 }

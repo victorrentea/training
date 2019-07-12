@@ -65,20 +65,5 @@ public class DemoDBUnitTest {
 		verify(mock).insert(any());
 	}
 	
-	
-	public static void main(String[] args) {
-		
-		
-		GarmentPD stub = Mockito.mock(GarmentPD.class);
-		
-		Garment activeGarment = new Garment();
-		when(stub.load(1)).thenReturn(activeGarment);
 
-		Garment inactiveGarment = new Garment();
-		when(stub.load(2)).thenReturn(inactiveGarment);
-		
-		System.out.println(stub.load(1));
-		
-	}
-	
 }
