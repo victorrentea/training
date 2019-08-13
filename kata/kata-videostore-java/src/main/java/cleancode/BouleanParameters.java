@@ -6,6 +6,7 @@ import java.util.List;
 public class BouleanParameters {
 
     public static void main(String[] args) {
+        // The method is called from various foreign places in the codebase
         bigUglyMethod(1,2,3,4,5);
         bigUglyMethod(1,2,3,4,5);
         bigUglyMethod(1,2,3,4,5);
@@ -19,7 +20,11 @@ public class BouleanParameters {
 
     static void bigUglyMethod(int a, int b, int c, int d, int e) {
         // complex logic
+        // complex logic
+        // complex logic
 
+        // more complex logic
+        // more complex logic
         // more complex logic
     }
 
@@ -37,7 +42,7 @@ public class BouleanParameters {
                 for (int treaba:trebi) {
                      i ++;
                     // more code
-                    // TODO HERE, I want sometimes my own code to run ?!!! "Ai de capul meu"
+                    // TODO HERE, when call this method, I want MY own custom code to run here
                     // more code
                 }
                 // more code
