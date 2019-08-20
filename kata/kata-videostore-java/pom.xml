@@ -12,6 +12,11 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -20,13 +25,13 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<!--<source>1.8</source>
+					<target>1.8</target>-->
 
 
-					<!--<source>12</source>
+					<source>12</source>
 					<target>12</target>
-					<compilerArgs>&#45;&#45;enable-preview</compilerArgs>-->
+					<compilerArgs>--enable-preview</compilerArgs>
 				</configuration>
 			</plugin>
 		</plugins>
