@@ -55,7 +55,9 @@ public class UberEntityTest {
         log.info("Now, loading by id...");
         log.info("Now, loading again by id...");
         LightUber light = em.createQuery(
-                " FROM LightUber u WHERE u.id = :id"
+                "SELECT lu FROM LightUber lu" +
+                        " JOIN UberEntity u ON u.id = lu.id" +
+                        " WHERE u.originCountry.id = :id"
         , LightUber.class)
                 .setParameter("id",1L)
                 .getSingleResult();
