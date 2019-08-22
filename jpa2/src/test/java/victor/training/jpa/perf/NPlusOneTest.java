@@ -51,11 +51,12 @@ public class NPlusOneTest {
 
 	@Test
 	public void nPlusOne() {
-		List<Parent> parents = em.createQuery("FROM Parent", Parent.class).getResultList();
+		Set<Parent> parents = parentRepo.getAllFetchingChildren();
 		log.info("Parents Evening: all gathered");
 		List<String> totalChildren = anotherMethod(parents);
 		log.info("All children counted");
-		assertThat(totalChildren).containsAll(asList("Vlad", "Emma", "Maria", "Paul", "Stephan"));
+		assertThat(totalChildren).containsExactlyInAnyOrder("Vlad", "Emma", "Maria", "Paul", "Stephan");
+		log.debug("rez = " + totalChildren);
 	}
 //	@Test
 //	public void joins() {
@@ -68,6 +69,8 @@ public class NPlusOneTest {
 
 
 
+	@Autowired
+	private ParentRepo parentRepo;
 	@Autowired
 	private ChildrenRepo childrenRepo;
 
@@ -88,4 +91,9 @@ public class NPlusOneTest {
 interface ChildrenRepo extends JpaRepository<Child, Long> {
 	@Query("SELECT c FROM Child c WHERE c.parent.id = ?1")
 	Set<Child> xxgetByParentId(long parentId);
+}
+
+interface ParentRepo extends JpaRepository<Parent, Long> {
+	@Query("FROM Parent p LEFT JOIN FETCH p.children")
+	Set<Parent> getAllFetchingChildren();
 }

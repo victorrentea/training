@@ -8,6 +8,9 @@ import java.util.Set;
 
 import static java.util.Collections.unmodifiableSet;
 
+//@NamedQueries(
+//        @NamedQuery(name = "Parent.fetchingChildren", query = )
+//)
 @Entity
 public class Parent {
     @Id
@@ -16,7 +19,7 @@ public class Parent {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "parent",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "parent"/*,fetch = FetchType.EAGER*/)
 //    @JoinColumn(name = "PARENT_ID")
     private Set<Child> children = new HashSet<>();
 
