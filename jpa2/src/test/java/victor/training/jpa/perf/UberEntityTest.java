@@ -52,7 +52,7 @@ public class UberEntityTest {
         log.info("Now, loading by id...");
         log.info("Now, loading again by id...");
         LightUber light = em.createQuery(
-                "SELECT new victor.training.jpa.perf.LightUber(u.id, u.name) FROM UberEntity u WHERE u.id = :id"
+                "SELECT new victor.training.jpa.perf.LightUber(u.id, u.name, u.originCountry) FROM UberEntity u WHERE u.id = :id"
         , LightUber.class)
                 .setParameter("id", uber.getId())
                 .getSingleResult();
@@ -61,7 +61,12 @@ public class UberEntityTest {
         log.info("After");
         // TODO fetch only the necessary data
         // TODO change link types?
-        log.info("The entity is: id={}, name={}", light.getId(), light.getName());
+        log.info("The entity is: id={}, name={}, countryId={}, countryName={}",
+                light.getId(),
+                light.getName(),
+                light.getOriginCountry().getId(),
+                light.getOriginCountry().getName()
+        );
     }
 }
 
@@ -69,10 +74,12 @@ public class UberEntityTest {
 class LightUber {
     private final Long id;
     private final String name;
+    private final Country originCountry;
 
-    public LightUber(Long id, String name) {
+    public LightUber(Long id, String name, Country originCountry) {
         this.id = id;
         this.name = name;
+        this.originCountry = originCountry;
     }
 
     public Long getId() {
@@ -81,5 +88,9 @@ class LightUber {
 
     public String getName() {
         return name;
+    }
+
+    public Country getOriginCountry() {
+        return originCountry;
     }
 }
