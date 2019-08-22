@@ -52,7 +52,9 @@ public class UberEntityTest {
         log.info("Now, loading by id...");
         log.info("Now, loading again by id...");
         LightUber light = em.createQuery(
-                "SELECT new victor.training.jpa.perf.LightUber(u.id, u.name, u.originCountry.id) FROM UberEntity u WHERE u.id = :id"
+                "SELECT new victor.training.jpa.perf.LightUber" +
+                        "(u.id, u.name, u.originCountry.id, COUNT(c.id)) " +
+                        " FROM UberEntity u LEFT JOIN u.children c WHERE u.id = :id"
         , LightUber.class)
                 .setParameter("id", uber.getId())
                 .getSingleResult();
@@ -61,10 +63,11 @@ public class UberEntityTest {
         log.info("After");
         // TODO fetch only the necessary data
         // TODO change link types?
-        log.info("The entity is: id={}, name={}, countryId={}, countryName={}",
+        log.info("The entity is: id={}, name={}, countryId={}, count={}",
                 light.getId(),
                 light.getName(),
-                light.getOriginCountryId()
+                light.getOriginCountryId(),
+                light.getChildrenCount()
         );
     }
 }
@@ -74,11 +77,13 @@ class LightUber {
     private final Long id;
     private final String name;
     private final Long originCountryId;
+    private final Long childrenCount;
 
-    public LightUber(Long id, String name, Long originCountryId) {
+    public LightUber(Long id, String name, Long originCountryId, Long childrenCount) {
         this.id = id;
         this.name = name;
         this.originCountryId = originCountryId;
+        this.childrenCount = childrenCount;
     }
 
 
@@ -92,5 +97,9 @@ class LightUber {
 
     public Long getOriginCountryId() {
         return originCountryId;
+    }
+
+    public Long getChildrenCount() {
+        return childrenCount;
     }
 }
