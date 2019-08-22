@@ -19,6 +19,7 @@ import javax.persistence.EntityManager;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -54,7 +55,7 @@ public class NPlusOneTest {
 		log.info("Parents Evening: all gathered");
 		List<String> totalChildren = anotherMethod(parents);
 		log.info("All children counted");
-		assertThat(totalChildren).isEqualTo(Arrays.asList("Vlad", "Emma", "Maria", "Paul", "Stephan"));
+		assertThat(totalChildren).containsAll(asList("Vlad", "Emma", "Maria", "Paul", "Stephan"));
 	}
 //	@Test
 //	public void joins() {
@@ -74,11 +75,8 @@ public class NPlusOneTest {
 		log.debug("Start iterating over {} parents: {}", parents.size(), parents);
 		List<String>  total = new ArrayList<>();
 		for (Parent parent : parents) {
-			Set<Child> proxiedList = childrenRepo.xxgetByParentId(parent.getId());
-//			Set<Child> proxiedList = parent.getChildren();
-			log.debug("Now,........ (drums).... size() on {}",proxiedList.getClass());
-			total.addAll(proxiedList.stream().map(Child::getName).collect(Collectors.toList()));
-			log.debug("Got it!");
+			List<String> myChildrenNames = parent.getChildren().stream().map(Child::getName).collect(Collectors.toList());
+			total.addAll(myChildrenNames);
 		}
 		log.debug("Done counting: {} children", total);
 		return total;
