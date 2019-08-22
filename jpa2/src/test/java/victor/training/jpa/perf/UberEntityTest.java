@@ -52,7 +52,7 @@ public class UberEntityTest {
         log.info("Now, loading by id...");
         log.info("Now, loading again by id...");
         LightUber light = em.createQuery(
-                "SELECT new victor.training.jpa.perf.LightUber(u.id, u.name, u.originCountry) FROM UberEntity u WHERE u.id = :id"
+                "SELECT new victor.training.jpa.perf.LightUber(u.id, u.name, u.originCountry.id) FROM UberEntity u WHERE u.id = :id"
         , LightUber.class)
                 .setParameter("id", uber.getId())
                 .getSingleResult();
@@ -64,8 +64,7 @@ public class UberEntityTest {
         log.info("The entity is: id={}, name={}, countryId={}, countryName={}",
                 light.getId(),
                 light.getName(),
-                light.getOriginCountry().getId(),
-                light.getOriginCountry().getName()
+                light.getOriginCountryId()
         );
     }
 }
@@ -74,13 +73,14 @@ public class UberEntityTest {
 class LightUber {
     private final Long id;
     private final String name;
-    private final Country originCountry;
+    private final Long originCountryId;
 
-    public LightUber(Long id, String name, Country originCountry) {
+    public LightUber(Long id, String name, Long originCountryId) {
         this.id = id;
         this.name = name;
-        this.originCountry = originCountry;
+        this.originCountryId = originCountryId;
     }
+
 
     public Long getId() {
         return id;
@@ -90,7 +90,7 @@ class LightUber {
         return name;
     }
 
-    public Country getOriginCountry() {
-        return originCountry;
+    public Long getOriginCountryId() {
+        return originCountryId;
     }
 }
