@@ -13,7 +13,6 @@ import org.springframework.test.context.transaction.TestTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -52,8 +51,9 @@ public class UberEntityTest {
 
         log.info("Now, loading by id...");
         log.info("Now, loading again by id...");
-        Object[] tuple = (Object[]) em.createQuery(
-                "SELECT id, name FROM UberEntity WHERE id = :id")
+        LightUber light = em.createQuery(
+                "SELECT new victor.training.jpa.perf.LightUber(u.id, u.name) FROM UberEntity u WHERE u.id = :id"
+        , LightUber.class)
                 .setParameter("id", uber.getId())
                 .getSingleResult();
         log.info("Loaded");
@@ -61,7 +61,25 @@ public class UberEntityTest {
         log.info("After");
         // TODO fetch only the necessary data
         // TODO change link types?
-        log.info("The entity is: id={}, name={}", tuple[0], tuple[1]);
+        log.info("The entity is: id={}, name={}", light.getId(), light.getName());
     }
 }
 
+
+class LightUber {
+    private final Long id;
+    private final String name;
+
+    public LightUber(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
