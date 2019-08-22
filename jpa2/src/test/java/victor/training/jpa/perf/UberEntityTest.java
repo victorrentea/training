@@ -37,6 +37,7 @@ public class UberEntityTest {
 
 
         UberEntity uber = new UberEntity()
+                .setName("Zmart Name")
                 .setFiscalCountry(romania)
                 .setOriginCountry(romania)
                 .setInvoicingCountry(romania)
@@ -50,9 +51,13 @@ public class UberEntityTest {
 
         log.info("Now, loading by id...");
         UberEntity uberEntity = em.find(UberEntity.class, uber.getId());
+        log.info("Now, loading again by id...");
+        uberEntity = em.find(UberEntity.class, uber.getId());
         log.info("Loaded");
+        log.info(uberEntity.getOriginCountry().getName());
+        log.info("After");
         // TODO fetch only the necessary data
         // TODO change link types?
-        System.out.println(uberEntity.toString());
+        log.info("The entity is: id={}, name={}", uberEntity.getId(), uberEntity.getName());
     }
 }

@@ -10,6 +10,7 @@ public class UberEntity {
     @Id
     @GeneratedValue
     private Long id;
+    private String name;
     private String firstName, lastName, ibanCode, cnp, ssn, passportNumber;
     @ManyToOne
     private Country originCountry;
@@ -26,6 +27,15 @@ public class UberEntity {
 
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public UberEntity setName(String name) {
+        this.name = name;
+        return this;
     }
 
     public UberEntity setOriginCountry(Country originCountry) {
@@ -57,6 +67,10 @@ public class UberEntity {
         this.createdBy = createdBy;
         return this;
     }
+
+    public Country getOriginCountry() {
+        return originCountry;
+    }
 }
 
 @Entity
@@ -64,11 +78,18 @@ class Country {
     @Id
     private Long id;
     private String name;
+    private String region;
+    private String continent;
+    private int population;
     private Country() {
     }
     public Country(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }
 @Entity

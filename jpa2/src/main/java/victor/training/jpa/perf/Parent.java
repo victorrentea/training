@@ -1,12 +1,8 @@
 package victor.training.jpa.perf;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-
-import static java.util.Collections.unmodifiableSet;
 
 //@NamedQueries(
 //        @NamedQuery(name = "Parent.fetchingChildren", query = )

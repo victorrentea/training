@@ -19,7 +19,6 @@ import javax.persistence.EntityManager;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
