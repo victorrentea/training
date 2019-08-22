@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -16,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -75,7 +75,7 @@ public class NPlusOneTest {
 		log.debug("Start iterating over {} parents: {}", parents.size(), parents);
 		int total = 0;
 		for (Parent parent : parents) {
-			Set<Child> proxiedList = childrenRepo.getByParentId(parent.getId());
+			Set<Child> proxiedList = childrenRepo.xxgetByParentId(parent.getId());
 //			Set<Child> proxiedList = parent.getChildren();
 			log.debug("Now,........ (drums).... size() on {}",proxiedList.getClass());
 			total += proxiedList.size();
@@ -89,5 +89,6 @@ public class NPlusOneTest {
 
 
 interface ChildrenRepo extends JpaRepository<Child, Long> {
-	Set<Child> getByParentId(long parentId);
+	@Query("SELECT c FROM Child c WHERE c.parent.id = ?1")
+	Set<Child> xxgetByParentId(long parentId);
 }
