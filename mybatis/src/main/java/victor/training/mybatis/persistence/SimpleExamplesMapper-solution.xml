@@ -174,19 +174,19 @@
   
   <select id="getProjectInsaneById" resultMap="ProjectInsaneMap">
   	select p.id, p.name, p.type,
-  		m.id manager_id, m.name manager_name, m.phone_number manager_phone_number,
-  		<!-- <include refid="EmployeeColumnsSql">
-  			<property name="alias" value="m"/>
-  			<property name="prefix" value="manager"/>
-		</include>, -->
-  		e.id employee_id, e.name employee_name, e.phone_number employee_phone_number,
-  		ed.id ed_id, ed.employement_date
-  	from projects p
-  	inner join employees m on m.id = p.manager_id
-  	inner join emp_prj ep on ep.project_id = p.id
-  	inner join employees e on e.id = ep.employee_id
-  	left join employee_details ed on ed.employee_id = e.id
-  	where id= #{id}
+	  m.id manager_id, m.name manager_name, m.phone_number manager_phone_number,
+	  <!-- <include refid="EmployeeColumnsSql">
+          <property name="alias" value="m"/>
+          <property name="prefix" value="manager"/>
+    </include>, -->
+	  e.id employee_id, e.name employee_name, e.phone_number employee_phone_number,
+	  ed.id ed_id, ed.employement_date
+	  from projects p
+	  inner join employees m on m.id = p.manager_id
+	  inner join emp_prj ep on ep.project_id = p.id
+	  inner join employees e on e.id = ep.employee_id
+	  left join employee_details ed on ed.employee_id = e.id
+	  where id= #{id}
   </select>
   
   <sql id="EmployeeColumnsSql"> 

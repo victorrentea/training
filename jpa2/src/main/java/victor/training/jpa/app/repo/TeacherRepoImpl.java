@@ -32,6 +32,7 @@ public class TeacherRepoImpl implements TeacherRepoCustom{
 		return query.getResultList();
 	}
 
+
 	@Override
 	public List<TeachingActivity> searchActivity(ActivitySearchCriteria criteria) {
 		Map<String, Object> params = new HashMap<>();

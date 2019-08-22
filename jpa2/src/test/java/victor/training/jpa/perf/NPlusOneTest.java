@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -51,30 +52,42 @@ public class NPlusOneTest {
 	@Test
 	public void nPlusOne() {
 		List<Parent> parents = em.createQuery("FROM Parent", Parent.class).getResultList();
-
+		log.info("Parents Evening: all gathered");
 		int totalChildren = anotherMethod(parents);
+		log.info("All children counted");
 		assertThat(totalChildren).isEqualTo(5);
 	}
-	@Test
-	public void joins() {
-		// TODO
-	}
-	@Test
-	public void eager() {
-		// TODO + debate
-	}
+//	@Test
+//	public void joins() {
+//		// TODO
+//	}
+//	@Test
+//	public void eager() {
+//		// TODO + debate
+//	}
 
 
 
+	@Autowired
+	private ChildrenRepo childrenRepo;
 
 	private int anotherMethod(Collection<Parent> parents) {
 		log.debug("Start iterating over {} parents: {}", parents.size(), parents);
 		int total = 0;
 		for (Parent parent : parents) {
-			total += parent.getChildren().size();
+			Set<Child> proxiedList = childrenRepo.getByParentId(parent.getId());
+//			Set<Child> proxiedList = parent.getChildren();
+			log.debug("Now,........ (drums).... size() on {}",proxiedList.getClass());
+			total += proxiedList.size();
+			log.debug("Got it!");
 		}
 		log.debug("Done counting: {} children", total);
 		return total;
 	}
 
+}
+
+
+interface ChildrenRepo extends JpaRepository<Child, Long> {
+	Set<Child> getByParentId(long parentId);
 }

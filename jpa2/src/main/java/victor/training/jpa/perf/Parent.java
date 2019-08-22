@@ -16,8 +16,8 @@ public class Parent {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "PARENT_ID")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "parent")
+//    @JoinColumn(name = "PARENT_ID")
     private Set<Child> children = new HashSet<>();
 
     private Parent() {
@@ -27,12 +27,17 @@ public class Parent {
         this.name = name;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public Parent addChild(Child child) {
         children.add(child);
+        child.setParent(this);
         return this;
     }
 
     public Set<Child> getChildren() {
-        return unmodifiableSet(children);
+        return children;
     }
 }
