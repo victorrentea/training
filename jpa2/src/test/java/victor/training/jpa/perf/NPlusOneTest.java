@@ -7,8 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -16,8 +14,10 @@ import org.springframework.test.context.transaction.TestTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -50,49 +50,23 @@ public class NPlusOneTest {
 
 	@Test
 	public void nPlusOne() {
-		Set<Parent> parents = parentRepo.getAllFetchingChildren();
-		log.info("Parents Evening: all gathered");
-		List<String> totalChildren = anotherMethod(parents);
-		log.info("All children counted");
-		assertThat(totalChildren).containsExactlyInAnyOrder("Vlad", "Emma", "Maria", "Paul", "Stephan");
-		log.debug("rez = " + totalChildren);
+		List<Parent> parents = em.createQuery("FROM Parent", Parent.class).getResultList();
+
+		int totalChildren = anotherMethod(parents);
+		assertThat(totalChildren).isEqualTo(5);
 	}
-//	@Test
-//	public void joins() {
-//		// TODO
-//	}
-//	@Test
-//	public void eager() {
-//		// TODO + debate
-//	}
 
 
 
-	@Autowired
-	private ParentRepo parentRepo;
-	@Autowired
-	private ChildrenRepo childrenRepo;
 
-	private List<String> anotherMethod(Collection<Parent> parents) {
+	private int anotherMethod(Collection<Parent> parents) {
 		log.debug("Start iterating over {} parents: {}", parents.size(), parents);
-		List<String>  total = new ArrayList<>();
+		int total = 0;
 		for (Parent parent : parents) {
-			List<String> myChildrenNames = parent.getChildren().stream().map(Child::getName).collect(Collectors.toList());
-			total.addAll(myChildrenNames);
+			total += parent.getChildren().size();
 		}
 		log.debug("Done counting: {} children", total);
 		return total;
 	}
 
-}
-
-
-interface ChildrenRepo extends JpaRepository<Child, Long> {
-	@Query("SELECT c FROM Child c WHERE c.parent.id = ?1")
-	Set<Child> xxgetByParentId(long parentId);
-}
-
-interface ParentRepo extends JpaRepository<Parent, Long> {
-	@Query("FROM Parent p LEFT JOIN FETCH p.children")
-	Set<Parent> getAllFetchingChildren();
 }

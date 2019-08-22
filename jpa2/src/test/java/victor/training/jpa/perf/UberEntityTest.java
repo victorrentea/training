@@ -12,10 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.transaction.TestTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -34,69 +31,28 @@ public class UberEntityTest {
 
     @Test
     public void greedyQuery() {
-//        em.persist(romania);
-//        em.persist(testUser);
-//        em.persist(globalScope);
+        em.persist(romania);
+        em.persist(testUser);
+        em.persist(globalScope);
 
 
-//        UberEntity uber = new UberEntity()
-//                .setName("Zmart Name")
-//                .setFiscalCountry(romania)
-//                .setOriginCountry(romania)
-//                .setInvoicingCountry(romania)
-//                .setCreatedBy(testUser)
-//                .setNationality(romania)
-//                .setScope(globalScope);
-//        em.persist(uber);
+        UberEntity uber = new UberEntity()
+                .setFiscalCountry(romania)
+                .setOriginCountry(romania)
+                .setInvoicingCountry(romania)
+                .setCreatedBy(testUser)
+                .setNationality(romania)
+                .setScope(globalScope);
+        em.persist(uber);
 
         TestTransaction.end();
         TestTransaction.start();
 
         log.info("Now, loading by id...");
-        log.info("Now, loading again by id...");
-        LightUber light = em.createQuery(
-                "SELECT lu FROM LightUber lu" +
-                        " JOIN UberEntity u ON u.id = lu.id" +
-                        " WHERE u.originCountry.id = :id"
-        , LightUber.class)
-                .setParameter("id",1L)
-                .getSingleResult();
+        UberEntity uberEntity = em.find(UberEntity.class, uber.getId());
         log.info("Loaded");
-//        log.info(uberEntity.getOriginCountry().getName());
-        log.info("After");
         // TODO fetch only the necessary data
         // TODO change link types?
-        log.info("The entity is: id={}, name={}, countryId={}, count={}",
-                light.getId(),
-                light.getName(),
-                light.getOriginCountryId(),
-                light.getChildCount()
-        );
-    }
-}
-
-
-@Entity
-class LightUber {
-    @Id
-    private Long id;
-    private String name;
-    private Long originCountryId;
-    private Long childCount;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Long getOriginCountryId() {
-        return originCountryId;
-    }
-
-    public Long getChildCount() {
-        return childCount;
+        System.out.println(uberEntity.toString());
     }
 }

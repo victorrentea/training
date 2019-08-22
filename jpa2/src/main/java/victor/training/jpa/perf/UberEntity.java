@@ -1,8 +1,9 @@
 package victor.training.jpa.perf;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class UberEntity {
@@ -23,8 +24,6 @@ public class UberEntity {
     private Scope scope;
     @ManyToOne
     private User createdBy;
-    @OneToMany
-    private List<Child> children = new ArrayList<>();
 
     public Long getId() {
         return id;
