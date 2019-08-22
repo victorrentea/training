@@ -59,6 +59,10 @@ public class NPlusOneTest {
 	public void joins() {
 		// TODO
 	}
+	@Test
+	public void eager() {
+		// TODO + debate
+	}
 
 
 
