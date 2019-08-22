@@ -12,7 +12,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.transaction.TestTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,20 +34,20 @@ public class UberEntityTest {
 
     @Test
     public void greedyQuery() {
-        em.persist(romania);
-        em.persist(testUser);
-        em.persist(globalScope);
+//        em.persist(romania);
+//        em.persist(testUser);
+//        em.persist(globalScope);
 
 
-        UberEntity uber = new UberEntity()
-                .setName("Zmart Name")
-                .setFiscalCountry(romania)
-                .setOriginCountry(romania)
-                .setInvoicingCountry(romania)
-                .setCreatedBy(testUser)
-                .setNationality(romania)
-                .setScope(globalScope);
-        em.persist(uber);
+//        UberEntity uber = new UberEntity()
+//                .setName("Zmart Name")
+//                .setFiscalCountry(romania)
+//                .setOriginCountry(romania)
+//                .setInvoicingCountry(romania)
+//                .setCreatedBy(testUser)
+//                .setNationality(romania)
+//                .setScope(globalScope);
+//        em.persist(uber);
 
         TestTransaction.end();
         TestTransaction.start();
@@ -52,11 +55,9 @@ public class UberEntityTest {
         log.info("Now, loading by id...");
         log.info("Now, loading again by id...");
         LightUber light = em.createQuery(
-                "SELECT new victor.training.jpa.perf.LightUber" +
-                        "(u.id, u.name, u.originCountry.id, COUNT(c.id)) " +
-                        " FROM UberEntity u LEFT JOIN u.children c WHERE u.id = :id"
+                " FROM LightUber u WHERE u.id = :id"
         , LightUber.class)
-                .setParameter("id", uber.getId())
+                .setParameter("id",1L)
                 .getSingleResult();
         log.info("Loaded");
 //        log.info(uberEntity.getOriginCountry().getName());
@@ -67,25 +68,19 @@ public class UberEntityTest {
                 light.getId(),
                 light.getName(),
                 light.getOriginCountryId(),
-                light.getChildrenCount()
+                light.getChildCount()
         );
     }
 }
 
 
+@Entity
 class LightUber {
-    private final Long id;
-    private final String name;
-    private final Long originCountryId;
-    private final Long childrenCount;
-
-    public LightUber(Long id, String name, Long originCountryId, Long childrenCount) {
-        this.id = id;
-        this.name = name;
-        this.originCountryId = originCountryId;
-        this.childrenCount = childrenCount;
-    }
-
+    @Id
+    private Long id;
+    private String name;
+    private Long originCountryId;
+    private Long childCount;
 
     public Long getId() {
         return id;
@@ -99,7 +94,7 @@ class LightUber {
         return originCountryId;
     }
 
-    public Long getChildrenCount() {
-        return childrenCount;
+    public Long getChildCount() {
+        return childCount;
     }
 }
