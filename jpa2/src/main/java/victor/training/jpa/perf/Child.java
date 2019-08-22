@@ -19,6 +19,10 @@ public class Child {
     private Child() {
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Child setParent(Parent parent) {
         this.parent = parent;
         return this;

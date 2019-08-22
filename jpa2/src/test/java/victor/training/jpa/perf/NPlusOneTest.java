@@ -16,9 +16,8 @@ import org.springframework.test.context.transaction.TestTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -53,9 +52,9 @@ public class NPlusOneTest {
 	public void nPlusOne() {
 		List<Parent> parents = em.createQuery("FROM Parent", Parent.class).getResultList();
 		log.info("Parents Evening: all gathered");
-		int totalChildren = anotherMethod(parents);
+		List<String> totalChildren = anotherMethod(parents);
 		log.info("All children counted");
-		assertThat(totalChildren).isEqualTo(5);
+		assertThat(totalChildren).isEqualTo(Arrays.asList("Vlad", "Emma", "Maria", "Paul", "Stephan"));
 	}
 //	@Test
 //	public void joins() {
@@ -71,14 +70,14 @@ public class NPlusOneTest {
 	@Autowired
 	private ChildrenRepo childrenRepo;
 
-	private int anotherMethod(Collection<Parent> parents) {
+	private List<String> anotherMethod(Collection<Parent> parents) {
 		log.debug("Start iterating over {} parents: {}", parents.size(), parents);
-		int total = 0;
+		List<String>  total = new ArrayList<>();
 		for (Parent parent : parents) {
 			Set<Child> proxiedList = childrenRepo.xxgetByParentId(parent.getId());
 //			Set<Child> proxiedList = parent.getChildren();
 			log.debug("Now,........ (drums).... size() on {}",proxiedList.getClass());
-			total += proxiedList.size();
+			total.addAll(proxiedList.stream().map(Child::getName).collect(Collectors.toList()));
 			log.debug("Got it!");
 		}
 		log.debug("Done counting: {} children", total);
