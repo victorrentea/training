@@ -13,6 +13,7 @@ import org.springframework.test.context.transaction.TestTransaction;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -50,14 +51,17 @@ public class UberEntityTest {
         TestTransaction.start();
 
         log.info("Now, loading by id...");
-        UberEntity uberEntity = em.find(UberEntity.class, uber.getId());
         log.info("Now, loading again by id...");
-        uberEntity = em.find(UberEntity.class, uber.getId());
+        Object[] tuple = (Object[]) em.createQuery(
+                "SELECT id, name FROM UberEntity WHERE id = :id")
+                .setParameter("id", uber.getId())
+                .getSingleResult();
         log.info("Loaded");
-        log.info(uberEntity.getOriginCountry().getName());
+//        log.info(uberEntity.getOriginCountry().getName());
         log.info("After");
         // TODO fetch only the necessary data
         // TODO change link types?
-        log.info("The entity is: id={}, name={}", uberEntity.getId(), uberEntity.getName());
+        log.info("The entity is: id={}, name={}", tuple[0], tuple[1]);
     }
 }
+
