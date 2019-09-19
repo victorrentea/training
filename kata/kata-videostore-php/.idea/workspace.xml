@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2386a79-4f57-4a4e-bf51-28c611799ca5" name="Default" comment="Presupunem Multe Swtichuri pe acelasi type code">
-      <change beforePath="$PROJECT_DIR$/src/Movie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Movie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rental.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rental.php" afterDir="false" />
+    <list default="true" id="d2386a79-4f57-4a4e-bf51-28c611799ca5" name="Default" comment="Exercitiu pentr u cititor: TODO">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -204,7 +203,7 @@
       <workItem from="1528321756906" duration="599000" />
       <workItem from="1530074919430" duration="1056000" />
       <workItem from="1530105025880" duration="7567000" />
-      <workItem from="1568889420333" duration="7762000" />
+      <workItem from="1568889420333" duration="8589000" />
     </task>
     <task id="LOCAL-00001" summary="Presupunem Multe Swtichuri pe acelasi type code">
       <created>1568898079681</created>
@@ -213,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568898079681</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Exercitiu pentr u cititor: TODO">
+      <created>1568898377135</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1568898377135</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +238,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Presupunem Multe Swtichuri pe acelasi type code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Presupunem Multe Swtichuri pe acelasi type code" />
+    <MESSAGE value="Exercitiu pentr u cititor: TODO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exercitiu pentr u cititor: TODO" />
   </component>
 </project>
