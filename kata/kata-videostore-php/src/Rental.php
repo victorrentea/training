@@ -28,19 +28,11 @@ class Rental
             case Movie::REGULAR: return $this->calculateRegularPrice();
             case Movie::NEW_RELEASE: return $this->calculateNewReleasePrice();
             case Movie::CHILDRENS: return $this->calculateChildrensPrice();
+            case Movie::ELDERS: return $this->calculateChildrensPrice();
             default: throw new \Exception("Dau bere dac-o prinzi: " . $this->movie->getTitle());
         }
     }
-    public function computeMaxRentalDays(): float
-    {
-        switch ($this->movie->getPriceCode()) {
-            case Movie::REGULAR: return $this->calculateRegularPrice();
-            case Movie::NEW_RELEASE: return $this->calculateNewReleasePrice();
-            case Movie::CHILDRENS: return $this->calculateChildrensPrice();
-            default: throw new \Exception("Dau bere dac-o prinzi: " . $this->movie->getTitle());
-        }
-    }
-    public function computeMinAge(): float
+    public function calculateAge(): float
     {
         switch ($this->movie->getPriceCode()) {
             case Movie::REGULAR: return $this->calculateRegularPrice();

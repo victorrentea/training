@@ -1,12 +1,39 @@
 <?php
 namespace video;
 
-class Movie
+
+class RegularMovie extends Movie {
+    public function calculatePrice(int $daysRented): float
+    {
+        $price = 2;
+        if ($this->getDaysRented() > 2)
+            $price += ($this->getDaysRented() - 2) * 1.5;
+        return $price;
+    }
+
+}
+//class NewReleaseMovie extends Movie {
+//
+//}
+//class ChildrensMovie extends Movie {
+//
+//}
+class BabaciMovie extends Movie {
+
+    public function calculatePrice(int $daysRented): float
+    {
+        // TODO: Implement calculatePrice() method.
+    }
+}
+
+abstract class Movie
 {
     const NEW_RELEASE = "NEW_RELEASE";
     const REGULAR = "REGULAR";
     const CHILDRENS = "CHILDRENS";
-//    const ELDERS = "BABACI";
+    const ELDERS = "BABACI";
+
+    public abstract function calculatePrice(int $daysRented): float;
 
     private $title;
 
