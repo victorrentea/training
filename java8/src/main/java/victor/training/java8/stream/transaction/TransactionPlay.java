@@ -38,6 +38,7 @@ public class TransactionPlay {
 		
 	@Test //1
 	public void all_2011_transactions_sorted_by_value() {
+
 		List<Transaction> expected = Arrays.asList(tx[0], tx[2]);
 		
 		// SOLUTION(
