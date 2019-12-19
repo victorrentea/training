@@ -8,10 +8,7 @@
 
 namespace victor\training\oo\structural\decorator;
 
-include "IExpensiveMath.php"; // SOLUTION
-
-//class ExpensiveMath // INITIAL
-class ExpensiveMath implements IExpensiveMath // SOLUTION
+class ExpensiveMath
 {
     function getNextPrimeAfter(int $number): int {
         $n = $number;
@@ -24,11 +21,11 @@ class ExpensiveMath implements IExpensiveMath // SOLUTION
         if ($number  <= 2) {
             return true;
         }
-        if ($number % 2 == 0) {
+        if ($number % 2 === 0) {
             return false;
         }
         for ($d = 3; $d < $number/2; $d += 2) {
-            if ($number % $d == 0) {
+            if ($number % $d === 0) {
                 return false;
             }
         }

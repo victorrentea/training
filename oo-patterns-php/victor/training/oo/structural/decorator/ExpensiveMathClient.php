@@ -9,10 +9,8 @@
 namespace victor\training\oo\structural\decorator;
 
 include "ExpensiveMath.php";
-include "ExpensiveMathCacheDecorator.php";// SOLUTION
 
-// function testItAndIfPrimeGetNextOne(int $n, ExpensiveMath $math) { // INITIAL
-function testItAndIfPrimeGetNextOne(int $n, IExpensiveMath $math) { // SOLUTION
+ function testItAndIfPrimeGetNextOne(int $n, ExpensiveMath $math) {
 
         $isPrime = $math->isPrime($n);
     printf("isPrime(" . $n . "): " . ($isPrime ? "Yes" : "No")."\n");
@@ -22,7 +20,6 @@ function testItAndIfPrimeGetNextOne(int $n, IExpensiveMath $math) { // SOLUTION
 
 }
 $math = new ExpensiveMath();
-$math = new ExpensiveMathCacheDecorator($math); // SOLUTION
 printf("Start... \n");
 testItAndIfPrimeGetNextOne(179426549, $math);
 testItAndIfPrimeGetNextOne(179426549, $math);
