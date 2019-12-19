@@ -15,18 +15,18 @@ include "EmailContext.php";
 
 class EmailService
 {
-    public static const MAX_RETRIES = 3;
+    private const MAX_RETRIES = 3;
 
-    public function sendOrderReceivedEmail(string $emailAddress)
+    public function sendOrderReceivedEmail(string $emailAddress): void
     {
         $context = new EmailContext(/*smtpConfig,etc*/);
-        for ($i = 0; $i < EmailService::MAX_RETRIES; $i++) {
+        for ($i = 0; $i < self::MAX_RETRIES; $i++) {
             $email = new Email();
-            $email->setSender("noreply@corp.com");
-            $email->setReplyTo("/dev/null");
+            $email->setSender('noreply@corp.com');
+            $email->setReplyTo('/dev/null');
             $email->setTo($emailAddress);
-            $email->setSubject("Order Received");
-            $email->setBody("Thank you for your order");
+            $email->setSubject('Order Received');
+            $email->setBody('Thank you for your order');
             $success = $context->send($email);
             if ($success) break;
         }
@@ -34,6 +34,6 @@ class EmailService
 }
 
 $emailService = new EmailService();
-$emailService->sendOrderReceivedEmail("a@b.com");
+$emailService->sendOrderReceivedEmail('a@b.com');
 
 //CHANGE request: implement sendOrderShippedEmail

@@ -11,28 +11,12 @@ namespace victor\training\oo\behavioral\singleton;
 
 class AppConfiguration
 {
-	
-    // SOLUTION (
-    /* @var AppConfiguration */
-    private static $INSTANCE;
-	// SOLUTION )
-
-    // public function __construct() // INITIAL 
-    private function __construct() // SOLUTION 
+    public function __construct()
 	{
         printf("Creating singleton instance\n");
         $this->properties = $this->readConfiguration();
     }
 	
-	// SOLUTION (
-
-    public static function getInstance(): AppConfiguration {
-        if (static::$INSTANCE == null) {
-            static::$INSTANCE = new AppConfiguration();
-        }
-        return static::$INSTANCE;
-    }
-    // SOLUTION )
     private $properties;
 
     private function readConfiguration(): array {
@@ -40,7 +24,7 @@ class AppConfiguration
         sleep(2);
         printf("Decrypting properties...\n");
         sleep(1);
-        return parse_ini_file("props.ini");
+        return parse_ini_file('props.ini');
     }
 
     public function getProperty(string $propertyName): string {

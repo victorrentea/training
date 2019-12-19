@@ -23,93 +23,70 @@ class Address
     /* @var String */
     private $country;
 
-    // INITIAL (
-//    public function getStreetName(): String
-//    {
-//        return $this->streetName;
-//    }
-//
-//    public function setStreetName(String $streetName): void
-//    {
-//        $this->streetName = $streetName;
-//    }
-//
-//    public function getStreetNumber(): int
-//    {
-//        return $this->streetNumber;
-//    }
-//
-//    public function setStreetNumber(int $streetNumber): void
-//    {
-//        $this->streetNumber = $streetNumber;
-//    }
-//
-//    public function getCity(): String
-//    {
-//        return $this->city;
-//    }
-//
-//    public function setCity(String $city): void
-//    {
-//        $this->city = $city;
-//    }
-//
-//    public function getCountry(): String
-//    {
-//        return $this->country;
-//    }
-//
-//    public function setCountry(String $country): void
-//    {
-//        $this->country = $country;
-//    }
-    // INITIAL )
-
-    // SOLUTION (
-    public function getStreetName(): ?String
-{
-    return $this->streetName;
-}
-
-    public function setStreetName(?String $streetName): Address
+    /**
+     * @return String
+     */
+    public function getStreetName(): String
     {
-        $this->streetName = $streetName;
-        return $this;
+        return $this->streetName;
     }
 
-    public function getStreetNumber(): ?int
+    /**
+     * @param String $streetName
+     */
+    public function setStreetName(String $streetName): void
+    {
+        $this->streetName = $streetName;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStreetNumber(): int
     {
         return $this->streetNumber;
     }
 
-    public function setStreetNumber(?int $streetNumber): Address
+    /**
+     * @param int $streetNumber
+     */
+    public function setStreetNumber(int $streetNumber): void
     {
         $this->streetNumber = $streetNumber;
-        return $this;
     }
 
-    public function getCity(): ?String
+    /**
+     * @return String
+     */
+    public function getCity(): String
     {
         return $this->city;
     }
 
-    public function setCity(?String $city): Address
+    /**
+     * @param String $city
+     */
+    public function setCity(String $city): void
     {
         $this->city = $city;
-        return $this;
     }
 
-    public function getCountry(): ?String
+    /**
+     * @return String
+     */
+    public function getCountry(): String
     {
         return $this->country;
     }
 
-    public function setCountry(?String $country): Address
+    /**
+     * @param String $country
+     */
+    public function setCountry(String $country): void
     {
         $this->country = $country;
-        return $this;
     }
-    // SOLUTION )
+
 
 
 }

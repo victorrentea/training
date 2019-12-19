@@ -31,64 +31,84 @@ class Customer
         $this->labels = [];
     }
 
-    public function addLabel(string $label): Customer {
-        $this->labels[] = $label;
-        return $this;
-    }
-
+    /**
+     * @return String
+     */
     public function getName(): String
     {
         return $this->name;
     }
 
-    public function setName(String $name): Customer
+    /**
+     * @param String $name
+     */
+    public function setName(String $name): void
     {
         $this->name = $name;
-        return $this;
     }
 
+    /**
+     * @return String
+     */
     public function getPhone(): String
     {
         return $this->phone;
     }
 
-    public function setPhone(String $phone): Customer
+    /**
+     * @param String $phone
+     */
+    public function setPhone(String $phone): void
     {
         $this->phone = $phone;
-        return $this;
     }
 
+    /**
+     * @return String[]
+     */
     public function getLabels(): array
     {
         return $this->labels;
     }
 
-    public function setLabels(array $labels): Customer
+    /**
+     * @param String[] $labels
+     */
+    public function setLabels(array $labels): void
     {
         $this->labels = $labels;
-        return $this;
     }
 
-    public function getAddress(): ?Address
+    /**
+     * @return Address
+     */
+    public function getAddress(): Address
     {
         return $this->address;
     }
 
-    public function setAddress(?Address $address): Customer
+    /**
+     * @param Address $address
+     */
+    public function setAddress(Address $address): void
     {
         $this->address = $address;
-        return $this;
     }
 
+    /**
+     * @return \DateTime
+     */
     public function getCreateDate(): \DateTime
     {
         return $this->createDate;
     }
 
-    public function setCreateDate(\DateTime $createDate): Customer
+    /**
+     * @param \DateTime $createDate
+     */
+    public function setCreateDate(\DateTime $createDate): void
     {
         $this->createDate = $createDate;
-        return $this;
     }
 
 }

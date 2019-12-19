@@ -10,15 +10,6 @@ namespace victor\training\oo\behavioral\singleton;
 include('AppConfiguration.php');
 
 
-// INITIAL (
-//printf("Configuration setting a = " . (new AppConfiguration())->getProperty("a") . "\n");
-//printf("Configuration setting b = " . (new AppConfiguration())->getProperty("b"). "\n");
-//printf("Configuration setting a = " . (new AppConfiguration())->getProperty("a") . "\n");
-// INITIAL )
-
-// SOLUTION (
-printf("Configuration setting a = " . AppConfiguration::getInstance()->getProperty("a") . "\n");
-printf("Configuration setting b = " . AppConfiguration::getInstance()->getProperty("b"). "\n");
-printf("Configuration setting a = " . AppConfiguration::getInstance()->getProperty("a") . "\n");
-
-// SOLUTION )
+printf('Configuration setting a = ' . (new AppConfiguration())->getProperty('a') . "\n");
+printf('Configuration setting b = ' . (new AppConfiguration())->getProperty('b'). "\n");
+printf('Configuration setting a = ' . (new AppConfiguration())->getProperty('a') . "\n");

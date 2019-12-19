@@ -13,8 +13,8 @@ class EmailContext
 {
     public function send(Email $email): bool
     {
-        printf("Trying to send " . $email . " [subject: " . $email->getSubject() . ']');
-        if (rand(0, 1) == 0) {
+        printf("Trying to send {$email} [subject: {$email->getSubject()}]");
+        if (random_int(0, 1) === 0) {
             printf(" .. SUCCESS\n");
             return true;
         } else {

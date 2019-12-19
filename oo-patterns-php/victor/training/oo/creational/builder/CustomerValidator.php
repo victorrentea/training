@@ -15,8 +15,8 @@ class CustomerValidator
 
     public function validate(Customer $customer)
     {
-        if ($customer->getName() == '') {
-            throw new \Exception("Missing customer name");
+        if ($customer->getName() === '') {
+            throw new \Exception('Missing customer name');
         }
 
         $this->validateAddress($customer->getAddress());
@@ -25,11 +25,11 @@ class CustomerValidator
 
     private function validateAddress(Address $address)
     {
-        if ($address == null) {
-            throw new \Exception("Missing customer address");
+        if ($address === null) {
+            throw new \Exception('Missing customer address');
         }
 
-        if ($address->getCity() == "") {
+        if ($address->getCity() === '') {
             throw new \Exception("Missing address city");
         }
     }
