@@ -1,8 +1,0 @@
-event.dispatcher:
-    class: Symfony\Component\EventDispatcher\EventDispatcher
-
-order.service:
-    class: MS\ExamplePHP\ObserverPattern\Service\OrderService
-    arguments:
-        - "@event.dispatcher"
-        - "@logger"
