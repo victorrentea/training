@@ -1,0 +1,22 @@
+[
+    {
+        "self": "https://jira.myorganisation.com/jira/rest/api/2/project/DDI",
+        "id": "10001",
+        "key": "PRJ1",
+        "name": "Project 1",
+        "avatarUrls": {
+            "16x16": "https://jira.myorganisation.com/jira/secure/projectavatar?size=small&pid=10000&avatarId=10000",
+            "48x48": "https://jira.myorganisation.com/jira/secure/projectavatar?pid=10000&avatarId=10000"
+        }
+    },
+    {
+        "self": "https://jira.myorganisation.com/jira/rest/api/2/project/PM",
+        "id": "10002",
+        "key": "PRJ2",
+        "name": "Project 2",
+        "avatarUrls": {
+            "16x16": "https://jira.myorganisation.com/jira/secure/projectavatar?size=small&pid=10000&avatarId=10000",
+            "48x48": "https://jira.myorganisation.com/jira/secure/projectavatar?pid=10000&avatarId=10000"
+        }
+    }
+]
