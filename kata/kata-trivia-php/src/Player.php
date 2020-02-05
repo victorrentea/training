@@ -49,4 +49,9 @@ class Player
         $this->inPenaltyBox = true;
     }
 
+    public function hasWon(): bool
+    {
+        return $this->purse == 6;
+    }
+
 }

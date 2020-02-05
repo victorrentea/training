@@ -42,8 +42,11 @@ class Trivia implements TriviaInterface
     function roll($roll)
     {
         echoln($this->currentPlayerName() . " is the current player");
-        echoln("They have rolled a " . $roll);
-        if ($this->currentPlayer()->isInPenaltyBox()) {
+        echoln("They have rolled a $roll");
+        if (!$this->currentPlayer()->isInPenaltyBox()) {
+            $this->x($roll);
+            return;
+        } else {
             if ($roll % 2 != 0) {
                 $this->isGettingOutOfPenaltyBox = true;
                 echoln($this->currentPlayerName() . " is getting out of the penalty box");
@@ -52,8 +55,6 @@ class Trivia implements TriviaInterface
                 echoln($this->currentPlayerName() . " is not getting out of the penalty box");
                 $this->isGettingOutOfPenaltyBox = false;
             }
-        } else {
-            $this->x($roll);
         }
     }
 
@@ -90,26 +91,21 @@ class Trivia implements TriviaInterface
 
     function wasCorrectlyAnswered()
     {
-        if (!$this->currentPlayer()->isInPenaltyBox() ||
-            $this->isGettingOutOfPenaltyBox) {
+        if ($this->currentPlayer()->isInPenaltyBox() &&
+            !$this->isGettingOutOfPenaltyBox) {
 
+            $gameContinues = true;
+        } else {
             echoln("Answer was correct!!!!");
             $this->currentPlayer()->addOneCoin();
             echoln(sprintf("%s now has %s Gold Coins.",
                 $this->currentPlayerName(),
                 $this->currentPlayer()->getPurse()));
-            $winner = $this->didPlayerWin();
-            $this->advanceToNextPlayer();
-            return $winner;
+
+            $gameContinues = !$this->currentPlayer()->hasWon();
         }
         $this->advanceToNextPlayer();
-        return true;
-    }
-
-
-    function didPlayerWin()
-    {
-        return !($this->currentPlayer()->getPurse() == 6);
+        return $gameContinues;
     }
 
     private function advanceToNextPlayer(): void
