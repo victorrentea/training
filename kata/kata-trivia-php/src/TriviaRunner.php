@@ -9,10 +9,6 @@
 namespace video;
 
 $outputString = '';
-function echoln($string) {
-    global $outputString;
-    $outputString .= $string."\n";
-}
 
 include 'Trivia.php';
 
@@ -23,7 +19,7 @@ class TriviaTest extends \PHPUnit\Framework\TestCase
     {
         $aGame = new Trivia();
 
-        echoln("------------------------");
+        echo "------------------------" . "\n";
 
         $aGame->add("Chet");
         $aGame->add("Pat");
