@@ -4,7 +4,7 @@
 namespace video;
 
 
-class TriviaOld
+class TriviaOld implements TriviaInterface
 {
     var $players;
     var $places;

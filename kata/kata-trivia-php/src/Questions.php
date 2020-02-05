@@ -4,6 +4,12 @@ namespace video;
 
 class Questions
 {
+    public const CATEGORIES = [
+        0 => 'Pop',
+        1 => 'Science',
+        2 => 'Sports',
+        3 => 'Rock'
+    ];
     private array $popQuestions = [];
     private array $scienceQuestions = [];
     private array $sportsQuestions = [];
