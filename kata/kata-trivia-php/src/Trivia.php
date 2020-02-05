@@ -9,15 +9,16 @@
 namespace video;
 
 
+use function sprintf;
+
 class Trivia implements TriviaInterface
 {
     private Questions $questions;
 
     /** @var Player[] */
     private array $players = [];
-    private array $inPenaltyBox = [0];
 
-    private int $currentPlayer = 0;
+    private int $currentPlayerIndex = 0;
     private bool $isGettingOutOfPenaltyBox;
 
     function __construct()
@@ -28,7 +29,6 @@ class Trivia implements TriviaInterface
     function add($playerName)
     {
         $this->players[] = new Player($playerName);
-        $this->inPenaltyBox[$this->howManyPlayers()] = false;
         echoln($playerName . " was added");
         echoln("They are player number " . $this->howManyPlayers());
         return true;
@@ -57,6 +57,26 @@ class Trivia implements TriviaInterface
         }
     }
 
+    private function currentPlayerName(): string
+    {
+        return $this->currentPlayer()->getName();
+    }
+
+    private function currentPlayer(): Player
+    {
+        return $this->players[$this->currentPlayerIndex];
+    }
+
+    private function x($roll): void
+    {
+        $this->currentPlayer()->incrementPlace($roll);
+        echoln($this->currentPlayerName()
+            . "'s new location is "
+            . $this->currentPlayer()->getPlace());
+        echoln("The category is " . $this->currentCategory());
+        $this->askQuestion();
+    }
+
     function currentCategory()
     {
         $currentPlace = $this->currentPlayer()->getPlace();
@@ -70,25 +90,34 @@ class Trivia implements TriviaInterface
 
     function wasCorrectlyAnswered()
     {
-        if ($this->currentPlayer()->isInPenaltyBox()) {
-            if ($this->isGettingOutOfPenaltyBox) {
-                echoln("Answer was correct!!!!");
-                return $this->y();
-            } else {
-                $this->currentPlayer++;
-                if ($this->currentPlayer == $this->howManyPlayers()) $this->currentPlayer = 0;
-                return true;
-            }
-        } else {
-            // FIXME Possible Bug mail sent to BIZ on 05.02.2020 by virentea
-            echoln("Answer was corrent!!!!");
-            return $this->y();
+        if (!$this->currentPlayer()->isInPenaltyBox() ||
+            $this->isGettingOutOfPenaltyBox) {
+
+            echoln("Answer was correct!!!!");
+            $this->currentPlayer()->addOneCoin();
+            echoln(sprintf("%s now has %s Gold Coins.",
+                $this->currentPlayerName(),
+                $this->currentPlayer()->getPurse()));
+            $winner = $this->didPlayerWin();
+            $this->advanceToNextPlayer();
+            return $winner;
         }
+        $this->advanceToNextPlayer();
+        return true;
     }
+
 
     function didPlayerWin()
     {
         return !($this->currentPlayer()->getPurse() == 6);
+    }
+
+    private function advanceToNextPlayer(): void
+    {
+        $this->currentPlayerIndex++;
+        if ($this->currentPlayerIndex == $this->howManyPlayers()) {
+            $this->currentPlayerIndex = 0;
+        }
     }
 
     function wrongAnswer()
@@ -96,45 +125,8 @@ class Trivia implements TriviaInterface
         echoln("Question was incorrectly answered");
         echoln($this->currentPlayerName() . " was sent to the penalty box");
         $this->currentPlayer()->sendToPenaltyBox();
-        $this->currentPlayer++;
-        if ($this->currentPlayer == $this->howManyPlayers()) $this->currentPlayer = 0;
+        $this->advanceToNextPlayer();
         return true;
-    }
-
-    private function currentPlayerName(): string
-    {
-        return $this->currentPlayer()->getName();
-    }
-
-    private function x($roll): void
-    {
-        $this->currentPlayer()->incrementPlace($roll);
-        echoln($this->currentPlayerName()
-            . "'s new location is "
-            . $this->currentPlayer()->getPlace());
-        echoln("The category is " . $this->currentCategory());
-        $this->askQuestion();
-    }
-
-    private function currentPlayer(): Player
-    {
-        return $this->players[$this->currentPlayer];
-    }
-
-    /**
-     * @return bool
-     */
-    private function y(): bool
-    {
-        $this->currentPlayer()->addOneCoin();
-        echoln($this->currentPlayerName()
-            . " now has "
-            . $this->currentPlayer()->getPurse()
-            . " Gold Coins.");
-        $winner = $this->didPlayerWin();
-        $this->currentPlayer++;
-        if ($this->currentPlayer == $this->howManyPlayers()) $this->currentPlayer = 0;
-        return $winner;
     }
 
 
