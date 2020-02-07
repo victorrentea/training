@@ -614,17 +614,24 @@ ga('send', 'pageview');
                     </a>
                 </div>
 				<div class="col-sm-6 col-xs-12 portfolio-item">
-                    <a href="#algorithms" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">Algorithms<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
-                        <img src="label/algorithms.jpg" class="img-responsive" alt="">
+                    <a href="#reactivex" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">ReactiveX<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
+                        <img src="label/reactivex.jpg" class="img-responsive" alt="">
                     </a>
-                </div>		
+                </div>	
+				
 				<div class="col-sm-6 col-xs-12 portfolio-item">
                     <a href="#unit-testing" class="portfolio-link" data-toggle="modal">
                         <div class="caption">Test-Driven Development TDD JUnit Behaviour Driven Cucumber<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
                         <img src="label/unit-testing.jpg" class="img-responsive" alt="">
                     </a>
-                </div>				
+                </div>		
+				<div class="col-sm-6 col-xs-12 portfolio-item">
+                    <a href="#algorithms" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">Algorithms<div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div>
+                        <img src="label/algorithms.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>						
 				
             </div>
 			 <div class="row">
@@ -1569,6 +1576,7 @@ ga('send', 'pageview');
 				<br />
 				<br />
                     <h3>Community Meetups</h3>
+					<p><a href="https://www.meetup.com/Iasi-Software-Craftsmanship-Community/events/267221498/">Unit Testing like a Pro + Refactoring Games: Extract Method - Iasi, January 2020 </a></p>
 					<p><a href="https://www.jugmilano.it/meeting-117.html">Functional Design Patterns with Java - Milan, December 2019 </a></p>
 					<p><a href="https://jug.bg/events/crafting-a-clean-pragmatic-architecture/">Clean Pragmatic Architecture - Sofia, November 2019 </a></p>
 					<p><a href="https://www.meetup.com/Londonjavacommunity/events/265282825/">Clean Pragmatic Architecture - London, October 2019 </a></p>
@@ -3039,6 +3047,57 @@ ga('send', 'pageview');
     </div>
 	
 	
+	
+	
+	<div class="portfolio-modal modal fade" id="reactivex" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content modal-caramiziu">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                        <div class="modal-body">                           
+							<h2 class="weight5">Reactive-X</h2>
+							<hr class="star-primary"/>
+							    
+							<div class='markdown'>
+### Duration: 2 days
+* Applicable Languages: Java, Kotlin, Swift,...
+
+### Agenda
+- Introduction: Callback Hell, Future, Promise and async-await, Java8 Streams, lazy eval
+- Creating Observables (basic): just, from, empty, error, never, range, repeat
+- Timeless Operators: distinct, filter, map, first, take, takeLast, skip, contains, all, flatMap, scan, reduce, window, buffer
+- Creating Observables 2: interval, defer, fromCallable, from future, timer, create (opt)
+- Timeful Operators: buffer, debounce, sample, throttle, delay, timeout, retryWhen (!)
+- Combining Observables: startWith, merge, concat, combineLatest, zip, takeUntil, defaultIfEmpty, switchIfEmpty
+- Emitting: Hot vs Cold Observables, Types of Subjects, Completables, Singles, Maybe
+- Receiving: Subscriber vs Observer vs Action; subscriptions; leaks
+- Caching: replay, Connectable, autoConnect, refCount
+- Error Handling and Lifecycle Hooks (doOn*)
+- Common Pitfalls when using RxJava
+- Backpressure [opt]
+- RxJava 2.x – reactive streams + differences [opt]
+
+
+							</div>
+							
+
+
+							
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
+	
 	<div class="portfolio-modal modal fade" id="spring" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content modal-caramiziu">
             <div class="close-modal" data-dismiss="modal">
@@ -3187,6 +3246,7 @@ ga('send', 'pageview');
 							var text      = $('.markdown').html();
 							var html      = converter.makeHtml(text);
 							$('#spring .markdown').html(html);
+							$('#reactivex .markdown').html(html);
 							</script>
 	
 	<div class="portfolio-modal modal fade" id="unit-testing" tabindex="-1" role="dialog" aria-hidden="true">
