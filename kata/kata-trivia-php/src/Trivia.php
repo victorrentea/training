@@ -39,22 +39,19 @@ class Trivia implements TriviaInterface
         return count($this->players);
     }
 
-    function roll($roll)
+    function roll($roll): void
     {
         echoln($this->currentPlayerName() . " is the current player");
         echoln("They have rolled a $roll");
         if (!$this->currentPlayer()->isInPenaltyBox()) {
             $this->x($roll);
-            return;
+        } else if ($roll % 2 != 0) {
+            $this->isGettingOutOfPenaltyBox = true;
+            echoln($this->currentPlayerName() . " is getting out of the penalty box");
+            $this->x($roll);
         } else {
-            if ($roll % 2 != 0) {
-                $this->isGettingOutOfPenaltyBox = true;
-                echoln($this->currentPlayerName() . " is getting out of the penalty box");
-                $this->x($roll);
-            } else {
-                echoln($this->currentPlayerName() . " is not getting out of the penalty box");
-                $this->isGettingOutOfPenaltyBox = false;
-            }
+            $this->isGettingOutOfPenaltyBox = false;
+            echoln($this->currentPlayerName() . " is not getting out of the penalty box");
         }
     }
 
