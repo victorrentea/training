@@ -1,16 +1,10 @@
 package wata.character;
 
-import static org.junit.Assert.*;
+import wata.skill.Skill;
+import wata.skill.SkillType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
-import org.junit.Test;
-
-import wata.skill.Skill;
-import wata.skill.SkillType;
 
 public class Hero extends FantasyCharacter {
 	
