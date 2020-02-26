@@ -1394,7 +1394,7 @@ ga('send', 'pageview');
 			var feedbackSnippet = $(p).text();
 			var feedbackAuthor = $(p).parents(".recommendation").children(".recommendation-author").text();
 			
-			console.log($(p).parents(".recommendation")[0])
+			//console.log($(p).parents(".recommendation")[0])
 			
 			var item = '<div class="item"><div class="container"><div class="carousel-caption">';
 			item += '<a href="#clients" onclick="scrollTo()"><p>' + feedbackSnippet + '</p><p class="author">'+feedbackAuthor+'</p></a>';
@@ -3114,109 +3114,39 @@ ga('send', 'pageview');
 							<hr class="star-primary"/>
 							    
 							<div class='markdown'>
-### Duration*: 2-5 days
+### Duration*: 2-5 daysXXX
 (Duration varies according to the topics included)
 
 
-### Introduction to Spring Framework
-* What is Spring? Why Spring?
-* A bit of history and phylosophy
-* Spring Initializr
-* Where to look for answers
-* Project Lombok
-	
-### Spring Boot Web App
-* Exposing HTTP Endpoints
-* Exercise: Implement REST endpoints
-* RestControllerAdvice
-* Converters
-* Handling POST request
-* File uploads
+-   Introduction, a bit of history and philosophy, Spring Initializr, Lombok,
+    Where to look for answers
 
-### Dependency Injection
-* Concepts, Manual DI
-* Injection mechanisms in Spring
-* Qualifiers
-* Primary Beans
-* Spring Profiles
-* Bean Life Cycles (including Thread)
-* Three traps to avoid
-* Exercise: practice these concepts
+-   Spring Boot Web App: Rest endpoints, controller advices, handling posts,
+    file uploads, converters
 
-### Configuring Spring
-* Spring Boot Auto-Configuration
-* Default resolution of properties
-* @Value
-* Spring EL
-* Internationalization messages
+-   Dependency Injection: concepts, mechanisms, primary beans, spring profiles
 
-### Spring Aspects
-* Exercise: intercept a method call with a Proxy (manually)
-* Aspect-Oriented Programming Concepts
-* Creating an @Aspect
-* Working with proxies: impact, detecting, self-proxying
-* Double proxying problem
+-   Bean Lifecycle (including thread), 3 common pitfalls
 
-### Working with JPA
-* Configuration properties
-* Spring Data JPA
-* @Transactional: concepts, controlling propagation, debugging
-* Exercise: adding JPA to our app
+-   Configuration: Spring boot auto-config, property resolution, \@Value, Spring
+    EL, i18n
 
-### Spring Testing Support
-* Starting a Spring Container for tests
-* Transaction-scoped Tests
-* Integrating Mockito Bean
-* Testing MVC Endpoints
+-   Spring Aspects: AOP, custom Aspect, impact
 
-### Working with RDB - other ways
-* MyBatis Workshop
-* JdbcTemplate Workshop
+-   Advanced Spring: Cacheable, Executors, Async, Scheduled, Events
 
-### XML Configuration
-* Defining and Injecting Beans
-* Scopes
-* Loading properties, i18n
-* Aspects
-* Profiles
-* Typical Web App Setup
-* Exercise: convert our Spring Boot app to XML configuration
-	
-### Advanced Spring
-* Cacheable
-* Executors
-* Async
-* Scheduled
-* Events (vs Transactions)
+-   Testing Support: \@MockBean, Spring MVC testing
 
-### Spring Security
-[on-demand]
-* Security Interceptor
-* User Details Service
-* Security Context Holder
-* Custom Authentication 
-* Standard Authentication Providers: LDAP/JDBC/WebSSO~SAML
-* Filters: Pre/Post
-* Access Control: @RolesAlowed, ACL schema, integrating
-* Advanced: CSRF, Authentication tag, HTTPS, Remember Me
-* Java Configuration
+-   Spring Security: Form Login, Basic Auth, OAuth2/JWT, Interceptors, Custom
+    Filters, UserDetailsService, CSRF, HTTPS, Tests
 
-### Spring Cloud: Bootiful Microservices
-* start.spring.io
-* Rest JPA Repositories
-* Using Config Server
-* Using Eureka Service Registry
-* Using Hystrix cirscuit breaker
-* Using Messages - Eventual Consistency
+-   General Web Security[opt]: Symmetric/Asymmetric Encryption, Digital
+    Signatures, Certificates, CA Chain, SSL, 2-SSL, CSRF, CORS, Best Practices
 
-### Spring Batch 
-[on demand]
-* Jobs
-* Steps
-* Context
-* Listeners
-* Controlling parallelism
-* Web UI
+-   Spring Cloud[opt]: Microservices
+
+-   Spring Batch [opt, extra days]: Concepts, Step, Job, Listener, Execution
+    Context, Threading, Transaction control, Parallelizing
 
 							</div>
 							
@@ -3243,10 +3173,17 @@ ga('send', 'pageview');
 	<script src="js/showdown.min.js"></script>
 <script>
 							var converter = new showdown.Converter();
-							var text      = $('.markdown').html();
-							var html      = converter.makeHtml(text);
-							$('#spring .markdown').html(html);
-							$('#reactivex .markdown').html(html);
+							
+							var marks = $('.markdown').toArray();
+							console.log(marks)
+							for (var i = 0; i < marks.length; i++) { 
+								var mark = marks[i];	
+								var text      = $(mark).html();
+								var html      = converter.makeHtml(text);
+								$(mark).html(html);
+								console.log(marks[i]);
+							}
+							
 							</script>
 	
 	<div class="portfolio-modal modal fade" id="unit-testing" tabindex="-1" role="dialog" aria-hidden="true">
