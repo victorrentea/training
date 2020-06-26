@@ -1,7 +1,5 @@
 package yatzi;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -13,7 +11,7 @@ class DiceHand implements Iterable<Integer>{
       this.dice = new int[] {d1, d2, d3, d4, d5};
    }
 
-   public int get(int index) {
+   public int die(int index) {
       return dice[index];
    }
    @Override
@@ -33,7 +31,7 @@ public class Yatzy {
    }
 
    public static int yatzy(DiceHand dice) {
-      if (dice.stream().allMatch(n -> n.equals(dice.iterator().next()))) {
+      if (dice.stream().allMatch(n -> n.equals(dice.die(6)))) {
          return 50;
       }
       return 0;
