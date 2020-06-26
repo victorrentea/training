@@ -41,7 +41,7 @@ public class YatzyTest {
     }
 
     @Test
-    public void fours_test() 
+    public void fours_test()
     {
         assertEquals(12, new Yatzy(4,4,4,5,5).fours());
         assertEquals(8, new Yatzy(4,4,5,5,5).fours());
@@ -76,7 +76,7 @@ public class YatzyTest {
     }
 
     @Test
-    public void three_of_a_kind() 
+    public void three_of_a_kind()
     {
         assertEquals(9, Yatzy.three_of_a_kind(3,3,3,4,5));
         assertEquals(15, Yatzy.three_of_a_kind(5,3,5,4,5));
