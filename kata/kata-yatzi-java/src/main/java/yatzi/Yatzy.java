@@ -1,11 +1,8 @@
 package yatzi;
 
 import java.util.Iterator;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toSet;
 
 class DiceHand implements Iterable<Integer>{
    private final int[] dice;
@@ -42,37 +39,23 @@ public class Yatzy {
       return 0;
    }
 
-   public static int ones(int d1, int d2, int d3, int d4, int d5) {
-      int sum = 0;
-      if (d1 == 1) sum++;
-      if (d2 == 1) sum++;
-      if (d3 == 1) sum++;
-      if (d4 == 1) sum++;
-      if (d5 == 1)
-         sum++;
-
-      return sum;
+   public static int ones(DiceHand diceHand) {
+      return sumValues(diceHand, 1);
    }
 
-   public static int twos(int d1, int d2, int d3, int d4, int d5) {
-      int sum = 0;
-      if (d1 == 2) sum += 2;
-      if (d2 == 2) sum += 2;
-      if (d3 == 2) sum += 2;
-      if (d4 == 2) sum += 2;
-      if (d5 == 2) sum += 2;
-      return sum;
+   public static int twos(DiceHand diceHand) {
+      return sumValues(diceHand, 2);
    }
 
-   public static int threes(int d1, int d2, int d3, int d4, int d5) {
-      int s;
-      s = 0;
-      if (d1 == 3) s += 3;
-      if (d2 == 3) s += 3;
-      if (d3 == 3) s += 3;
-      if (d4 == 3) s += 3;
-      if (d5 == 3) s += 3;
-      return s;
+   public static int threes(DiceHand diceHand) {
+      return sumValues(diceHand, 3);
+   }
+
+   private static int sumValues(DiceHand diceHand, int value) {
+      return diceHand.stream()
+          .filter(n -> n == value)
+          .mapToInt(Integer::intValue)
+          .sum();
    }
 
    protected int[] dice;

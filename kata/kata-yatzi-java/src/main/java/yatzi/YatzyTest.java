@@ -18,22 +18,22 @@ public class YatzyTest {
     }
 
     @Test public void test_1s() {
-        assertTrue(Yatzy.ones(1,2,3,4,5) == 1);
-        assertEquals(2, Yatzy.ones(1,2,1,4,5));
-        assertEquals(0, Yatzy.ones(6,2,2,4,5));
-        assertEquals(4, Yatzy.ones(1,2,1,1,1));
+        assertTrue(Yatzy.ones(new DiceHand(1, 2, 3, 4, 5)) == 1);
+        assertEquals(2, Yatzy.ones(new DiceHand(1, 2, 1, 4, 5)));
+        assertEquals(0, Yatzy.ones(new DiceHand(6, 2, 2, 4, 5)));
+        assertEquals(4, Yatzy.ones(new DiceHand(1, 2, 1, 1, 1)));
     }
 
     @Test
     public void test_2s() {
-        assertEquals(4, Yatzy.twos(1,2,3,2,6));
-        assertEquals(10, Yatzy.twos(2,2,2,2,2));
+        assertEquals(4, Yatzy.twos(new DiceHand(1, 2, 3, 2, 6)));
+        assertEquals(10, Yatzy.twos(new DiceHand(2, 2, 2, 2, 2)));
     }
 
     @Test
     public void test_threes() {
-        assertEquals(6, Yatzy.threes(1,2,3,2,3));
-        assertEquals(12, Yatzy.threes(2,3,3,3,3));
+        assertEquals(6, Yatzy.threes(new DiceHand(1, 2, 3, 2, 3)));
+        assertEquals(12, Yatzy.threes(new DiceHand(2, 3, 3, 3, 3)));
     }
 
     @Test
