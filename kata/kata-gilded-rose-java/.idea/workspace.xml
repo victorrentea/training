@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="334dd202-122d-4a33-a57d-17935b8bb04f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose2.java" afterDir="false" />
+    <list default="true" id="334dd202-122d-4a33-a57d-17935b8bb04f" name="Default" comment="Temele sunt OK">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kata-gilded-rose.iml" beforeDir="false" afterPath="$PROJECT_DIR$/kata-gilded-rose.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose2.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -274,8 +274,16 @@
       <updated>1493114467184</updated>
       <workItem from="1575650218486" duration="917000" />
       <workItem from="1575670495679" duration="599000" />
-      <workItem from="1591940537575" duration="1856000" />
+      <workItem from="1591940537575" duration="2544000" />
     </task>
+    <task id="LOCAL-00001" summary="Temele sunt OK">
+      <created>1591942929437</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591942929437</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,31 +297,19 @@
       <collection />
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Temele sunt OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Temele sunt OK" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="175" key="FileChooserDialogImpl" timestamp="1575650537038">
+    <state x="365" y="0" key="CommitChangelistDialog2" timestamp="1591942928743">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1575650537038" />
-    <state width="1492" height="209" key="GridCell.Tab.0.bottom" timestamp="1575639209334">
+    <state x="365" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1591942928743" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1591942930944">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1492" height="209" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1575639209334" />
-    <state width="1492" height="209" key="GridCell.Tab.0.center" timestamp="1575639209333">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1492" height="209" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1575639209333" />
-    <state width="1492" height="209" key="GridCell.Tab.0.left" timestamp="1575639209333">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1492" height="209" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1575639209333" />
-    <state width="1492" height="209" key="GridCell.Tab.0.right" timestamp="1575639209334">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="1492" height="209" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1575639209334" />
-    <state x="439" y="122" key="NewModule_or_Project.wizard" timestamp="1575650448635">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="439" y="122" key="NewModule_or_Project.wizard/0.0.1536.834@0.0.1536.834" timestamp="1575650448635" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1591942930944" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
