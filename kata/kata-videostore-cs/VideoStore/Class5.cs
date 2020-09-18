@@ -8,26 +8,27 @@ using System.Threading.Tasks;
 
 namespace VideoStore
 {
-    class Beutor
+    internal class Beutor
     {
         public static void Main(string[] args)
         {
             M().GetAwaiter().GetResult();
         }
-        public async static Task M() 
+
+        public static async Task M()
         {
-            Barman barman = new Barman();
+            var barman = new Barman();
 
 
-            Stopwatch stopwatch = Stopwatch.StartNew();
+            var stopwatch = Stopwatch.StartNew();
 
-            Task<Bere> comandaDeBere = barman.ToarnaBere();
-            Task<Tzuica> comandaDeTzuica = barman.ToarnaTzuica();
+            var comandaDeBere = barman.ToarnaBere();
+            var comandaDeTzuica = barman.ToarnaTzuica();
 
             // Deferred
             await Task.WhenAll(comandaDeBere, comandaDeTzuica);
-            Bere bere = comandaDeBere.Result;
-            Tzuica tzuica = comandaDeTzuica.Result;
+            var bere = comandaDeBere.Result;
+            var tzuica = comandaDeTzuica.Result;
 
             //Task<Bere> bere = barman.ToarnaBere();
             //Task<Tzuica> tzuica = barman.ToarnaTzuica();
@@ -38,14 +39,15 @@ namespace VideoStore
         }
     }
 
-    class Barman
+    internal class Barman
     {
         public async Task<Bere> ToarnaBere()
         {
             Console.WriteLine("Torn bere");
             await Task.Delay(1000);
             return new Bere();
-        }   
+        }
+
         public async Task<Tzuica> ToarnaTzuica()
         {
             Console.WriteLine("Torn tzuica");
@@ -53,6 +55,12 @@ namespace VideoStore
             return new Tzuica();
         }
     }
-    class Bere { }
-    class Tzuica { }
+
+    internal class Bere
+    {
+    }
+
+    internal class Tzuica
+    {
+    }
 }

@@ -6,54 +6,53 @@ using System.Threading.Tasks;
 
 namespace VideoStore
 {
-    class StrategyApp
+    internal class StrategyApp
     {
         public static void Main(string[] args)
         {
-            CustomsService service = new CustomsService();
+            var service = new CustomsService();
             Console.WriteLine("Tax for (RO,100,100) = " + service.ComputeCustomsTax("RO", 100, 100));
             Console.WriteLine("Tax for (CN,100,100) = " + service.ComputeCustomsTax("CN", 100, 100));
             Console.WriteLine("Tax for (UK,100,100) = " + service.ComputeCustomsTax("UK", 100, 100));
             Console.ReadLine();
         }
-
     }
-
 }
 
-class CustomsService
+internal class CustomsService
 {
-    
     public double ComputeCustomsTax(string originCountry, double tobaccoValue, double regularValue)
-    { // UGLY API we CANNOT change
-        ITaxProvider pece = SelectTaxProvider(originCountry);
+    {
+        // UGLY API we CANNOT change
+        var pece = SelectTaxProvider(originCountry);
         return pece.Get(tobaccoValue, regularValue);
     }
 
 
-    private  ITaxProvider SelectTaxProvider(string originCountry)
+    private ITaxProvider SelectTaxProvider(string originCountry)
     {
-        ITaxProvider[] taxProviders = {
-             new EUTaxProvider(),
-            new BrexitTaxProvider() ,
-             new ChinaTaxProvider()};
+        ITaxProvider[] taxProviders =
+        {
+            new EUTaxProvider(),
+            new BrexitTaxProvider(),
+            new ChinaTaxProvider()
+        };
         return taxProviders.ToList().First(tp => tp.Accepts(originCountry));
         //    default: throw new Exception("Not a valid country ISO2 code: " + originCountry);
-        
     }
 }
 
-interface ITaxProvider
+internal interface ITaxProvider
 {
     bool Accepts(string originCountry);
     double Get(double tobaccoValue, double regularValue);
 }
 
-class EUTaxProvider : ITaxProvider
+internal class EUTaxProvider : ITaxProvider
 {
     public bool Accepts(string originCountry)
     {
-        return new string[] { "FR", "ES", "RO" }.Contains(originCountry);
+        return new string[] {"FR", "ES", "RO"}.Contains(originCountry);
     }
 
     public double Get(double tobaccoValue, double regularValue)
@@ -61,7 +60,8 @@ class EUTaxProvider : ITaxProvider
         return tobaccoValue / 3;
     }
 }
-class BrexitTaxProvider : ITaxProvider
+
+internal class BrexitTaxProvider : ITaxProvider
 {
     public bool Accepts(string originCountry)
     {
@@ -74,7 +74,7 @@ class BrexitTaxProvider : ITaxProvider
     }
 }
 
-class ChinaTaxProvider : ITaxProvider
+internal class ChinaTaxProvider : ITaxProvider
 {
     public bool Accepts(string originCountry)
     {
@@ -83,9 +83,6 @@ class ChinaTaxProvider : ITaxProvider
 
     public double Get(double tobaccoValue, double regularValue)
     {
-  
         return tobaccoValue + regularValue;
     }
 }
-
-

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace VideoStore
 {
-
     //delegate void notifyFunc(string e);
-    class Joaca
+    internal class Joaca
     {
         public static void Main(string[] args)
         {
-            Baba baba = new Baba();
+            var baba = new Baba();
 
             baba.Add(new Persoana());
             baba.Add(new Persoana());
@@ -22,7 +21,7 @@ namespace VideoStore
         }
     }
 
-    class Persoana : Interesat
+    internal class Persoana : Interesat
     {
         public void NotifyEvent(string barfa)
         {
@@ -30,28 +29,23 @@ namespace VideoStore
         }
     }
 
-    interface Interesat
+    internal interface Interesat
     {
         void NotifyEvent(string barfa);
     }
-    class Baba
+
+    internal class Baba
     {
         private List<Interesat> observers = new List<Interesat>();
-        
+
         public void Add(Interesat persoana)
         {
             observers.Add(persoana);
         }
+
         public void Afla(string barfa)
         {
-            foreach (var observer in observers)
-            {
-                observer.NotifyEvent(barfa);
-            }
+            foreach (var observer in observers) observer.NotifyEvent(barfa);
         }
     }
-
-    
-
-
 }

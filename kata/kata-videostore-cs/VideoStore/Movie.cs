@@ -1,18 +1,24 @@
-﻿namespace VideoStore
+﻿using System;
+
+namespace VideoStore
 {
+
+    public enum MovieCategory
+    {
+        Childrens,
+        Regular,
+        NewRelease
+    }
     public class Movie
     {
-        public const int Childrens = 2;
-        public const int Regular = 0;
-        public const int NewRelease = 1;
 
         public string Title { get; }
-        public int PriceCode { get; set; }
+        public MovieCategory Category { get; }
 
-        public Movie(string title, int priceCode)
+        public Movie(string title, MovieCategory category)
         {
             Title = title;
-            PriceCode = priceCode;
+            Category = category;
         }
     }
 }
