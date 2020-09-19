@@ -7,7 +7,7 @@ namespace VideoStore
 {
     public class Customer
     {
-        private readonly List<Rental> rentals = new List<Rental>();
+        public List<Rental> Rentals { get; } = new List<Rental>();
         public string Name { get; }
 
         public Customer(string name)
@@ -17,98 +17,77 @@ namespace VideoStore
 
         public void AddRental(Rental rental)
         {
-            rentals.Add(rental);
+            Rentals.Add(rental);
         }
+      
+    }
 
-        public string ComposeStatement()
+    public class StatementComposer
+    {
+
+        public string ComposeStatement(string customerName, List<Rental> rentals)
         {
-            return ComposeHeader()
-                   + ComposeBody()
-                   + ComposeFooter();
+            var data = PrepareData(rentals, customerName);
+
+            return ComposeStatement(data);
         }
 
-        private string ComposeBody()
+        private StatementData PrepareData(List<Rental> rentals, string customerName)
+        {
+            var frequentRenterPoints = rentals.Sum(rental => rental.CalculateFrequentRenterPoints());
+            var totalOwed = rentals.Sum(rental => rental.CalculatePrice());
+
+            StatementData data = new StatementData(customerName, rentals, totalOwed, frequentRenterPoints);
+            return data;
+        }
+
+        private string ComposeStatement(StatementData data)
+        {
+            return ComposeHeader(data)
+                   + ComposeBody(data.Rentals)
+                   + ComposeFooter(data);
+        }
+
+        private static string ComposeHeader(StatementData data)
+        {
+            return $"Rental Record for {data.CustomerName}\n";
+        }
+
+        private string ComposeFooter(StatementData data)
+        {
+            return $"Amount owed is {data.TotalOwed:F1}\n"
+                   + $"You earned {data.TotalFrequentRenterPoint} frequent renter points";
+        }
+
+        private string ComposeBody(List<Rental> list)
         {
             var result = "";
-            foreach (var rental in rentals)
+            foreach (var rental in list)
             {
-                // show figures for this rental
-                result += $"\t{rental.Movie.Title}\t" + $"{CalculatePrice(rental):F1}\n";
+                result += ComposeLine(rental);
             }
             return result;
         }
 
-        private string ComposeHeader()
+        private static string ComposeLine(Rental rental)
         {
-            return $"Rental Record for {Name}\n";
+            return $"\t{rental.Movie.Title}\t{rental.CalculatePrice():F1}\n";
         }
+    }
 
-        private string ComposeFooter()
+    class StatementData
+    {
+        public string CustomerName { get; }
+        public List<Rental> Rentals { get; }
+        public decimal TotalOwed { get; }
+        public int TotalFrequentRenterPoint { get; }
+
+        public StatementData(string customerName, List<Rental> rentals, decimal totalOwed, int totalFrequentRenterPoint)
         {
-            int frequentRenterPoints = ComputeTotalFrequentRenterPoints();
-            decimal totalOwed = ComputeTotalOwed();
-            return $"Amount owed is {totalOwed:F1}\n"
-                   + $"You earned {frequentRenterPoints} frequent renter points";
-        }
-
-        private decimal ComputeTotalOwed()
-        {
-            return rentals.Sum(rental => CalculatePrice(rental));
-        }
-
-        private int ComputeTotalFrequentRenterPoints()
-        {
-            var frequentRenterPoints = 0;
-            foreach (var rental in rentals)
-            {
-                frequentRenterPoints = CalculateFrequentRenterPoints(frequentRenterPoints, rental);
-            }
-
-            return frequentRenterPoints;
-        }
-
-        private static int CalculateFrequentRenterPoints(int frequentRenterPoints, Rental rental)
-        {
-            // add frequent renter points
-            frequentRenterPoints++;
-            // add bonus for a two day new release rental
-            if (rental.Movie.Category == MovieCategory.NewRelease &&
-                rental.DaysRented > 1)
-            {
-                frequentRenterPoints++;
-            }
-
-            return frequentRenterPoints;
-        }
-
-        private static decimal CalculatePrice(Rental rental)
-        {
-            switch (rental.Movie.Category)
-            {
-                case MovieCategory.Regular:
-                    {
-                        decimal price = 2;
-                        if (rental.DaysRented > 2)
-                        {
-                            price += (rental.DaysRented - 2) * 1.5m;
-                        }
-
-                        return price;
-                    }
-                case MovieCategory.NewRelease:
-                    return rental.DaysRented * 3;
-                case MovieCategory.Childrens:
-                    {
-                        decimal price = 1.5m;
-                        if (rental.DaysRented > 3)
-                        {
-                            price += (rental.DaysRented - 3) * 1.5m;
-                        }
-                        return price;
-                    }
-
-                default: throw new Exception("Unknown price code " + rental.Movie.Category);
-            }
+            CustomerName = customerName;
+            Rentals = rentals;
+            TotalOwed = totalOwed;
+            TotalFrequentRenterPoint = totalFrequentRenterPoint;
         }
     }
 }
